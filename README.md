@@ -26,7 +26,7 @@ Now we are going to explain some points of the entities:
 
 1.  **User** : Type of user with their personal data, permissions and other interactions.
 2.  **Local events** :  Different events that the town has, with their schedules and information about it.
-3.  **Government team** : People and information about them, who make up the government team
+3.  **Locals reviews** : Reviews and scores about locals of the city, written by the habitants.
 4.  **Local entertainment** : Premises, information and opinions on these.
 
 
@@ -38,7 +38,7 @@ Now we are going to explain some points of the entities:
 
 ### Images
 
-1.  **Photos of locals** 
+1.  **Locals photos** 
 2.  **Event photos**
 3.  **User Avatar**
 4.  **Government team photos**
@@ -46,18 +46,13 @@ Now we are going to explain some points of the entities:
 
 ### Graphics
 
-1.  **Visit graphics** : Graphics with the number of visits to the website
-2.  **Event attendance charts** : Number of participants in different events
-3.  **Registered users graph** : Number of registered users compared to visits
+1.  **Event audience charts** : Number of participants in different events
+2.  **Registered users graph** : Number of registered users compared to visits
 
 ### Complementary technology
 
-1.  **Bootstrap**
-2.  **Mailing**
-3.  **Suggestion forms**
-4.  **Maps**
+1.  **Maps**
 
 ### Algorithm or advanced query
 
-1.  **Confirmation of signing up for an event**
-2.  **Recommendation of related events that you have previously signed up for**
+1.  **Recommendation of related events that you have previously signed up for**
