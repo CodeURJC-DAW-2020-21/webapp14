@@ -4,7 +4,7 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-:root {
+ :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -8997,7 +8997,7 @@ textarea.form-control {
   .ftco-footer .ftco-footer-widget ul li a {
     color: rgba(0, 0, 0, 0.8); }
     .ftco-footer .ftco-footer-widget ul li a span {
-      color: #e86ed0; }
+      color: #1b2ed8; }
   .ftco-footer .ftco-footer-widget .btn-primary {
     background: #fff !important;
     border: 2px solid #fff !important; }
@@ -9007,7 +9007,7 @@ textarea.form-control {
   .ftco-footer p {
     color: rgba(0, 0, 0, 0.7); }
   .ftco-footer a {
-    color: #e86ed0; }
+    color: #1b2ed8; }
     .ftco-footer a:hover {
       color: #e86ed0; }
   .ftco-footer .ftco-heading-2 {
