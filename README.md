@@ -56,3 +56,39 @@ Now we are going to explain some points of the entities:
 ### Algorithm or advanced query
 
 1.  **Recommendation of related events that you have previously signed up for**
+
+PHASE 1: Website structure by HTML and CSS
+
+Main Page. Pressentation of the website:
+https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/index.png
+
+Goberment Page. Show all the people of the government:
+https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/gob.jpg
+
+Local Page. Shows the different local in Ciempozuelos:
+https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/locales.jpg
+
+Local Specification page: more information for the local:
+https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/chotis.jpg
+
+Events page. Shows the different events in Ciempozuelos:
+https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/eventos.jpg
+
+Event Specification page: more information for the event:
+https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/mercadillo.jpg
+
+Login page:
+https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/inicio%20sesion.jpg
+
+Profile page. shows user information:
+https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/navegacion%20perfil.jpg
+
+Profele edit page. Permit user to edit him personal information:
+https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/editar%20perfil.jpg
+
+Navigation Diagram:
+https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/navigation.jpg
+
+
+
+
