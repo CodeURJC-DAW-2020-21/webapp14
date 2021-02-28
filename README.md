@@ -60,7 +60,8 @@ Now we are going to explain some points of the entities:
 PHASE 1: Website structure by HTML and CSS
 
 Main Page. Pressentation of the website:
-https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/index.png
+ ![Main page](/images/index.png)
+
 
 Goberment Page. Show all the people of the government:
 https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/gob.jpg
