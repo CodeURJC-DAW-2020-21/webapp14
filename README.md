@@ -56,3 +56,49 @@ Now we are going to explain some points of the entities:
 ### Algorithm or advanced query
 
 1.  **Recommendation of related events that you have previously signed up for**
+
+## PHASE 1: Website structure by HTML and CSS
+
+### Main Page 
+Presentation of the website:
+ ![Main page](/images/index.png)
+
+
+### Goberment Page 
+Show all the people of the government:
+ ![Goberment_Page](images/gob.jpg)
+
+
+### Local Page 
+Shows the different local in Ciempozuelos:
+![Local](images/locales.jpg)
+
+### Local Specification page
+More information of the local:
+![Local_Specification](/images/CapturaChotisPage.jpg)
+
+### Events page 
+Shows the different events in Ciempozuelos:
+![Events_page](images/eventos.jpg)
+
+### Event Specification page 
+More information of the event:
+![Events_Specification](images/mercadillo.jpg)
+
+### Login page
+![Login](images/inicio%20sesion.jpg)
+
+### Profile page
+Shows user information:
+![Profile](images/navegacion%20perfil.jpg)
+
+### Profile edit page 
+Permit user to edit him personal information:
+![Profile_edit](images/editar%20perfil.jpg)
+
+### Navigation Diagram:
+![Navigation](images/navigation.jpg)
+
+
+
+
