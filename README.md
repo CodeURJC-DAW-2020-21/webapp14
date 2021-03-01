@@ -57,38 +57,46 @@ Now we are going to explain some points of the entities:
 
 1.  **Recommendation of related events that you have previously signed up for**
 
-PHASE 1: Website structure by HTML and CSS
+## PHASE 1: Website structure by HTML and CSS
 
-Main Page. Pressentation of the website:
+### Main Page 
+Presentation of the website:
  ![Main page](/images/index.png)
 
 
-Goberment Page. Show all the people of the government:
+### Goberment Page 
+Show all the people of the government:
  ![Goberment_Page](images/gob.jpg)
 
 
-Local Page. Shows the different local in Ciempozuelos:
+### Local Page 
+Shows the different local in Ciempozuelos:
 ![Local](images/locales.jpg)
 
-Local Specification page: more information for the local:
+### Local Specification page
+More information of the local:
 ![Local_Specification](/images/CapturaChotisPage.jpg)
 
-Events page. Shows the different events in Ciempozuelos:
+### Events page 
+Shows the different events in Ciempozuelos:
 ![Events_page](images/eventos.jpg)
 
-Event Specification page: more information for the event:
+### Event Specification page 
+More information of the event:
 ![Events_Specification](images/mercadillo.jpg)
 
-Login page:
+### Login page
 ![Login](images/inicio%20sesion.jpg)
 
-Profile page. shows user information:
+### Profile page
+Shows user information:
 ![Profile](images/navegacion%20perfil.jpg)
 
-Profele edit page. Permit user to edit him personal information:
+### Profele edit page 
+Permit user to edit him personal information:
 ![Profile_edit](images/editar%20perfil.jpg)
 
-Navigation Diagram:
+### Navigation Diagram:
 ![Navigation](images/navigation.jpg)
 
 
