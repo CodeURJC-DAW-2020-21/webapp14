@@ -92,7 +92,7 @@ More information of the event:
 Shows user information:
 ![Profile](images/navegacion%20perfil.jpg)
 
-### Profele edit page 
+### Profile edit page 
 Permit user to edit him personal information:
 ![Profile_edit](images/editar%20perfil.jpg)
 
