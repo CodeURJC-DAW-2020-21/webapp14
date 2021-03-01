@@ -71,7 +71,7 @@ Local Page. Shows the different local in Ciempozuelos:
 ![Local](images/locales.jpg)
 
 Local Specification page: more information for the local:
-![Local_Specification](images/chotis.jpg)
+![Local_Specification](images/chotis captura page.jpg)
 
 Events page. Shows the different events in Ciempozuelos:
 ![Events_page](images/eventos.jpg)
