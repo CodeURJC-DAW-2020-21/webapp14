@@ -11,4 +11,9 @@ public class AppController {
     public String indexLink(Model model) {
         return "index";
     }
+
+    @GetMapping("/gob")
+    public String gobLink(Model model) {
+        return "agent";
+    }
 }
