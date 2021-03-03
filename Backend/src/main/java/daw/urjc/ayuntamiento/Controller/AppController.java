@@ -16,4 +16,24 @@ public class AppController {
     public String gobLink(Model model) {
         return "agent";
     }
+
+    @GetMapping("/events")
+    public String eventsLink(Model model) {
+        return "properties";
+    }
+
+    @GetMapping("/locals")
+    public String localsLink(Model model) {
+        return "blog";
+    }
+
+    @GetMapping("/login")
+    public String loginLink(Model model) {
+        return "contact";
+    }
+
+    @GetMapping("/events/basket")
+    public String basketLink(Model model) {
+        return "Baloncesto";
+    }
 }
