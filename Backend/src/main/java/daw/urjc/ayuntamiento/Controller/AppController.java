@@ -36,4 +36,9 @@ public class AppController {
     public String basketLink(Model model) {
         return "Baloncesto";
     }
+
+    @GetMapping("/error")
+    public String errorLink(Model model) {
+        return "Error";
+    }
 }
