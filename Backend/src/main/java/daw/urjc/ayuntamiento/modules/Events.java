@@ -13,7 +13,7 @@ public class Events {
         this.name = name;
         this.image = image;
         this.activities = activities;
-        this.description = description
+        this.description = description;
     }
 
     //Getters and setters
