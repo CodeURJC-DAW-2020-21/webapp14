@@ -1,19 +1,22 @@
 package daw.urjc.ayuntamiento.modules;
 
 import java.nio.file.Path;
+import java.util.Date;
 
 public class Events {
     private String name;
     private Path image;
     private String activities;
     private String description;
+    private Date date;
     //Foto
 
-    public Events(String name, Path image, String activities, String description) { //Constructor
+    public Events(String name, Path image, String activities, String description, Date date) { //Constructor
         this.name = name;
         this.image = image;
         this.activities = activities;
         this.description = description;
+        this.date = date;
     }
 
     //Getters and setters
@@ -48,6 +51,14 @@ public class Events {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
 
