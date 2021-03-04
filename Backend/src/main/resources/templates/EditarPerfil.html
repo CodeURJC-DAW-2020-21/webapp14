@@ -39,15 +39,13 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="index.html" class="nav-link">INICIO</a></li>
-                    <li class="nav-item"><a href="agent.html" class="nav-link">GOBIERNO</a></li>
-                    <li class="nav-item"><a href="properties.html" class="nav-link">EVENTOS</a></li>
-                    <li class="nav-item"><a href="blog.html" class="nav-link">LOCALES</a></li>
-                    <li class="nav-item active"><a href="contact.html" class="nav-link">PERFIL</a></li>
+                    <li class="nav-item"><a href="/" class="nav-link">INICIO</a></li>
+                    <li class="nav-item"><a href="/gob" class="nav-link">GOBIERNO</a></li>
+                    <li class="nav-item"><a href="/events" class="nav-link">EVENTOS</a></li>
+                    <li class="nav-item"><a href="/locals" class="nav-link">LOCALES</a></li>
+                    <li class="nav-item active"><a href="/login" class="nav-link">PERFIL</a></li>
                 </ul>
             </div>
-        </div>
-    </nav>
     <!-- END nav -->
 
     <section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url('images/bg_1_1.jpg');" data-stellar-background-ratio="0.5">
@@ -55,7 +53,7 @@
 
     <section class="ftco-section contact-section">
         <div class="row block-9 justify-content-center mb-5">
-            <h1 class="text-center">Perfil</h1>
+            <h1 class="text-center">Editar Perfil</h1>
         </div>
         <div class="row block-9 justify-content-center mb-5">
             <div class="col-md-2 mb-md-4">
@@ -64,69 +62,24 @@
             <div class="col-md-6 mb-md-4">
                 <div class="profile-block">
                     <h2>Nombre y apellidos:</h2>
-                    <p class="profile-p" id="profile-name">Felipe ceta girocompleto</p>
+                    <input type="text" class="form-control" placeholder="Nombre y apellidos">
                 </div>
                 <br>
                 <div class="profile-block">
                     <h2>Correo:</h2>
-                    <p class="profile-p" id="profile-mail">elcircunferenciacompleta@gmail.com</p>
+                    <input type="text" class="form-control" placeholder="Correo electrónico">
                 </div>
                 <br>
                 <div class="profile-block">
                     <h2>Presentación:</h2>
-                    <p class="profile-p" id="profile-presentation">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus ipsam illo, officiis quas adipisci animi accusamus molestiae error maxime temporibus illum blanditiis autem quos quia quae exercitationem aliquam perspiciatis. Provident.</p>
+                    <input type="text" class="form-control" placeholder="Presentación">
                 </div>
                 <br>
-                <div class="profile-block">
-                    <h2>Insignias:</h2>
-                    <p class="profile-p">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi ab asperiores, labore velit quidem eos quae, aliquid necessitatibus voluptas sit a rerum dolore et dolores. Deleniti consequuntur totam eaque harum.</p>
-                    <p class="profile-p">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi ab asperiores, labore velit quidem eos quae, aliquid necessitatibus voluptas sit a rerum dolore et dolores. Deleniti consequuntur totam eaque harum.</p>
-                </div>
-            </div>
-            <div class="col-md-3 mb-md-4">
-                <div>
-                    <h2 class="text-center">Historial</h2>
-                    <div id="global">
-                        <div id="messages">
-                            <div class="history-text">Mensaje 1</div>
-                            <div class="history-text">Mensaje 2</div>
-                            <div class="history-text">Mensaje 3</div>
-                            <div class="history-text">Mensaje 4</div>
-                            <div class="history-text">Mensaje 5</div>
-                            <div class="history-text">Mensaje 6</div>
-                            <div class="history-text">Mensaje 7</div>
-                            <div class="history-text">Mensaje 8</div>
-                            <div class="history-text">Mensaje 9</div>
-                            <div class="history-text">Mensaje 10</div>
-                            <div class="history-text">Mensaje 11</div>
-                            <div class="history-text">Mensaje 12</div>
-                            <div class="history-text">Mensaje 13</div>
-                            <div class="history-text">Mensaje 14</div>
-                            <div class="history-text">Mensaje 15</div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <h2 class="text-center">Eventos inscritos</h2>
-                <div class="block-21 mb-4 d-flex">
-                    <a class="blog-img mr-4" style="background-image: url(images/ajedrez.jpeg);"></a>
-                    <div class="text">
-                      <h3 class="heading"><a href="TorneoAjedrez.html">Torneo de ajedrez</a></h3>
-                    </div>
-                </div>
-                <div class="block-21 mb-4 d-flex">
-                    <a class="blog-img mr-4" style="background-image: url(images/Mercadillo1.jpg);"></a>
-                    <div class="text">
-                      <h3 class="heading"><a href="Mercadillo.html">Mercadillo medieval</a></h3>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="row block-9 justify-content-center mb-5">
             <div class="form-group">
-                <form action="EditarPerfil.html" class="p-5 contact-form">
-                    <input type="submit" value="Editar perfil" class="btn py-3 px-4 btn-primary">
-                </form>
+                <input type="submit" value="Guardar cambios" class="btn py-3 px-4 btn-primary">
             </div>
         </div>
     </section>
