@@ -36,4 +36,24 @@ public class AppController {
     public String basketLink(Model model) {
         return "Baloncesto";
     }
+
+    @GetMapping("/locals/camachito")
+    public String camachitoLink(Model model){
+        return "Camachito";
+    }
+
+    @GetMapping("/error")
+    public String errorLink(Model model) {
+        return "Error";
+    }
+
+    @GetMapping("/FormEvent")
+    public String formularioEventLink(Model model){
+        return "FormularioEventos";
+    }
+
+    @GetMapping("/FormLocal")
+    public String formularioLocalLink(Model model){
+        return "FormularioLocal";
+    }
 }

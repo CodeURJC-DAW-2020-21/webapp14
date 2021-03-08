@@ -1,0 +1,12 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+<<<<<<< Updated upstream
+/../../../../../../../../:\Universidad\Tercero\3º Segundo Cuatrimestre\Desarrollo de aplicaciones web\Proyecto web\webapp14\.idea/dataSources/
+=======
+/../../../../../../:\Users\israe\IdeaProjects\webapp14\.idea/dataSources/
+>>>>>>> Stashed changes
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
