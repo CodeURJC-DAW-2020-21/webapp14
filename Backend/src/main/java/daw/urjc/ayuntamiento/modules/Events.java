@@ -1,6 +1,7 @@
 package daw.urjc.ayuntamiento.modules;
 
 import java.nio.file.Path;
+import java.sql.Time;
 import java.util.Date;
 
 public class Events {
@@ -9,17 +10,28 @@ public class Events {
     private String activities;
     private String description;
     private Date date;
-    //Foto
+    private String place;
+    private Time hora;
+    private String reward;
+    private String people;
+    private String price;
 
-    public Events(String name, Path image, String activities, String description, Date date) { //Constructor
+    public Events(String name, Path image, String activities, String description, Date date, String place, Time hora, String reward, String people, String price) {
         this.name = name;
         this.image = image;
         this.activities = activities;
         this.description = description;
         this.date = date;
+        this.place = place;
+        this.hora = hora;
+        this.reward = reward;
+        this.people = people;
+        this.price = price;
     }
 
+
     //Getters and setters
+
 
     public String getName() {
         return name;
@@ -59,6 +71,46 @@ public class Events {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public Time getHora() {
+        return hora;
+    }
+
+    public void setHora(Time hora) {
+        this.hora = hora;
+    }
+
+    public String getReward() {
+        return reward;
+    }
+
+    public void setReward(String reward) {
+        this.reward = reward;
+    }
+
+    public String getPeople() {
+        return people;
+    }
+
+    public void setPeople(String people) {
+        this.people = people;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 }
 

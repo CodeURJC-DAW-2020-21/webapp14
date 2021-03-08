@@ -46,4 +46,14 @@ public class AppController {
     public String errorLink(Model model) {
         return "Error";
     }
+
+    @GetMapping("/FormEvent")
+    public String formularioEventLink(Model model){
+        return "FormularioEventos";
+    }
+
+    @GetMapping("/FormLocal")
+    public String formularioLocalLink(Model model){
+        return "FormularioLocal";
+    }
 }
