@@ -1,15 +1,18 @@
 package daw.urjc.ayuntamiento.modules;
 
+import java.nio.file.Path;
+
 public class Comments {
     private String name;
     private String comment;
     private String date;
-    //Foto
+    private Path Picture;
 
-    public Comments(String name, String coment, String fecha) { //Constructor
+    public Comments(String name, String coment, String fecha, Path Picture) { //Constructor
         this.name = name;
         this.comment = coment;
         this.date = date;
+        this.Picture = Picture;
     }
 
     //Getters and setters
@@ -35,5 +38,13 @@ public class Comments {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public Path getPicture() {
+        return Picture;
+    }
+
+    public void setPicture(Path picture) {
+        Picture = picture;
     }
 }
