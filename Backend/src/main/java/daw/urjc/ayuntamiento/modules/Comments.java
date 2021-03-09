@@ -1,35 +1,14 @@
 package daw.urjc.ayuntamiento.modules;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import javax.persistence.*;
 import java.nio.file.Path;
-import java.sql.Blob;
 
-@Entity
 public class Comments {
     private String name;
     private String comment;
     private String date;
-    private String Picture;
+    private Path Picture;
 
-    @Lob
-    @JsonIgnore
-    private Blob imageFile;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @OneToOne
-    private Events event;
-    @OneToOne
-    private Store local;
-
-    protected Comments(){}
-
-
-    public Comments(String name, String coment, String fecha, String Picture) { //Constructor
+    public Comments(String name, String coment, String fecha, Path Picture) { //Constructor
         this.name = name;
         this.comment = coment;
         this.date = date;
@@ -61,11 +40,11 @@ public class Comments {
         this.date = date;
     }
 
-    public String getPicture() {
+    public Path getPicture() {
         return Picture;
     }
 
-    public void setPicture(String picture) {
+    public void setPicture(Path picture) {
         Picture = picture;
     }
 }

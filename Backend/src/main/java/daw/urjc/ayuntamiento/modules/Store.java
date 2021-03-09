@@ -1,13 +1,7 @@
 package daw.urjc.ayuntamiento.modules;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import javax.persistence.*;
 import java.nio.file.Path;
-import java.sql.Blob;
-import java.util.List;
 
-@Entity
 public class Store {
 
     private String name;
@@ -18,23 +12,10 @@ public class Store {
     private String openHour;
     private String closeHour;
     private String street;
-    private String primaryImage;
-    private String secondaryImage;
+    private Path primaryImage;
+    private Path secondaryImage;
 
-    @Lob
-    @JsonIgnore
-    private Blob imageFile;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @OneToMany
-    private List<Comments> comment;
-
-    protected Store(){}
-
-    public Store(String name, String description, String services, String openDay, String closeDay, String openHour, String closeHour, String street, String primaryImage, String secondaryImage) {
+    public Store(String name, String description, String services, String openDay, String closeDay, String openHour, String closeHour, String street, Path primaryImage, Path secondaryImage) {
         this.name = name;
         this.description = description;
         this.services = services;
@@ -111,19 +92,19 @@ public class Store {
         this.street = street;
     }
 
-    public String getPrimaryImage() {
+    public Path getPrimaryImage() {
         return primaryImage;
     }
 
-    public void setPrimaryImage(String primaryImage) {
+    public void setPrimaryImage(Path primaryImage) {
         this.primaryImage = primaryImage;
     }
 
-    public String getSecondaryImage() {
+    public Path getSecondaryImage() {
         return secondaryImage;
     }
 
-    public void setSecondaryImage(String secondaryImage) {
+    public void setSecondaryImage(Path secondaryImage) {
         this.secondaryImage = secondaryImage;
     }
 }

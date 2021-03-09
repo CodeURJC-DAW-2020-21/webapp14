@@ -1,18 +1,12 @@
 package daw.urjc.ayuntamiento.modules;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import javax.persistence.*;
 import java.nio.file.Path;
-import java.sql.Blob;
 import java.sql.Time;
 import java.util.Date;
-import java.util.List;
 
-@Entity
 public class Events {
     private String name;
-    private String image;
+    private Path image;
     private String activities;
     private String description;
     private Date date;
@@ -22,20 +16,7 @@ public class Events {
     private String people;
     private String price;
 
-    @Lob
-    @JsonIgnore
-    private Blob imageFile;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @OneToMany
-    private List<Comments> comment;
-
-    protected Events(){}
-
-    public Events(String name, String image, String activities, String description, Date date, String place, Time hora, String reward, String people, String price) {
+    public Events(String name, Path image, String activities, String description, Date date, String place, Time hora, String reward, String people, String price) {
         this.name = name;
         this.image = image;
         this.activities = activities;
@@ -60,11 +41,11 @@ public class Events {
         this.name = name;
     }
 
-    public String getImage() {
+    public Path getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Path image) {
         this.image = image;
     }
 
