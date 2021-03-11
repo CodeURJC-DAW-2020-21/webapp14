@@ -1,4 +1,4 @@
-package daw.urjc.ayuntamiento.Controller;
+package daw.urjc.ayuntamiento.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
