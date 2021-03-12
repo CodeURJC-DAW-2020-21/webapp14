@@ -11,7 +11,7 @@ public class User {
     private String description;
     private String DNI;
     private String password;
-    private boolean rol;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,17 +20,23 @@ public class User {
     @OneToMany
     private List<Comment> comment;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> roles;
+
     protected User(){}
 
-    public User(String name, String mail, String description, String DNI, String password, Long id, boolean rol) {
+
+
+
+    public User(String name, String mail, String description, String DNI, String password, String... roles) {
         this.name = name;
         this.mail = mail;
         this.description = description;
         this.DNI = DNI;
         this.password = password;
-        this.id = id;
-        this.rol = rol;
+        this.roles = List.of(roles);
     }
+
 
     public String getName() {
         return name;
@@ -72,19 +78,23 @@ public class User {
         this.password = password;
     }
 
-    public Long getId() {
-        return id;
+
+
+
+
+    public List<Comment> getComment() {
+        return comment;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setComment(List<Comment> comment) {
+        this.comment = comment;
     }
 
-    public boolean isRol() {
-        return rol;
+    public List<String> getRoles() {
+        return roles;
     }
 
-    public void setRol(boolean rol) {
-        this.rol = rol;
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
     }
 }

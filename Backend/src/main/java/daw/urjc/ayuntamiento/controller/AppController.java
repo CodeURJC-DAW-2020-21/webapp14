@@ -27,10 +27,7 @@ public class AppController {
         return "blog";
     }
 
-    @GetMapping("/login")
-    public String loginLink(Model model) {
-        return "contact";
-    }
+
 
     @GetMapping("/events/basket")
     public String basketLink(Model model) {
