@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserService{
 
     @Autowired
     private UserRepository repository;
@@ -39,22 +39,5 @@ public class UserService implements UserDetailsService {
         repository.deleteById(id);
     }
 
-
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
-        User user = repository.findByName(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-
-        List<GrantedAuthority> roles = new ArrayList<>();
-        for (String role : user.getRoles()) {
-            roles.add(new SimpleGrantedAuthority("ROLE_" + role));
-        }
-
-        return new org.springframework.security.core.userdetails.User(user.getName(),
-                user.getPassword(), roles);
-
-    }
 
 }
