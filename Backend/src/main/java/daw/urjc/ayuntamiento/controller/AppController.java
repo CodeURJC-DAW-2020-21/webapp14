@@ -1,11 +1,18 @@
 package daw.urjc.ayuntamiento.controller;
 
+import daw.urjc.ayuntamiento.modules.User;
+import daw.urjc.ayuntamiento.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AppController {
+
+    @Autowired
+    private UserRepository repository;
 
     @GetMapping("/")
     public String indexLink(Model model) {
@@ -52,5 +59,11 @@ public class AppController {
     @GetMapping("/FormLocal")
     public String formularioLocalLink(Model model){
         return "FormularioLocal";
+    }
+
+    @GetMapping("/Profile")
+    public String userRegister (@RequestParam String name, @RequestParam String DNI, @RequestParam String mail, @RequestParam String password, @RequestParam String description, Model model){
+        repository.save(new User(name,mail,description,DNI,password,"user"));
+        return "Perfil";
     }
 }

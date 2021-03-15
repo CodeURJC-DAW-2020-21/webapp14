@@ -19,18 +19,21 @@
         <div class="row block-9 justify-content-center mb-5">
             <div class="col-md-8 mb-md-5">
                 <h2 class="text-center">O si aún no tienes cuenta...<br>Regístrate</h2>
-                <form action="Perfil.html" class="bg-light p-5 contact-form">
+                <form action="/Profile" class="bg-light p-5 contact-form" method="post">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Nombre">
+                        <input type="text" class="form-control" placeholder="Nombre" name="name">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="DNI">
+                        <input type="text" class="form-control" placeholder="DNI" name="DNI">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Correo electrónico">
+                        <input type="text" class="form-control" placeholder="Correo electrónico" name="mail">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Contraseña">
+                        <input type="text" class="form-control" placeholder="Contraseña" name="password">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Descripcion" name="description">
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Registrarse" class="btn btn-primary py-3 px-5">
