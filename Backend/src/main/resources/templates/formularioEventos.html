@@ -8,7 +8,7 @@
         <div class="col-6 mx-auto">
             <h1>Publica un nuevo Evento</h1>
 
-            <form method="post" action="/createevent" class="p-5 bg-light">
+            <form method="post" action="/createEvent" class="p-5 bg-light">
 
                 <div class="form-group">
                     <label class="register-event-form">Nombre Del Evento</label>
@@ -17,8 +17,7 @@
                             name="name"
                             class="form-control"
                             placeholder="Nombre"
-                            required
-                    />
+                            required/>
                 </div>
 
                 <div class="form-group">
@@ -52,7 +51,7 @@
                     <label class="register-event-form">Actividades principales (una por linea)</label>
                     <textarea
                         type="text"
-                        name="activity"
+                        name="activities"
                         rows="4"
                         class="form-control"
                         required>
@@ -83,7 +82,7 @@
                     <label class="register-event-form">Máximo de participantes</label>
                     <input
                             type="number"
-                            name="maxParticipants"
+                            name="people"
                             class="form-control"
                             id="register-event-form"
                             placeholder="Máximo de participantes"
@@ -94,7 +93,7 @@
                     <label class="register-event-form">Tasa de inscripción</label>
                     <input
                             type="number"
-                            name="inscriptionFee"
+                            name="price"
                             class="form-control"
                             id="registration fee"
                             placeholder="Tasa de inscripción (euros)"
