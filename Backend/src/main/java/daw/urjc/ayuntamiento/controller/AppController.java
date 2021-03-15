@@ -44,39 +44,24 @@ public class AppController {
         return "blog";
     }
 
-    @GetMapping("/formevent")
-    public String formevent(Model model) {
-        return "FormularioEventos";
-    }
-
-    @GetMapping("/events/basket")
-    public String basketLink(Model model) {
-        return "Baloncesto";
-    }
-
-    @GetMapping("/locals/camachito")
-    public String camachitoLink(Model model){
-        return "Camachito";
-    }
-
     @GetMapping("/error")
     public String errorLink(Model model) {
-        return "Error";
+        return "error";
     }
 
-    @GetMapping("/FormEvent")
+    @RequestMapping("/FormEvent")
     public String formularioEventLink(Model model){
-        return "FormularioEventos";
+        return "formularioEventos";
     }
 
     @GetMapping("/FormLocal")
     public String formularioLocalLink(Model model){
-        return "FormularioLocal";
+        return "formularioLocal";
     }
 
     @GetMapping("/profile")
     public String profile_page(Model model){
-        return "Perfil";
+        return "perfil";
     }
 
 
@@ -85,18 +70,25 @@ public class AppController {
         User user = new User(name,mail,description,DNI,password,"user");
         repository.save(user);
         model.addAttribute("user",user);
-        return "Perfil";
+        return "perfil";
     }
 
-    @PostMapping("/createevent")
-    public String eventcreation(@RequestParam String name, @RequestParam String activities, @RequestParam String description,
-                                @RequestParam Date date, @RequestParam String place, @RequestParam Time time, @RequestParam String reward, @RequestParam String people,
-                                @RequestParam String price, Model model) {
+    @PostMapping("/createEvent")
+    public String eventcreation(@RequestParam String name,
+                                @RequestParam String activities,
+                                @RequestParam String description,
+                                @RequestParam Date date,
+                                @RequestParam String place,
+                                @RequestParam Time time,
+                                @RequestParam String reward,
+                                @RequestParam String people,
+                                @RequestParam String price,
+                                @RequestParam Blob imageFile, Model model) {
 
-        Event event = new Event(name,activities,description,date,place,time,reward,people,price);
+        Event event = new Event(name,activities,description,date,place,time,reward,people,price,imageFile);
         repositoryEvent.save(event);
         model.addAttribute("event",event);
-        return "EventosMustache";
+        return "eventosMustache";
     }
 
     @ModelAttribute
@@ -107,7 +99,8 @@ public class AppController {
 
             model.addAttribute("logged", true);
             model.addAttribute("userName", principal.getName());
-            model.addAttribute("admin", request.isUserInRole("admin"));
+            model.addAttribute("user", repository.findByDNI(principal.getName()));
+            model.addAttribute("admin", request.isUserInRole("ADMIN"));
             //model.addAttribute("user",repository.findById(id));
 
         } else {

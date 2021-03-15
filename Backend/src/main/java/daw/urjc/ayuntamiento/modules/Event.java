@@ -34,7 +34,7 @@ public class Event {
 
     protected Event(){}
 
-    public Event(String name, String activities, String description, Date date, String place, Time hora, String reward, String people, String price) {
+    public Event(String name, String activities, String description, Date date, String place, Time hora, String reward, String people, String price,Blob imageFile) {
         this.name = name;
         this.activities = activities;
         this.description = description;
@@ -44,6 +44,7 @@ public class Event {
         this.reward = reward;
         this.people = people;
         this.price = price;
+        this.imageFile= imageFile;
     }
 
 
