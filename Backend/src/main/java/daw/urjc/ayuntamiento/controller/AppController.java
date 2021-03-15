@@ -1,6 +1,8 @@
 package daw.urjc.ayuntamiento.controller;
 
+import daw.urjc.ayuntamiento.modules.Event;
 import daw.urjc.ayuntamiento.modules.User;
+import daw.urjc.ayuntamiento.repository.EventRepository;
 import daw.urjc.ayuntamiento.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,12 +11,18 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.sql.Blob;
+import java.sql.Time;
+import java.util.Date;
 
 @Controller
 public class AppController {
 
     @Autowired
     private UserRepository repository;
+
+    @Autowired
+    private EventRepository repositoryEvent;
 
     @GetMapping("/")
     public String indexLink(Model model) {
@@ -36,7 +44,10 @@ public class AppController {
         return "blog";
     }
 
-
+    @GetMapping("/formevent")
+    public String formevent(Model model) {
+        return "FormularioEventos";
+    }
 
     @GetMapping("/events/basket")
     public String basketLink(Model model) {
@@ -77,7 +88,16 @@ public class AppController {
         return "Perfil";
     }
 
+    @PostMapping("/createevent")
+    public String eventcreation(@RequestParam String name, @RequestParam String activities, @RequestParam String description,
+                                @RequestParam Date date, @RequestParam String place, @RequestParam Time time, @RequestParam String reward, @RequestParam String people,
+                                @RequestParam String price, Model model) {
 
+        Event event = new Event(name,activities,description,date,place,time,reward,people,price);
+        repositoryEvent.save(event);
+        model.addAttribute("event",event);
+        return "EventosMustache";
+    }
 
     @ModelAttribute
     public void addAttributes(Model model, HttpServletRequest request) {

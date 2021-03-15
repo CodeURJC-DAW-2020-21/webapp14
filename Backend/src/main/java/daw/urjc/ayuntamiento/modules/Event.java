@@ -12,12 +12,11 @@ import java.util.List;
 @Entity
 public class Event {
     private String name;
-    private String image;
     private String activities;
     private String description;
     private Date date;
     private String place;
-    private Time hora;
+    private Time time;
     private String reward;
     private String people;
     private String price;
@@ -35,14 +34,13 @@ public class Event {
 
     protected Event(){}
 
-    public Event(String name, String image, String activities, String description, Date date, String place, Time hora, String reward, String people, String price) {
+    public Event(String name, String activities, String description, Date date, String place, Time hora, String reward, String people, String price) {
         this.name = name;
-        this.image = image;
         this.activities = activities;
         this.description = description;
         this.date = date;
         this.place = place;
-        this.hora = hora;
+        this.time = hora;
         this.reward = reward;
         this.people = people;
         this.price = price;
@@ -58,14 +56,6 @@ public class Event {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 
     public String getActivities() {
@@ -100,12 +90,12 @@ public class Event {
         this.place = place;
     }
 
-    public Time getHora() {
-        return hora;
+    public Time getTime() {
+        return time;
     }
 
-    public void setHora(Time hora) {
-        this.hora = hora;
+    public void setTime(Time time) {
+        this.time = time;
     }
 
     public String getReward() {
@@ -130,6 +120,30 @@ public class Event {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public Blob getImageFile() {
+        return imageFile;
+    }
+
+    public void setImageFile(Blob imageFile) {
+        this.imageFile = imageFile;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Comment> getComment() {
+        return comment;
+    }
+
+    public void setComment(List<Comment> comment) {
+        this.comment = comment;
     }
 }
 
