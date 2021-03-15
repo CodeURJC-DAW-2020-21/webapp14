@@ -18,7 +18,8 @@ public class DataBaseInitialization {
     public void init() throws IOException {
 
 
-        userRepository.save(new User("AntonioCuad","AntonioCuad@otaku.com","","53435243T","password", "campesino" ));
+        userRepository.save(new User("AntonioCuad","AntonioCuad@otaku.com","","53435243T","password", "user" ));
+        userRepository.save(new User("admin","admin@admin.com","admin","admin","password", "admin" ));
     }
 
 

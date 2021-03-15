@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -61,9 +62,11 @@ public class AppController {
         return "FormularioLocal";
     }
 
-    @GetMapping("/Profile")
+    @PostMapping("/registeredUser")
     public String userRegister (@RequestParam String name, @RequestParam String DNI, @RequestParam String mail, @RequestParam String password, @RequestParam String description, Model model){
-        repository.save(new User(name,mail,description,DNI,password,"user"));
+        User user = new User(name,mail,description,DNI,password,"user");
+        repository.save(user);
+        model.addAttribute("user",user);
         return "Perfil";
     }
 }

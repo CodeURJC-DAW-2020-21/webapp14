@@ -19,7 +19,7 @@
         <div class="row block-9 justify-content-center mb-5">
             <div class="col-md-8 mb-md-5">
                 <h2 class="text-center">O si aún no tienes cuenta...<br>Regístrate</h2>
-                <form action="/Profile" class="bg-light p-5 contact-form" method="post">
+                <form action="/registeredUser" class="bg-light p-5 contact-form" method="post">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Nombre" name="name">
                     </div>
@@ -35,6 +35,7 @@
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Descripcion" name="description">
                     </div>
+                    <input type="hidden" name="_csrf" value="{{token}}">
                     <div class="form-group">
                         <input type="submit" value="Registrarse" class="btn btn-primary py-3 px-5">
                     </div>
