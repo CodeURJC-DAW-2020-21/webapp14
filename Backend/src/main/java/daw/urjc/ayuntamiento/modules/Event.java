@@ -14,9 +14,9 @@ public class Event {
     private String name;
     private String activities;
     private String description;
-    private Date date;
+   // @Temporal(TemporalType.TIMESTAMP)
+    private String date;
     private String place;
-    private Time time;
     private String reward;
     private String people;
     private String price;
@@ -32,15 +32,19 @@ public class Event {
     @OneToMany
     private List<Comment> comment;
 
+
+
+
+
+
     protected Event(){}
 
-    public Event(String name, String activities, String description, Date date, String place, Time hora, String reward, String people, String price,Blob imageFile) {
+    public Event(String name, String activities, String description, String date, String place, String reward, String people, String price,Blob imageFile) {
         this.name = name;
         this.activities = activities;
         this.description = description;
         this.date = date;
         this.place = place;
-        this.time = hora;
         this.reward = reward;
         this.people = people;
         this.price = price;
@@ -75,11 +79,11 @@ public class Event {
         this.description = description;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -91,13 +95,6 @@ public class Event {
         this.place = place;
     }
 
-    public Time getTime() {
-        return time;
-    }
-
-    public void setTime(Time time) {
-        this.time = time;
-    }
 
     public String getReward() {
         return reward;
