@@ -21,78 +21,27 @@
                         </div>
                     </div>
                 </div>
+
+                {{#event}}
                 <div class="col-md-4">
                     <div class="property-wrap ftco-animate">
-                        <a href="Taller para los niños.html" class="img" style="background-image: url(/images/Taller\ niños.jpg);"></a>
+                        <a href="/event/{{id}}" class="img" style="background-image: url(/event/{{id}}/image)"></a>
                         <div class="text">
-                            <p class="price">Llega el día. EL TALLER DE LOS NIÑOS!!!!</p>
+                            <h3><a href="/event/{{id}}">{{name}}</a></h3>
                             <ul class="property_list">
-                                <li><img src="/images/calendario.png" height="16px" width="16px" /> 28/05/2021</li>
-                                <li><img src="/images/personas.png" height="16px" width="16px" /> 200</li>
-                                <li><img src="/images/dolar.png" height="16px" width="16px" /> 0€</li>
+                                <li><img src="/images/calendario.png" height="16px" width="16px" /> {{date}}</li>
+                                <li><img src="/images/personas.png" height="16px" width="16px" /> {{people}}</li>
+                                <li><img src="/images/dolar.png" height="16px" width="16px" /> {{price}}</li>
                             </ul>
-                            <h3><a href="Mercadillo.html">Taller educativo para niños</a></h3>
-                            <span class="location">Colegio Público Virgen del Consuelo</span>
-                            <a href="Taller para los niños.html" class="d-flex align-items-center justify-content-center btn-custom">
+                            <span class="location">{{place}}</span>
+                            <a href="/event/{{id}}" class="d-flex align-items-center justify-content-center btn-custom">
                                 <span class="ion-ios-link"></span>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="property-wrap ftco-animate">
-                        <a href="participacion_ciudadana.html" class="img" style="background-image: url(/images/evento1.png);"></a>
-                        <div class="text">
-                            <p class="price">El objetivo es el intercambio de opiniones y herramientas de participación ciudadana desde distintos perfiles</p>
-                            <ul class="property_list">
-                                <li><img src="/images/calendario.png" height="16px" width="16px" /> 1/3/2021</li>
-                                <li><img src="/images/personas.png" height="16px" width="16px" /> 2.000</li>
-                                <li><img src="/images/dolar.png" height="16px" width="16px" /> 0€</li>
-                            </ul>
-                            <h3><a href="participacion_ciudadana.html">Primeras jornadas de participación ciudadana</a></h3>
-                            <span class="location">Sala multifuncional (Avda. de Belén)</span>
-                            <a href="participacion_ciudadana.html" class="d-flex align-items-center justify-content-center btn-custom">
-                                <span class="ion-ios-link"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="property-wrap ftco-animate">
-                        <a href="/events/basket" class="img" style="background-image: url(/images/Baloncesto.jpg);"></a>
-                        <div class="text">
-                            <p class="price">Primer torneo de baloncesto 3x3 en Ciempozuelos</p>
-                            <ul class="property_list">
-                                <li><img src="/images/calendario.png" height="16px" width="16px" /> 11/05/2021</li>
-                                <li><img src="/images/personas.png" height="16px" width="16px" /> 48</li>
-                                <li><img src="/images/dolar.png" height="16px" width="16px" /> 20€</li>
-                            </ul>
-                            <h3><a href="/events/basket">Torneo de Baloncesto 3x3</a></h3>
-                            <span class="location">Polideportivo Municipal</span>
-                            <a href="/events/basket" class="d-flex align-items-center justify-content-center btn-custom">
-                                <span class="ion-ios-link"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="property-wrap ftco-animate">
-                        <a href="TorneoAjedrez.html" class="img" style="background-image: url(/images/ajedrez.jpeg);"></a>
-                        <div class="text">
-                            <p class="price">Pon aprueba tu intelecto</p>
-                            <ul class="property_list">
-                                <li><img src="/images/calendario.png" height="16px" width="16px" /> 30/03/2021</li>
-                                <li><img src="/images/personas.png" height="16px" width="16px" /> 32</li>
-                                <li><img src="/images/dolar.png" height="16px" width="16px" /> 5€</li>
-                            </ul>
-                            <h3><a href="TorneoAjedrez.html">Torneo Ajedrez</a></h3>
-                            <span class="location">Biblioteca Municipal</span>
-                            <a href="Mercadillo.html" class="d-flex align-items-center justify-content-center btn-custom">
-                                <span class="ion-ios-link"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                {{/event}}
+
             </div>
             <div class="row mt-5">
                 <div class="col text-center">
