@@ -38,6 +38,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/logout").permitAll();
         http.authorizeRequests().antMatchers("/FormEvent").permitAll();
         http.authorizeRequests().antMatchers("/createEvent").permitAll();
+        http.authorizeRequests().antMatchers("/FormLocal").permitAll();
+        http.authorizeRequests().antMatchers("/createLocal").permitAll();
+        http.authorizeRequests().antMatchers("/event/{{id}}").permitAll();
+        http.authorizeRequests().antMatchers("/event/{{id}}/image").permitAll();
 
         // Private pages
         http.authorizeRequests().antMatchers("/profile").hasAnyRole("USER");

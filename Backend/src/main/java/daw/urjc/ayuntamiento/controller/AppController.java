@@ -4,6 +4,7 @@ import daw.urjc.ayuntamiento.modules.Event;
 import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.repository.EventRepository;
 import daw.urjc.ayuntamiento.repository.UserRepository;
+import daw.urjc.ayuntamiento.service.EventService;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +26,7 @@ public class AppController {
     private UserRepository repository;
 
     @Autowired
-    private EventRepository repositoryEvent;
+    private EventService eventService;
 
     @GetMapping("/")
     public String indexLink(Model model) {
@@ -39,6 +40,9 @@ public class AppController {
 
     @GetMapping("/events")
     public String eventsLink(Model model) {
+
+        model.addAttribute("event",eventService.findAll());
+
         return "properties";
     }
 
@@ -50,16 +54,6 @@ public class AppController {
     @GetMapping("/error")
     public String errorLink(Model model) {
         return "error";
-    }
-
-    @RequestMapping("/FormEvent")
-    public String formularioEventLink(Model model){
-        return "formularioEventos";
-    }
-
-    @GetMapping("/FormLocal")
-    public String formularioLocalLink(Model model){
-        return "formularioLocal";
     }
 
     @GetMapping("/profile")
@@ -76,23 +70,6 @@ public class AppController {
         return "perfil";
     }
 
-    @PostMapping("/createEvent")
-    public String eventcreation(Event event, MultipartFile imageField, Model model
-    ) throws IOException {
-
-        if (!imageField.isEmpty()) {
-            event.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
-
-        }
-
-        // System.out.println(date);
-       // Event event = new Event(name,activities,description,date,place,reward,people,price,imageFile);
-        repositoryEvent.save(event);
-        model.addAttribute("event",event);
-
-
-        return "eventosMustache";
-    }
 
     @ModelAttribute
     public void addAttributes(Model model, HttpServletRequest request) {
