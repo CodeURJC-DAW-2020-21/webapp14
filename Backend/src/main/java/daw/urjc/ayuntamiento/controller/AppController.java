@@ -4,12 +4,15 @@ import daw.urjc.ayuntamiento.modules.Event;
 import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.repository.EventRepository;
 import daw.urjc.ayuntamiento.repository.UserRepository;
+import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.security.Principal;
 import java.sql.Blob;
 import java.sql.Time;
@@ -67,27 +70,27 @@ public class AppController {
 
     @PostMapping("/registeredUser")
     public String userRegister (@RequestParam String name, @RequestParam String DNI, @RequestParam String mail, @RequestParam String password, @RequestParam String description, Model model){
-        User user = new User(name,mail,description,DNI,password,"user");
+        User user = new User(name,mail,description,DNI,password,"USER");
         repository.save(user);
         model.addAttribute("user",user);
         return "perfil";
     }
 
     @PostMapping("/createEvent")
-    public String eventcreation(@RequestParam String name,
-                                @RequestParam String activities,
-                                @RequestParam String description,
-                                @RequestParam Date date,
-                                @RequestParam String place,
-                                @RequestParam Time time,
-                                @RequestParam String reward,
-                                @RequestParam String people,
-                                @RequestParam String price,
-                                @RequestParam Blob imageFile, Model model) {
+    public String eventcreation(Event event, MultipartFile imageField, Model model
+    ) throws IOException {
 
-        Event event = new Event(name,activities,description,date,place,time,reward,people,price,imageFile);
+        if (!imageField.isEmpty()) {
+            event.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
+
+        }
+
+        // System.out.println(date);
+       // Event event = new Event(name,activities,description,date,place,reward,people,price,imageFile);
         repositoryEvent.save(event);
         model.addAttribute("event",event);
+
+
         return "eventosMustache";
     }
 
