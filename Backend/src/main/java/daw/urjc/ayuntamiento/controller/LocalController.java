@@ -1,8 +1,9 @@
 package daw.urjc.ayuntamiento.controller;
 
-
 import daw.urjc.ayuntamiento.modules.Event;
+import daw.urjc.ayuntamiento.modules.Store;
 import daw.urjc.ayuntamiento.service.EventService;
+import daw.urjc.ayuntamiento.service.LocalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -13,36 +14,34 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.Optional;
 
 @Controller
-public class EventController {
+public class LocalController {
 
     @Autowired
-    private EventService service;
+    private LocalService service;
 
-    @GetMapping("/event/{id}")
-    public String giveEvent(Model model, @PathVariable long id){
-        Optional<Event> event = service.findId(id);
+    @GetMapping("/local/{id}")
+    public String giveLocal(Model model, @PathVariable long id){
+        Optional<Store> store = service.findId(id);
 
-        if (event.isPresent()){
-            model.addAttribute("event",event.get());
-            return "eventosMustache";
+        if (store.isPresent()){
+            model.addAttribute("local",store.get());
+            return "store";
         }
-        return "properties";
+        return "blog";
     }
 
-    @GetMapping("/event/{id}/image")
+    @GetMapping("/local/{id}/image")
     public ResponseEntity<Object> giveImageEvent(@PathVariable long id) throws SQLException {
-        Optional<Event> event = service.findId(id);
-        if(event.isPresent() && event.get().getImageFile() != null){
-            Resource file = new InputStreamResource(event.get().getImageFile().getBinaryStream());
-            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").contentLength(event.get().getImageFile().length()).body(file);
+        Optional<Store> store = service.findId(id);
+        if(store.isPresent() && store.get().getImageFile1() != null){
+            Resource file = new InputStreamResource(store.get().getImageFile1().getBinaryStream());
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").contentLength(store.get().getImageFile1().length()).body(file);
         }else{
             return ResponseEntity.notFound().build();
         }
     }
-
 }

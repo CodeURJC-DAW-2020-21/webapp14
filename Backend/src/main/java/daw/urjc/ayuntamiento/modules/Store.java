@@ -36,7 +36,7 @@ public class Store {
 
     protected Store(){}
 
-    public Store(String name, String description, String services, String openDay, String closeDay, String openHour, String closeHour, String street, Blob imageFile1, Blob imageFile2, Long id, List<Comment> comment) {
+    public Store(String name, String description, String services, String openDay, String closeDay, String openHour, String closeHour, String street) {
         this.name = name;
         this.description = description;
         this.services = services;
@@ -45,10 +45,6 @@ public class Store {
         this.openHour = openHour;
         this.closeHour = closeHour;
         this.street = street;
-        this.imageField1 = imageFile1;
-        this.imageField2 = imageFile2;
-        this.id = id;
-        this.comment = comment;
     }
 
     public String getName() {

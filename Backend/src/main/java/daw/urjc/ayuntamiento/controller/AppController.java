@@ -5,6 +5,7 @@ import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.repository.EventRepository;
 import daw.urjc.ayuntamiento.repository.UserRepository;
 import daw.urjc.ayuntamiento.service.EventService;
+import daw.urjc.ayuntamiento.service.LocalService;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,9 @@ public class AppController {
     @Autowired
     private EventService eventService;
 
+    @Autowired
+    private LocalService localService;
+
     @GetMapping("/")
     public String indexLink(Model model) {
         return "index";
@@ -48,6 +52,8 @@ public class AppController {
 
     @GetMapping("/locals")
     public String localsLink(Model model) {
+
+        model.addAttribute("local",localService.findAll());
         return "blog";
     }
 

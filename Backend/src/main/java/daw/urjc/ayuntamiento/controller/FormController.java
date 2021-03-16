@@ -5,6 +5,7 @@ import daw.urjc.ayuntamiento.modules.Store;
 import daw.urjc.ayuntamiento.repository.EventRepository;
 import daw.urjc.ayuntamiento.repository.StoreRepository;
 import daw.urjc.ayuntamiento.service.EventService;
+import daw.urjc.ayuntamiento.service.LocalService;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,9 @@ public class FormController {
 
     @Autowired
     private EventService eventService;
+
+    @Autowired
+    private LocalService localService;
 
     @RequestMapping("/FormEvent")
     public String formularioEventLink(Model model){
@@ -65,7 +69,7 @@ public class FormController {
         }
 
         storeRepository.save(store);
-        model.addAttribute("store",store);
-        return "store";
+        model.addAttribute("local",localService.findAll());
+        return "blog";
     }
 }
