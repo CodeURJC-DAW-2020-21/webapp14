@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Eventos de Ciempozuelos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">AYUNTAMIENTO CIEMPOZUELOS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="index.html" class="nav-link">INICIO</a></li>
+                    <li class="nav-item"><a href="agent.html" class="nav-link">GOBIERNO</a></li>
+                    <li class="nav-item active"><a href="properties.html" class="nav-link">EVENTOS</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">LOCALES</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">PERFIL</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url('images/bg_1_1.jpg');" data-stellar-background-ratio="0.5">
+    </section>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <span class="subheading">EVENTOS</span>   </div>
+
+
+
+                <div class="col-md-4">
+                    <div class="property-wrap ftco-animate">
+                        <a href= {{primaryImage}} + class="img" style="background-image: url(images/Mercadillo1.jpg);"></a>
+                        <div class="text">
+                            <p class="price">{{event.title}}</p>
+                            <ul class="property_list">
+                                <li><img src="images/calendario.png" height="16px" width="16px" /> {{event.date}}</li>
+                                <li><img src="images/personas.png" height="16px" width="16px" /> {{event.capacity}}</li>
+                                <li><img src="images/dolar.png" height="16px" width="16px" /> {{event.money}}</li>
+                            </ul>
+                            <h3><a href="Mercadillo.html">{{event.name}}</a></h3>
+                            <span class="location">{{event.place}}</span>
+                            <a href="Mercadillo.html" class="d-flex align-items-center justify-content-center btn-custom">
+                                <span class="ion-ios-link"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <div class="block-27">
+                        <button>Cargar más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{>footer}}
