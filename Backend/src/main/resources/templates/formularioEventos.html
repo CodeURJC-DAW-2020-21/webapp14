@@ -8,7 +8,7 @@
         <div class="col-6 mx-auto">
             <h1>Publica un nuevo Evento</h1>
 
-            <form method="post" action="/createEvent" class="p-5 bg-light">
+            <form method="post" action="/createEvent" class="p-5 bg-light" enctype="multipart/form-data">
 
                 <div class="form-group">
                     <label class="register-event-form">Nombre Del Evento</label>
@@ -33,19 +33,12 @@
                     <label class="register-event-form">Día</label>
                     <input
                             name="date"
-                            type="date"
+                            type="text"
                             class="form-control"
                             required/>
                 </div>
 
-                <div class="form-group">
-                    <label class="register-event-form">Hora</label>
-                    <input
-                            type="time"
-                            name="time"
-                            class="form-control"
-                            required/>
-                </div>
+
 
                 <div class="form-group">
                     <label class="register-event-form">Actividades principales (una por linea)</label>
@@ -107,7 +100,7 @@
 
                         <input
                                 type="file"
-                                name="imageFile"
+                                name="imageField"
                                 accept=".jpg, .jpeg"
                                 class="custom-file-input"
                                 id="inputGroupFile01"
