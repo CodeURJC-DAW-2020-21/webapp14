@@ -1,8 +1,10 @@
 package daw.urjc.ayuntamiento.service;
 
+import daw.urjc.ayuntamiento.modules.Comment;
 import daw.urjc.ayuntamiento.modules.Event;
 import daw.urjc.ayuntamiento.modules.Store;
 import daw.urjc.ayuntamiento.modules.User;
+import daw.urjc.ayuntamiento.repository.CommentRepository;
 import daw.urjc.ayuntamiento.repository.EventRepository;
 import daw.urjc.ayuntamiento.repository.StoreRepository;
 import daw.urjc.ayuntamiento.repository.UserRepository;
@@ -30,8 +32,12 @@ public class DataBaseInitialization {
     private StoreRepository storeRepository;
 
     @Autowired
+    private CommentRepository commentRepository;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
+    private Date date = new Date();
 
     @PostConstruct
     public void init() throws IOException {
@@ -57,13 +63,45 @@ public class DataBaseInitialization {
         userRepository.save(user2);
 
 
+        Comment c1=new Comment("Hola buenos dias me llamo javi");
+        c1.setDate(date);
+        Comment c2=new Comment("El pozos");
+        c2.setDate(date);
+
+
+        commentRepository.save(c1);
+        commentRepository.save(c2);
+
+
+
         Event event1 = new Event("Ajedrez","jugar","juegos varios","12/12/22","mi casa","0","10","0");
         setEventImage(event1, "/static/images/pozo.jpg");
+        event1.getComment().add(c1);
+        event1.getComment().add(c2);
+
         eventRepository.save(event1);
+
+        Comment c3=new Comment("pozito calvo un clabito");
+        Comment c4=new Comment("Lil pozoi");
+        Comment c5=new Comment("Xx__pozoSlayer__xX");
+
+        commentRepository.save(c3);
+        commentRepository.save(c4);
+        commentRepository.save(c5);
+
 
         Store store1 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
         setStoreImage(store1,"/static/images/pozo.jpg");
+
+        store1.getComment().add(c3);
+        store1.getComment().add(c4);
+        store1.getComment().add(c5);
         storeRepository.save(store1);
+
+
+
+
+
     }
 
     private void setStoreImage(Store store, String classpathResource) throws IOException {
@@ -84,5 +122,7 @@ public class DataBaseInitialization {
     public void setUserRoles(User user, List<String> roles){
         user.setRoles(roles);
     }
+
+
 
 }

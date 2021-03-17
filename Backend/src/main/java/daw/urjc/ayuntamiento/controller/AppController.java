@@ -47,6 +47,7 @@ public class AppController {
 
         model.addAttribute("event",eventService.findAll());
 
+
         return "properties";
     }
 
@@ -69,21 +70,5 @@ public class AppController {
 
 
 
-    @ModelAttribute
-    public void addAttributes(Model model, HttpServletRequest request) {
 
-        Principal principal = request.getUserPrincipal();
-        if (principal != null) {
-
-            model.addAttribute("logged", true);
-            model.addAttribute("userName", principal.getName());
-            model.addAttribute("userDesc", repository.findByName(principal.getName()).get().getDescription());
-            model.addAttribute("userMail", repository.findByName(principal.getName()).get().getMail());
-            model.addAttribute("admin", request.isUserInRole("ADMIN"));
-
-
-        } else {
-            model.addAttribute("logged", false);
-        }
-    }
 }
