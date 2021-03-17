@@ -68,14 +68,6 @@ public class AppController {
     }
 
 
-    @PostMapping("/registeredUser")
-    public String userRegister (@RequestParam String name, @RequestParam String DNI, @RequestParam String mail, @RequestParam String password, @RequestParam String description, Model model){
-        User user = new User(name,mail,description,DNI,password,"USER");
-        repository.save(user);
-        model.addAttribute("user",user);
-        return "perfil";
-    }
-
 
     @ModelAttribute
     public void addAttributes(Model model, HttpServletRequest request) {
@@ -86,6 +78,7 @@ public class AppController {
             model.addAttribute("logged", true);
             model.addAttribute("userName", principal.getName());
             model.addAttribute("user", repository.findByDNI(principal.getName()));
+            //model.addAttribute("userImage", principal.;
             model.addAttribute("admin", request.isUserInRole("ADMIN"));
             //model.addAttribute("user",repository.findById(id));
 

@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
+import java.util.*;
 
 @Service
 public class DataBaseInitialization {
@@ -31,15 +32,31 @@ public class DataBaseInitialization {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+
     @PostConstruct
     public void init() throws IOException {
 
         //Calendar c1 = Calendar.getInstance();
        // c1.set(2021, Calendar.MAY, 2, 18, 30);
 
-        userRepository.save(new User("AntonioCuad","AntonioCuad@otaku.com","","53435243T",passwordEncoder.encode("password"), "USER" ));
-        userRepository.save(new User("admin","admin@admin.com","admin","admin",passwordEncoder.encode("password"), "ADMIN","USER" ));
-        //eventRepository.save((new Event("Ajedrez","jugar","rgrjigir",c1.getTime(),"bibilioteca","frjfr","4","4",null)));
+
+        User user1=new User("AntonioCuad","AntonioCuad@otaku.com","","53435243T",passwordEncoder.encode("password")/*, "USER" */);
+        setUserImage(user1,"/static/images/pozo.jpg");
+        List<String> roles1 = new LinkedList<>();
+        roles1.add("USER");
+        user1.setRoles(roles1);
+        userRepository.save(user1);
+
+
+        User user2=new User("admin","admin@admin.com","admin","admin",passwordEncoder.encode("password")/*, "ADMIN" ,"USER" */);
+        setUserImage(user2,"/static/images/pozo.jpg");
+        List<String> roles2 = new LinkedList<>();
+        roles2.add("USER");
+        roles2.add("ADMIN");
+        user2.setRoles(roles2);
+        userRepository.save(user2);
+
+
         Event event1 = new Event("Ajedrez","jugar","juegos varios","12/12/22","mi casa","0","10","0");
         setEventImage(event1, "/static/images/pozo.jpg");
         eventRepository.save(event1);
@@ -57,6 +74,15 @@ public class DataBaseInitialization {
     public void setEventImage(Event event, String classpathResource) throws IOException{
         Resource image = new ClassPathResource(classpathResource);
         event.setImageFile(BlobProxy.generateProxy(image.getInputStream(),image.contentLength()));
+    }
+
+    public void setUserImage(User user, String classpathResource) throws IOException{
+        Resource image = new ClassPathResource(classpathResource);
+        user.setImageFile(BlobProxy.generateProxy(image.getInputStream(),image.contentLength()));
+    }
+
+    public void setUserRoles(User user, List<String> roles){
+        user.setRoles(roles);
     }
 
 }

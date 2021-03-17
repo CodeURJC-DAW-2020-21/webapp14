@@ -29,7 +29,7 @@ public class EventController {
 
         if (event.isPresent()){
             model.addAttribute("event",event.get());
-            return "eventosMustache";
+            return "mainEvent";
         }
         return "properties";
     }
@@ -44,5 +44,9 @@ public class EventController {
             return ResponseEntity.notFound().build();
         }
     }
+
+
+
+
 
 }

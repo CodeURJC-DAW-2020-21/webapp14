@@ -11,7 +11,6 @@ public class Comment {
     private String name;
     private String comment;
     private String date;
-    private String Picture;
 
     @Lob
     @JsonIgnore
@@ -29,11 +28,10 @@ public class Comment {
     protected Comment(){}
 
 
-    public Comment(String name, String coment, String fecha, String Picture) { //Constructor
+    public Comment(String name, String coment, String date) { //Constructor
         this.name = name;
         this.comment = coment;
         this.date = date;
-        this.Picture = Picture;
     }
 
     //Getters and setters
@@ -61,11 +59,4 @@ public class Comment {
         this.date = date;
     }
 
-    public String getPicture() {
-        return Picture;
-    }
-
-    public void setPicture(String picture) {
-        Picture = picture;
-    }
 }
