@@ -48,10 +48,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         // Login form
         http.formLogin().loginPage("/userlogin");
-        http.formLogin().usernameParameter("DNI");
+        http.formLogin().usernameParameter("name");
         http.formLogin().passwordParameter("password");
-        http.formLogin().defaultSuccessUrl("/");
+        http.formLogin().defaultSuccessUrl("/profile");
         http.formLogin().failureUrl("/error");
+
 
         // Logout
         http.logout().logoutUrl("/logout");

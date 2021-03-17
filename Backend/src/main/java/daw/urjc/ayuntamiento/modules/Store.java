@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.nio.file.Path;
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -32,7 +33,7 @@ public class Store {
     private Long id;
 
     @OneToMany
-    private List<Comment> comment;
+    private List<Comment> comment = new ArrayList<>();
 
     protected Store(){}
 
