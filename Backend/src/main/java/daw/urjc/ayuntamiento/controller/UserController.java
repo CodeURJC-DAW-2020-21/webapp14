@@ -54,7 +54,7 @@ public class UserController {
 
     @GetMapping("/user/{userName}/image")
     public ResponseEntity<Object> giveUserImage(@PathVariable String userName) throws SQLException {
-        Optional<User> user = service.findByDNI(userName);
+        Optional<User> user = service.findByName(userName);
         if(user.isPresent() && user.get().getImageFile() != null){
             Resource file = new InputStreamResource(user.get().getImageFile().getBinaryStream());
             return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").contentLength(user.get().getImageFile().length()).body(file);

@@ -63,7 +63,7 @@ public class AppController {
     }
 
     @GetMapping("/profile")
-    public String profile_page(Model model){
+    public String profile_page(Model model,HttpServletRequest request){
         return "perfil";
     }
 
@@ -77,10 +77,10 @@ public class AppController {
 
             model.addAttribute("logged", true);
             model.addAttribute("userName", principal.getName());
-            model.addAttribute("user", repository.findByDNI(principal.getName()));
-            //model.addAttribute("userImage", principal.;
+            model.addAttribute("userDesc", repository.findByName(principal.getName()).get().getDescription());
+            model.addAttribute("userMail", repository.findByName(principal.getName()).get().getMail());
             model.addAttribute("admin", request.isUserInRole("ADMIN"));
-            //model.addAttribute("user",repository.findById(id));
+
 
         } else {
             model.addAttribute("logged", false);
