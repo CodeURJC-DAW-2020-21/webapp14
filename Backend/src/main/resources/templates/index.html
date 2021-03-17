@@ -376,78 +376,41 @@
             </div>
         </div>
     </section>
-    <!--
     <section class="ftco-section ftco-no-pt">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-7 heading-section text-center ftco-animate">
-                    <span class="subheading">Blog</span>
-                    <h2>Recent Blog</h2>
-                </div>
-            </div>
-            <div class="row d-flex">
-                <div class="col-md-3 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                            <div class="meta mb-3">
-                                <div><a href="#">July. 24, 2019</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                            </div>
-                            <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_1.jpg');">
-                            </a>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                            <div class="meta mb-3">
-                                <div><a href="#">July. 24, 2019</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                            </div>
-                            <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_2.jpg');">
-                            </a>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                            <div class="meta mb-3">
-                                <div><a href="#">July. 24, 2019</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                            </div>
-                            <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_3.jpg');">
-                            </a>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                            <div class="meta mb-3">
-                                <div><a href="#">July. 24, 2019</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                            </div>
-                            <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_4.jpg');">
-                            </a>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+        <div id="center">
+            <canvas id="speedChart" width="100" height="50"></canvas>
         </div>
+        <script>
+            var speedCanvas = document.getElementById("speedChart");
+
+            Chart.defaults.global.defaultFontFamily = "Lato";
+            Chart.defaults.global.defaultFontSize = 18;
+
+            var data = {
+                label: "Usuarios registrados en el Ayuntamiento",
+                datasets: [{
+                    label: "Usuarios registrados",
+                    data: [0, 5, 10],
+                }]
+            };
+
+            var chartOptions = {
+                legend: {
+                    display: true,
+                    position: 'top',
+                    labels: {
+                        boxWidth: 80,
+                        fontColor: 'black'
+                    }
+                }
+            };
+
+            var lineChart = new Chart(speedCanvas, {
+                type: 'line',
+                data: data,
+                options: chartOptions
+            });
+        </script>
     </section>
-    -->
     {{> footer}}
