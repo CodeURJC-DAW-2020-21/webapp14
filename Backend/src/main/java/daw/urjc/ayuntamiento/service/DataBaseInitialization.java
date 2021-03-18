@@ -81,6 +81,31 @@ public class DataBaseInitialization {
 
         eventRepository.save(event1);
 
+        Event event2 = new Event("Furbo","furbo","furbo","12/12/22","furbo","1","2","3");
+        setEventImage(event2,"static/images/alexelcapo.jpg");
+
+        eventRepository.save(event2);
+
+        Event event3 = new Event("Furbo","Furbo","furbo","12/12/22","furbo","1","2","3");
+        setEventImage(event3,"static/images/alexelcapo.jpg");
+        eventRepository.save(event3);
+
+        Event event4 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3");
+        setEventImage(event4,"static/images/alexelcapo.jpg");
+        eventRepository.save(event4);
+
+
+        Event event6 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3");
+        setEventImage(event6,"static/images/alexelcapo.jpg");
+        eventRepository.save(event6);
+
+        Event event7 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3");
+        setEventImage(event7,"static/images/alexelcapo.jpg");
+        eventRepository.save(event7);
+
+
+
+
         Comment c3=new Comment("pozito calvo un clabito");
         Comment c4=new Comment("Lil pozoi");
         Comment c5=new Comment("Xx__pozoSlayer__xX");
