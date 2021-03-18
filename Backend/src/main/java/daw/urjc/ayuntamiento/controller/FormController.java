@@ -10,7 +10,6 @@ import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -34,12 +33,12 @@ public class FormController {
 
     @RequestMapping("/FormEvent")
     public String formularioEventLink(Model model){
-        return "formularioEventos";
+        return "formEvent";
     }
 
     @RequestMapping("/FormLocal")
     public String formularioLocalLink(Model model){
-        return "formularioLocal";
+        return "formLocal";
     }
 
     @PostMapping("/events")
@@ -54,7 +53,7 @@ public class FormController {
         repositoryEvent.save(event);
         model.addAttribute("event",eventService.findAll());
 
-        return "properties";
+        return "events";
     }
 
     @PostMapping("/createLocal")
@@ -70,6 +69,6 @@ public class FormController {
 
         storeRepository.save(store);
         model.addAttribute("local",localService.findAll());
-        return "blog";
+        return "locals";
     }
 }
