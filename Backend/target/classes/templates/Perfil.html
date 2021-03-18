@@ -1,57 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Ayto. Ciempozuelos - Perfil</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-
-    <link rel="stylesheet" href="css/aos.css">
-
-    <link rel="stylesheet" href="css/ionicons.min.css">
-
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">AYUNTAMIENTO CIEMPOZUELOS</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="oi oi-menu"></span> Menu
-      </button>
-
-            <div class="collapse navbar-collapse" id="ftco-nav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="/" class="nav-link">INICIO</a></li>
-                    <li class="nav-item"><a href="/gob" class="nav-link">GOBIERNO</a></li>
-                    <li class="nav-item"><a href="/events" class="nav-link">EVENTOS</a></li>
-                    <li class="nav-item"><a href="/locals" class="nav-link">LOCALES</a></li>
-                    <li class="nav-item active"><a href="/login" class="nav-link">PERFIL</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- END nav -->
-
-    <section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url('images/bg_1_1.jpg');" data-stellar-background-ratio="0.5">
-    </section>
+{{> header}}
 
     <section class="ftco-section contact-section">
         <div class="row block-9 justify-content-center mb-5">
@@ -59,22 +6,22 @@
         </div>
         <div class="row block-9 justify-content-center mb-5">
             <div class="col-md-2 mb-md-4">
-                <img class="profile-image" src="images/felipe.jpg" alt="Image placeholder">
+                <img class="profile-image" src="/user/{{userName}}/image" alt="Image placeholder">
             </div>
             <div class="col-md-6 mb-md-4">
                 <div class="profile-block">
                     <h2>Nombre y apellidos:</h2>
-                    <p class="profile-p" id="profile-name">Felipe ceta girocompleto</p>
+                    <p class="profile-p" id="profile-name">{{userName}}</p>
                 </div>
                 <br>
                 <div class="profile-block">
                     <h2>Correo:</h2>
-                    <p class="profile-p" id="profile-mail">elcircunferenciacompleta@gmail.com</p>
+                    <p class="profile-p" id="profile-mail">{{userMail}}</p>
                 </div>
                 <br>
                 <div class="profile-block">
-                    <h2>Presentación:</h2>
-                    <p class="profile-p" id="profile-presentation">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus ipsam illo, officiis quas adipisci animi accusamus molestiae error maxime temporibus illum blanditiis autem quos quia quae exercitationem aliquam perspiciatis. Provident.</p>
+                    <h2>Descripcion:</h2>
+                    <p class="profile-p" id="profile-presentation">{{userDesc}}</p>
                 </div>
                 <br>
                 <div class="profile-block">
@@ -110,7 +57,7 @@
         </div>
         <div class="row block-9 justify-content-center mb-5">
             <div class="form-group">
-                <form action="EditarPerfil.html" class="p-5 contact-form">
+                <form action="editarPerfil.html" class="p-5 contact-form">
                     <input type="submit" value="Editar perfil" class="btn py-3 px-4 btn-primary">
                 </form>
             </div>

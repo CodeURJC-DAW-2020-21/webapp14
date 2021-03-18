@@ -1,0 +1,128 @@
+{{>header}}
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <h1>Publica un nuevo Evento</h1>
+
+            <form method="post" action="/events" class="p-5 bg-light" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label class="register-event-form">Nombre Del Evento</label>
+                    <input
+                            type="text"
+                            name="name"
+                            class="form-control"
+                            placeholder="Nombre"
+                            required/>
+                </div>
+
+                <div class="form-group">
+                    <label class="register-event-form">Lugar</label>
+                    <input
+                            type="text"
+                            name="place"
+                            class="form-control"
+                            placeholder="Lugar"
+                            required/>
+                </div>
+                <div class="form-group">
+                    <label class="register-event-form">Día</label>
+                    <input
+                            name="date"
+                            type="datetime-local"
+                            class="form-control"
+                            required/>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="register-event-form">Actividades principales (Diferentes actividades que se van a realizar)</label>
+                    <textarea
+                        type="text"
+                        name="activities"
+                        rows="4"
+                        class="form-control"
+                        required>
+                    </textarea>
+
+                </div>
+                <div class="form-group">
+                    <label class="register-event-form">Descripción</label>
+                    <textarea
+                            name="description"
+                            rows="4"
+                            class="form-control"
+                            required>
+                        </textarea>
+                </div>
+
+                <div  id="div-mostrar" class="form-group">
+                    <label class="register-event-form">Premio</label>
+                    <input
+                            type="text"
+                            name="reward"
+                            class="form-control"
+                            placeholder="Premio (indicar unidades)"/>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="register-event-form">Máximo de participantes</label>
+                    <input
+                            type="number"
+                            name="people"
+                            class="form-control"
+                            id="register-event-form"
+                            placeholder="Máximo de participantes"
+                            required/>
+                </div>
+
+                <div class="form-group">
+                    <label class="register-event-form">Tasa de inscripción</label>
+                    <input
+                            type="number"
+                            name="price"
+                            class="form-control"
+                            id="registration fee"
+                            placeholder="Tasa de inscripción (euros)"
+                            required/>
+                </div>
+
+                <div class="form-group">
+                    <label class="register-event-form_img">Imagen</label>
+
+                    <div class="custom-file">
+
+                        <input
+                                type="file"
+                                name="imageField"
+                                accept=".jpg, .jpeg"
+                                class="custom-file-input"
+                                id="inputGroupFile01"
+                                required/>
+                        <label class="custom-file-label" for="inputGroupFile01">Elegir imagen</label>
+                    </div>
+
+                </div>
+                <br>
+                <div class="control-group">
+                    <div class="controls">
+                        <button
+                                id="register"
+                                type="submit"
+                                class="btn btn-primary">Publicar
+                        </button>
+                    </div>
+                </div>
+                <input type="hidden" name="_csrf" value="{{token}}">
+            </form>
+        </div>
+    </div>
+    <br>
+
+    {{>footer}}

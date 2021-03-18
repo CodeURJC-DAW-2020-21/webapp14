@@ -44,14 +44,14 @@
                     <li class="nav-item"><a href="/gob" class="nav-link">GOBIERNO</a></li>
                     <li class="nav-item"><a href="/events" class="nav-link">EVENTOS</a></li>
                     <li class="nav-item"><a href="/locals" class="nav-link">LOCALES</a></li>
-                    <li class="nav-item"><a href="/login" class="nav-link">PERFIL</a></li>
+                    <li class="nav-item"><a href="/profile" class="nav-link">{{^logged}} INICIAR SESIÓN/REGISTRO {{/logged}} {{#logged}} {{userName}} {{/logged}}</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- END nav -->
 
-    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/bg_1_1.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/background2.jpg');" data-stellar-background-ratio="0.5">
         <div class="mouse">
             <a href="#" class="mouse-icon">
                 <div class="mouse-wheel"><span class="ion-ios-arrow-round-down"></span></div>
@@ -259,7 +259,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="property-wrap ftco-animate">
-                        <a href="Baloncesto.html" class="img" style="background-image: url(images/Baloncesto.jpg);"></a>
+                        <a href="/events/basket" class="img" style="background-image: url(images/Baloncesto.jpg);"></a>
                         <div class="text">
                             <p class="price">Primer torneo de baloncesto 3x3 en Ciempozuelos</p>
                             <ul class="property_list">
@@ -267,11 +267,11 @@
                                 <li><img src="images/personas.png" height="16px" width="16px" /> 48</li>
                                 <li><img src="images/dolar.png" height="16px" width="16px" /> 20€</li>
                             </ul>
-                            <h3><a href="Baloncesto.html">Torneo de Baloncesto 3x3</a></h3>
+                            <h3><a href="/events/basket">Torneo de Baloncesto 3x3</a></h3>
                             <span class="location">Polideportivo Municipal</span>
                             <br>
                             <br>
-                            <a href="Baloncesto.html" class="d-flex align-items-center justify-content-center btn-custom">
+                            <a href="/events/basket" class="d-flex align-items-center justify-content-center btn-custom">
                                 <span class="ion-ios-link"></span>
                             </a>
                         </div>
@@ -376,78 +376,42 @@
             </div>
         </div>
     </section>
-    <!--
     <section class="ftco-section ftco-no-pt">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-7 heading-section text-center ftco-animate">
-                    <span class="subheading">Blog</span>
-                    <h2>Recent Blog</h2>
-                </div>
-            </div>
-            <div class="row d-flex">
-                <div class="col-md-3 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                            <div class="meta mb-3">
-                                <div><a href="#">July. 24, 2019</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                            </div>
-                            <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_1.jpg');">
-                            </a>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                            <div class="meta mb-3">
-                                <div><a href="#">July. 24, 2019</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                            </div>
-                            <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_2.jpg');">
-                            </a>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                            <div class="meta mb-3">
-                                <div><a href="#">July. 24, 2019</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                            </div>
-                            <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_3.jpg');">
-                            </a>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                            <div class="meta mb-3">
-                                <div><a href="#">July. 24, 2019</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                            </div>
-                            <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_4.jpg');">
-                            </a>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+        <div id="center">
+            <canvas id="speedChart" width="100" height="50"></canvas>
         </div>
+        <script>
+            var speedCanvas = document.getElementById("speedChart");
+
+            Chart.defaults.global.defaultFontFamily = "Lato";
+            Chart.defaults.global.defaultFontSize = 18;
+
+            var data = {
+                label: "Usuarios registrados en el Ayuntamiento",
+                datasets: [{
+                    label: "Usuarios registrados",
+                    data: [0, 5, 10],
+                }]
+            };
+
+            var chartOptions = {
+                legend: {
+                    display: true,
+                    position: 'top',
+                    labels: {
+                        boxWidth: 80,
+                        fontColor: 'black'
+                    }
+                }
+            };
+
+            var lineChart = new Chart(speedCanvas, {
+                type: 'line',
+                data: data,
+                options: chartOptions
+
+            });
+        </script>
     </section>
-    -->
     {{> footer}}
