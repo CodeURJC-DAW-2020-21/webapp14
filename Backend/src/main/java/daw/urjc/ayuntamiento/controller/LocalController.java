@@ -23,32 +23,21 @@ public class LocalController {
 
     @GetMapping("/local/{id}")
     public String giveLocal(Model model, @PathVariable long id){
-        Optional<Store> local = service.findId(id);
+        Optional<Store> store = service.findId(id);
 
-        if (local.isPresent()){
-            model.addAttribute("local",local.get());
+        if (store.isPresent()){
+            model.addAttribute("local",store.get());
             return "mainLocal";
         }
         return "locals";
     }
 
-    @GetMapping("/local/{id}/image1")
-    public ResponseEntity<Object> giveImageLocal1(@PathVariable long id) throws SQLException {
+    @GetMapping("/local/{id}/image")
+    public ResponseEntity<Object> giveImageEvent(@PathVariable long id) throws SQLException {
         Optional<Store> store = service.findId(id);
-        if(store.isPresent() && store.get().getImageField1() != null){
-            Resource file = new InputStreamResource(store.get().getImageField1().getBinaryStream());
-            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").contentLength(store.get().getImageField1().length()).body(file);
-        }else{
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    @GetMapping("/local/{id}/image2")
-    public ResponseEntity<Object> giveImageLocal2(@PathVariable long id) throws SQLException {
-        Optional<Store> store = service.findId(id);
-        if(store.isPresent() && store.get().getImageField2() != null){
-            Resource file = new InputStreamResource(store.get().getImageField2().getBinaryStream());
-            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").contentLength(store.get().getImageField2().length()).body(file);
+        if(store.isPresent() && store.get().getImageFile1() != null){
+            Resource file = new InputStreamResource(store.get().getImageFile1().getBinaryStream());
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").contentLength(store.get().getImageFile1().length()).body(file);
         }else{
             return ResponseEntity.notFound().build();
         }

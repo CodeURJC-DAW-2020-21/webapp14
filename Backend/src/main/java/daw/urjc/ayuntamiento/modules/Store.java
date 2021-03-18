@@ -30,7 +30,7 @@ public class Store {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @OneToMany
     private List<Comment> comment = new ArrayList<>();
@@ -112,27 +112,27 @@ public class Store {
         this.street = street;
     }
 
-    public Blob getImageField1() {
+    public Blob getImageFile1() {
         return imageField1;
     }
 
-    public void setImageField1(Blob imageField1) {
-        this.imageField1 = imageField1;
+    public void setImageFile1(Blob imageFile1) {
+        this.imageField1 = imageFile1;
     }
 
-    public Blob getImageField2() {
+    public Blob getImageFile2() {
         return imageField2;
     }
 
-    public void setImageField2(Blob imageField2) {
-        this.imageField2 = imageField2;
+    public void setImageFile2(Blob imageFile2) {
+        this.imageField2 = imageFile2;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

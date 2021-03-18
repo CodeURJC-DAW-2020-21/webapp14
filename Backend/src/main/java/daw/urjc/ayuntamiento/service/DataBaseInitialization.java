@@ -65,13 +65,9 @@ public class DataBaseInitialization {
 
         Comment c1=new Comment("Hola buenos dias me llamo javi");
         c1.setDate(date);
-        c1.setName("Antoñito");
-        setCommentImage(c1,"/static/images/alexelcapo.jpg");
-
         Comment c2=new Comment("El pozos");
         c2.setDate(date);
-        c2.setName("Cocas");
-        setCommentImage(c2,"/static/images/pozo.jpg");
+
 
         commentRepository.save(c1);
         commentRepository.save(c2);
@@ -86,11 +82,8 @@ public class DataBaseInitialization {
         eventRepository.save(event1);
 
         Comment c3=new Comment("pozito calvo un clabito");
-        c3.setDate(date);
         Comment c4=new Comment("Lil pozoi");
-        c4.setDate(date);
         Comment c5=new Comment("Xx__pozoSlayer__xX");
-        c5.setDate(date);
 
         commentRepository.save(c3);
         commentRepository.save(c4);
@@ -98,8 +91,7 @@ public class DataBaseInitialization {
 
 
         Store store1 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
-        setStoreImage1(store1,"/static/images/pozo.jpg");
-        setStoreImage2(store1,"/static/images/alexelcapo.jpg");
+        setStoreImage(store1,"/static/images/pozo.jpg");
 
         store1.getComment().add(c3);
         store1.getComment().add(c4);
@@ -112,22 +104,14 @@ public class DataBaseInitialization {
 
     }
 
-    private void setStoreImage1(Store store, String classpathResource) throws IOException {
+    private void setStoreImage(Store store, String classpathResource) throws IOException {
         Resource image = new ClassPathResource(classpathResource);
-        store.setImageField1(BlobProxy.generateProxy(image.getInputStream(),image.contentLength()));
-    }
-    private void setStoreImage2(Store store, String classpathResource) throws IOException {
-        Resource image = new ClassPathResource(classpathResource);
-        store.setImageField2(BlobProxy.generateProxy(image.getInputStream(),image.contentLength()));
+        store.setImageFile1(BlobProxy.generateProxy(image.getInputStream(),image.contentLength()));
     }
 
     public void setEventImage(Event event, String classpathResource) throws IOException{
         Resource image = new ClassPathResource(classpathResource);
         event.setImageFile(BlobProxy.generateProxy(image.getInputStream(),image.contentLength()));
-    }
-    public void setCommentImage(Comment comment, String classpathResource) throws IOException{
-        Resource image = new ClassPathResource(classpathResource);
-        comment.setImageFile(BlobProxy.generateProxy(image.getInputStream(),image.contentLength()));
     }
 
     public void setUserImage(User user, String classpathResource) throws IOException{

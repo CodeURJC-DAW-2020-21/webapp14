@@ -1,11 +1,9 @@
 package daw.urjc.ayuntamiento.controller;
 
-import daw.urjc.ayuntamiento.modules.Comment;
 import daw.urjc.ayuntamiento.modules.Event;
 import daw.urjc.ayuntamiento.modules.Store;
 import daw.urjc.ayuntamiento.repository.EventRepository;
 import daw.urjc.ayuntamiento.repository.StoreRepository;
-import daw.urjc.ayuntamiento.service.CommentService;
 import daw.urjc.ayuntamiento.service.EventService;
 import daw.urjc.ayuntamiento.service.LocalService;
 import org.hibernate.engine.jdbc.BlobProxy;
@@ -22,14 +20,13 @@ import java.io.IOException;
 public class FormController {
 
     @Autowired
+    private EventRepository repositoryEvent;
+
+    @Autowired
+    private StoreRepository storeRepository;
+
+    @Autowired
     private EventService eventService;
-
-    @Autowired
-    private LocalService storeRepository;
-
-    @Autowired
-    private CommentService commentService;
-
 
     @Autowired
     private LocalService localService;
@@ -53,7 +50,7 @@ public class FormController {
         }
 
         // Event event = new Event(name,activities,description,date,place,reward,people,price,imageFile);
-        eventService.save(event);
+        repositoryEvent.save(event);
         model.addAttribute("event",eventService.findAll());
 
         return "events";
@@ -63,16 +60,15 @@ public class FormController {
     public String localcreation(Store store,MultipartFile imageField1, MultipartFile imageField2,Model model) throws IOException {
 
         if (!imageField1.isEmpty()) {
-            store.setImageField1(BlobProxy.generateProxy(imageField1.getInputStream(), imageField1.getSize()));
+            store.setImageFile1(BlobProxy.generateProxy(imageField1.getInputStream(), imageField1.getSize()));
         }
 
         if (!imageField2.isEmpty()) {
-            store.setImageField2(BlobProxy.generateProxy(imageField2.getInputStream(), imageField2.getSize()));
+            store.setImageFile2(BlobProxy.generateProxy(imageField2.getInputStream(), imageField2.getSize()));
         }
 
         storeRepository.save(store);
         model.addAttribute("local",localService.findAll());
         return "locals";
     }
-
 }

@@ -19,7 +19,7 @@ public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
 
     protected Comment(){}
@@ -54,19 +54,4 @@ public class Comment {
         this.date = date;
     }
 
-    public Blob getImageFile() {
-        return imageFile;
-    }
-
-    public void setImageFile(Blob imageFile) {
-        this.imageFile = imageFile;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 }
