@@ -1,24 +1,14 @@
 package daw.urjc.ayuntamiento.controller;
 
-import daw.urjc.ayuntamiento.modules.Event;
-import daw.urjc.ayuntamiento.modules.User;
-import daw.urjc.ayuntamiento.repository.EventRepository;
 import daw.urjc.ayuntamiento.repository.UserRepository;
 import daw.urjc.ayuntamiento.service.EventService;
 import daw.urjc.ayuntamiento.service.LocalService;
-import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.security.Principal;
-import java.sql.Blob;
-import java.sql.Time;
-import java.util.Date;
 
 @Controller
 public class AppController {
@@ -39,7 +29,7 @@ public class AppController {
 
     @GetMapping("/gob")
     public String gobLink(Model model) {
-        return "agent";
+        return "gobernTeam";
     }
 
     @GetMapping("/events")
@@ -48,24 +38,24 @@ public class AppController {
         model.addAttribute("event",eventService.findAll());
 
 
-        return "properties";
+        return "events";
     }
 
     @GetMapping("/locals")
     public String localsLink(Model model) {
 
         model.addAttribute("local",localService.findAll());
-        return "blog";
+        return "locals";
     }
 
     @GetMapping("/error")
     public String errorLink(Model model) {
-        return "error";
+        return "error404";
     }
 
     @GetMapping("/profile")
     public String profile_page(Model model,HttpServletRequest request){
-        return "perfil";
+        return "profile";
     }
 
 
