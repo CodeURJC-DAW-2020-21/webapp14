@@ -1,6 +1,7 @@
 package daw.urjc.ayuntamiento.controller;
 
 import daw.urjc.ayuntamiento.modules.Event;
+import daw.urjc.ayuntamiento.modules.Store;
 import daw.urjc.ayuntamiento.repository.UserRepository;
 import daw.urjc.ayuntamiento.service.EventService;
 import daw.urjc.ayuntamiento.service.LocalService;
@@ -47,9 +48,11 @@ public class AppController {
     }
 
     @GetMapping("/locals")
-    public String localsLink(Model model) {
+    public String localsLink(Model model, Pageable pageable) {
 
-        model.addAttribute("local",localService.findAll());
+        Page<Store> localsPage = localService.findLocals(pageable);
+        model.addAttribute("hasNext",localsPage.hasNext());
+        model.addAttribute("local",localsPage);
         return "locals";
     }
 

@@ -2,9 +2,10 @@
 
       <section class="ftco-section">
       <div class="container">
+          <div id="locals">
         <div class="row d-flex">
             {{#local}}
-          <div class="col-md-3 d-flex ftco-animate">
+          <div class="col-md-3 d-flex ftco-animate eldiv property-wrap fadeInUp ftco-animated eldiv">
           	<div class="blog-entry justify-content-end">
               <div class="text">
                 <h3 class="heading"><a href="/local/{{id}}">{{name}}</a></h3>
@@ -21,13 +22,14 @@
             {{/local}}
 
         </div>
-        <div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <button>Cargar más</button>
-            </div>
+              </div>
+          <div id="hasNextPage2">
+              <ul class="pagination justify-content-center pagination-sm" id="button-replace">
+                  {{#hasNext}}
+                  <button class="btn btn-accent" id="load-more1">Cargar más</button>
+                  {{/hasNext}}
+              </ul>
           </div>
-        </div>
       </div>
     </section>
     {{> footer}}
