@@ -85,6 +85,31 @@ public class DataBaseInitialization {
 
         eventRepository.save(event1);
 
+        Event event2 = new Event("Furbo","furbo","furbo","12/12/22","furbo","1","2","3");
+        setEventImage(event2,"static/images/alexelcapo.jpg");
+
+        eventRepository.save(event2);
+
+        Event event3 = new Event("Furbo","Furbo","furbo","12/12/22","furbo","1","2","3");
+        setEventImage(event3,"static/images/alexelcapo.jpg");
+        eventRepository.save(event3);
+
+        Event event4 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3");
+        setEventImage(event4,"static/images/alexelcapo.jpg");
+        eventRepository.save(event4);
+
+
+        Event event6 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3");
+        setEventImage(event6,"static/images/alexelcapo.jpg");
+        eventRepository.save(event6);
+
+        Event event7 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3");
+        setEventImage(event7,"static/images/alexelcapo.jpg");
+        eventRepository.save(event7);
+
+
+
+
         Comment c3=new Comment("pozito calvo un clabito");
         c3.setDate(date);
         Comment c4=new Comment("Lil pozoi");
@@ -105,6 +130,22 @@ public class DataBaseInitialization {
         store1.getComment().add(c4);
         store1.getComment().add(c5);
         storeRepository.save(store1);
+
+        Store store2 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
+        setStoreImage(store2,"/static/images/pozo.jpg");
+        storeRepository.save(store2);
+
+        Store store3 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
+        setStoreImage(store3,"/static/images/pozo.jpg");
+        storeRepository.save(store3);
+
+        Store store4 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
+        setStoreImage(store4,"/static/images/pozo.jpg");
+        storeRepository.save(store4);
+
+        Store store5 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
+        setStoreImage(store5,"/static/images/pozo.jpg");
+        storeRepository.save(store5);
 
 
 
