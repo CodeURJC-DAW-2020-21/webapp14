@@ -8,7 +8,7 @@
         <div class="col-6 mx-auto">
             <h1>Publica un nuevo Evento</h1>
 
-            <form method="post" action="/createEvent" class="p-5 bg-light" enctype="multipart/form-data">
+            <form method="post" action="/events" class="p-5 bg-light" enctype="multipart/form-data">
 
                 <div class="form-group">
                     <label class="register-event-form">Nombre Del Evento</label>
@@ -33,7 +33,7 @@
                     <label class="register-event-form">Día</label>
                     <input
                             name="date"
-                            type="text"
+                            type="datetime-local"
                             class="form-control"
                             required/>
                 </div>
@@ -41,7 +41,7 @@
 
 
                 <div class="form-group">
-                    <label class="register-event-form">Actividades principales (una por linea)</label>
+                    <label class="register-event-form">Actividades principales (Diferentes actividades que se van a realizar)</label>
                     <textarea
                         type="text"
                         name="activities"

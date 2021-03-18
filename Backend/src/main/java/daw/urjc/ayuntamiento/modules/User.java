@@ -1,6 +1,9 @@
 package daw.urjc.ayuntamiento.modules;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.sql.Blob;
 import java.util.List;
 
 @Entity
@@ -23,18 +26,22 @@ public class User {
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles;
 
+    @Lob
+    @JsonIgnore
+    private Blob imageFile;
+
     protected User(){}
 
 
 
 
-    public User(String name, String mail, String description, String DNI, String password, String... roles) {
+    public User(String name, String mail, String description, String DNI, String password /*,String... roles*/) {
         this.name = name;
         this.mail = mail;
         this.description = description;
         this.DNI = DNI;
         this.password = password;
-        this.roles = List.of(roles);
+        //this.roles = List.of(roles);
     }
 
 
@@ -78,9 +85,21 @@ public class User {
         this.password = password;
     }
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public Blob getImageFile() {
+        return imageFile;
+    }
 
+    public void setImageFile(Blob imageFile) {
+        this.imageFile = imageFile;
+    }
 
     public List<Comment> getComment() {
         return comment;

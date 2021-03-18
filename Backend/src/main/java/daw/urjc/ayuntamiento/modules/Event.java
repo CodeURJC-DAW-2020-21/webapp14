@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.nio.file.Path;
 import java.sql.Blob;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -30,16 +31,13 @@ public class Event {
     private Long id;
 
     @OneToMany
-    private List<Comment> comment;
-
-
-
+    private List<Comment> comment = new ArrayList<>();
 
 
 
     protected Event(){}
 
-    public Event(String name, String activities, String description, String date, String place, String reward, String people, String price,Blob imageFile) {
+    public Event(String name, String activities, String description, String date, String place, String reward, String people, String price) {
         this.name = name;
         this.activities = activities;
         this.description = description;
@@ -48,7 +46,6 @@ public class Event {
         this.reward = reward;
         this.people = people;
         this.price = price;
-        this.imageFile= imageFile;
     }
 
 

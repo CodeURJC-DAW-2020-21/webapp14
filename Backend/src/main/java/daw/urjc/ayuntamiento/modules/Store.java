@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.nio.file.Path;
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,23 +19,25 @@ public class Store {
     private String openHour;
     private String closeHour;
     private String street;
-    private String primaryImage;
-    private String secondaryImage;
 
     @Lob
     @JsonIgnore
-    private Blob imageFile;
+    private Blob imageField1;
+
+    @Lob
+    @JsonIgnore
+    private Blob imageField2;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @OneToMany
-    private List<Comment> comment;
+    private List<Comment> comment = new ArrayList<>();
 
     protected Store(){}
 
-    public Store(String name, String description, String services, String openDay, String closeDay, String openHour, String closeHour, String street, String primaryImage, String secondaryImage) {
+    public Store(String name, String description, String services, String openDay, String closeDay, String openHour, String closeHour, String street) {
         this.name = name;
         this.description = description;
         this.services = services;
@@ -43,8 +46,6 @@ public class Store {
         this.openHour = openHour;
         this.closeHour = closeHour;
         this.street = street;
-        this.primaryImage = primaryImage;
-        this.secondaryImage = secondaryImage;
     }
 
     public String getName() {
@@ -111,19 +112,35 @@ public class Store {
         this.street = street;
     }
 
-    public String getPrimaryImage() {
-        return primaryImage;
+    public Blob getImageFile1() {
+        return imageField1;
     }
 
-    public void setPrimaryImage(String primaryImage) {
-        this.primaryImage = primaryImage;
+    public void setImageFile1(Blob imageFile1) {
+        this.imageField1 = imageFile1;
     }
 
-    public String getSecondaryImage() {
-        return secondaryImage;
+    public Blob getImageFile2() {
+        return imageField2;
     }
 
-    public void setSecondaryImage(String secondaryImage) {
-        this.secondaryImage = secondaryImage;
+    public void setImageFile2(Blob imageFile2) {
+        this.imageField2 = imageFile2;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Comment> getComment() {
+        return comment;
+    }
+
+    public void setComment(List<Comment> comment) {
+        this.comment = comment;
     }
 }

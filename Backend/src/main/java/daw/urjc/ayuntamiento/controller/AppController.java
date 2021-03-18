@@ -4,6 +4,8 @@ import daw.urjc.ayuntamiento.modules.Event;
 import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.repository.EventRepository;
 import daw.urjc.ayuntamiento.repository.UserRepository;
+import daw.urjc.ayuntamiento.service.EventService;
+import daw.urjc.ayuntamiento.service.LocalService;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +27,10 @@ public class AppController {
     private UserRepository repository;
 
     @Autowired
-    private EventRepository repositoryEvent;
+    private EventService eventService;
+
+    @Autowired
+    private LocalService localService;
 
     @GetMapping("/")
     public String indexLink(Model model) {
@@ -39,11 +44,17 @@ public class AppController {
 
     @GetMapping("/events")
     public String eventsLink(Model model) {
+
+        model.addAttribute("event",eventService.findAll());
+
+
         return "properties";
     }
 
     @GetMapping("/locals")
     public String localsLink(Model model) {
+
+        model.addAttribute("local",localService.findAll());
         return "blog";
     }
 
@@ -52,62 +63,12 @@ public class AppController {
         return "error";
     }
 
-    @RequestMapping("/FormEvent")
-    public String formularioEventLink(Model model){
-        return "formularioEventos";
-    }
-
-    @GetMapping("/FormLocal")
-    public String formularioLocalLink(Model model){
-        return "formularioLocal";
-    }
-
     @GetMapping("/profile")
-    public String profile_page(Model model){
+    public String profile_page(Model model,HttpServletRequest request){
         return "perfil";
     }
 
 
-    @PostMapping("/registeredUser")
-    public String userRegister (@RequestParam String name, @RequestParam String DNI, @RequestParam String mail, @RequestParam String password, @RequestParam String description, Model model){
-        User user = new User(name,mail,description,DNI,password,"USER");
-        repository.save(user);
-        model.addAttribute("user",user);
-        return "perfil";
-    }
-
-    @PostMapping("/createEvent")
-    public String eventcreation(Event event, MultipartFile imageField, Model model
-    ) throws IOException {
-
-        if (!imageField.isEmpty()) {
-            event.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
-
-        }
-
-        // System.out.println(date);
-       // Event event = new Event(name,activities,description,date,place,reward,people,price,imageFile);
-        repositoryEvent.save(event);
-        model.addAttribute("event",event);
 
 
-        return "eventosMustache";
-    }
-
-    @ModelAttribute
-    public void addAttributes(Model model, HttpServletRequest request) {
-
-        Principal principal = request.getUserPrincipal();
-        if (principal != null) {
-
-            model.addAttribute("logged", true);
-            model.addAttribute("userName", principal.getName());
-            model.addAttribute("user", repository.findByDNI(principal.getName()));
-            model.addAttribute("admin", request.isUserInRole("ADMIN"));
-            //model.addAttribute("user",repository.findById(id));
-
-        } else {
-            model.addAttribute("logged", false);
-        }
-    }
 }

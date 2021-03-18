@@ -5,13 +5,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.nio.file.Path;
 import java.sql.Blob;
+import java.util.Date;
 
 @Entity
 public class Comment {
     private String name;
-    private String comment;
-    private String date;
-    private String Picture;
+    private String text;
+    private Date date;
 
     @Lob
     @JsonIgnore
@@ -21,19 +21,12 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne
-    private Event event;
-    @OneToOne
-    private Store local;
 
     protected Comment(){}
 
 
-    public Comment(String name, String coment, String fecha, String Picture) { //Constructor
-        this.name = name;
-        this.comment = coment;
-        this.date = date;
-        this.Picture = Picture;
+    public Comment(String text) { //Constructor
+        this.text = text;
     }
 
     //Getters and setters
@@ -45,27 +38,20 @@ public class Comment {
         this.name = name;
     }
 
-    public String getComment() {
-        return comment;
+    public String getText() {
+        return text;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public String getPicture() {
-        return Picture;
-    }
-
-    public void setPicture(String picture) {
-        Picture = picture;
-    }
 }
