@@ -1,0 +1,125 @@
+{{>header}}
+<br>
+<br>
+<br>
+<br>
+	{{#admin}}
+	<div class="form-group" >
+		<input type="submit" value="Eliminar Evento" class="btn btn-danger py-3 px-4 float-right botonDerecha" onclick="location.href='/removeEvent/{{event.id}}'"></input>
+
+	</div>
+	{{/admin}}
+
+
+<section class="ftco-section ftco-property-details">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-12">
+					<div class="property-details">
+						<div class="img" style="background-image: url(/event/{{id}}/image);"></div>
+						<div class="text text-center">
+							<span class="subheading">CIEMPOZUELOS</span>
+							<h2>{{event.name}}</h2>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" value="Inscribirse" class="btn py-3 px-4 btn-primary">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 pills">
+					<div class="bd-example bd-example-tabs">
+						<div class="d-flex justify-content-center">
+							<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active" id="pills-manufacturer-tab" data-toggle="pill"
+									   href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer"
+									   aria-expanded="true">Descripción</a>
+								<li class="nav-item">
+									<a class="nav-link" id="pills-description-tab" data-toggle="pill"
+										href="#pills-description" role="tab" aria-controls="pills-description"
+										aria-expanded="true">Actividades</a>
+								</li>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review"
+										role="tab" aria-controls="pills-review" aria-expanded="true">Opiniones</a>
+								</li>
+							</ul>
+						</div>
+
+
+
+						<div class="tab-content" id="pills-tabContent">
+							<div class="tab-pane fade show active" id="pills-manufacturer" role="tabpanel"
+								 aria-labelledby="pills-manufacturer-tab">
+								<p>{{event.description}}</p>
+								<h2>Fechas</h2>
+								<p>{{event.date}}</p>
+								<h2>Lugar</h2>
+								<p>{{event.place}}</p>
+							</div>
+							<div class="tab-pane fade" id="pills-description" role="tabpanel"
+								aria-labelledby="pills-description-tab">
+								<div class="row">
+									<p>{{event.activities}}</p>
+								</div>
+							</div>
+
+							<div class="tab-pane fade" id="pills-review" role="tabpanel"
+								aria-labelledby="pills-review-tab">
+								<div class="row">
+									<div class="col-md-12">
+										<h3 class="head">3 Opiniones</h3>
+
+										{{#event.comment}}
+										<div class="review d-flex">
+											<div class="user-img" style="background-image: url(images/IsraElFiestas)">
+											</div>
+											<div class="desc">
+												<h4>
+													<span class="text-left">Israel Pozuelo</span>
+													<span class="text-right">{{date}}</span>
+												</h4>
+												<p class="star">
+													<span>
+														<i class="ion-ios-star"></i>
+														<i class="ion-ios-star"></i>
+														<i class="ion-ios-star"></i>
+														<i class="ion-ios-star"></i>
+													</span>
+													<span class="text-right"><a href="#" class="reply"><i
+																class="icon-reply"></i></a></span>
+												</p>
+												<p>{{text}}</p>
+											</div>
+										</div>
+										{{/event.comment}}
+
+										{{#logged}}
+										<div class="comment-form-wrap pt-5">
+											<h3 class="mb-5">Deja tu comentario</h3>
+											<form action="/SaveComment" class="p-5 bg-light">
+												<div class="form-group">
+													<label for="message">Comentario</label>
+													<input name="comment" id="message" cols="30" rows="10" class="form-control"/>
+												</div>
+												<div class="form-group">
+													<input type="submit" value="Enviar Comentario" class="btn py-3 px-4 btn-primary">
+												</div>
+											</form>
+										</div>
+										{{/logged}}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{{>footer}}

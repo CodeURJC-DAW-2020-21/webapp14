@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.Optional;
 
@@ -29,9 +28,9 @@ public class EventController {
 
         if (event.isPresent()){
             model.addAttribute("event",event.get());
-            return "eventosMustache";
+            return "mainEvent";
         }
-        return "properties";
+        return "events";
     }
 
     @GetMapping("/event/{id}/image")
@@ -44,5 +43,20 @@ public class EventController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/removeEvent/{id}")
+    public String removeEvent(Model model, @PathVariable long id) {
+
+        Optional<Event> event = service.findId(id);
+        if (event.isPresent()) {
+            service.delete(id);
+            model.addAttribute("event", event.get());
+        }
+        return "properties";
+    }
+
+
+
+
 
 }

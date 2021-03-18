@@ -1,8 +1,6 @@
 package daw.urjc.ayuntamiento.controller;
 
-import daw.urjc.ayuntamiento.modules.Event;
 import daw.urjc.ayuntamiento.modules.Store;
-import daw.urjc.ayuntamiento.service.EventService;
 import daw.urjc.ayuntamiento.service.LocalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -29,9 +27,9 @@ public class LocalController {
 
         if (store.isPresent()){
             model.addAttribute("local",store.get());
-            return "store";
+            return "mainLocal";
         }
-        return "blog";
+        return "locals";
     }
 
     @GetMapping("/local/{id}/image")

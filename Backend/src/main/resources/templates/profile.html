@@ -1,27 +1,34 @@
 {{> header}}
 
+
+
     <section class="ftco-section contact-section">
+
+        <li><form action="/logout" method="post">
+            <button class="btn btn-primary navbar-btn float-right botonDerecha" type="submit">Cerrar Sesión</button>
+            <input type="hidden" name="_csrf" value="{{token}}" />
+        </form></li>
         <div class="row block-9 justify-content-center mb-5">
             <h1 class="text-center">Perfil</h1>
         </div>
         <div class="row block-9 justify-content-center mb-5">
             <div class="col-md-2 mb-md-4">
-                <img class="profile-image" src="images/felipe.jpg" alt="Image placeholder">
+                <img class="profile-image" src="/user/{{userName}}/image" alt="Image placeholder">
             </div>
             <div class="col-md-6 mb-md-4">
                 <div class="profile-block">
                     <h2>Nombre y apellidos:</h2>
-                    <p class="profile-p" id="profile-name">nombre</p>
+                    <p class="profile-p" id="profile-name">{{userName}}</p>
                 </div>
                 <br>
                 <div class="profile-block">
                     <h2>Correo:</h2>
-                    <p class="profile-p" id="profile-mail">desc</p>
+                    <p class="profile-p" id="profile-mail">{{userMail}}</p>
                 </div>
                 <br>
                 <div class="profile-block">
                     <h2>Descripcion:</h2>
-                    <p class="profile-p" id="profile-presentation">desc</p>
+                    <p class="profile-p" id="profile-presentation">{{userDesc}}</p>
                 </div>
                 <br>
                 <div class="profile-block">
@@ -57,7 +64,7 @@
         </div>
         <div class="row block-9 justify-content-center mb-5">
             <div class="form-group">
-                <form action="editarPerfil.html" class="p-5 contact-form">
+                <form action="editpProfile.html" class="p-5 contact-form">
                     <input type="submit" value="Editar perfil" class="btn py-3 px-4 btn-primary">
                 </form>
             </div>
@@ -120,6 +127,8 @@
                 </div>
             </div>
         </div>
+
+
     </footer>
 
 
