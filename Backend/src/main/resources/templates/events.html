@@ -1,7 +1,22 @@
 {{> header}}
+<br>
+<br>
+<br>
+
+    {{#admin}}
+    <div class="form-group" >
+        <input type="submit" value="Añadir Evento" class="btn btn-primary py-3 px-4 float-right botonDerecha" onclick="window.location = '/FormEvent'" >
+
+    </div>
+    {{/admin}}
 
     <section class="ftco-section">
+
+
+
         <div class="container">
+
+            <br>
             <div class="row">
                 {{#event}}
                 <div class="col-md-4">
@@ -23,6 +38,7 @@
                 </div>
                 {{/event}}
 
+
             </div>
             <div class="row mt-5">
                 <div class="col text-center">
@@ -33,4 +49,6 @@
             </div>
         </div>
     </section>
+
+
     {{> footer}}
