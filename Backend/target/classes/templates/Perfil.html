@@ -1,6 +1,13 @@
 {{> header}}
 
+
+
     <section class="ftco-section contact-section">
+
+        <li><form action="/logout" method="post">
+            <button class="btn btn-primary navbar-btn float-right botonDerecha" type="submit">Cerrar Sesión</button>
+            <input type="hidden" name="_csrf" value="{{token}}" />
+        </form></li>
         <div class="row block-9 justify-content-center mb-5">
             <h1 class="text-center">Perfil</h1>
         </div>
@@ -120,6 +127,8 @@
                 </div>
             </div>
         </div>
+
+
     </footer>
 
 
