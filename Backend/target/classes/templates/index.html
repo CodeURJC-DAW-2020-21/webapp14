@@ -168,7 +168,7 @@
                             <img src="images/RaquelJimeno.jpg" class="img-fluid" alt="Colorlib Template">
                         </div>
                         <div class="desc">
-                            <h3><a href="agent.html">Raquel Jimeno</a></h3>
+                            <h3><a href="gobernTeam.html">Raquel Jimeno</a></h3>
                             <p class="h-info"><span class="location">Alcaldesa</span> </p>
                         </div>
                     </div>
@@ -179,7 +179,7 @@
                             <img src="images/RosaRevuelta.jpg" class="img-fluid" alt="Colorlib Template">
                         </div>
                         <div class="desc">
-                            <h3><a href="agent.html">Rosa Revuelta</a></h3>
+                            <h3><a href="gobernTeam.html">Rosa Revuelta</a></h3>
                             <p class="h-info"><span class="location">Concejala Educación</span> </p>
                         </div>
                     </div>
@@ -190,7 +190,7 @@
                             <img src="images/LuisPueyo.jpg" class="img-fluid" alt="Colorlib Template">
                         </div>
                         <div class="desc">
-                            <h3><a href="agent.html">Luis Pueyo</a></h3>
+                            <h3><a href="gobernTeam.html">Luis Pueyo</a></h3>
                             <p class="h-info"><span class="location">Concejal Turismo </span> </p>
                         </div>
                     </div>
@@ -201,7 +201,7 @@
                             <img src="images/SandraPerez.jpg" class="img-fluid" alt="Colorlib Template">
                         </div>
                         <div class="desc">
-                            <h3><a href="agent.html">Sandra Pérez</a></h3>
+                            <h3><a href="gobernTeam.html">Sandra Pérez</a></h3>
                             <p class="h-info"><span class="location">Concejala Personal</span> </p>
                         </div>
                     </div>
@@ -377,41 +377,89 @@
         </div>
     </section>
     <section class="ftco-section ftco-no-pt">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
-        <div id="center">
-            <canvas id="speedChart" width="100" height="50"></canvas>
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <h1>Métricas</h1>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+                    <div id="center">
+                        <canvas id="userGraphic" width="100" height="50"></canvas>
+                    </div>
+                    <script>
+                        var div_line_chart = document.getElementById("userGraphic");
+                        var userGraphic = new Chart(div_line_chart, {
+                            type: 'line',
+                            data: {
+                                labels: [],
+                                datasets: [
+                                    {
+                                        label: "Usuarios registrados",
+                                        fill: false,
+                                        lineTension: 1,
+                                        backgroundColor: "#428bca",
+                                        borderColor: "#357ebd",
+                                        borderCapStyle: 'butt',
+                                        borderDash: [],
+                                        borderDashOffset: 0,
+                                        borderJoinStyle: 'miter',
+                                        pointBorderColor: "#3276B1",
+                                        pointBackgroundColor: "#3276B1",
+                                        pointBorderWidth: 1,
+                                        pointHoverRadius: 5,
+                                        pointHoverBackgroundColor: "#3276B1",
+                                        pointHoverBorderColor: "#3276B1",
+                                        pointHoverBorderWidth: 2,
+                                        pointRadius: 1,
+                                        pointHitRadius: 10,
+                                        data: [0, "{{users}}"],
+                                    }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: true,
+                            }
+                        });
+                    </script>
+                    <br>
+                    <div id="center">
+                        <canvas id="interactionGraphic" width="100" height="50"></canvas>
+                    </div>
+                    <script>
+                        var div_line_chart = document.getElementById("interactionGraphic");
+                        var interactionGraphic = new Chart(div_line_chart, {
+                            type: 'bar',
+                            scaleOverride: true,
+                            scaleSteps: 1,
+                            scaleStartValue: 0,
+                            data: {
+                                labels: ["Locales", "Eventos", "Comentarios"],
+                                datasets: [
+                                    {
+                                        label: "Cantidad",
+                                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                                        data: ["{{locals}}", "{{events}}", "{{comments}}"],
+                                    }
+                                ]
+                            },
+                            options: {
+                                legend: { display: false },
+                                title: {
+                                    display: true,
+                                    text: 'Interacciones'
+                                },
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
         </div>
-        <script>
-            var speedCanvas = document.getElementById("speedChart");
-
-            Chart.defaults.global.defaultFontFamily = "Lato";
-            Chart.defaults.global.defaultFontSize = 18;
-
-            var data = {
-                label: "Usuarios registrados en el Ayuntamiento",
-                datasets: [{
-                    label: "Usuarios registrados",
-                    data: [0, 5, 10],
-                }]
-            };
-
-            var chartOptions = {
-                legend: {
-                    display: true,
-                    position: 'top',
-                    labels: {
-                        boxWidth: 80,
-                        fontColor: 'black'
-                    }
-                }
-            };
-
-            var lineChart = new Chart(speedCanvas, {
-                type: 'line',
-                data: data,
-                options: chartOptions
-
-            });
-        </script>
     </section>
     {{> footer}}
