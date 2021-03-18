@@ -47,6 +47,7 @@ public class AppController {
 
         model.addAttribute("event",eventService.findAll());
 
+
         return "properties";
     }
 
@@ -63,34 +64,11 @@ public class AppController {
     }
 
     @GetMapping("/profile")
-    public String profile_page(Model model){
+    public String profile_page(Model model,HttpServletRequest request){
         return "perfil";
     }
 
 
-    @PostMapping("/registeredUser")
-    public String userRegister (@RequestParam String name, @RequestParam String DNI, @RequestParam String mail, @RequestParam String password, @RequestParam String description, Model model){
-        User user = new User(name,mail,description,DNI,password,"USER");
-        repository.save(user);
-        model.addAttribute("user",user);
-        return "perfil";
-    }
 
 
-    @ModelAttribute
-    public void addAttributes(Model model, HttpServletRequest request) {
-
-        Principal principal = request.getUserPrincipal();
-        if (principal != null) {
-
-            model.addAttribute("logged", true);
-            model.addAttribute("userName", principal.getName());
-            model.addAttribute("user", repository.findByDNI(principal.getName()));
-            model.addAttribute("admin", request.isUserInRole("ADMIN"));
-            //model.addAttribute("user",repository.findById(id));
-
-        } else {
-            model.addAttribute("logged", false);
-        }
-    }
 }

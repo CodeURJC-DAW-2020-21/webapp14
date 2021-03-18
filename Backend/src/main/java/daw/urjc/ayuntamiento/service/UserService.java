@@ -1,6 +1,7 @@
 package daw.urjc.ayuntamiento.service;
 
 
+import daw.urjc.ayuntamiento.modules.Store;
 import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,14 @@ public class UserService{
         repository.deleteById(id);
     }
 
+    public Optional<User> findId(long id){
+        return repository.findById(id);
+    }
 
+    public  Optional<User> findByName(String name){
+        return repository.findByName(name);
+    }
+    public Optional<User> findByDNI(String DNI){
+        return repository.findByDNI(DNI);
+    }
 }

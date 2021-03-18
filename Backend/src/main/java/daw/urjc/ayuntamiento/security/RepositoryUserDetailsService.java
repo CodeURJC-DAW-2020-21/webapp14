@@ -21,9 +21,9 @@ public class RepositoryUserDetailsService implements UserDetailsService {
 	private UserRepository userRepository;
 
 	@Override
-	public UserDetails loadUserByUsername(String DNI) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String Name) throws UsernameNotFoundException {
 
-		User user = userRepository.findByDNI(DNI)
+		User user = userRepository.findByName(Name)
 				.orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
 		List<GrantedAuthority> roles = new ArrayList<>();
@@ -31,7 +31,7 @@ public class RepositoryUserDetailsService implements UserDetailsService {
 			roles.add(new SimpleGrantedAuthority("ROLE_" + role));
 		}
 
-		return new org.springframework.security.core.userdetails.User(user.getDNI(),
+		return new org.springframework.security.core.userdetails.User(user.getName(),
 				user.getPassword(), roles);
 
 	}

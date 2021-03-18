@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.nio.file.Path;
 import java.sql.Blob;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class Event {
     private Long id;
 
     @OneToMany
-    private List<Comment> comment;
+    private List<Comment> comment = new ArrayList<>();
 
 
 
