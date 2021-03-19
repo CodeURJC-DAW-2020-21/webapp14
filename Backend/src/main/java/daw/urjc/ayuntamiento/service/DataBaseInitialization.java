@@ -55,7 +55,7 @@ public class DataBaseInitialization {
 
 
         User user2=new User("admin","admin@admin.com","admin","admin",passwordEncoder.encode("password")/*, "ADMIN" ,"USER" */);
-        setUserImage(user2,"/static/images/pozo.jpg");
+        setUserImage(user2,"/static/images/alexelcapo.jpg");
         List<String> roles2 = new LinkedList<>();
         roles2.add("USER");
         roles2.add("ADMIN");
@@ -65,9 +65,13 @@ public class DataBaseInitialization {
 
         Comment c1=new Comment("Hola buenos dias me llamo javi");
         c1.setDate(date);
+        c1.setName("Antoñito");
+        setCommentImage(c1,"/static/images/alexelcapo.jpg");
+
         Comment c2=new Comment("El pozos");
         c2.setDate(date);
-
+        c2.setName("Cocas");
+        setCommentImage(c2,"/static/images/pozo.jpg");
 
         commentRepository.save(c1);
         commentRepository.save(c2);
@@ -81,9 +85,37 @@ public class DataBaseInitialization {
 
         eventRepository.save(event1);
 
+        Event event2 = new Event("Furbo","furbo","furbo","12/12/22","furbo","1","2","3");
+        setEventImage(event2,"static/images/alexelcapo.jpg");
+
+        eventRepository.save(event2);
+
+        Event event3 = new Event("Furbo","Furbo","furbo","12/12/22","furbo","1","2","3");
+        setEventImage(event3,"static/images/alexelcapo.jpg");
+        eventRepository.save(event3);
+
+        Event event4 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3");
+        setEventImage(event4,"static/images/alexelcapo.jpg");
+        eventRepository.save(event4);
+
+
+        Event event6 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3");
+        setEventImage(event6,"static/images/alexelcapo.jpg");
+        eventRepository.save(event6);
+
+        Event event7 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3");
+        setEventImage(event7,"static/images/alexelcapo.jpg");
+        eventRepository.save(event7);
+
+
+
+
         Comment c3=new Comment("pozito calvo un clabito");
+        c3.setDate(date);
         Comment c4=new Comment("Lil pozoi");
+        c4.setDate(date);
         Comment c5=new Comment("Xx__pozoSlayer__xX");
+        c5.setDate(date);
 
         commentRepository.save(c3);
         commentRepository.save(c4);
@@ -91,27 +123,52 @@ public class DataBaseInitialization {
 
 
         Store store1 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
-        setStoreImage(store1,"/static/images/pozo.jpg");
+        setStoreImage1(store1,"/static/images/pozo.jpg");
+        setStoreImage2(store1,"/static/images/alexelcapo.jpg");
 
         store1.getComment().add(c3);
         store1.getComment().add(c4);
         store1.getComment().add(c5);
         storeRepository.save(store1);
 
+        Store store2 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
+        setStoreImage1(store2,"/static/images/pozo.jpg");
+        storeRepository.save(store2);
+
+        Store store3 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
+        setStoreImage1(store3,"/static/images/pozo.jpg");
+        storeRepository.save(store3);
+
+        Store store4 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
+        setStoreImage1(store4,"/static/images/pozo.jpg");
+        storeRepository.save(store4);
+
+        Store store5 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
+        setStoreImage1(store5,"/static/images/pozo.jpg");
+        storeRepository.save(store5);
+
 
 
 
 
     }
 
-    private void setStoreImage(Store store, String classpathResource) throws IOException {
+    private void setStoreImage1(Store store, String classpathResource) throws IOException {
         Resource image = new ClassPathResource(classpathResource);
-        store.setImageFile1(BlobProxy.generateProxy(image.getInputStream(),image.contentLength()));
+        store.setImageField1(BlobProxy.generateProxy(image.getInputStream(),image.contentLength()));
+    }
+    private void setStoreImage2(Store store, String classpathResource) throws IOException {
+        Resource image = new ClassPathResource(classpathResource);
+        store.setImageField2(BlobProxy.generateProxy(image.getInputStream(),image.contentLength()));
     }
 
     public void setEventImage(Event event, String classpathResource) throws IOException{
         Resource image = new ClassPathResource(classpathResource);
         event.setImageFile(BlobProxy.generateProxy(image.getInputStream(),image.contentLength()));
+    }
+    public void setCommentImage(Comment comment, String classpathResource) throws IOException{
+        Resource image = new ClassPathResource(classpathResource);
+        comment.setImageFile(BlobProxy.generateProxy(image.getInputStream(),image.contentLength()));
     }
 
     public void setUserImage(User user, String classpathResource) throws IOException{

@@ -28,7 +28,7 @@ public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
 
     @OneToMany
     private List<Comment> comment = new ArrayList<>();
@@ -38,6 +38,7 @@ public class Event {
     protected Event(){}
 
     public Event(String name, String activities, String description, String date, String place, String reward, String people, String price) {
+        super();
         this.name = name;
         this.activities = activities;
         this.description = description;
@@ -125,11 +126,11 @@ public class Event {
         this.imageFile = imageFile;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

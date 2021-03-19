@@ -17,10 +17,11 @@
         <div class="container">
 
             <br>
+            <div id="events">
             <div class="row">
                 {{#event}}
-                <div class="col-md-4">
-                    <div class="property-wrap ftco-animate">
+                <div class="col-md-4 eldiv">
+                    <div class="property-wrap ftco-animate fadeInUp ftco-animated">
                         <a href="/event/{{id}}" class="img" style="background-image: url(/event/{{id}}/image)"></a>
                         <div class="text">
                             <h3><a href="/event/{{id}}">{{name}}</a></h3>
@@ -40,12 +41,13 @@
 
 
             </div>
-            <div class="row mt-5">
-                <div class="col text-center">
-                    <div class="block-27">
-                        <button>Cargar más</button>
-                    </div>
-                </div>
+            </div>
+            <div id="hasNextPage">
+                <ul class="pagination justify-content-center pagination-sm" id="button-replace">
+                    {{#hasNext}}
+                    <button class="btn btn-accent" id="load-more">Cargar más</button>
+                    {{/hasNext}}
+                </ul>
             </div>
         </div>
     </section>
