@@ -45,4 +45,5 @@ public class CommentService {
         return repository.findByName(name);
     }
 
+    public long count(){return repository.count();}
 }

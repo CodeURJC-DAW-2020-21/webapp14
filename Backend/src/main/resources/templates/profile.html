@@ -31,7 +31,16 @@
                 <br>
                 <div class="profile-block">
                     <h2>Insignias:</h2>
-                    <img src="images/commentbadge1.png"/>
+
+                    <img src ="images/registered.png"/>
+                    <p>¡Te has registrado en nuestra pagina!</p>
+                    {{#commentbadge}}
+                    <img src="images/{{commentbadge}}"/>
+                    {{/commentbadge}}
+                    {{#commentlevel}}
+                    <p>Comentador de nivel: {{commentlevel}}</p>
+                    {{/commentlevel}}
+
                 </div>
             </div>
             <div class="col-md-3 mb-md-4">
