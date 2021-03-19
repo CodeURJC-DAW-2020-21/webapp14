@@ -6,6 +6,9 @@ import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.repository.StoreRepository;
 import daw.urjc.ayuntamiento.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,5 +38,9 @@ public class LocalService {
 
     public void delete(long id) {
         repository.deleteById(id);
+    }
+
+    public Page<Store> findLocals(Pageable pageable) {
+        return repository.findAll(PageRequest.of(pageable.getPageNumber(), 4));
     }
 }
