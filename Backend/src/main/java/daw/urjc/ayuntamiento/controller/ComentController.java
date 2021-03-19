@@ -67,9 +67,9 @@ public class ComentController {
 
     }
 
-    @GetMapping("/comment/{name}")
-    public ResponseEntity<Object> giveUserImage(@PathVariable String name) throws SQLException {
-        Optional<Comment> comment = commentService.findName(name);
+    @GetMapping("/comment/{id}")
+    public ResponseEntity<Object> giveUserImage(@PathVariable long id) throws SQLException {
+        Optional<Comment> comment = commentService.findId(id);
         if(comment.isPresent() && comment.get().getImageFile() != null){
             Resource file = new InputStreamResource(comment.get().getImageFile().getBinaryStream());
             return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").contentLength(comment.get().getImageFile().length()).body(file);
