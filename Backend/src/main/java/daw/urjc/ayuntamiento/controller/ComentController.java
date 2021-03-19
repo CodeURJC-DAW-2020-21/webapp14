@@ -63,6 +63,7 @@ public class ComentController {
 
         Optional<Event> event = eventService.findId(id);
         event.get().getComment().add(commentaux);
+        user.get().getComment().add(commentaux);
         //Event eventObject = new Event(event.get().getName(),event.get().getActivities(),event.get().getDescription(),event.get().getDate(),event.get().getPlace(),event.get().getReward(),event.get().getPeople(),event.get().getPrice());
         //eventObject.setImageFile(event.get().getImageFile());
         //eventObject.setComment(event.get().getComment());
@@ -92,6 +93,7 @@ public class ComentController {
 
         Optional<Store> local = localService.findId(id);
         local.get().getComment().add(commentaux);
+        user.get().getComment().add(commentaux);
         //Event eventObject = new Event(event.get().getName(),event.get().getActivities(),event.get().getDescription(),event.get().getDate(),event.get().getPlace(),event.get().getReward(),event.get().getPeople(),event.get().getPrice());
         //eventObject.setImageFile(event.get().getImageFile());
         //eventObject.setComment(event.get().getComment());
