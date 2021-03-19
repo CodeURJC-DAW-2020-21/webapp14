@@ -42,4 +42,6 @@ public class EventService {
         return repository.findAll(PageRequest.of(pageable.getPageNumber(), 3));
     }
 
+    public long count(){return repository.count();}
+
 }
