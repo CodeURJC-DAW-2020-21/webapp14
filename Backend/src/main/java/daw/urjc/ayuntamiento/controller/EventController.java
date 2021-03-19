@@ -53,7 +53,7 @@ public class EventController {
             service.delete(id);
             model.addAttribute("event", service.findAll());
         }
-        return "events";
+        return "eventDelete";
     }
 
 
