@@ -45,6 +45,18 @@ public class EventController {
         }
     }
 
+    @GetMapping("/removeEvent/{id}")
+    public String removeEvent(@PathVariable long id) {
+
+        Optional<Event> event = service.findId(id);
+        if (event.isPresent()) {
+            service.delete(id);
+        }
+        return "eventDelete";
+    }
+
+
+
 
 
 

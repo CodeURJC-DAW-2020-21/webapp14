@@ -1,6 +1,18 @@
 {{>header}}
+<br>
+<br>
+<br>
+<br>
+{{#admin}}
+<div class="form-group" >
+	<input type="submit" value="Eliminar Evento" class="btn btn-danger py-3 px-4 float-right botonDerecha" onclick="location.href='/removeEvent/{{event.id}}'"></input>
 
-	<section class="ftco-section ftco-property-details">
+</div>
+{{/admin}}
+
+
+
+<section class="ftco-section ftco-property-details">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-12">
@@ -64,7 +76,7 @@
 
 										{{#event.comment}}
 										<div class="review d-flex">
-											<div class="user-img" style="background-image: url(/comment/{{name}})">
+											<div class="user-img" style="background-image: url(/comment/{{id}})">
 											</div>
 											<div class="desc">
 												<h4>

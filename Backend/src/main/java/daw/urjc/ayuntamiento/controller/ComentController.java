@@ -11,6 +11,8 @@ import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -40,7 +42,7 @@ public class ComentController {
     private UserService userService;
 
     @PostMapping("/createCommentEvents/{id}")
-    public String commentcreation(Comment comment, Model model, HttpServletRequest request,@PathVariable long id) throws IOException, SQLException {
+    public String commentcreation(Comment comment, Model model, Pageable pageable, HttpServletRequest request, @PathVariable long id) throws IOException, SQLException {
         Principal principal = request.getUserPrincipal();
         Optional<User> user = userService.findByName(principal.getName());
 
@@ -62,14 +64,16 @@ public class ComentController {
         //eventService.delete(id);
         Event eventAux = event.get();
         eventService.save(eventAux);
-        model.addAttribute("event",eventService.findAll());
+        Page<Event> eventPage = eventService.findEvents(pageable);
+        model.addAttribute("hasNext",eventPage.hasNext());
+        model.addAttribute("event", eventPage);
         return "events";
 
     }
 
-    @GetMapping("/comment/{name}")
-    public ResponseEntity<Object> giveUserImage(@PathVariable String name) throws SQLException {
-        Optional<Comment> comment = commentService.findName(name);
+    @GetMapping("/comment/{id}")
+    public ResponseEntity<Object> giveUserImage(@PathVariable long id) throws SQLException {
+        Optional<Comment> comment = commentService.findId(id);
         if(comment.isPresent() && comment.get().getImageFile() != null){
             Resource file = new InputStreamResource(comment.get().getImageFile().getBinaryStream());
             return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").contentLength(comment.get().getImageFile().length()).body(file);
