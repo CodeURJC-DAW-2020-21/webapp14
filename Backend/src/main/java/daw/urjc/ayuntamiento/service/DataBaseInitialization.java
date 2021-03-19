@@ -55,7 +55,7 @@ public class DataBaseInitialization {
 
 
         User user2=new User("admin","admin@admin.com","admin","admin",passwordEncoder.encode("password")/*, "ADMIN" ,"USER" */);
-        setUserImage(user2,"/static/images/pozo.jpg");
+        setUserImage(user2,"/static/images/alexelcapo.jpg");
         List<String> roles2 = new LinkedList<>();
         roles2.add("USER");
         roles2.add("ADMIN");
