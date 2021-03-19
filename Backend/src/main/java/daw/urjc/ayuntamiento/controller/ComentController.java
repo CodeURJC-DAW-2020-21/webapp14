@@ -67,10 +67,15 @@ public class ComentController {
 
     }
 
-    @GetMapping("/comment/{imageFile}")
-    public ResponseEntity<Object> giveUserImage(@PathVariable Blob imageFile) throws SQLException {
-            Resource file = new InputStreamResource(imageFile.getBinaryStream());
-            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").contentLength(imageFile.length()).body(file);
+    @GetMapping("/comment/{name}")
+    public ResponseEntity<Object> giveUserImage(@PathVariable String name) throws SQLException {
+        Optional<Comment> comment = commentService.findName(name);
+        if(comment.isPresent() && comment.get().getImageFile() != null){
+            Resource file = new InputStreamResource(comment.get().getImageFile().getBinaryStream());
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").contentLength(comment.get().getImageFile().length()).body(file);
+        }else{
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }
