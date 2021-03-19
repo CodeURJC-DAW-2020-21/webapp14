@@ -50,7 +50,7 @@ public class AppController {
 
     @GetMapping("/error")
     public String errorLink(Model model) {
-        return "error404";
+        return "error";
     }
 
     @GetMapping("/profile")
