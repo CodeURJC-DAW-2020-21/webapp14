@@ -132,19 +132,19 @@ public class DataBaseInitialization {
         storeRepository.save(store1);
 
         Store store2 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
-        setStoreImage(store2,"/static/images/pozo.jpg");
+        setStoreImage1(store2,"/static/images/pozo.jpg");
         storeRepository.save(store2);
 
         Store store3 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
-        setStoreImage(store3,"/static/images/pozo.jpg");
+        setStoreImage1(store3,"/static/images/pozo.jpg");
         storeRepository.save(store3);
 
         Store store4 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
-        setStoreImage(store4,"/static/images/pozo.jpg");
+        setStoreImage1(store4,"/static/images/pozo.jpg");
         storeRepository.save(store4);
 
         Store store5 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
-        setStoreImage(store5,"/static/images/pozo.jpg");
+        setStoreImage1(store5,"/static/images/pozo.jpg");
         storeRepository.save(store5);
 
 
