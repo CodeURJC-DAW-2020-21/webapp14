@@ -3,6 +3,9 @@ package daw.urjc.ayuntamiento.service;
 import daw.urjc.ayuntamiento.modules.Event;
 import daw.urjc.ayuntamiento.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,5 +37,11 @@ public class EventService {
     public void delete(long id) {
         repository.deleteById(id);
     }
+
+    public Page<Event> findEvents(Pageable pageable) {
+        return repository.findAll(PageRequest.of(pageable.getPageNumber(), 3));
+    }
+
+    public long count(){return repository.count();}
 
 }

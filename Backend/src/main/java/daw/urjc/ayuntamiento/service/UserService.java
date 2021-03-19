@@ -50,4 +50,6 @@ public class UserService{
     public Optional<User> findByDNI(String DNI){
         return repository.findByDNI(DNI);
     }
+
+    public long count(){return repository.count();}
 }

@@ -4,21 +4,23 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 order-md-last ftco-animate">
-                <h1 class="mb-3">{{name}}</h1>
-                <p>{{description}}</p>
+                <h1 class="mb-3">{{local.name}}</h1>
+                <p>{{local.description}}</p>
                 <p>
-                    <img src={{primaryImage}} alt="" class="img-fluid">
+                    <img src=/local/{{id}}/image1 alt="" class="img-fluid">
                 </p>
                 <h2 class="mb-3 mt-5">Servicios</h2>
-                <p>{{services}}</p>
+                <p>{{local.services}}</p>
                 <p>
-                    <img src={{secondaryImage}} alt="" class="img-fluid">
+                    {{#local.imageField2}}
+                    <img src="/local/{{id}}/image2" alt="" class="img-fluid">
+                    {{/local.imageField2}}
                 </p>
                 <h3>Cuándo y dónde estamos</h3>
                 <p><b>Horario:</b></p>
-                <p>De {{openDay}} a {{closeDay}}, de {{openHour}} a {{closeHour}}</p>
+                <p>De {{local.openDay}} a {{local.closeDay}}, de {{local.openHour}} a {{local.closeHour}}</p>
                 <p><b>Dirección:</b></p>
-                <p>{{street}}</p>
+                <p>{{local.street}}</p>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12197.069550752036!2d-3.6184!3d40.1586!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x71a413d23efb36f1!2sEl%20Camachito!5e0!3m2!1ses!2ses!4v1614009569558!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 <div class="tag-widget post-tag-container mb-5 mt-5">
                     <div class="tagcloud">
@@ -29,62 +31,39 @@
                     </div>
                 </div>
 
-
                 <div class="pt-5 mt-5">
-                    <h3 class="mb-5">3 Comentarios</h3>
+                    <h3 class="mb-5">Opiniones</h3>
+                    {{#local.comment}}
                     <ul class="comment-list">
                         <li class="comment">
                             <div class="vcard bio">
-                                <img src="/images/letter-m.jpg" alt="Image placeholder">
+                                <img src="/comment/{{id}}" alt="">
                             </div>
                             <div class="comment-body">
-                                <h3>Maribel González Ávila</h3>
-                                <div class="meta">Hace 6 días</div>
-                                <p>Local muy bonito castellano con unas vidrieras blancas con serigrafia. Una gran lámpara y espejos. Tomando una caña te ponen un rico aperitivo. El menú 9 €.... Cuidado que las bebidas van a parte.</p>
-                                <p><a href="#" class="reply">Responder</a></p>
+                                <h3>{{name}}</h3>
+                                <div class="meta">{{date}}</div>
+                                <p>{{text}}</p>
                             </div>
-                        </li>
-
-                        <li class="comment">
-                            <div class="vcard bio">
-                                <img src="/images/letter-g.jpg" alt="Image placeholder">
-                            </div>
-                            <div class="comment-body">
-                                <h3>Gabriel Fernández</h3>
-                                <div class="meta">Hace 1 mes</div>
-                                <p>Fuimos a cenar un grupo de amigos, y en general lo pasamos muy bien y estamos agusto, por poner alguna pega, el servicio es algo lento, ya que suele estar bastante concurrido.</p>
-                                <p><a href="#" class="reply">Responder</a></p>
-                            </div>
-
-                            <ul class="children">
-                                <li class="comment">
-                                    <div class="vcard bio">
-                                        <img src="/images/letter-e.png" alt="Image placeholder">
-                                    </div>
-                                    <div class="comment-body">
-                                        <h3>El Camachito</h3>
-                                        <div class="meta">Hace 1 mes</div>
-                                        <p>Hola Gabriel, gracias por tu comentario, intentaremos mejorar nuestro servicio en la mediada de lo posible para que tengas la mejor experiencia. Te esperamos!</p>
-                                        <p><a href="#" class="reply">Responder</a></p>
-                                    </div>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
-                    <!-- END comment-list -->
+                    {{/local.comment}}
 
+
+                    {{#logged}}
                     <div class="comment-form-wrap pt-5">
                         <h3 class="mb-5">Deja tu comentario</h3>
-                        <form action="#" class="p-5 bg-light">
+                        <form action="/createCommentLocal/{{id}}" method="post" class="p-5 bg-light">
                             <div class="form-group">
                                 <label for="message">Comentario</label>
-                                <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                                <input name="text" id="message" cols="30" rows="10" class="form-control"/>
                             </div>
                             <div class="form-group">
+                                <input type="hidden" name="_csrf" value="{{token}}">
                                 <input type="submit" value="Enviar Comentario" class="btn py-3 px-4 btn-primary">
                             </div>
                         </form>
                     </div>
+                    {{/logged}}
                 </div>
             </div> <!-- .col-md-8 -->
             <div class="col-md-4 sidebar ftco-animate">
