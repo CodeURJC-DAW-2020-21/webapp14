@@ -46,12 +46,11 @@ public class EventController {
     }
 
     @GetMapping("/removeEvent/{id}")
-    public String removeEvent(Model model, @PathVariable long id) {
+    public String removeEvent(@PathVariable long id) {
 
         Optional<Event> event = service.findId(id);
         if (event.isPresent()) {
             service.delete(id);
-            model.addAttribute("event", service.findAll());
         }
         return "eventDelete";
     }
