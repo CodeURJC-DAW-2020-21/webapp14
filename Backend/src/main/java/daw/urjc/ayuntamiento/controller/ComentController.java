@@ -3,9 +3,11 @@ package daw.urjc.ayuntamiento.controller;
 
 import daw.urjc.ayuntamiento.modules.Comment;
 import daw.urjc.ayuntamiento.modules.Event;
+import daw.urjc.ayuntamiento.modules.Store;
 import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.service.CommentService;
 import daw.urjc.ayuntamiento.service.EventService;
+import daw.urjc.ayuntamiento.service.LocalService;
 import daw.urjc.ayuntamiento.service.UserService;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +36,9 @@ public class ComentController {
 
     @Autowired
     private EventService eventService;
+
+    @Autowired
+    private LocalService localService;
 
     @Autowired
     private CommentService commentService;
@@ -68,6 +73,35 @@ public class ComentController {
         model.addAttribute("hasNext",eventPage.hasNext());
         model.addAttribute("event", eventPage);
         return "events";
+
+    }
+    @PostMapping("/createCommentLocal/{id}")
+    public String commentcreationLocal(Comment comment, Model model, Pageable pageable, HttpServletRequest request, @PathVariable long id) throws IOException, SQLException {
+        Principal principal = request.getUserPrincipal();
+        Optional<User> user = userService.findByName(principal.getName());
+
+        Comment commentaux = new Comment(comment.getText());
+        commentaux.setName(user.get().getName());
+        Date date= new Date();
+        commentaux.setDate(date);
+
+        commentaux.setImageFile(user.get().getImageFile());
+
+        commentService.save(commentaux);
+
+
+        Optional<Store> local = localService.findId(id);
+        local.get().getComment().add(commentaux);
+        //Event eventObject = new Event(event.get().getName(),event.get().getActivities(),event.get().getDescription(),event.get().getDate(),event.get().getPlace(),event.get().getReward(),event.get().getPeople(),event.get().getPrice());
+        //eventObject.setImageFile(event.get().getImageFile());
+        //eventObject.setComment(event.get().getComment());
+        //eventService.delete(id);
+        Store localaux = local.get();
+        localService.save(localaux);
+        Page<Store> localsPage = localService.findLocals(pageable);
+        model.addAttribute("hasNext",localsPage.hasNext());
+        model.addAttribute("local",localsPage);
+        return "locals";
 
     }
 

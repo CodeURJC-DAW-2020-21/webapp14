@@ -112,10 +112,16 @@ public class DataBaseInitialization {
 
         Comment c3=new Comment("pozito calvo un clabito");
         c3.setDate(date);
+        c3.setName("Pepe");
+        setCommentImage(c3,"static/images/felipe.jpg");
         Comment c4=new Comment("Lil pozoi");
         c4.setDate(date);
+        c4.setName("Tonto nº1");
+        setCommentImage(c4,"static/images/PedroJimenez.jpg");
         Comment c5=new Comment("Xx__pozoSlayer__xX");
         c5.setDate(date);
+        c5.setName("Tonto nº2");
+        setCommentImage(c5,"static/images/Lebron.jpg");
 
         commentRepository.save(c3);
         commentRepository.save(c4);
