@@ -75,14 +75,10 @@ public class EventController {
         user.get().getEventSuscribe().add(id);
         Optional<Event> event = service.findId(id);
         String aux1 = event.get().getTag1();
-        String aux2 = event.get().getTag2();
         Map<String,Integer> mapaux = user.get().getMap();
         Integer actualvalor1 = mapaux.get(aux1);
-        Integer actualvalor2 = mapaux.get(aux2);
         actualvalor1 = actualvalor1+1;
-        actualvalor2 = actualvalor2+1;
         mapaux.put(aux1,actualvalor1);
-        mapaux.put(aux2,actualvalor2);
         user.get().setMap(mapaux);
         user.get().getEvents().add(event.get().getName());
         userService.save(user.get());
