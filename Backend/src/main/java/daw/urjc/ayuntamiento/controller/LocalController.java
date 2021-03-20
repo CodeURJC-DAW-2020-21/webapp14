@@ -53,18 +53,4 @@ public class LocalController {
             return ResponseEntity.notFound().build();
         }
     }
-
-    @GetMapping("/removeLocal/{id}")
-    public String removeLocal(Model model, @PathVariable long id) {
-
-        Optional<Store> store = service.findId(id);
-        if (store.isPresent()) {
-           service.delete(id);
-            model.addAttribute("local",service.findAll());
-        }
-        return "locals";
-    }
-
-
-
 }
