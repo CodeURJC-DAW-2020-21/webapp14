@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.security.Principal;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
@@ -41,6 +43,7 @@ public class UserController {
         }
         String passwordaux;
         passwordaux=passwordEncoder.encode(user.getPassword());
+
         user.setPassword(passwordaux);
         List<String> roles = new LinkedList<>();
         roles.add("USER");
@@ -62,5 +65,51 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
     }
+
+
+    @PostMapping("/editProfileP")
+    public String editProfile(Model model, User user, MultipartFile imageField,HttpServletRequest request) throws IOException {
+
+        Principal principal = request.getUserPrincipal();
+        Optional<User> principaluser = service.findByName(principal.getName());
+
+        if (user.getPassword().isEmpty()){
+            user.setPassword(principaluser.get().getPassword());
+        }
+
+        if (imageField.isEmpty()){
+
+            user.setImageFile(principaluser.get().getImageFile());
+        }
+        else {
+            user.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
+        }
+
+        service.save(user);
+
+
+        return "profile";
+    }
+
+
+
+    @GetMapping("/editProfile")
+    public String editProfile(Model model, HttpServletRequest request) {
+
+        Principal principal = request.getUserPrincipal();
+        Optional<User> user = service.findByName(principal.getName());
+
+        if (user.isPresent()) {
+            model.addAttribute("user", user.get());
+            return "editpProfile";
+        } else {
+            return "login";
+        }
+    }
+
+
+
+
+
 }
 

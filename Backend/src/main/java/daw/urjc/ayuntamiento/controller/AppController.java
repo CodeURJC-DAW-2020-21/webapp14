@@ -138,10 +138,8 @@ public class AppController {
         return "profile";
     }
 
-    @GetMapping("/editProfile")
-    public String editP(Model model){
-        return "editpProfile";
-    }
+
+
 
 
 }
