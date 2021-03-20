@@ -25,11 +25,7 @@ public class FormController {
     private EventService eventService;
 
     @Autowired
-    private LocalService storeRepository;
-
-    @Autowired
     private CommentService commentService;
-
 
     @Autowired
     private LocalService localService;
@@ -49,7 +45,6 @@ public class FormController {
 
         if (!imageField.isEmpty()) {
             event.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
-
         }
 
         // Event event = new Event(name,activities,description,date,place,reward,people,price,imageFile);
@@ -59,7 +54,7 @@ public class FormController {
         return "events";
     }
 
-    @PostMapping("/createLocal")
+    @PostMapping("/locals")
     public String localcreation(Store store,MultipartFile imageField1, MultipartFile imageField2,Model model) throws IOException {
 
         if (!imageField1.isEmpty()) {

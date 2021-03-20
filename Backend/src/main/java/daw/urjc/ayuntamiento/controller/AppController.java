@@ -69,7 +69,7 @@ public class AppController {
         return "events";
     }
 
-    @GetMapping("/locals")
+    @RequestMapping("/locals")
     public String localsLink(Model model, Pageable pageable) {
 
         Page<Store> localsPage = localService.findLocals(pageable);

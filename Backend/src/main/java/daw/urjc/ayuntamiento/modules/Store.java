@@ -38,6 +38,7 @@ public class Store {
     protected Store(){}
 
     public Store(String name, String description, String services, String openDay, String closeDay, String openHour, String closeHour, String street) {
+        super();
         this.name = name;
         this.description = description;
         this.services = services;
