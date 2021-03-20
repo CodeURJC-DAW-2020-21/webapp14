@@ -89,19 +89,19 @@ public class AppController {
         Principal principal = request.getUserPrincipal();
         Optional<User> user = userService.findByName(principal.getName());
         int commentsnumber = user.get().getComment().size();
-        if(commentsnumber>=5){
+        if(commentsnumber>=100){
             model.addAttribute("commentbadge","commentbadge5.png");
             model.addAttribute("commentlevel","5");
-        } else if(commentsnumber>=4){
+        } else if(commentsnumber>=50){
             model.addAttribute("commentbadge","commentbadge4.png");
             model.addAttribute("commentlevel","4");
-        } else if(commentsnumber>=3){
+        } else if(commentsnumber>=25){
             model.addAttribute("commentbadge","commentbadge3.png");
             model.addAttribute("commentlevel","3");
-        } else if(commentsnumber>=2){
+        } else if(commentsnumber>=10){
             model.addAttribute("commentbadge","commentbadge2.png");
             model.addAttribute("commentlevel","2");
-        } else if(commentsnumber>=1){
+        } else if(commentsnumber>=5){
             model.addAttribute("commentbadge","commentbadge1.png");
             model.addAttribute("commentlevel","1");
         }
