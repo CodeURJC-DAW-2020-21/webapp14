@@ -70,7 +70,7 @@ public class FormController {
             store.setImageField2(BlobProxy.generateProxy(imageField2.getInputStream(), imageField2.getSize()));
         }
 
-        storeRepository.save(store);
+        localService.save(store);
         model.addAttribute("local",localService.findAll());
         return "locals";
     }
