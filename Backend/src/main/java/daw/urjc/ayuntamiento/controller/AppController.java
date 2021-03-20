@@ -127,9 +127,14 @@ public class AppController {
             tagaux="Videojuegos";
         }
         List<Event> eventsList = eventService.findAllByTag1(tagaux);
-        int randomNumber = (int) Math.floor(Math.random()*((eventsList.size())));
-        Event recommendedEvent = eventsList.get(randomNumber);
-        model.addAttribute("recommendedEvent",recommendedEvent);
+        if (!eventsList.isEmpty()){
+            int randomNumber = (int) Math.floor(Math.random()*((eventsList.size())));;
+            while(user.get().getEventSuscribe().contains(eventsList.get(randomNumber).getId())){
+                randomNumber = (int) Math.floor(Math.random()*((eventsList.size())));
+            }
+            Event recommendedEvent = eventsList.get(randomNumber);
+            model.addAttribute("recommendedEvent",recommendedEvent);
+        }
         return "profile";
     }
 
