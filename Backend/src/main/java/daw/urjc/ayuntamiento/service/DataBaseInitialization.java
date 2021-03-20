@@ -78,32 +78,32 @@ public class DataBaseInitialization {
 
 
 
-        Event event1 = new Event("Ajedrez","jugar","juegos varios","12/12/22","mi casa","0","10","0");
+        Event event1 = new Event("Ajedrez","jugar","juegos varios","12/12/22","mi casa","0","10","0","Deporte","Cultura");
         setEventImage(event1, "/static/images/pozo.jpg");
         event1.getComment().add(c1);
         event1.getComment().add(c2);
 
         eventRepository.save(event1);
 
-        Event event2 = new Event("Furbo","furbo","furbo","12/12/22","furbo","1","2","3");
+        Event event2 = new Event("Furbo","furbo","furbo","12/12/22","furbo","1","2","3","Deporte","Cultura");
         setEventImage(event2,"static/images/alexelcapo.jpg");
 
         eventRepository.save(event2);
 
-        Event event3 = new Event("Furbo","Furbo","furbo","12/12/22","furbo","1","2","3");
+        Event event3 = new Event("Furbo","Furbo","furbo","12/12/22","furbo","1","2","3","Deporte","Cultura");
         setEventImage(event3,"static/images/alexelcapo.jpg");
         eventRepository.save(event3);
 
-        Event event4 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3");
+        Event event4 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3","Deporte","Cultura");
         setEventImage(event4,"static/images/alexelcapo.jpg");
         eventRepository.save(event4);
 
 
-        Event event6 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3");
+        Event event6 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3","Deporte","Cultura");
         setEventImage(event6,"static/images/alexelcapo.jpg");
         eventRepository.save(event6);
 
-        Event event7 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3");
+        Event event7 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3","Deporte","Cultura");
         setEventImage(event7,"static/images/alexelcapo.jpg");
         eventRepository.save(event7);
 

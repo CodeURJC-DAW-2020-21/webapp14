@@ -10,6 +10,8 @@ import daw.urjc.ayuntamiento.service.EventService;
 import daw.urjc.ayuntamiento.service.LocalService;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,11 +27,7 @@ public class FormController {
     private EventService eventService;
 
     @Autowired
-    private LocalService storeRepository;
-
-    @Autowired
     private CommentService commentService;
-
 
     @Autowired
     private LocalService localService;
@@ -45,33 +43,36 @@ public class FormController {
     }
 
     @PostMapping("/events")
-    public String eventcreation(Event event, MultipartFile imageField, Model model) throws IOException {
+    public String eventcreation(Event event, MultipartFile imageField, Model model,Pageable pageable) throws IOException {
 
         if (!imageField.isEmpty()) {
             event.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
-
         }
 
         // Event event = new Event(name,activities,description,date,place,reward,people,price,imageFile);
         eventService.save(event);
-        model.addAttribute("event",eventService.findAll());
+        Page<Event> eventPage = eventService.findEvents(pageable);
+        model.addAttribute("hasNext",eventPage.hasNext());
+        model.addAttribute("event", eventPage);
 
         return "events";
     }
 
-    @PostMapping("/createLocal")
-    public String localcreation(Store store,MultipartFile imageField1, MultipartFile imageField2,Model model) throws IOException {
+    @PostMapping("/locals")
+    public String localcreation(Store store, MultipartFile image1, MultipartFile image2, Model model, Pageable pageable) throws IOException {
 
-        if (!imageField1.isEmpty()) {
-            store.setImageField1(BlobProxy.generateProxy(imageField1.getInputStream(), imageField1.getSize()));
+        if (!image1.isEmpty()) {
+            store.setImageField1(BlobProxy.generateProxy(image1.getInputStream(), image1.getSize()));
         }
 
-        if (!imageField2.isEmpty()) {
-            store.setImageField2(BlobProxy.generateProxy(imageField2.getInputStream(), imageField2.getSize()));
+        if (!image2.isEmpty()) {
+            store.setImageField2(BlobProxy.generateProxy(image2.getInputStream(), image2.getSize()));
         }
 
-        storeRepository.save(store);
-        model.addAttribute("local",localService.findAll());
+        localService.save(store);
+        Page<Store> localsPage = localService.findLocals(pageable);
+        model.addAttribute("hasNext",localsPage.hasNext());
+        model.addAttribute("local",localsPage);
         return "locals";
     }
 
