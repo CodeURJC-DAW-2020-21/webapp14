@@ -22,6 +22,13 @@ public class User {
 
     @ElementCollection
     private List<Long> eventSuscribe;
+
+    @ElementCollection
+    private List<String> events;
+
+    @ElementCollection
+    private List<String> commentPlaces;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -139,5 +146,21 @@ public class User {
 
     public void setEventSuscribe(List<Long> eventSuscribe) {
         this.eventSuscribe = eventSuscribe;
+    }
+
+    public List<String> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<String> events) {
+        this.events = events;
+    }
+
+    public List<String> getCommentPlaces() {
+        return commentPlaces;
+    }
+
+    public void setCommentPlaces(List<String> commentPlaces) {
+        this.commentPlaces = commentPlaces;
     }
 }

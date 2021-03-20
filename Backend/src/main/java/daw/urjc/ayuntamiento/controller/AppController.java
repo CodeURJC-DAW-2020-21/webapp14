@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -103,6 +104,36 @@ public class AppController {
         } else if(commentsnumber>=1){
             model.addAttribute("commentbadge","commentbadge1.png");
             model.addAttribute("commentlevel","1");
+        }
+
+        String tagaux="";
+        int valaux = 0;
+
+        Map<String, Integer> mapaux = user.get().getMap();
+        if(mapaux.get("Deporte")>valaux){
+            valaux=mapaux.get("Deporte");
+            tagaux="Deporte";
+        }
+        if(mapaux.get("Cultura")>valaux){
+            valaux=mapaux.get("Cultura");
+            tagaux="Cultura";
+        }
+        if(mapaux.get("Musica")>valaux){
+            valaux=mapaux.get("Musica");
+            tagaux="Musica";
+        }
+        if(mapaux.get("Videojuegos")>valaux){
+            valaux=mapaux.get("Videojuegos");
+            tagaux="Videojuegos";
+        }
+        List<Event> eventsList = eventService.findAllByTag1(tagaux);
+        if (!eventsList.isEmpty()){
+            int randomNumber = (int) Math.floor(Math.random()*((eventsList.size())));;
+            while(user.get().getEventSuscribe().contains(eventsList.get(randomNumber).getId())){
+                randomNumber = (int) Math.floor(Math.random()*((eventsList.size())));
+            }
+            Event recommendedEvent = eventsList.get(randomNumber);
+            model.addAttribute("recommendedEvent",recommendedEvent);
         }
         return "profile";
     }

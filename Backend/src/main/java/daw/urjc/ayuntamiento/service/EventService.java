@@ -44,4 +44,6 @@ public class EventService {
 
     public long count(){return repository.count();}
 
+    public List<Event> findAllByTag1(String tag1){return repository.findAllByTag1(tag1);}
+
 }

@@ -84,6 +84,7 @@ public class EventController {
         mapaux.put(aux1,actualvalor1);
         mapaux.put(aux2,actualvalor2);
         user.get().setMap(mapaux);
+        user.get().getEvents().add(event.get().getName());
         userService.save(user.get());
         return "profile";
     }
