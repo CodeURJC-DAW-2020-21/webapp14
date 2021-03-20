@@ -43,6 +43,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/event/{{id}}").permitAll();
         http.authorizeRequests().antMatchers("/event/{{id}}/image").permitAll();
         http.authorizeRequests().antMatchers("/editProfile").permitAll();
+        http.authorizeRequests().antMatchers("/editProfileP").permitAll();
+
 
         // Private pages
         http.authorizeRequests().antMatchers("/profile").hasAnyRole("USER");;
@@ -50,6 +52,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/FormLocal").hasAnyRole("ADMIN");
         http.authorizeRequests().antMatchers("/removeEvent/*").hasAnyRole("ADMIN");
         http.authorizeRequests().antMatchers("/removeLocal/*").hasAnyRole("ADMIN");
+
+
 
 
         // Login form
