@@ -70,7 +70,7 @@ public class EventController {
         Principal principal = request.getUserPrincipal();
         Optional<User> user = userService.findByName(principal.getName());
         if (user.get().getEventSuscribe().contains(id)){
-            return "index";
+            return "alreadySubscribed";
         }
         user.get().getEventSuscribe().add(id);
         Optional<Event> event = service.findId(id);
@@ -82,6 +82,6 @@ public class EventController {
         user.get().setMap(mapaux);
         user.get().getEvents().add(event.get().getName());
         userService.save(user.get());
-        return "redirect:/";
+        return "subscribed";
     }
 }

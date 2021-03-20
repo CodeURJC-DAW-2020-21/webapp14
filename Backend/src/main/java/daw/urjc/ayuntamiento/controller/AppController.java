@@ -106,6 +106,24 @@ public class AppController {
             model.addAttribute("commentlevel","1");
         }
 
+        int subscribenumber = user.get().getEventSuscribe().size();
+        if(subscribenumber>=25){
+            model.addAttribute("subscribebadge","subscribebadge5.png");
+            model.addAttribute("subscribelevel","5");
+        } else if(subscribenumber>=20){
+            model.addAttribute("subscribebadge","subscribebadge4.png");
+            model.addAttribute("subscribelevel","4");
+        } else if(subscribenumber>=15){
+            model.addAttribute("subscribebadge","subscribebadge3.png");
+            model.addAttribute("subscribelevel","3");
+        } else if(subscribenumber>=10){
+            model.addAttribute("subscribebadge","subscribebadge2.png");
+            model.addAttribute("subscribelevel","2");
+        } else if(subscribenumber>=5){
+            model.addAttribute("subscribebadge","subscribebadge1.png");
+            model.addAttribute("subscribelevel","1");
+        }
+
         String tagaux="";
         int valaux = 0;
 
