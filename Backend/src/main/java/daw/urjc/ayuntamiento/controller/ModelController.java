@@ -38,6 +38,8 @@ public class ModelController {
             model.addAttribute("userDesc", userService.findByName(principal.getName()).get().getDescription());
             model.addAttribute("userMail", userService.findByName(principal.getName()).get().getMail());
             model.addAttribute("admin", request.isUserInRole("ADMIN"));
+            model.addAttribute("eventlist",userService.findByName(principal.getName()).get().getEvents());
+            model.addAttribute("commentlist",userService.findByName(principal.getName()).get().getCommentPlaces());
 
 
         } else {
