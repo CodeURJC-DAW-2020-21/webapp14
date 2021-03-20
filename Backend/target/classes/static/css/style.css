@@ -13466,7 +13466,7 @@ textarea.form-control {
     color: black;
 }
 
-#global {
+.global {
     height: 400px;
     width: 400px;
     border-radius: 15px;

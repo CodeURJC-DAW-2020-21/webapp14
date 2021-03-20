@@ -46,7 +46,7 @@
             <div class="col-md-3 mb-md-4">
                 <div>
                     <h2 class="text-center">Historial</h2>
-                    <div id="global">
+                    <div class="global">
                         <div id="messages">
                             {{#eventlist}}
                             <div class="history-text">Te has inscrito en: {{.}}</div>
@@ -55,6 +55,15 @@
                             <div class="history-text">Has comentado en: {{.}}</div>
                             {{/commentlist}}
                         </div>
+                    </div>
+                </div>
+                <div>
+                    <br>
+                    <h2 class="text-center">Evento recomendado</h2>
+                    <div class="global">
+                        {{#recommendedEvent}}
+                        <p>{{recommendedEvent.name}}</p>
+                        {{/recommendedEvent}}
                     </div>
                 </div>
             </div>
