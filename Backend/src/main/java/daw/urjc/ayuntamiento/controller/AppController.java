@@ -129,7 +129,7 @@ public class AppController {
         List<Event> eventsList = eventService.findAllByTag1(tagaux);
         if (!eventsList.isEmpty()){
             int randomNumber = (int) Math.floor(Math.random()*((eventsList.size())));;
-            while(user.get().getEventSuscribe().contains(eventsList.get(randomNumber).getId())){
+            while(user.get().getEventSuscribe().contains(eventsList.get(randomNumber).getId()) && eventsList.size()>1){
                 randomNumber = (int) Math.floor(Math.random()*((eventsList.size())));
             }
             Event recommendedEvent = eventsList.get(randomNumber);
