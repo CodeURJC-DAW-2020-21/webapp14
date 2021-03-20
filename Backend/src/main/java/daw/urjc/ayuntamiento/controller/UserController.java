@@ -40,14 +40,14 @@ public class UserController {
 
         }
         String passwordaux;
-        passwordaux=passwordEncoder.encode(user.getPassword());
+        passwordaux = passwordEncoder.encode(user.getPassword());
         user.setPassword(passwordaux);
         List<String> roles = new LinkedList<>();
         roles.add("USER");
         user.setRoles(roles);
         service.save(user);
 
-        model.addAttribute("userName",user);
+        model.addAttribute("userName", user);
 
         return "index";
     }
@@ -55,12 +55,16 @@ public class UserController {
     @GetMapping("/user/{userName}/image")
     public ResponseEntity<Object> giveUserImage(@PathVariable String userName) throws SQLException {
         Optional<User> user = service.findByName(userName);
-        if(user.isPresent() && user.get().getImageFile() != null){
+        if (user.isPresent() && user.get().getImageFile() != null) {
             Resource file = new InputStreamResource(user.get().getImageFile().getBinaryStream());
             return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").contentLength(user.get().getImageFile().length()).body(file);
-        }else{
+        } else {
             return ResponseEntity.notFound().build();
         }
     }
+
+
+
+
 }
 
