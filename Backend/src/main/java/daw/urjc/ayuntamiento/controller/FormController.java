@@ -55,14 +55,14 @@ public class FormController {
     }
 
     @PostMapping("/locals")
-    public String localcreation(Store store,MultipartFile imageField1, MultipartFile imageField2,Model model) throws IOException {
+    public String localcreation(Store store,MultipartFile image1, MultipartFile image2,Model model) throws IOException {
 
-        if (!imageField1.isEmpty()) {
-            store.setImageField1(BlobProxy.generateProxy(imageField1.getInputStream(), imageField1.getSize()));
+        if (!image1.isEmpty()) {
+            store.setImageField1(BlobProxy.generateProxy(image1.getInputStream(), image1.getSize()));
         }
 
-        if (!imageField2.isEmpty()) {
-            store.setImageField2(BlobProxy.generateProxy(imageField2.getInputStream(), imageField2.getSize()));
+        if (!image2.isEmpty()) {
+            store.setImageField2(BlobProxy.generateProxy(image2.getInputStream(), image2.getSize()));
         }
 
         localService.save(store);
