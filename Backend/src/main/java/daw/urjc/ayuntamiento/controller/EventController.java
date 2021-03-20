@@ -82,6 +82,6 @@ public class EventController {
         user.get().setMap(mapaux);
         user.get().getEvents().add(event.get().getName());
         userService.save(user.get());
-        return "profile";
+        return "redirect:/";
     }
 }
