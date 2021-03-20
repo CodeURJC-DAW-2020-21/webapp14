@@ -1,5 +1,6 @@
 package daw.urjc.ayuntamiento.controller;
 
+import daw.urjc.ayuntamiento.modules.Event;
 import daw.urjc.ayuntamiento.modules.Store;
 import daw.urjc.ayuntamiento.service.LocalService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,16 +56,12 @@ public class LocalController {
     }
 
     @GetMapping("/removeLocal/{id}")
-    public String removeLocal(Model model, @PathVariable long id) {
+    public String removeLocal(@PathVariable long id) {
 
         Optional<Store> store = service.findId(id);
         if (store.isPresent()) {
-           service.delete(id);
-            model.addAttribute("local",service.findAll());
+            service.delete(id);
         }
-        return "locals";
+        return "localDelete";
     }
-
-
-
 }
