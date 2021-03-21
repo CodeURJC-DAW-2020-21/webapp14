@@ -73,7 +73,7 @@ public class DataBaseInitialization {
         commentRepository.save(c1);
         commentRepository.save(c2);
 
-        Comment com1 = new Comment("Recomendado");
+        Comment com1 = new Comment("Recomendado, volveré seguro");
         com1.setDate(date);
         com1.setName("Javier Diaz");
         setCommentImage(com1,"/static/images/letter-j.jpg");
