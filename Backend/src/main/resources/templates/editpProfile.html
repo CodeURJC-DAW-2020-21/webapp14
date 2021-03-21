@@ -1,34 +1,63 @@
 {{> header}}
-    <section class="ftco-section contact-section">
-        <div class="row block-9 justify-content-center mb-5">
-            <h1 class="text-center">Editar Perfil</h1>
+
+<form class="ftco-section contact-section" action="/editProfileP" method="post" enctype="multipart/form-data">
+    <div class="row block-9 justify-content-center mb-5">
+        <h1 class="text-center">Editar Perfil</h1>
+        <input type="hidden" name="id" value="{{user.id}}"/>
+    </div>
+    <div class="row block-9 justify-content-center mb-5">
+        <div class="col-md-2 mb-md-4">
+            <img class="profile-image" src="/images/felipe.jpg" alt="Image placeholder">
         </div>
-        <div class="row block-9 justify-content-center mb-5">
-            <div class="col-md-2 mb-md-4">
-                <img class="profile-image" src="/images/felipe.jpg" alt="Image placeholder">
+        <div class="col-md-6 mb-md-4">
+            <div class="profile-block">
+                <h2>Nombre y apellidos:</h2>
+                <input name="name" value="{{user.name}}" type="text" class="form-control" placeholder="Nombre y apellidos">
             </div>
-            <div class="col-md-6 mb-md-4">
-                <div class="profile-block">
-                    <h2>Nombre y apellidos:</h2>
-                    <input type="text" class="form-control" placeholder="Nombre y apellidos">
-                </div>
-                <br>
-                <div class="profile-block">
-                    <h2>Correo:</h2>
-                    <input type="text" class="form-control" placeholder="Correo electrónico">
-                </div>
-                <br>
-                <div class="profile-block">
-                    <h2>Presentación:</h2>
-                    <input type="text" class="form-control" placeholder="Presentación">
-                </div>
-                <br>
+            <br>
+            <div class="profile-block">
+                <h2>Correo:</h2>
+                <input name="mail" type="text" value="{{user.mail}}" class="form-control" placeholder="Correo electrónico">
             </div>
+            <br>
+            <div class="profile-block">
+                <h2>Descripción:</h2>
+                <input name="description" type="text" value="{{user.description}}" class="form-control" placeholder="Descripción">
+            </div>
+            <br>
+            <div class="profile-block">
+                <h2>DNI:</h2>
+                <input name="DNI" type="text" value="{{user.DNI}}" class="form-control" placeholder="DNI">
+            </div>
+            <br>
+            <div class="profile-block">
+                <h2>Contraseña:</h2>
+                <input name="password" type="text"  class="form-control" placeholder="Contraseña"  value="{{user.password}}" >
+            </div>
+            <br>
+
+            <div class="custom-file">
+                <input
+                        type="file"
+                        name="imageField"
+                        accept=".jpg, .jpeg"
+                        class="custom-file-input"
+                        id="inputGroupFile01"
+                        />
+                <label class="custom-file-label" for="inputGroupFile01">Elegir imagen</label>
+            </div>
+            <br>
         </div>
-        <div class="row block-9 justify-content-center mb-5">
-            <div class="form-group">
-                <input type="submit" value="Guardar cambios" class="btn py-3 px-4 btn-primary">
-            </div>
+    </div>
+    <div class="row block-9 justify-content-center mb-5">
+        <div class="form-group">
+            <button onclick="location.href='/profile'; return false;">Cancel</button>
+            <input type="submit" value="Guardar cambios" class="btn py-3 px-4 btn-primary">
+            <input type="hidden" name="_csrf" value="{{token}}">
+
         </div>
-    </section>
-    {{> footer}}
+    </div>
+
+
+</form>
+{{> footer}}

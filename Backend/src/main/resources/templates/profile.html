@@ -31,41 +31,55 @@
                 <br>
                 <div class="profile-block">
                     <h2>Insignias:</h2>
-                    <img src="images/commentbadge1.png"/>
+
+                    <img src ="images/registered.png"/>
+                    <p>¡Te has registrado en nuestra pagina!</p>
+                    {{#commentbadge}}
+                    <img src="images/{{commentbadge}}"/>
+                    {{/commentbadge}}
+                    {{#commentlevel}}
+                    <p>Comentador de nivel: {{commentlevel}}</p>
+                    {{/commentlevel}}
+                    {{#subscribebadge}}
+                    <img src="images/{{subscribebadge}}"/>
+                    {{/subscribebadge}}
+                    {{#subscribelevel}}
+                    <p>Participante de nivel: {{subscribelevel}}</p>
+                    {{/subscribelevel}}
                 </div>
             </div>
             <div class="col-md-3 mb-md-4">
                 <div>
                     <h2 class="text-center">Historial</h2>
-                    <div id="global">
+                    <div class="global">
                         <div id="messages">
-                            <div class="history-text">Mensaje 1</div>
-                            <div class="history-text">Mensaje 2</div>
-                            <div class="history-text">Mensaje 3</div>
-                            <div class="history-text">Mensaje 4</div>
-                            <div class="history-text">Mensaje 5</div>
-                            <div class="history-text">Mensaje 6</div>
-                            <div class="history-text">Mensaje 7</div>
-                            <div class="history-text">Mensaje 8</div>
-                            <div class="history-text">Mensaje 9</div>
-                            <div class="history-text">Mensaje 10</div>
-                            <div class="history-text">Mensaje 11</div>
-                            <div class="history-text">Mensaje 12</div>
-                            <div class="history-text">Mensaje 13</div>
-                            <div class="history-text">Mensaje 14</div>
-                            <div class="history-text">Mensaje 15</div>
+                            {{#eventlist}}
+                            <div class="history-text">Te has inscrito en: <b>{{.}}</b></div>
+                            {{/eventlist}}
+                            {{#commentlist}}
+                            <div class="history-text">Has comentado en: <b>{{.}}</b></div>
+                            {{/commentlist}}
                         </div>
+                    </div>
+                </div>
+                <div>
+                    <br>
+                    <h2 class="text-center">Evento recomendado</h2>
+                    <div class="global2">
+                        {{#recommendedEvent}}
+                        <a href="/event/{{recommendedEvent.id}}">{{recommendedEvent.name}}</a>
+                        {{/recommendedEvent}}
                     </div>
                 </div>
             </div>
         </div>
+        </div>
         <div class="row block-9 justify-content-center mb-5">
             <div class="form-group">
-                <form action="editpProfile.html" class="p-5 contact-form">
+                <form action="/editProfile" class="p-5 contact-form">
                     <input type="submit" value="Editar perfil" class="btn py-3 px-4 btn-primary">
                 </form>
             </div>
-        </div>
     </section>
 
     {{> footer}}
