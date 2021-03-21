@@ -72,8 +72,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/removeEvent/*").hasAnyRole("ADMIN");
 
 
-        http.authorizeRequests().antMatchers("/editProfile").hasAnyRole("USER");
-
 
 
 
