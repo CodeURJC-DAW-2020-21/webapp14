@@ -99,6 +99,133 @@ Permit user to edit him personal information:
 ### Navigation Diagram:
 ![Navigation](images/navigation.jpg)
 
+## PHASE 2: Server web technologies
 
+### Development direction
+
+-  **Repository: Github/webapp14** 
+-  **Development tools: Intellij, Spring Tool Suite4.**
+-  **Dependencies: MySQL Workbench**
+-  **To be able to execute the files included in this repository yo should follow the next steps:**
+
+1. Open the project in Spring Tool Suite4.
+2. Start a service MySQL in the local host.
+3. Start a connection with de database from the ip: 127.0.0.1 in the port: 3306 with the user "root"and without password. We recomend using MySQL Workbench.
+4. (RECOMENDED) In Spring, right click over the root project folder > Maven > Update Project
+5. Start running the applicattion from Spring by Spring Boot App.
+6. Enter from a browser to: https://localhost:8443
+
+
+### Diagrams
+
+Navigation Diagram for public pages:
+
+Navigation Diagram for private pages:
+
+Data Base Diagram
+
+Class-Template Diagram
+
+### Members participation
+
+**Israel**
+
+- Completed tasks:
+
+- 5 most significant commits:
+
+1. 
+2. 
+3.
+4. 
+5. 
+
+- 5 files with participation:
+
+1. 
+2. 
+3.
+4. 
+5.
+
+**Álvaro**
+
+- Completed tasks:
+
+- 5 most significant commits:
+
+1. 
+2. 
+3.
+4. 
+5.
+
+- 5 files with participation:
+
+1. 
+2. 
+3.
+4. 
+5.
+
+**Yeray**
+
+- Completed tasks:
+
+- 5 most significant commits:
+
+1. 
+2. 
+3.
+4. 
+5.
+
+- 5 files with participation:
+
+1. 
+2. 
+3.
+4. 
+5.
+
+**Cuadrado**
+
+- Completed tasks:
+
+- 5 most significant commits:
+
+1. 
+2. 
+3.
+4. 
+5.
+
+- 5 files with participation:
+
+1. 
+2. 
+3.
+4. 
+5.
+
+**Adri**
+
+- Completed tasks:
+
+- 5 most significant commits:
+
+1. 
+2. 
+3.
+4. 
+5.
+
+- 5 files with participation:
+
+1. 
+2. 
+3.
+4. 
+5.
 
 
