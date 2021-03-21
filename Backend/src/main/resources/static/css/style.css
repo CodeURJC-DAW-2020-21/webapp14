@@ -13546,8 +13546,8 @@ textarea.form-control {
 
 }
 
-.mapCanvas {
-
-    width: 40%;
-    height: 40%;
+#map {
+    width: 600px;
+    height: 500px;
+    box-shadow: 5px 5px 5px #888;
 }

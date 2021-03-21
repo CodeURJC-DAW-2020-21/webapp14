@@ -34,27 +34,26 @@
                 <p>{{local.street}}</p>
 
                 <div>
-                    <div class="mapCanvas"  id="mapdiv"></div>
-                    
-                    <script src="/js/openLayerMapa.js"></script>
+                    <div id = 'map'></div>
+
                     <script>
-                        map = new OpenLayers.Map("mapdiv");
-                        map.addLayer(new OpenLayers.Layer.OSM());
+                        var map = L.map('map').
+                              //latitude      length
+                        setView([40.3361179,-3.8771203],
+                            15);
+                        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+                            maxZoom: 18
+                        }).addTo(map);
 
-                        var lonLat = new OpenLayers.LonLat( -3.8367671 ,40.296741 )
-                            .transform(
-                                new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-                                map.getProjectionObject() // to Spherical Mercator Projection
-                            );
+                        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+                            maxZoom: 18
+                        }).addTo(map);
 
-                        var zoom=17;
-
-                        var markers = new OpenLayers.Layer.Markers( "Markers" );
-                        map.addLayer(markers);
-
-                        markers.addMarker(new OpenLayers.Marker(lonLat));
-
-                        map.setCenter (lonLat, zoom);
+                        L.control.scale().addTo(map);
+                                 //latitude     length
+                        L.marker([40.3361179,-3.8771203],{draggable: true}).addTo(map);
                     </script>
                 </div>
 
