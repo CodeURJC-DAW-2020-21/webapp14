@@ -4,10 +4,10 @@
 <br>
 <br>
 {{#admin}}
-<div class="form-group" >
-    <input type="submit" value="Eliminar Local" class="btn btn-danger py-3 px-4 float-right botonDerecha" onclick="location.href='/removeLocal/{{local.id}}'">
-
-</div>
+<div class="form-group">
+    <form action="/removeLocal/{{local.id}}" class="p-5 contact-form">
+        <input type="submit" value="Eliminar Local" class="btn py-3 px-4 btn-danger float-right botonDerecha">
+    </form>
 {{/admin}}
 
 
@@ -37,9 +37,11 @@
                     <div id = 'map'></div>
 
                     <script>
+                        var lati = "{{local.latitude}}"
+                        var len = "{{local.lenght}}"
                         var map = L.map('map').
                               //latitude      length
-                        setView([40.3361179,-3.8771203],
+                        setView([parseFloat(lati),parseFloat(len)],
                             15);
                         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
@@ -53,7 +55,7 @@
 
                         L.control.scale().addTo(map);
                                  //latitude     length
-                        L.marker([40.3361179,-3.8771203],{draggable: true}).addTo(map);
+                        L.marker([parseFloat(lati),parseFloat(len)],{draggable: true}).addTo(map);
                     </script>
                 </div>
 

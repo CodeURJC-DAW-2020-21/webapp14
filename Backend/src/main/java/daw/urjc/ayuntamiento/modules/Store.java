@@ -12,12 +12,16 @@ public class Store {
 
     private String name;
     private String description;
+    private String frontdescription;
     private String services;
     private String openDay;
     private String closeDay;
     private String openHour;
     private String closeHour;
     private String street;
+    private String latitude;
+    private String lenght;
+
 
     @Lob
     @JsonIgnore
@@ -36,16 +40,19 @@ public class Store {
 
     protected Store(){}
 
-    public Store(String name, String description, String services, String openDay, String closeDay, String openHour, String closeHour, String street) {
+    public Store(String name, String description,String frontdescription, String services, String openDay, String closeDay, String openHour, String closeHour, String street,String latitude, String lenght) {
         super();
         this.name = name;
         this.description = description;
+        this.frontdescription = frontdescription;
         this.services = services;
         this.openDay = openDay;
         this.closeDay = closeDay;
         this.openHour = openHour;
         this.closeHour = closeHour;
         this.street = street;
+        this.latitude = latitude;
+        this.lenght = lenght;
     }
 
     public String getName() {
@@ -142,5 +149,29 @@ public class Store {
 
     public void setComment(List<Comment> comment) {
         this.comment = comment;
+    }
+
+    public String getFrontdescription() {
+        return frontdescription;
+    }
+
+    public void setFrontdescription(String frontdescription) {
+        this.frontdescription = frontdescription;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLength() {
+        return lenght;
+    }
+
+    public void setLength(String lenght) {
+        this.lenght = lenght;
     }
 }

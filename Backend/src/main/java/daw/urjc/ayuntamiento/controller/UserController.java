@@ -64,44 +64,4 @@ public class UserController {
         }
     }
 
-
-    @PostMapping("/editProfileP")
-    public String editProfile(Model model, User user, MultipartFile imageField,HttpServletRequest request) throws IOException {
-
-        Principal principal = request.getUserPrincipal();
-        Optional<User> principaluser = service.findByName(principal.getName());
-
-        if (user.getPassword().isEmpty()){
-            user.setPassword(principaluser.get().getPassword());
-        }
-
-        if (imageField.isEmpty()){
-
-            user.setImageFile(principaluser.get().getImageFile());
-        }
-        else {
-            user.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
-        }
-
-        service.save(user);
-
-
-        return "profile";
-    }
-
-
-
-    @GetMapping("/editProfile")
-    public String editProfile(Model model, HttpServletRequest request) {
-
-        Principal principal = request.getUserPrincipal();
-        Optional<User> user = service.findByName(principal.getName());
-
-        if (user.isPresent()) {
-            model.addAttribute("user", user.get());
-            return "editpProfile";
-        } else {
-            return "login";
-        }
-    }
 }
