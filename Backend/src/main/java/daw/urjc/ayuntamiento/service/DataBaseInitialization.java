@@ -44,16 +44,16 @@ public class DataBaseInitialization {
     public void init() throws IOException {
 
 
-        User user1=new User("AntonioCuad","AntonioCuad@otaku.com","","53435243T",passwordEncoder.encode("password")/*, "USER" */);
-        setUserImage(user1,"/static/images/pozo.jpg");
+        User user1=new User("AntonioCuad","vivaciempozuelos@gmail.com","Me gusta el deporte y pasarlo bien. Ciempozueleño bien orgulloso","53435243T",passwordEncoder.encode("password")/*, "USER" */);
+        setUserImage(user1,"/static/images/personaRandom1.jpg");
         List<String> roles1 = new LinkedList<>();
         roles1.add("USER");
         user1.setRoles(roles1);
         userRepository.save(user1);
 
 
-        User user2=new User("admin","admin@admin.com","admin","admin",passwordEncoder.encode("password")/*, "ADMIN" ,"USER" */);
-        setUserImage(user2,"/static/images/alexelcapo.jpg");
+        User user2=new User("admin","admin@admin.com","Soy el admin","111111111G",passwordEncoder.encode("password")/*, "ADMIN" ,"USER" */);
+        setUserImage(user2,"/static/images/felipe.jpg");
         List<String> roles2 = new LinkedList<>();
         roles2.add("USER");
         roles2.add("ADMIN");
@@ -61,23 +61,23 @@ public class DataBaseInitialization {
         userRepository.save(user2);
 
 
-        Comment c1=new Comment("Hola buenos dias me llamo javi");
+        Comment c1=new Comment("Muy interesante me gusta mucho, me inscribo ya");
         c1.setDate(date);
-        c1.setName("Antoñito");
+        c1.setName("Alex");
         setCommentImage(c1,"/static/images/alexelcapo.jpg");
 
-        Comment c2=new Comment("El pozos");
+        Comment c2=new Comment("Grandioso evento estaré encantado de asistir");
         c2.setDate(date);
-        c2.setName("Cocas");
-        setCommentImage(c2,"/static/images/pozo.jpg");
+        c2.setName("Michael");
+        setCommentImage(c2,"/static/images/Jordan.jpg");
 
         commentRepository.save(c1);
         commentRepository.save(c2);
 
-        Comment com1 = new Comment("Recomendado");
+        Comment com1 = new Comment("Recomendado, volveré seguro");
         com1.setDate(date);
         com1.setName("Javier Diaz");
-        setCommentImage(com1,"/static/images/alexelcapo.jpg");
+        setCommentImage(com1,"/static/images/FrankGarcia.jpg");
 
         Comment com2 = new Comment("Esta muy bien");
         com2.setDate(date);
@@ -97,6 +97,8 @@ public class DataBaseInitialization {
 
         Event event2 = new Event("Primeras jornadas de participación ciudadana","Impulsar el conocimiento, mesas redondas...","El Ayuntamiento de Ciempozuelos organiza este fin de semana en la sala multifuncional (Avda. de Belén) las primeras jornadas abiertas de participación ciudadana.","1/3/2021","Sala multifuncional (Avda. de Belén)","0","2000","","Cultura");
         setEventImage(event2,"static/images/evento1.png");
+        event2.getComment().add(c1);
+        event2.getComment().add(c2);
 
         eventRepository.save(event2);
 
