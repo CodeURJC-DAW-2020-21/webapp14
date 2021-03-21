@@ -39,9 +39,11 @@ public class EventService {
     }
 
     public Page<Event> findEvents(Pageable pageable) {
-        return repository.findAll(PageRequest.of(pageable.getPageNumber(), 3));
+        return repository.findAll(PageRequest.of(pageable.getPageNumber(), 9));
     }
 
     public long count(){return repository.count();}
+
+    public List<Event> findAllByTag1(String tag1){return repository.findAllByTag1(tag1);}
 
 }

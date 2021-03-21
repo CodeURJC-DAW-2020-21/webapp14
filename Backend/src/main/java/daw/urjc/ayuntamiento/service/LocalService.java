@@ -41,7 +41,7 @@ public class LocalService {
     }
 
     public Page<Store> findLocals(Pageable pageable) {
-        return repository.findAll(PageRequest.of(pageable.getPageNumber(), 4));
+        return repository.findAll(PageRequest.of(pageable.getPageNumber(), 12));
     }
 
     public long count(){return repository.count();}

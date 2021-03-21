@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -69,7 +70,7 @@ public class AppController {
         return "events";
     }
 
-    @GetMapping("/locals")
+    @RequestMapping("/locals")
     public String localsLink(Model model, Pageable pageable) {
 
         Page<Store> localsPage = localService.findLocals(pageable);
@@ -88,21 +89,69 @@ public class AppController {
         Principal principal = request.getUserPrincipal();
         Optional<User> user = userService.findByName(principal.getName());
         int commentsnumber = user.get().getComment().size();
-        if(commentsnumber>=5){
+        if(commentsnumber>=100){
             model.addAttribute("commentbadge","commentbadge5.png");
             model.addAttribute("commentlevel","5");
-        } else if(commentsnumber>=4){
+        } else if(commentsnumber>=50){
             model.addAttribute("commentbadge","commentbadge4.png");
             model.addAttribute("commentlevel","4");
-        } else if(commentsnumber>=3){
+        } else if(commentsnumber>=25){
             model.addAttribute("commentbadge","commentbadge3.png");
             model.addAttribute("commentlevel","3");
-        } else if(commentsnumber>=2){
+        } else if(commentsnumber>=10){
             model.addAttribute("commentbadge","commentbadge2.png");
             model.addAttribute("commentlevel","2");
-        } else if(commentsnumber>=1){
+        } else if(commentsnumber>=5){
             model.addAttribute("commentbadge","commentbadge1.png");
             model.addAttribute("commentlevel","1");
+        }
+
+        int subscribenumber = user.get().getEventSuscribe().size();
+        if(subscribenumber>=25){
+            model.addAttribute("subscribebadge","subscribebadge5.png");
+            model.addAttribute("subscribelevel","5");
+        } else if(subscribenumber>=20){
+            model.addAttribute("subscribebadge","subscribebadge4.png");
+            model.addAttribute("subscribelevel","4");
+        } else if(subscribenumber>=15){
+            model.addAttribute("subscribebadge","subscribebadge3.png");
+            model.addAttribute("subscribelevel","3");
+        } else if(subscribenumber>=10){
+            model.addAttribute("subscribebadge","subscribebadge2.png");
+            model.addAttribute("subscribelevel","2");
+        } else if(subscribenumber>=5){
+            model.addAttribute("subscribebadge","subscribebadge1.png");
+            model.addAttribute("subscribelevel","1");
+        }
+
+        String tagaux="";
+        int valaux = 0;
+
+        Map<String, Integer> mapaux = user.get().getMap();
+        if(mapaux.get("Deporte")>valaux){
+            valaux=mapaux.get("Deporte");
+            tagaux="Deporte";
+        }
+        if(mapaux.get("Cultura")>valaux){
+            valaux=mapaux.get("Cultura");
+            tagaux="Cultura";
+        }
+        if(mapaux.get("Musica")>valaux){
+            valaux=mapaux.get("Musica");
+            tagaux="Musica";
+        }
+        if(mapaux.get("Videojuegos")>valaux){
+            valaux=mapaux.get("Videojuegos");
+            tagaux="Videojuegos";
+        }
+        List<Event> eventsList = eventService.findAllByTag1(tagaux);
+        if (!eventsList.isEmpty()){
+            int randomNumber = (int) Math.floor(Math.random()*((eventsList.size())));;
+            while(user.get().getEventSuscribe().contains(eventsList.get(randomNumber).getId()) && eventsList.size()>1){
+                randomNumber = (int) Math.floor(Math.random()*((eventsList.size())));
+            }
+            Event recommendedEvent = eventsList.get(randomNumber);
+            model.addAttribute("recommendedEvent",recommendedEvent);
         }
         return "profile";
     }

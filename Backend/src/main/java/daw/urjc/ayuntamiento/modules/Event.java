@@ -21,6 +21,7 @@ public class Event {
     private String reward;
     private String people;
     private String price;
+    private String tag1;
 
     @Lob
     @JsonIgnore
@@ -37,7 +38,7 @@ public class Event {
 
     protected Event(){}
 
-    public Event(String name, String activities, String description, String date, String place, String reward, String people, String price) {
+    public Event(String name, String activities, String description, String date, String place, String reward, String people, String price,String tag1) {
         super();
         this.name = name;
         this.activities = activities;
@@ -47,6 +48,7 @@ public class Event {
         this.reward = reward;
         this.people = people;
         this.price = price;
+        this.tag1 = tag1;
     }
 
 
@@ -140,6 +142,14 @@ public class Event {
 
     public void setComment(List<Comment> comment) {
         this.comment = comment;
+    }
+
+    public String getTag1() {
+        return tag1;
+    }
+
+    public void setTag1(String tag1) {
+        this.tag1 = tag1;
     }
 }
 

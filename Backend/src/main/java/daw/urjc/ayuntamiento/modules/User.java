@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.sql.Blob;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 public class User {
@@ -15,6 +17,17 @@ public class User {
     private String DNI;
     private String password;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Map<String,Integer> map = new HashMap<>();
+
+    @ElementCollection
+    private List<Long> eventSuscribe;
+
+    @ElementCollection
+    private List<String> events;
+
+    @ElementCollection
+    private List<String> commentPlaces;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,9 +46,11 @@ public class User {
     protected User(){}
 
 
-
-
     public User(String name, String mail, String description, String DNI, String password /*,String... roles*/) {
+        map.put("Deporte",0);
+        map.put("Cultura",0);
+        map.put("Musica",0);
+        map.put("Videojuegos",0);
         this.name = name;
         this.mail = mail;
         this.description = description;
@@ -115,5 +130,37 @@ public class User {
 
     public void setRoles(List<String> roles) {
         this.roles = roles;
+    }
+
+    public Map<String, Integer> getMap() {
+        return map;
+    }
+
+    public void setMap(Map<String, Integer> map) {
+        this.map = map;
+    }
+
+    public List<Long> getEventSuscribe() {
+        return eventSuscribe;
+    }
+
+    public void setEventSuscribe(List<Long> eventSuscribe) {
+        this.eventSuscribe = eventSuscribe;
+    }
+
+    public List<String> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<String> events) {
+        this.events = events;
+    }
+
+    public List<String> getCommentPlaces() {
+        return commentPlaces;
+    }
+
+    public void setCommentPlaces(List<String> commentPlaces) {
+        this.commentPlaces = commentPlaces;
     }
 }

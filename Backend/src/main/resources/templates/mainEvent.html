@@ -5,7 +5,7 @@
 <br>
 {{#admin}}
 <div class="form-group" >
-	<input type="submit" value="Eliminar Evento" class="btn btn-danger py-3 px-4 float-right botonDerecha" onclick="location.href='/removeEvent/{{event.id}}'"></input>
+	<input type="submit" value="Eliminar Evento" class="btn btn-danger py-3 px-4 float-right botonDerecha" onclick="location.href='/removeEvent/{{event.id}}'">
 
 </div>
 {{/admin}}
@@ -25,7 +25,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="submit" value="Inscribirse" class="btn py-3 px-4 btn-primary">
+					<input type="submit" value="Inscribirse" class="btn py-3 px-4 btn-primary"  onclick="window.location = '/subscribe/{{event.id}} ' " >
 				</div>
 			</div>
 			<div class="row">
@@ -60,6 +60,11 @@
 								<p>{{event.date}}</p>
 								<h2>Lugar</h2>
 								<p>{{event.place}}</p>
+								<div class="tag-widget post-tag-container mb-5 mt-5">
+									<div class="tagcloud">
+										<a href="" class="tag-cloud-link">{{event.tag1}}</a>
+									</div>
+								</div>
 							</div>
 							<div class="tab-pane fade" id="pills-description" role="tabpanel"
 								aria-labelledby="pills-description-tab">
