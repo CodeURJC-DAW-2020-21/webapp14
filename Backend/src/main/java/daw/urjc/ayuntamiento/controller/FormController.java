@@ -1,10 +1,7 @@
 package daw.urjc.ayuntamiento.controller;
 
-import daw.urjc.ayuntamiento.modules.Comment;
 import daw.urjc.ayuntamiento.modules.Event;
 import daw.urjc.ayuntamiento.modules.Store;
-import daw.urjc.ayuntamiento.repository.EventRepository;
-import daw.urjc.ayuntamiento.repository.StoreRepository;
 import daw.urjc.ayuntamiento.service.CommentService;
 import daw.urjc.ayuntamiento.service.EventService;
 import daw.urjc.ayuntamiento.service.LocalService;

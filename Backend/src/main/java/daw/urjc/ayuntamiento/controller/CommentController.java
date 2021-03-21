@@ -32,7 +32,7 @@ import java.util.Date;
 import java.util.Optional;
 
 @Controller
-public class ComentController {
+public class CommentController {
 
     @Autowired
     private EventService eventService;

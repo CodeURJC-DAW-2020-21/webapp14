@@ -3,11 +3,8 @@ package daw.urjc.ayuntamiento.modules;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.nio.file.Path;
 import java.sql.Blob;
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
