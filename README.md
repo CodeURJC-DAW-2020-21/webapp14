@@ -123,7 +123,7 @@ Navigation Diagram for public pages:
 Navigation Diagram for private pages:
 
 Data Base Diagram:
-![DataBase Diagram](images/ER Diagram.png)
+![DataBase Diagram](images/ERDiagram.png)
 
 Class-Template Diagram
 
