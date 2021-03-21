@@ -9,7 +9,6 @@ import daw.urjc.ayuntamiento.service.CommentService;
 import daw.urjc.ayuntamiento.service.EventService;
 import daw.urjc.ayuntamiento.service.LocalService;
 import daw.urjc.ayuntamiento.service.UserService;
-import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -26,13 +25,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.security.Principal;
-import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.Optional;
 
 @Controller
-public class ComentController {
+public class CommentController {
 
     @Autowired
     private EventService eventService;
@@ -65,10 +63,6 @@ public class ComentController {
         event.get().getComment().add(commentaux);
         user.get().getComment().add(commentaux);
         user.get().getCommentPlaces().add(event.get().getName());
-        //Event eventObject = new Event(event.get().getName(),event.get().getActivities(),event.get().getDescription(),event.get().getDate(),event.get().getPlace(),event.get().getReward(),event.get().getPeople(),event.get().getPrice());
-        //eventObject.setImageFile(event.get().getImageFile());
-        //eventObject.setComment(event.get().getComment());
-        //eventService.delete(id);
         Event eventAux = event.get();
         eventService.save(eventAux);
         Page<Event> eventPage = eventService.findEvents(pageable);
@@ -96,10 +90,6 @@ public class ComentController {
         local.get().getComment().add(commentaux);
         user.get().getComment().add(commentaux);
         user.get().getCommentPlaces().add(local.get().getName());
-        //Event eventObject = new Event(event.get().getName(),event.get().getActivities(),event.get().getDescription(),event.get().getDate(),event.get().getPlace(),event.get().getReward(),event.get().getPeople(),event.get().getPrice());
-        //eventObject.setImageFile(event.get().getImageFile());
-        //eventObject.setComment(event.get().getComment());
-        //eventService.delete(id);
         Store localaux = local.get();
         localService.save(localaux);
         Page<Store> localsPage = localService.findLocals(pageable);

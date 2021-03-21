@@ -1,6 +1,5 @@
 package daw.urjc.ayuntamiento.controller;
 
-import daw.urjc.ayuntamiento.repository.UserRepository;
 import daw.urjc.ayuntamiento.service.EventService;
 import daw.urjc.ayuntamiento.service.LocalService;
 import daw.urjc.ayuntamiento.service.UserService;
@@ -18,14 +17,6 @@ public class ModelController {
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private EventService eventService;
-
-    @Autowired
-    private LocalService localService;
-
-
 
     @ModelAttribute
     public void addAttributes(Model model, HttpServletRequest request) {

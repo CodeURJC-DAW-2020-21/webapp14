@@ -33,26 +33,46 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	
     	// Public pages
         http.authorizeRequests().antMatchers("/").permitAll();
-        http.authorizeRequests().antMatchers("/userlogin").permitAll();
-        http.authorizeRequests().antMatchers("/error").permitAll();
-        http.authorizeRequests().antMatchers("/logout").permitAll();
-        http.authorizeRequests().antMatchers("/FormEvent").permitAll();
-        http.authorizeRequests().antMatchers("/createEvent").permitAll();
-        http.authorizeRequests().antMatchers("/FormLocal").permitAll();
-        http.authorizeRequests().antMatchers("/createLocal").permitAll();
-        http.authorizeRequests().antMatchers("/event/{{id}}").permitAll();
-        http.authorizeRequests().antMatchers("/event/{{id}}/image").permitAll();
-        http.authorizeRequests().antMatchers("/editProfile").permitAll();
-        http.authorizeRequests().antMatchers("/editProfileP").permitAll();
+        http.authorizeRequests().antMatchers("/gob").permitAll();
+        http.authorizeRequests().antMatchers("/events").permitAll();
+        http.authorizeRequests().antMatchers("/locals").permitAll();
 
+
+        http.authorizeRequests().antMatchers("/userlogin").permitAll();
+        http.authorizeRequests().antMatchers("/errorLogin").permitAll();
+
+        http.authorizeRequests().antMatchers("/comment/*").permitAll();
+
+        http.authorizeRequests().antMatchers("/error").permitAll();
+
+
+        http.authorizeRequests().antMatchers("/event/*").permitAll();
+        http.authorizeRequests().antMatchers("/event/*/image").permitAll();
+
+        http.authorizeRequests().antMatchers("/local/*").permitAll();
+        http.authorizeRequests().antMatchers("/event/*/image1").permitAll();
+        http.authorizeRequests().antMatchers("/event/*/image2").permitAll();
+
+        http.authorizeRequests().antMatchers("/user/*/image").permitAll();
 
         // Private pages
         http.authorizeRequests().antMatchers("/profile").hasAnyRole("USER");;
-        http.authorizeRequests().antMatchers("/subscribe/{id}").hasAnyRole("USER");;
+
+
+        http.authorizeRequests().antMatchers("/subscribe/*").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers("/removeEvent/*").hasAnyRole("USER");
+
+
         http.authorizeRequests().antMatchers("/FormEvent").hasAnyRole("ADMIN");
         http.authorizeRequests().antMatchers("/FormLocal").hasAnyRole("ADMIN");
-        http.authorizeRequests().antMatchers("/removeEvent/*").hasAnyRole("ADMIN");
+
+
         http.authorizeRequests().antMatchers("/removeLocal/*").hasAnyRole("ADMIN");
+
+        http.authorizeRequests().antMatchers("/removeEvent/*").hasAnyRole("ADMIN");
+
+
+        http.authorizeRequests().antMatchers("/editProfile").hasAnyRole("USER");
 
 
 

@@ -3,11 +3,8 @@ package daw.urjc.ayuntamiento.modules;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.nio.file.Path;
 import java.sql.Blob;
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -15,7 +12,6 @@ public class Event {
     private String name;
     private String activities;
     private String description;
-   // @Temporal(TemporalType.TIMESTAMP)
     private String date;
     private String place;
     private String reward;
@@ -33,8 +29,6 @@ public class Event {
 
     @OneToMany
     private List<Comment> comment = new ArrayList<>();
-
-
 
     protected Event(){}
 
@@ -94,7 +88,6 @@ public class Event {
     public void setPlace(String place) {
         this.place = place;
     }
-
 
     public String getReward() {
         return reward;

@@ -42,9 +42,6 @@ public class DataBaseInitialization {
     @PostConstruct
     public void init() throws IOException {
 
-        //Calendar c1 = Calendar.getInstance();
-       // c1.set(2021, Calendar.MAY, 2, 18, 30);
-
 
         User user1=new User("AntonioCuad","AntonioCuad@otaku.com","","53435243T",passwordEncoder.encode("password")/*, "USER" */);
         setUserImage(user1,"/static/images/pozo.jpg");
@@ -152,11 +149,6 @@ public class DataBaseInitialization {
         Store store5 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
         setStoreImage1(store5,"/static/images/pozo.jpg");
         storeRepository.save(store5);
-
-
-
-
-
     }
 
     private void setStoreImage1(Store store, String classpathResource) throws IOException {
@@ -185,7 +177,5 @@ public class DataBaseInitialization {
     public void setUserRoles(User user, List<String> roles){
         user.setRoles(roles);
     }
-
-
 
 }

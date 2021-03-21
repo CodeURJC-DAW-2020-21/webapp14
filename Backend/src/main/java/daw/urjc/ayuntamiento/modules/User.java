@@ -46,7 +46,7 @@ public class User {
     protected User(){}
 
 
-    public User(String name, String mail, String description, String DNI, String password /*,String... roles*/) {
+    public User(String name, String mail, String description, String DNI, String password) {
         map.put("Deporte",0);
         map.put("Cultura",0);
         map.put("Musica",0);
@@ -56,7 +56,6 @@ public class User {
         this.description = description;
         this.DNI = DNI;
         this.password = password;
-        //this.roles = List.of(roles);
     }
 
 
