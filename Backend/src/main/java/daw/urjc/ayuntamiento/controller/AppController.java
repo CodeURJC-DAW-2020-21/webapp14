@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -145,12 +146,24 @@ public class AppController {
             tagaux="Videojuegos";
         }
         List<Event> eventsList = eventService.findAllByTag1(tagaux);
-        if (!eventsList.isEmpty()){
-            int randomNumber = (int) Math.floor(Math.random()*((eventsList.size())));;
-            while(user.get().getEventSuscribe().contains(eventsList.get(randomNumber).getId()) && eventsList.size()>1){
-                randomNumber = (int) Math.floor(Math.random()*((eventsList.size())));
+        List<Long> userEvents = user.get().getEventSuscribe();
+        LinkedList<Event> eventListAux = new LinkedList<>();
+        for (int i = 0; i < eventsList.size(); i++) {
+            eventListAux.add(eventsList.get(i));
+        }
+        for (int i = 0; i < eventsList.size(); i++) {
+            Event eventAux = eventsList.get(i);
+            Long idAux = eventAux.getId();
+            if(userEvents.contains(idAux)){
+                eventListAux.remove(eventAux);
             }
-            Event recommendedEvent = eventsList.get(randomNumber);
+        }
+        if (!eventListAux.isEmpty()){
+            int randomNumber = (int) Math.floor(Math.random()*((eventListAux.size())));;
+            while(user.get().getEventSuscribe().contains(eventListAux.get(randomNumber).getId()) && eventListAux.size()>1){
+                randomNumber = (int) Math.floor(Math.random()*((eventListAux.size())));
+            }
+            Event recommendedEvent = eventListAux.get(randomNumber);
             model.addAttribute("recommendedEvent",recommendedEvent);
         }
         return "profile";
