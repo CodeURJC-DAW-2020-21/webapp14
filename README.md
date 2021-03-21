@@ -118,11 +118,11 @@ Permit user to edit him personal information:
 
 ### Diagrams
 
-Navigation Diagram for navegations:
-![Navigation](images/DiagramaDeNavegacionFase2.jpg)
+### Navigation Diagram for navegations:
+ ![Navigation](images/DiagramaDeNavegacionFase2.jpg)
 
-Data Base Diagram:
-![DataBase Diagram](images/ERDiagram.png)
+### Data Base Diagram:
+ ![DataBase Diagram](images/ERDiagram.png)
 
 Class-Template Diagram
 
