@@ -32,7 +32,30 @@
                 <p>De {{local.openDay}} a {{local.closeDay}}, de {{local.openHour}} a {{local.closeHour}}</p>
                 <p><b>Dirección:</b></p>
                 <p>{{local.street}}</p>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12197.069550752036!2d-3.6184!3d40.1586!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x71a413d23efb36f1!2sEl%20Camachito!5e0!3m2!1ses!2ses!4v1614009569558!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                <div>
+                    <div id = 'map'></div>
+
+                    <script>
+                        var map = L.map('map').
+                              //latitude      length
+                        setView([40.3361179,-3.8771203],
+                            15);
+                        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+                            maxZoom: 18
+                        }).addTo(map);
+
+                        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+                            maxZoom: 18
+                        }).addTo(map);
+
+                        L.control.scale().addTo(map);
+                                 //latitude     length
+                        L.marker([40.3361179,-3.8771203],{draggable: true}).addTo(map);
+                    </script>
+                </div>
 
                 <div class="pt-5 mt-5">
                     <h3 class="mb-5">Opiniones</h3>
