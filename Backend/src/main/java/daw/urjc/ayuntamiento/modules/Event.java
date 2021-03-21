@@ -12,7 +12,6 @@ public class Event {
     private String name;
     private String activities;
     private String description;
-   // @Temporal(TemporalType.TIMESTAMP)
     private String date;
     private String place;
     private String reward;
@@ -30,8 +29,6 @@ public class Event {
 
     @OneToMany
     private List<Comment> comment = new ArrayList<>();
-
-
 
     protected Event(){}
 
@@ -91,7 +88,6 @@ public class Event {
     public void setPlace(String place) {
         this.place = place;
     }
-
 
     public String getReward() {
         return reward;

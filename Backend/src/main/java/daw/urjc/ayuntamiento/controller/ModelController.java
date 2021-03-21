@@ -18,14 +18,6 @@ public class ModelController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private EventService eventService;
-
-    @Autowired
-    private LocalService localService;
-
-
-
     @ModelAttribute
     public void addAttributes(Model model, HttpServletRequest request) {
 
