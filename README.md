@@ -124,8 +124,9 @@ Permit user to edit him personal information:
 ### Data Base Diagram:
  ![DataBase Diagram](images/ERDiagram.png)
 
-Class-Template Diagram
-
+### Class-Template Diagram
+ ![Template Diagram](images/Class_and_templates_diagram.png)
+ 
 ### Members participation
 
 **Israel**
