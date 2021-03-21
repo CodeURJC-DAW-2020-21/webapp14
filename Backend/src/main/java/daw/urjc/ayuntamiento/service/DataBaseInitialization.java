@@ -74,36 +74,64 @@ public class DataBaseInitialization {
         commentRepository.save(c1);
         commentRepository.save(c2);
 
+        Comment com1 = new Comment("Recomendado");
+        com1.setDate(date);
+        com1.setName("Javier Diaz");
+        setCommentImage(com1,"/static/images/alexelcapo.jpg");
+
+        Comment com2 = new Comment("Esta muy bien");
+        com2.setDate(date);
+        com2.setName("Yeray Cornejo");
+        setCommentImage(com2,"/static/images/Raul.png");
+        commentRepository.save(com1);
+        commentRepository.save(com2);
 
 
-        Event event1 = new Event("Ajedrez","jugar","juegos varios","12/12/22","mi casa","0","10","0","Deporte");
-        setEventImage(event1, "/static/images/pozo.jpg");
-        event1.getComment().add(c1);
-        event1.getComment().add(c2);
+
+        Event event1 = new Event("Mercadillo medieval Ciempozuelos","Espectaculo de fuego, bailes medievales, cuentacuentos...","Ven a disfrutar de nuestro popular fin de semana de mercadillo medieval en Ciempozuelos, con espectáculos y eventos para todos los públicos. Pásalo en grande en estos días tan especiales y date un viaje al pasado. Te esperamos!","18/06/2021","Plaza de la Constitucion","0","1000","0","Cultura");
+        setEventImage(event1, "/static/images/Mercadillo1.jpg");
+        event1.getComment().add(com1);
+        event1.getComment().add(com2);
 
         eventRepository.save(event1);
 
-        Event event2 = new Event("Furbo","furbo","furbo","12/12/22","furbo","1","2","3","Cultura");
-        setEventImage(event2,"static/images/alexelcapo.jpg");
+        Event event2 = new Event("Primeras jornadas de participación ciudadana","Impulsar el conocimiento, mesas redondas...","El Ayuntamiento de Ciempozuelos organiza este fin de semana en la sala multifuncional (Avda. de Belén) las primeras jornadas abiertas de participación ciudadana.","1/3/2021","Sala multifuncional (Avda. de Belén)","0","2000","","Cultura");
+        setEventImage(event2,"static/images/evento1.png");
 
         eventRepository.save(event2);
 
-        Event event3 = new Event("Furbo","Furbo","furbo","12/12/22","furbo","1","2","3","Musica");
-        setEventImage(event3,"static/images/alexelcapo.jpg");
+        Event event3 = new Event("Taller educativo para niños","Creacion de pequeños robots, manualidades de madera, cuentacuentos...","Como cada año llega la hora del taller para los niños. Este año traemos mas actividades con la gran incorporacion de un evento para crear pequeños robots. ","28/05/2021","Colegio Público Virgen del Consuelo","0","200","0","Cultura");
+        setEventImage(event3,"static/images/Taller niños.jpg");
         eventRepository.save(event3);
 
-        Event event4 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3","Videojuegos");
-        setEventImage(event4,"static/images/alexelcapo.jpg");
+        Event event4 = new Event("Torneo de Baloncesto 3x3","Concurso de triples, concurso de mates...","Si eres fan del baloncesto no dudes en apuntarte con tus amigos al proximo torneo 3x3 para pasar un buen rato jugando partidos y disfrutando de otras actividades aparte de los partidos.","11/05/2021","Polideportivo Municipal","100","48","20","Deporte");
+        setEventImage(event4,"static/images/Baloncesto.jpg");
         eventRepository.save(event4);
 
 
-        Event event6 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3","Deporte");
-        setEventImage(event6,"static/images/alexelcapo.jpg");
+        Event event5 = new Event("Torneo Ajedrez","Clasificatorias, final, entrega de premios...","Ven a poner a prueba tus capacidades, nunca un torneo había sido tan emocionante. Diviertete en este torneo dedicado a los amantes del ajedrez. El torneo se celebrará en la biblioteca municipal.","30/03/2021","Biblioteca Municipal","30","32","5","Deporte");
+        setEventImage(event5,"static/images/ajedrez.jpeg");
+        eventRepository.save(event5);
+
+        Event event6 = new Event("Mercadillo medieval Ciempozuelos","Espectaculo de fuego, bailes medievales, cuentacuentos...","Ven a disfrutar de nuestro popular fin de semana de mercadillo medieval en Ciempozuelos, con espectáculos y eventos para todos los públicos. Pásalo en grande en estos días tan especiales y date un viaje al pasado. Te esperamos!","18/06/2021","Plaza de la Constitucion","0","1000","0","Cultura");
+        setEventImage(event6, "/static/images/Mercadillo1.jpg");
         eventRepository.save(event6);
 
-        Event event7 = new Event("Furbo","furbo","furbo","22/12/22","furbo","1","2","3","Deporte");
-        setEventImage(event7,"static/images/alexelcapo.jpg");
+        Event event7 = new Event("Primeras jornadas de participación ciudadana","Impulsar el conocimiento, mesas redondas...","El Ayuntamiento de Ciempozuelos organiza este fin de semana en la sala multifuncional (Avda. de Belén) las primeras jornadas abiertas de participación ciudadana.","1/3/2021","Sala multifuncional (Avda. de Belén)","0","2000","","Cultura");
+        setEventImage(event7,"static/images/evento1.png");
         eventRepository.save(event7);
+
+        Event event8 = new Event("Taller educativo para niños","Creacion de pequeños robots, manualidades de madera, cuentacuentos...","Como cada año llega la hora del taller para los niños. Este año traemos mas actividades con la gran incorporacion de un evento para crear pequeños robots.","28/05/2021","Colegio Público Virgen del Consuelo","0","200","0","Cultura");
+        setEventImage(event8,"static/images/Taller niños.jpg");
+        eventRepository.save(event8);
+
+        Event event9 = new Event("Torneo de Baloncesto 3x3","Concurso de triples, concurso de mates...","Si eres fan del baloncesto no dudes en apuntarte con tus amigos al proximo torneo 3x3 para pasar un buen rato jugando partidos y disfrutando de otras actividades aparte de los partidos.","11/05/2021","Polideportivo Municipal","100","48","20","Deporte");
+        setEventImage(event9,"static/images/Baloncesto.jpg");
+        eventRepository.save(event9);
+
+        Event event10 = new Event("Torneo Ajedrez","Clasificatorias, final, entrega de premios...","Ven a poner a prueba tus capacidades, nunca un torneo había sido tan emocionante. Diviertete en este torneo dedicado a los amantes del ajedrez. El torneo se celebrará en la biblioteca municipal.","30/03/2021","Biblioteca Municipal","30","32","5","Deporte");
+        setEventImage(event10,"static/images/ajedrez.jpeg");
+        eventRepository.save(event10);
 
 
 
