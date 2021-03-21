@@ -118,9 +118,8 @@ Permit user to edit him personal information:
 
 ### Diagrams
 
-Navigation Diagram for public pages:
-
-Navigation Diagram for private pages:
+Navigation Diagram for navegations:
+![Navigation](images/DiagramaDeNavegacionFase2.jpg)
 
 Data Base Diagram:
 ![DataBase Diagram](images/ERDiagram.png)
