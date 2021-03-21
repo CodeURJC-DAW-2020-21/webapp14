@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
+import java.sql.Blob;
 import java.util.*;
 
 @Service
@@ -125,7 +126,7 @@ public class DataBaseInitialization {
         commentRepository.save(c5);
 
 
-        Store store1 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
+        Store store1 = new Store("Pozos.SL","Hola soy el pozos","pozospozos","pozeria","pozos","pozos","pozos","pozos","pozos","40.33661179","-3.8771203");
         setStoreImage1(store1,"/static/images/pozo.jpg");
         setStoreImage2(store1,"/static/images/alexelcapo.jpg");
 
@@ -134,19 +135,19 @@ public class DataBaseInitialization {
         store1.getComment().add(c5);
         storeRepository.save(store1);
 
-        Store store2 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
+        Store store2 = new Store("Pozos.SL","Hola soy el pozos","pozospozos","pozeria","pozos","pozos","pozos","pozos","pozos","40.33661179","-3.8771203");
         setStoreImage1(store2,"/static/images/pozo.jpg");
         storeRepository.save(store2);
 
-        Store store3 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
+        Store store3 = new Store("Pozos.SL","Hola soy el pozos","pozospozos","pozeria","pozos","pozos","pozos","pozos","pozos","40.33661179","-3.8771203");
         setStoreImage1(store3,"/static/images/pozo.jpg");
         storeRepository.save(store3);
 
-        Store store4 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
+        Store store4 = new Store("Pozos.SL","Hola soy el pozos","pozospozos","pozeria","pozos","pozos","pozos","pozos","pozos","40.33661179","-3.8771203");
         setStoreImage1(store4,"/static/images/pozo.jpg");
         storeRepository.save(store4);
 
-        Store store5 = new Store("Pozos.SL","Hola soy el pozos","pozeria","pozos","pozos","pozos","pozos","pozos");
+        Store store5 = new Store("Pozos.SL","Hola soy el pozos","pozospozos","pozeria","pozos","pozos","pozos","pozos","pozos","40.33661179","-3.8771203");
         setStoreImage1(store5,"/static/images/pozo.jpg");
         storeRepository.save(store5);
     }
