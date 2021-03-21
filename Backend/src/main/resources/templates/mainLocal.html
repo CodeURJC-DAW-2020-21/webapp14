@@ -32,7 +32,31 @@
                 <p>De {{local.openDay}} a {{local.closeDay}}, de {{local.openHour}} a {{local.closeHour}}</p>
                 <p><b>Dirección:</b></p>
                 <p>{{local.street}}</p>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12197.069550752036!2d-3.6184!3d40.1586!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x71a413d23efb36f1!2sEl%20Camachito!5e0!3m2!1ses!2ses!4v1614009569558!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                <div>
+                    <div class="mapCanvas"  id="mapdiv"></div>
+                    
+                    <script src="/js/openLayerMapa.js"></script>
+                    <script>
+                        map = new OpenLayers.Map("mapdiv");
+                        map.addLayer(new OpenLayers.Layer.OSM());
+
+                        var lonLat = new OpenLayers.LonLat( -3.8367671 ,40.296741 )
+                            .transform(
+                                new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+                                map.getProjectionObject() // to Spherical Mercator Projection
+                            );
+
+                        var zoom=17;
+
+                        var markers = new OpenLayers.Layer.Markers( "Markers" );
+                        map.addLayer(markers);
+
+                        markers.addMarker(new OpenLayers.Marker(lonLat));
+
+                        map.setCenter (lonLat, zoom);
+                    </script>
+                </div>
 
                 <div class="pt-5 mt-5">
                     <h3 class="mb-5">Opiniones</h3>
