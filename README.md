@@ -131,23 +131,23 @@ Permit user to edit him personal information:
 
 **Israel**
 
-- Completed tasks:
+- Completed tasks: I first worked on creating a mustache template for the event page. After the user registration part, I did the commit, but my colleagues helped me to a large extent. Then I took care of adding two buttons to create and delete events / locales. Finally I investigated how to put the advanced technology and I managed to put a dynamic map
 
 - 5 most significant commits:
 
-1. 
-2. 
-3.
-4. 
-5. 
+1. [Add Map in local page] (https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/91e9bd763f8cd8fa3430581997aaba11946b7dcd)
+2. [delete Event] (https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/e5bc742dc3444950d62f838bf926db183cf7c558)
+3. [Add buttmon Local and delete Local] (https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/fb0125f01be81d47145a618f11d52139a3949d86)
+4. [add register] (https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/be3215ae35b51b6e0113072cc09a9314cafddd97)
+5. [Add event mustache] (https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/e593355d4d720bd1cb716a137f4776d74abe04c9)
 
 - 5 files with participation:
 
-1. 
-2. 
-3.
-4. 
-5.
+1. [UserController] (https://github.com/CodeURJC-DAW-2020-21/webapp14/blame/main/Backend/src/main/java/daw/urjc/ayuntamiento/controller/UserController.java)
+2. [LoginController] (https://github.com/CodeURJC-DAW-2020-21/webapp14/blame/main/Backend/src/main/java/daw/urjc/ayuntamiento/controller/LoginController.java)
+3. [MainLocal] (https://github.com/CodeURJC-DAW-2020-21/webapp14/blame/main/Backend/src/main/resources/templates/mainLocal.html)
+4. [MainEvent] (https://github.com/CodeURJC-DAW-2020-21/webapp14/blame/main/Backend/src/main/resources/templates/mainEvent.html)
+5. [EventController] (https://github.com/CodeURJC-DAW-2020-21/webapp14/blame/main/Backend/src/main/java/daw/urjc/ayuntamiento/controller/EventController.java)
 
 **Álvaro**
 
