@@ -92,7 +92,12 @@ public class DataBaseInitialization {
         commentRepository.save(com2);
         commentRepository.save(com3);
 
+        Comment com4 = new Comment("Suena muy interesante estare encantado de asistir");
+        com4.setDate(date);
+        com4.setName("Elías Pérez");
+        setCommentImage(com4, "/static/images/letter-e.png");
 
+        commentRepository.save(com4);
 
         Event event1 = new Event("Mercadillo medieval Ciempozuelos","Espectaculo de fuego, bailes medievales, cuentacuentos...","Ven a disfrutar de nuestro popular fin de semana de mercadillo medieval en Ciempozuelos, con espectáculos y eventos para todos los públicos. Pásalo en grande en estos días tan especiales y date un viaje al pasado. Te esperamos!","18/06/2021","Plaza de la Constitucion","0","1000","0","Cultura");
         setEventImage(event1, "/static/images/Mercadillo1.jpg");
@@ -108,6 +113,7 @@ public class DataBaseInitialization {
 
         Event event3 = new Event("Taller educativo para niños","Creacion de pequeños robots, manualidades de madera, cuentacuentos...","Como cada año llega la hora del taller para los niños. Este año traemos mas actividades con la gran incorporacion de un evento para crear pequeños robots. ","28/05/2021","Colegio Público Virgen del Consuelo","0","200","0","Cultura");
         setEventImage(event3,"static/images/Taller niños.jpg");
+        event3.getComment().add(com4);
         eventRepository.save(event3);
 
         Event event4 = new Event("Torneo de Baloncesto 3x3","Concurso de triples, concurso de mates...","Si eres fan del baloncesto no dudes en apuntarte con tus amigos al proximo torneo 3x3 para pasar un buen rato jugando partidos y disfrutando de otras actividades aparte de los partidos.","11/05/2021","Polideportivo Municipal","100","48","20","Deporte");
