@@ -92,9 +92,7 @@ More information of the event:
 Shows user information:
 ![Profile](images/navegacion%20perfil.jpg)
 
-### Profile edit page 
-Permit user to edit him personal information:
-![Profile_edit](images/editar%20perfil.jpg)
+
 
 ### Navigation Diagram:
 ![Navigation](images/navigation.jpg)
