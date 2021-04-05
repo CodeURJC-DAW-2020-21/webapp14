@@ -13466,8 +13466,18 @@ textarea.form-control {
     color: black;
 }
 
-#global {
+.global {
     height: 400px;
+    width: 400px;
+    border-radius: 15px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: #e86ed0;
+    background: #f1f1f1;
+    overflow-y: scroll;
+}
+.global2 {
+    height: 200px;
     width: 400px;
     border-radius: 15px;
     border-width: 4px;
@@ -13534,4 +13544,10 @@ textarea.form-control {
     margin-right: 100px;
 
 
+}
+
+#map {
+    width: 600px;
+    height: 500px;
+    box-shadow: 5px 5px 5px #888;
 }

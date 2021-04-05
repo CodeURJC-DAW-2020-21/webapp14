@@ -1,6 +1,5 @@
 package daw.urjc.ayuntamiento.controller;
 
-import daw.urjc.ayuntamiento.modules.Event;
 import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.service.UserService;
 import org.hibernate.engine.jdbc.BlobProxy;
@@ -15,10 +14,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.security.Principal;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
@@ -41,6 +41,7 @@ public class UserController {
         }
         String passwordaux;
         passwordaux=passwordEncoder.encode(user.getPassword());
+
         user.setPassword(passwordaux);
         List<String> roles = new LinkedList<>();
         roles.add("USER");
@@ -62,5 +63,5 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
     }
-}
 
+}

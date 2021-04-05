@@ -1,4 +1,16 @@
 {{> header}}
+<br>
+<br>
+<br>
+{{#admin}}
+
+    <div class="form-group">
+        <form action="/FormLocal" class="p-5 contact-form">
+            <input type="submit" value="Añadir Local" class="btn py-3 px-4 btn-primary float-right botonDerecha">
+        </form>
+
+    {{/admin}}
+
 
       <section class="ftco-section">
       <div class="container">
@@ -13,9 +25,9 @@
                   <br>
                   
                 </div>
-                <a href="/local/{{id}}" class="block-20 img" style="background-image: url(local/{{id}}/image1);">
+                <a href="/local/{{id}}" class="block-20 img" style="background-image: url(/local/{{id}}/image1);">
 	              </a>
-                <p>{{description}}</p>
+                <p>{{frontdescription}}</p>
               </div>
             </div>
           </div>
@@ -26,7 +38,7 @@
           <div id="hasNextPage2">
               <ul class="pagination justify-content-center pagination-sm" id="button-replace">
                   {{#hasNext}}
-                  <button class="btn btn-accent" id="load-more1">Cargar más</button>
+                  <button class="btn btn-accent" id="load-more2">Cargar más</button>
                   {{/hasNext}}
               </ul>
           </div>

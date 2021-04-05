@@ -3,7 +3,6 @@ package daw.urjc.ayuntamiento.modules;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.nio.file.Path;
 import java.sql.Blob;
 import java.util.Date;
 

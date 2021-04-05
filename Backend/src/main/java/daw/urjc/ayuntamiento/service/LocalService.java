@@ -1,10 +1,7 @@
 package daw.urjc.ayuntamiento.service;
 
-import daw.urjc.ayuntamiento.modules.Event;
 import daw.urjc.ayuntamiento.modules.Store;
-import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.repository.StoreRepository;
-import daw.urjc.ayuntamiento.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -41,6 +38,8 @@ public class LocalService {
     }
 
     public Page<Store> findLocals(Pageable pageable) {
-        return repository.findAll(PageRequest.of(pageable.getPageNumber(), 4));
+        return repository.findAll(PageRequest.of(pageable.getPageNumber(), 12));
     }
+
+    public long count(){return repository.count();}
 }
