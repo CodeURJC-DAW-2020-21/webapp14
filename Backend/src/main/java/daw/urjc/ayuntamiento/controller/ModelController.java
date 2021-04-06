@@ -1,7 +1,5 @@
 package daw.urjc.ayuntamiento.controller;
 
-import daw.urjc.ayuntamiento.service.EventService;
-import daw.urjc.ayuntamiento.service.LocalService;
 import daw.urjc.ayuntamiento.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
