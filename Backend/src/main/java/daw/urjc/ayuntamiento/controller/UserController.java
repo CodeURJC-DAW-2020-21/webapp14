@@ -1,6 +1,5 @@
 package daw.urjc.ayuntamiento.controller;
 
-import daw.urjc.ayuntamiento.modules.Event;
 import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.service.UserService;
 import org.hibernate.engine.jdbc.BlobProxy;
@@ -15,7 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -66,50 +64,4 @@ public class UserController {
         }
     }
 
-
-    @PostMapping("/editProfileP")
-    public String editProfile(Model model, User user, MultipartFile imageField,HttpServletRequest request) throws IOException {
-
-        Principal principal = request.getUserPrincipal();
-        Optional<User> principaluser = service.findByName(principal.getName());
-
-        if (user.getPassword().isEmpty()){
-            user.setPassword(principaluser.get().getPassword());
-        }
-
-        if (imageField.isEmpty()){
-
-            user.setImageFile(principaluser.get().getImageFile());
-        }
-        else {
-            user.setImageFile(BlobProxy.generateProxy(imageField.getInputStream(), imageField.getSize()));
-        }
-
-        service.save(user);
-
-
-        return "profile";
-    }
-
-
-
-    @GetMapping("/editProfile")
-    public String editProfile(Model model, HttpServletRequest request) {
-
-        Principal principal = request.getUserPrincipal();
-        Optional<User> user = service.findByName(principal.getName());
-
-        if (user.isPresent()) {
-            model.addAttribute("user", user.get());
-            return "editpProfile";
-        } else {
-            return "login";
-        }
-    }
-
-
-
-
-
 }
-
