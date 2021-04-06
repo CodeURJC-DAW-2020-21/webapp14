@@ -3,11 +3,8 @@ package daw.urjc.ayuntamiento.modules;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.nio.file.Path;
 import java.sql.Blob;
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -15,12 +12,12 @@ public class Event {
     private String name;
     private String activities;
     private String description;
-   // @Temporal(TemporalType.TIMESTAMP)
     private String date;
     private String place;
     private String reward;
     private String people;
     private String price;
+    private String tag1;
 
     @Lob
     @JsonIgnore
@@ -33,11 +30,9 @@ public class Event {
     @OneToMany
     private List<Comment> comment = new ArrayList<>();
 
-
-
     protected Event(){}
 
-    public Event(String name, String activities, String description, String date, String place, String reward, String people, String price) {
+    public Event(String name, String activities, String description, String date, String place, String reward, String people, String price,String tag1) {
         super();
         this.name = name;
         this.activities = activities;
@@ -47,6 +42,7 @@ public class Event {
         this.reward = reward;
         this.people = people;
         this.price = price;
+        this.tag1 = tag1;
     }
 
 
@@ -92,7 +88,6 @@ public class Event {
     public void setPlace(String place) {
         this.place = place;
     }
-
 
     public String getReward() {
         return reward;
@@ -140,6 +135,14 @@ public class Event {
 
     public void setComment(List<Comment> comment) {
         this.comment = comment;
+    }
+
+    public String getTag1() {
+        return tag1;
+    }
+
+    public void setTag1(String tag1) {
+        this.tag1 = tag1;
     }
 }
 

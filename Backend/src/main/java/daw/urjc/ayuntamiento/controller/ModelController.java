@@ -1,8 +1,5 @@
 package daw.urjc.ayuntamiento.controller;
 
-import daw.urjc.ayuntamiento.repository.UserRepository;
-import daw.urjc.ayuntamiento.service.EventService;
-import daw.urjc.ayuntamiento.service.LocalService;
 import daw.urjc.ayuntamiento.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -19,14 +16,6 @@ public class ModelController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private EventService eventService;
-
-    @Autowired
-    private LocalService localService;
-
-
-
     @ModelAttribute
     public void addAttributes(Model model, HttpServletRequest request) {
 
@@ -38,6 +27,8 @@ public class ModelController {
             model.addAttribute("userDesc", userService.findByName(principal.getName()).get().getDescription());
             model.addAttribute("userMail", userService.findByName(principal.getName()).get().getMail());
             model.addAttribute("admin", request.isUserInRole("ADMIN"));
+            model.addAttribute("eventlist",userService.findByName(principal.getName()).get().getEvents());
+            model.addAttribute("commentlist",userService.findByName(principal.getName()).get().getCommentPlaces());
 
 
         } else {

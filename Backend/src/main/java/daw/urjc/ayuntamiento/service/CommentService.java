@@ -1,9 +1,7 @@
 package daw.urjc.ayuntamiento.service;
 
 import daw.urjc.ayuntamiento.modules.Comment;
-import daw.urjc.ayuntamiento.modules.Store;
 import daw.urjc.ayuntamiento.repository.CommentRepository;
-import daw.urjc.ayuntamiento.repository.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,4 +43,5 @@ public class CommentService {
         return repository.findByName(name);
     }
 
+    public long count(){return repository.count();}
 }

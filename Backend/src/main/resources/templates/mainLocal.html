@@ -1,4 +1,15 @@
 {{> header}}
+<br>
+<br>
+<br>
+<br>
+{{#admin}}
+<div class="form-group">
+    <form action="/removeLocal/{{local.id}}" class="p-5 contact-form">
+        <input type="submit" value="Eliminar Local" class="btn py-3 px-4 btn-danger float-right botonDerecha">
+    </form>
+{{/admin}}
+
 
 <section class="ftco-section ftco-degree-bg">
     <div class="container">
@@ -21,14 +32,31 @@
                 <p>De {{local.openDay}} a {{local.closeDay}}, de {{local.openHour}} a {{local.closeHour}}</p>
                 <p><b>Dirección:</b></p>
                 <p>{{local.street}}</p>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12197.069550752036!2d-3.6184!3d40.1586!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x71a413d23efb36f1!2sEl%20Camachito!5e0!3m2!1ses!2ses!4v1614009569558!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                <div class="tag-widget post-tag-container mb-5 mt-5">
-                    <div class="tagcloud">
-                        <a href="" class="tag-cloud-link">Tapeo</a>
-                        <a href="" class="tag-cloud-link">Amigos</a>
-                        <a href="" class="tag-cloud-link">Familia</a>
-                        <a href="" class="tag-cloud-link">Bar</a>
-                    </div>
+
+                <div>
+                    <div id = 'map'></div>
+
+                    <script>
+                        var lati = "{{local.latitude}}"
+                        var len = "{{local.lenght}}"
+                        var map = L.map('map').
+                              //latitude      length
+                        setView([parseFloat(lati),parseFloat(len)],
+                            15);
+                        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+                            maxZoom: 18
+                        }).addTo(map);
+
+                        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+                            maxZoom: 18
+                        }).addTo(map);
+
+                        L.control.scale().addTo(map);
+                                 //latitude     length
+                        L.marker([parseFloat(lati),parseFloat(len)],{draggable: true}).addTo(map);
+                    </script>
                 </div>
 
                 <div class="pt-5 mt-5">
@@ -37,10 +65,10 @@
                     <ul class="comment-list">
                         <li class="comment">
                             <div class="vcard bio">
-                                <img src="images/Justo" alt="">
+                                <img src="/comment/{{id}}" alt="">
                             </div>
                             <div class="comment-body">
-                                <h3>Jose Justo</h3>
+                                <h3>{{name}}</h3>
                                 <div class="meta">{{date}}</div>
                                 <p>{{text}}</p>
                             </div>
@@ -52,12 +80,13 @@
                     {{#logged}}
                     <div class="comment-form-wrap pt-5">
                         <h3 class="mb-5">Deja tu comentario</h3>
-                        <form action="/SaveComment" class="p-5 bg-light">
+                        <form action="/createCommentLocal/{{id}}" method="post" class="p-5 bg-light">
                             <div class="form-group">
                                 <label for="message">Comentario</label>
-                                <input name="comment" id="message" cols="30" rows="10" class="form-control"/>
+                                <input name="text" id="message" cols="30" rows="10" class="form-control"/>
                             </div>
                             <div class="form-group">
+                                <input type="hidden" name="_csrf" value="{{token}}">
                                 <input type="submit" value="Enviar Comentario" class="btn py-3 px-4 btn-primary">
                             </div>
                         </form>
@@ -66,27 +95,7 @@
                 </div>
             </div> <!-- .col-md-8 -->
             <div class="col-md-4 sidebar ftco-animate">
-                <div class="sidebar-box ftco-animate">
-                    <h3>Otros locales</h3>
-                    <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(/images/LourdesP.jfif);"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="Lourdes.html">Muebles Lourdes</a></h3>
-                        </div>
-                    </div>
-                    <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(/images/REGALOS\ PAULA\ .png);"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="RegalosPaula.html">Regalos Paula</a></h3>
-                        </div>
-                    </div>
-                    <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(/images/Chotis.jpg);"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="ElChotis.html">Parrilla El Chotis</a></h3>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
