@@ -16,8 +16,4 @@ public class LoginController {
     public String errorlogin(){
         return "errorLogin";
     }
-
-
-
-
 }
