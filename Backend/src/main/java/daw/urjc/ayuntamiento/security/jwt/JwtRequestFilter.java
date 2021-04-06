@@ -1,5 +1,6 @@
 package daw.urjc.ayuntamiento.security.jwt;
 
+import daw.urjc.ayuntamiento.security.RepositoryUserDetailsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
     private static final Logger LOG = LoggerFactory.getLogger(JwtRequestFilter.class);
 
-    @Qualifier("repositoryUserDetailsService")
     @Autowired
-    private UserDetailsService userDetailsService;
+    private RepositoryUserDetailsService userDetailsService;
 
     @Autowired
     private JwtTokenProvider jwtTokenProvider;

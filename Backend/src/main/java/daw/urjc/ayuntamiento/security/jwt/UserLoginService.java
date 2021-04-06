@@ -5,8 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import daw.urjc.ayuntamiento.security.RepositoryUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,7 +14,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,9 +22,8 @@ public class UserLoginService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @Qualifier("repositoryUserDetailsService")
     @Autowired
-    private UserDetailsService userDetailsService;
+    private RepositoryUserDetailsService userDetailsService;
 
     @Autowired
     private JwtTokenProvider jwtTokenProvider;
