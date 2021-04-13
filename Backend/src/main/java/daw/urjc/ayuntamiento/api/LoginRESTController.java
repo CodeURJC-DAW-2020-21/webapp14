@@ -1,4 +1,4 @@
-package daw.urjc.ayuntamiento.controller;
+package daw.urjc.ayuntamiento.api;
 import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
