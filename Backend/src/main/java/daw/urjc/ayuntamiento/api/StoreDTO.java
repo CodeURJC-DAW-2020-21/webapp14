@@ -1,47 +1,43 @@
-package daw.urjc.ayuntamiento.modules;
+package daw.urjc.ayuntamiento.api;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import daw.urjc.ayuntamiento.modules.Comment;
+import org.springframework.web.multipart.MultipartFile;
 import javax.persistence.*;
 import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-public class Store {
 
+public class StoreDTO {
     private String name;
+
     private String description;
+
     private String frontdescription;
     private String services;
+
     private String openDay;
+
     private String closeDay;
+
     private String openHour;
+
     private String closeHour;
+
     private String street;
+
     private String latitude;
+
     private String length;
 
+    private MultipartFile imageField1;
 
-    @Lob
-    @JsonIgnore
-    private Blob imageField1;
+    private MultipartFile imageField2;
 
-    @Lob
-    @JsonIgnore
-    private Blob imageField2;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToMany
-    private List<Comment> comment = new ArrayList<>();
-
-    protected Store(){}
-
-    public Store(String name, String description,String frontdescription, String services, String openDay, String closeDay, String openHour, String closeHour, String street,String latitude, String length) {
-        super();
+    public StoreDTO(String name, String description, String frontdescription, String services, String openDay, String closeDay, String openHour, String closeHour, String street, String latitude, String length, MultipartFile imageField1, MultipartFile imageField2, long id) {
         this.name = name;
         this.description = description;
         this.frontdescription = frontdescription;
@@ -53,6 +49,9 @@ public class Store {
         this.street = street;
         this.latitude = latitude;
         this.length = length;
+        this.imageField1 = imageField1;
+        this.imageField2 = imageField2;
+        this.id = id;
     }
 
     public String getName() {
@@ -69,6 +68,14 @@ public class Store {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getFrontdescription() {
+        return frontdescription;
+    }
+
+    public void setFrontdescription(String frontdescription) {
+        this.frontdescription = frontdescription;
     }
 
     public String getServices() {
@@ -119,46 +126,6 @@ public class Store {
         this.street = street;
     }
 
-    public Blob getImageField1() {
-        return imageField1;
-    }
-
-    public void setImageField1(Blob imageField1) {
-        this.imageField1 = imageField1;
-    }
-
-    public Blob getImageField2() {
-        return imageField2;
-    }
-
-    public void setImageField2(Blob imageField2) {
-        this.imageField2 = imageField2;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public List<Comment> getComment() {
-        return comment;
-    }
-
-    public void setComment(List<Comment> comment) {
-        this.comment = comment;
-    }
-
-    public String getFrontdescription() {
-        return frontdescription;
-    }
-
-    public void setFrontdescription(String frontdescription) {
-        this.frontdescription = frontdescription;
-    }
-
     public String getLatitude() {
         return latitude;
     }
@@ -171,7 +138,31 @@ public class Store {
         return length;
     }
 
-    public void setLength(String lenght) {
+    public void setLength(String length) {
         this.length = length;
+    }
+
+    public MultipartFile getImageField1() {
+        return imageField1;
+    }
+
+    public void setImageField1(MultipartFile imageField1) {
+        this.imageField1 = imageField1;
+    }
+
+    public MultipartFile getImageField2() {
+        return imageField2;
+    }
+
+    public void setImageField2(MultipartFile imageField2) {
+        this.imageField2 = imageField2;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
