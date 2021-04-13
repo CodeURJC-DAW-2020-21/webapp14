@@ -171,7 +171,7 @@ public class Store {
         return length;
     }
 
-    public void setLength(String lenght) {
+    public void setLength(String length) {
         this.length = length;
     }
 }
