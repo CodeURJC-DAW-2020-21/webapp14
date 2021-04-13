@@ -1,10 +1,74 @@
 package daw.urjc.ayuntamiento.api;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import daw.urjc.ayuntamiento.modules.Comment;
+import daw.urjc.ayuntamiento.modules.User;
+import daw.urjc.ayuntamiento.service.CommentService;
+import daw.urjc.ayuntamiento.service.UserService;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.net.URI;
+import java.security.Principal;
+import java.util.Collection;
+import java.util.Date;
+import java.util.Optional;
+
+import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
 @RestController
 @RequestMapping("/api/comments")
 public class CommentRestController {
+
+    @Autowired
+    private CommentService comments;
+
+    @Autowired
+    private UserService userService;
+    @GetMapping("/")
+    public Collection<Comment> getComments(){
+        return comments.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Comment> getPost(@PathVariable long id){
+        Optional<Comment> comment = comments.findId(id);
+        if (comment.isPresent()){
+            return ResponseEntity.ok(comment.get());
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping("/")
+    public ResponseEntity<Comment> createComment(@RequestBody Comment comment, HttpServletRequest request){
+        Principal principal = request.getUserPrincipal();
+        Optional<User> user = userService.findByName(principal.getName());
+
+        comment.setName(user.get().getName());
+        Date date= new Date();
+        comment.setDate(date);
+
+        comment.setImageFile(user.get().getImageFile());
+
+        comments.save(comment);
+
+        URI location = fromCurrentRequest().path("/{id}").buildAndExpand(comment.getId()).toUri();
+        return ResponseEntity.created(location).body(comment);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Comment> deleteComment(@PathVariable long id){
+        Optional<Comment> comment = comments.findId(id);
+        if(comment.isPresent()){
+            comments.delete(id);
+            return ResponseEntity.ok(comment.get());
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
 }
