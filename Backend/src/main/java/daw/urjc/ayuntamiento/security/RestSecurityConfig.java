@@ -19,7 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 
 @Configuration
-@Order(1)
+
 public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
