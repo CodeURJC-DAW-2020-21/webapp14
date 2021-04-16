@@ -89,9 +89,12 @@ public class CommentRestController {
     @PutMapping("/{id}")
     public ResponseEntity<Comment> replaceComment(@PathVariable long id, @org.springframework.web.bind.annotation.RequestBody Comment newComment) {
         Optional<Comment> comment = comments.findId(id);
+        Date date = new Date();
         if (comment.isPresent()) {
-            newComment.setId(id);
-            comments.save(newComment);
+            String aux = newComment.getText();
+            comment.get().setText(aux);
+            comment.get().setDate(date);
+            comments.save(comment.get());
             return ResponseEntity.ok(comment.get());
         } else {
             return ResponseEntity.notFound().build();
