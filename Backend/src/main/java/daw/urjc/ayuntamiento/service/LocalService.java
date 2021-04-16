@@ -1,23 +1,13 @@
 package daw.urjc.ayuntamiento.service;
 
-import daw.urjc.ayuntamiento.modules.Comment;
 import daw.urjc.ayuntamiento.modules.Store;
 import daw.urjc.ayuntamiento.repository.StoreRepository;
-import daw.urjc.ayuntamiento.utils.ImageSetter;
-import daw.urjc.ayuntamiento.utils.ImageUpdater;
-import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
