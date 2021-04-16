@@ -6,12 +6,15 @@ import daw.urjc.ayuntamiento.service.CommentService;
 import daw.urjc.ayuntamiento.service.UserService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
 import java.security.Principal;
+import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Optional;
@@ -27,6 +30,7 @@ public class CommentRestController {
 
     @Autowired
     private UserService userService;
+
     @GetMapping("/")
     public Collection<Comment> getComments(){
         return comments.findAll();
@@ -37,6 +41,17 @@ public class CommentRestController {
         Optional<Comment> comment = comments.findId(id);
         if (comment.isPresent()){
             return ResponseEntity.ok(comment.get());
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/{id}/image")
+    public ResponseEntity<Object> getImage(@PathVariable long id) throws SQLException {
+        Optional<Comment> comment = comments.findId(id);
+        if (comment.isPresent()){
+            int profilePhotoLength = (int) comment.get().getImageFile().length();
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").body(new ByteArrayResource(comment.get().getImageFile().getBytes(1, profilePhotoLength)));
         }else{
             return ResponseEntity.notFound().build();
         }
