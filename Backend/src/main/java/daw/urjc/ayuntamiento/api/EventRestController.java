@@ -1,7 +1,6 @@
 package daw.urjc.ayuntamiento.api;
 
 import daw.urjc.ayuntamiento.modules.Event;
-import daw.urjc.ayuntamiento.modules.Store;
 import daw.urjc.ayuntamiento.service.EventService;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,6 @@ import java.io.IOException;
 import java.net.URI;
 import java.sql.SQLException;
 import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;

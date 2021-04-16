@@ -29,7 +29,7 @@ public class StoreRestController {
        return service.findAll();
     }
 
-   @GetMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Store> getStore(@PathVariable long id) {
         Optional<Store> store = service.findId(id);
         if (store.isPresent()) {
