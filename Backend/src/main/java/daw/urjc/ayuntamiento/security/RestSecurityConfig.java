@@ -1,7 +1,5 @@
 package daw.urjc.ayuntamiento.security;
 
-import java.security.SecureRandom;
-
 import daw.urjc.ayuntamiento.security.jwt.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -13,7 +11,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -27,11 +24,6 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
-
-    /*@Bean
-    public PasswordEncoder passwordRestEncoder() {
-        return new BCryptPasswordEncoder(10, new SecureRandom());
-    }*/
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -53,12 +45,17 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        /*
-        // URLs that need authentication to access to it
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/books/**").hasRole("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/books/**").hasRole("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/books/**").hasRole("ADMIN");*/
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/comments/**").hasRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/comments/**").hasRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/comments/**").hasRole("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/events/**").hasRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/events/**").hasRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/events/**").hasRole("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/store/**").hasRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/store/**").hasRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/store/**").hasRole("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/users/**").hasRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/**").hasRole("ADMIN");
         // Other URLs can be accessed without authentication
         http.authorizeRequests().anyRequest().permitAll();
 
