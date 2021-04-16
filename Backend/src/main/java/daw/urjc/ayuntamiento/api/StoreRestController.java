@@ -44,7 +44,7 @@ public class StoreRestController {
         Optional<Store> store = service.findId(id);
         if (store.isPresent()) {
             service.delete(id);
-            return ResponseEntity.ok(store.get());
+            return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.notFound().build();
         }

@@ -76,7 +76,7 @@ public class EventRestController {
         Optional<Event> event = events.findId(id);
         if (event.isPresent()) {
             events.delete(id);
-            return ResponseEntity.ok(event.get());
+            return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.notFound().build();
         }
@@ -100,7 +100,8 @@ public class EventRestController {
             MultipartFile img1 = eventDTO.getImageFile();
             event.get().setImageFile(BlobProxy.generateProxy(img1.getInputStream(), img1.getSize()));
             events.save(event.get());
-            return ResponseEntity.ok(event.get().getImageFile());
+            int profilePhotoLength = (int) event.get().getImageFile().length();
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").body(new ByteArrayResource(event.get().getImageFile().getBytes(1, profilePhotoLength)));
         } else
             return ResponseEntity.notFound().build();
     }
