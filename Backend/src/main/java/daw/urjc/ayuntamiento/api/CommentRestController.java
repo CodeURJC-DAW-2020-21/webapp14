@@ -80,7 +80,7 @@ public class CommentRestController {
         Optional<Comment> comment = comments.findId(id);
         if(comment.isPresent()){
             comments.delete(id);
-            return ResponseEntity.ok(comment.get());
+            return ResponseEntity.ok().build();
         }else{
             return ResponseEntity.notFound().build();
         }
