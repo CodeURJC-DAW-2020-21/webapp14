@@ -1,6 +1,7 @@
 package daw.urjc.ayuntamiento.api;
 
 import daw.urjc.ayuntamiento.modules.Event;
+import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.service.EventService;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,9 +101,10 @@ public class EventRestController {
             MultipartFile img1 = eventDTO.getImageFile();
             event.get().setImageFile(BlobProxy.generateProxy(img1.getInputStream(), img1.getSize()));
             events.save(event.get());
-            int profilePhotoLength = (int) event.get().getImageFile().length();
-            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").body(new ByteArrayResource(event.get().getImageFile().getBytes(1, profilePhotoLength)));
-        } else
+            URI location = fromCurrentRequest().path("/{id}").buildAndExpand(event.get().getId()).toUri();
+            return ResponseEntity.created(location).body(event.get());
+        }else
+
             return ResponseEntity.notFound().build();
     }
 }

@@ -1,5 +1,6 @@
 package daw.urjc.ayuntamiento.api;
 
+import daw.urjc.ayuntamiento.modules.Store;
 import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.service.UserService;
 import org.hibernate.engine.jdbc.BlobProxy;
@@ -104,14 +105,16 @@ public class UserRestController {
     }
 
     @PutMapping("/{id}/image")
-    public ResponseEntity<Object> replaceImage(@ModelAttribute UserDTO userDTO, @PathVariable long id) throws IOException, SQLException {
+    public ResponseEntity<User> replaceImage(@ModelAttribute UserDTO userDTO, @PathVariable long id) throws IOException, SQLException {
         Optional<User> user = users.findId(id);
         if(user.isPresent()){
             MultipartFile img1 = userDTO.getImageField();
             user.get().setImageFile(BlobProxy.generateProxy(img1.getInputStream(), img1.getSize()));
             users.save(user.get());
-            return ResponseEntity.ok(user.get().getImageFile());
-        } else
+            URI location = fromCurrentRequest().path("/{id}").buildAndExpand(user.get().getId()).toUri();
+            return ResponseEntity.created(location).body(user.get());
+        }else
+
             return ResponseEntity.notFound().build();
     }
 

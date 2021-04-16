@@ -118,26 +118,31 @@ public class StoreRestController {
     }
 
     @PutMapping("/{id}/image1")
-    public ResponseEntity<Object> replaceImage1(@ModelAttribute StoreDTO storeDTO, @PathVariable long id) throws IOException, SQLException {
+    public ResponseEntity<Store> replaceImage1(@ModelAttribute StoreDTO storeDTO, @PathVariable long id) throws IOException, SQLException {
         Optional<Store> store = service.findId(id);
         if(store.isPresent()){
-            MultipartFile img1 = storeDTO.getImageField1();
+            MultipartFile img1 = storeDTO.getImageField2();
             store.get().setImageField1(BlobProxy.generateProxy(img1.getInputStream(), img1.getSize()));
             service.save(store.get());
-            return ResponseEntity.ok(store.get().getImageField1());
-        } else
+            URI location = fromCurrentRequest().path("/{id}").buildAndExpand(store.get().getId()).toUri();
+            return ResponseEntity.created(location).body(store.get());
+        }else
+
             return ResponseEntity.notFound().build();
     }
 
     @PutMapping("/{id}/image2")
-    public ResponseEntity<Object> replaceImage2(@ModelAttribute StoreDTO storeDTO, @PathVariable long id) throws IOException, SQLException {
+    public ResponseEntity<Store> replaceImage2(@ModelAttribute StoreDTO storeDTO, @PathVariable long id) throws IOException, SQLException {
+
         Optional<Store> store = service.findId(id);
         if(store.isPresent()){
             MultipartFile img2 = storeDTO.getImageField2();
-            store.get().setImageField1(BlobProxy.generateProxy(img2.getInputStream(), img2.getSize()));
+            store.get().setImageField2(BlobProxy.generateProxy(img2.getInputStream(), img2.getSize()));
             service.save(store.get());
-            return ResponseEntity.ok(store.get().getImageField2());
-        } else
+            URI location = fromCurrentRequest().path("/{id}").buildAndExpand(store.get().getId()).toUri();
+            return ResponseEntity.created(location).body(store.get());
+        }else
+
             return ResponseEntity.notFound().build();
     }
 }
