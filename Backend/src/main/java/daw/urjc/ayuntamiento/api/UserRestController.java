@@ -46,7 +46,7 @@ public class UserRestController {
         Optional<User> user = users.findId(id);
         if (user.isPresent()) {
             users.delete(id);
-            return ResponseEntity.ok(user.get());
+            return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.notFound().build();
         }
