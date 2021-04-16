@@ -93,26 +93,24 @@ public class UserRestController {
 
     @PutMapping("/{id}")
     public ResponseEntity<User> replaceUser(@PathVariable long id, @RequestBody User newUser) {
-        Optional<User> store = users.findId(id);
-        if (store.isPresent()) {
+        Optional<User> user = users.findId(id);
+        if (user.isPresent()) {
             newUser.setId(id);
             users.save(newUser);
-            return ResponseEntity.ok(store.get());
+            return ResponseEntity.ok(user.get());
         } else {
             return ResponseEntity.notFound().build();
         }
     }
 
     @PutMapping("/{id}/image")
-    public ResponseEntity<User> replaceImage(@ModelAttribute UserDTO userDTO, @PathVariable long id) throws IOException, SQLException {
+    public ResponseEntity<Object> replaceImage(@ModelAttribute UserDTO userDTO, @PathVariable long id) throws IOException, SQLException {
         Optional<User> user = users.findId(id);
         if(user.isPresent()){
             MultipartFile img1 = userDTO.getImageField();
             user.get().setImageFile(BlobProxy.generateProxy(img1.getInputStream(), img1.getSize()));
             users.save(user.get());
-            URI location = fromCurrentRequest().path("/{id}").buildAndExpand(user.get().getId()).toUri();
-
-            return ResponseEntity.created(location).body(user.get());
+            return ResponseEntity.ok(user.get().getImageFile());
         } else
             return ResponseEntity.notFound().build();
     }

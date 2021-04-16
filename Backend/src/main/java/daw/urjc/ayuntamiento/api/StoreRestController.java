@@ -118,29 +118,25 @@ public class StoreRestController {
     }
 
     @PutMapping("/{id}/image1")
-    public ResponseEntity<Store> replaceImage1(@ModelAttribute StoreDTO storeDTO, @PathVariable long id) throws IOException, SQLException {
+    public ResponseEntity<Object> replaceImage1(@ModelAttribute StoreDTO storeDTO, @PathVariable long id) throws IOException, SQLException {
         Optional<Store> store = service.findId(id);
         if(store.isPresent()){
             MultipartFile img1 = storeDTO.getImageField1();
             store.get().setImageField1(BlobProxy.generateProxy(img1.getInputStream(), img1.getSize()));
             service.save(store.get());
-            URI location = fromCurrentRequest().path("/{id}").buildAndExpand(store.get().getId()).toUri();
-
-            return ResponseEntity.created(location).body(store.get());
+            return ResponseEntity.ok(store.get().getImageField1());
         } else
             return ResponseEntity.notFound().build();
     }
 
     @PutMapping("/{id}/image2")
-    public ResponseEntity<Store> replaceImage2(@ModelAttribute StoreDTO storeDTO, @PathVariable long id) throws IOException, SQLException {
+    public ResponseEntity<Object> replaceImage2(@ModelAttribute StoreDTO storeDTO, @PathVariable long id) throws IOException, SQLException {
         Optional<Store> store = service.findId(id);
         if(store.isPresent()){
             MultipartFile img2 = storeDTO.getImageField2();
             store.get().setImageField1(BlobProxy.generateProxy(img2.getInputStream(), img2.getSize()));
             service.save(store.get());
-            URI location = fromCurrentRequest().path("/{id}").buildAndExpand(store.get().getId()).toUri();
-
-            return ResponseEntity.created(location).body(store.get());
+            return ResponseEntity.ok(store.get().getImageField2());
         } else
             return ResponseEntity.notFound().build();
     }

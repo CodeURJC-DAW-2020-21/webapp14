@@ -1,6 +1,7 @@
 package daw.urjc.ayuntamiento.api;
 
 import daw.urjc.ayuntamiento.modules.Comment;
+import daw.urjc.ayuntamiento.modules.Event;
 import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.service.CommentService;
 import daw.urjc.ayuntamiento.service.UserService;
@@ -85,5 +86,15 @@ public class CommentRestController {
         }
     }
 
-
+    @PutMapping("/{id}")
+    public ResponseEntity<Comment> replaceComment(@PathVariable long id, @org.springframework.web.bind.annotation.RequestBody Comment newComment) {
+        Optional<Comment> comment = comments.findId(id);
+        if (comment.isPresent()) {
+            newComment.setId(id);
+            comments.save(newComment);
+            return ResponseEntity.ok(comment.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
