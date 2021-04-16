@@ -28,15 +28,19 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
 
-    @Bean
+    /*@Bean
     public PasswordEncoder passwordRestEncoder() {
         return new BCryptPasswordEncoder(10, new SecureRandom());
-    }
+    }*/
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordRestEncoder());
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
 
     //Expose AuthenticationManager as a Bean to be used in other services
