@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8d2ba5a2-cbb7-474a-a8bd-f7a2a1913f04",
+		"_postman_id": "369f8452-ce34-43c5-9bb8-3447ea445e70",
 		"name": "API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -234,6 +234,223 @@
 		},
 		{
 			"name": "Users",
+			"item": [
+				{
+					"name": "New User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"name\": \"Alcalde\",\r\n        \"mail\": \"Batman@policiaspolis.es\",\r\n        \"description\": \"El señor de la noche\",\r\n        \"password\": \"$2a$10$jD9I04AUVmigFbo8zSJCYOcwiov9XrTiU.lLh1sUE.DL7AwzI7XCi\",\r\n        \"map\": {\r\n            \"Musica\": 0,\r\n            \"Videojuegos\": 0,\r\n            \"Cultura\": 0,\r\n            \"Deporte\": 0\r\n        },\r\n        \"eventSuscribe\": [],\r\n        \"events\": [],\r\n        \"commentPlaces\": [],\r\n        \"comment\": [],\r\n        \"roles\": [\r\n            \"USER\"\r\n        ],\r\n        \"dni\": \"435346543R\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/users/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imageField",
+									"type": "file",
+									"src": "/D:/DOCUMENTOS/AyuntaminetoDefinitivo/Backend/src/main/resources/static/images/LuisPueyo.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/users/35/image",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"35",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/35/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"35",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/35/image",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"35",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Replace User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Alcalde PUT\",\r\n    \"mail\": \"superman@policiaspolis.es\",\r\n    \"description\": \"El señor de la noche\",\r\n    \"password\": \"$2a$10$jD9I04AUVmigFbo8zSJCYOcwiov9XrTiU.lLh1sUE.DL7AwzI7XCi\",\r\n    \"map\": {\r\n        \"Musica\": 0,\r\n        \"Videojuegos\": 0,\r\n        \"Cultura\": 0,\r\n        \"Deporte\": 0\r\n    },\r\n    \"eventSuscribe\": [],\r\n    \"events\": [],\r\n    \"commentPlaces\": [],\r\n    \"id\": 35,\r\n    \"comment\": [],\r\n    \"roles\": [\r\n        \"USER\"\r\n    ],\r\n    \"dni\": \"435346543R\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/users/35/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"35",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Replace User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ImageField",
+									"type": "file",
+									"src": "/D:/DOCUMENTOS/AyuntaminetoDefinitivo/Backend/src/main/resources/static/images/PedroJimenez.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/users/35/image",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"35",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/users/35/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"users",
+								"35",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Graphic",
 			"item": []
 		},
 		{
