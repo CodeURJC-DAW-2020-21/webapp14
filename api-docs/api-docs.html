@@ -196,7 +196,6 @@
   <h4><a href="#CommentRestController">CommentRestController</a></h4>
   <ul>
   <li><a href="#createComment"><code><span class="http-method">post</span> /api/comments/</code></a></li>
-  <li><a href="#deleteComment"><code><span class="http-method">delete</span> /api/comments/{id}</code></a></li>
   <li><a href="#getComment"><code><span class="http-method">get</span> /api/comments/{id}</code></a></li>
   <li><a href="#getComments"><code><span class="http-method">get</span> /api/comments/</code></a></li>
   <li><a href="#getImage2"><code><span class="http-method">get</span> /api/comments/{id}/image</code></a></li>
@@ -273,54 +272,6 @@
       
             <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
                 </div>  <!-- field-items -->
-
-
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#Comment">Comment</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "date" : "2000-01-23T04:56:07.000+00:00",
-  "name" : "name",
-  "text" : "text",
-  "id" : 5
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>*/*</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    OK
-        <a href="#Comment">Comment</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="deleteComment"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /api/comments/{id}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">deleteComment</span>)</div>
-    <div class="method-notes"></div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
-
-
 
 
 

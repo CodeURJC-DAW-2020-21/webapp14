@@ -492,24 +492,6 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Comment'
-    delete:
-      tags:
-      - comment-rest-controller
-      operationId: deleteComment
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/Comment'
   /api/users/:
     get:
       tags:
