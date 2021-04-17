@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9e03d3e6-e8dc-4209-a3fd-73313da2c264",
+		"_postman_id": "825874cb-56b7-42b1-9658-5fc1a8edcab1",
 		"name": "API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -358,7 +358,312 @@
 		},
 		{
 			"name": "Stores",
-			"item": []
+			"item": [
+				{
+					"name": "Stores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/store/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"store",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Taberna El Camachito\",\r\n    \"description\": \"Disfruta de nuestra amplia carta con raciones variadas, junto a una buena cerveza o refresco en un ambiente ideal. Te esperamos!\",\r\n    \"frontdescription\": \"Tu local ideal en Ciempozuelos para comer y beber en la mejor compañía\",\r\n    \"services\": \"Disponemos de una amplia carta con variadas raciones y bebidas. No dudes en pedirnosla\",\r\n    \"openDay\": \"Lunes\",\r\n    \"closeDay\": \"Domingo\",\r\n    \"openHour\": \"10:00\",\r\n    \"closeHour\": \"23:30\",\r\n    \"street\": \"Calle España, 5, 28350 Ciempozuelos, Madrid\",\r\n    \"latitude\": \"40.1591\",\r\n    \"length\": \"-3.621\",\r\n    \"comment\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/store/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"store",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/store/35",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"store",
+								"35"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Image 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imageField1",
+									"type": "file",
+									"src": "/C:/Users/anton/Desktop/URJC/3/DAW/PracticaDAW/webapp14/Backend/src/main/resources/static/images/Camachito1.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/store/35/image1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"store",
+								"35",
+								"image1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Image 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imageField2",
+									"type": "file",
+									"src": "/C:/Users/anton/Desktop/URJC/3/DAW/PracticaDAW/webapp14/Backend/src/main/resources/static/images/Camachito2.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/store/35/image2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"store",
+								"35",
+								"image2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Image 1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/store/35/image1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"store",
+								"35",
+								"image1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Image 2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/store/35/image2/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"store",
+								"35",
+								"image2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Replace Store",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Taberna El Camachito 2\",\r\n    \"description\": \"Disfruta de nuestra amplia carta con raciones variadas, junto a una buena cerveza o refresco en un ambiente ideal. Te esperamos!\",\r\n    \"frontdescription\": \"Tu local ideal en Ciempozuelos para comer y beber en la mejor compañía\",\r\n    \"services\": \"Disponemos de una amplia carta con variadas raciones y bebidas. No dudes en pedirnosla\",\r\n    \"openDay\": \"Lunes\",\r\n    \"closeDay\": \"Domingo\",\r\n    \"openHour\": \"10:00\",\r\n    \"closeHour\": \"23:30\",\r\n    \"street\": \"Calle España, 5, 28350 Ciempozuelos, Madrid\",\r\n    \"latitude\": \"40.1591\",\r\n    \"length\": \"-3.621\",\r\n    \"comment\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/store/35",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"store",
+								"35"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Replace Image 1",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imageField1",
+									"type": "file",
+									"src": "/C:/Users/anton/Desktop/URJC/3/DAW/PracticaDAW/webapp14/Backend/src/main/resources/static/images/Galway1.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/store/35/image1/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"store",
+								"35",
+								"image1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Replace Image 2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imageField2",
+									"type": "file",
+									"src": "/C:/Users/anton/Desktop/URJC/3/DAW/PracticaDAW/webapp14/Backend/src/main/resources/static/images/Galway2.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8443/api/store/35/image2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"store",
+								"35",
+								"image2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Store",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/store/35",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"store",
+								"35"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Users",

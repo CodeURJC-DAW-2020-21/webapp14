@@ -80,7 +80,7 @@ public class StoreRestController {
 
         if (store.isPresent()) {
             int profilePhotoLength = (int) store.get().getImageField2().length();
-            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").body(new ByteArrayResource(store.get().getImageField1().getBytes(1, profilePhotoLength)));
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").body(new ByteArrayResource(store.get().getImageField2().getBytes(1, profilePhotoLength)));
         } else
             return ResponseEntity.notFound().build();
     }
@@ -121,7 +121,7 @@ public class StoreRestController {
     public ResponseEntity<Store> replaceImage1(@ModelAttribute StoreDTO storeDTO, @PathVariable long id) throws IOException, SQLException {
         Optional<Store> store = service.findId(id);
         if(store.isPresent()){
-            MultipartFile img1 = storeDTO.getImageField2();
+            MultipartFile img1 = storeDTO.getImageField1();
             store.get().setImageField1(BlobProxy.generateProxy(img1.getInputStream(), img1.getSize()));
             service.save(store.get());
             URI location = fromCurrentRequest().path("/{id}").buildAndExpand(store.get().getId()).toUri();
