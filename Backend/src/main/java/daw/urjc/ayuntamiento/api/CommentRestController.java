@@ -74,18 +74,7 @@ public class CommentRestController {
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(comment.getId()).toUri();
         return ResponseEntity.created(location).body(comment);
     }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Comment> deleteComment(@PathVariable long id){
-        Optional<Comment> comment = comments.findId(id);
-        if(comment.isPresent()){
-            comments.delete(id);
-            return ResponseEntity.ok().build();
-        }else{
-            return ResponseEntity.notFound().build();
-        }
-    }
-
+    
     @PutMapping("/{id}")
     public ResponseEntity<Comment> replaceComment(@PathVariable long id, @org.springframework.web.bind.annotation.RequestBody Comment newComment) {
         Optional<Comment> comment = comments.findId(id);
