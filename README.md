@@ -241,6 +241,7 @@ I have also been helping my colleagues when they have needed it in some tasks to
 ### API Rest documentation
 
 ### Class diagram updated
+![Template Diagram](images/Class_and_templates_diagram_REST.png)
 
 ### Dockerized app execution instructions
 
@@ -356,3 +357,7 @@ I have also been helping my colleagues when they have needed it in some tasks to
 3. Comments.java
 4. AppController.java
 5. CommentController.java
+
+
+
+
