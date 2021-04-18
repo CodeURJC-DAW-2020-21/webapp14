@@ -239,11 +239,18 @@ I have also been helping my colleagues when they have needed it in some tasks to
 ## PHASE 3: API Rest incorporation and Docker deploying
 
 ### API Rest documentation
+The documentation for the API Rest can be found on a [Postman Collection file](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/api.postman_collection.json) found on the root of the directory, and also on an [HTML File](https://rawcdn.githack.com/CodeURJC-DAW-2020-21/webapp14/5e6f1003912bd857655fefbf3e065edfa6ef1d54/api-docs/api-docs.html) and an [YAML File](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/api-docs/api-docs.yaml) both found on the api-docs directory.
 
 ### Class diagram updated
 ![Template Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/Class_and_templates_diagram_REST.jpg)
 
-### Dockerized app execution instructions
+### Dockerized app execution instructions and Docker image construction documentation
+To make it easy for the user we have made a Linux script that installs you Docker on your computer, builds the image and executes it.
+Steps:
+1. Open a Linux command shell on the [Docker directory](https://github.com/CodeURJC-DAW-2020-21/webapp14/tree/main/Docker)
+2. Execute the create_image.sh script with the command line ./create_image.sh (If you have trouble doing it try with sudo ./create_image.sh)
+3. The dockerized app is already running due to the script, so on your web browser write https://localhost:8443
+4. When you want to stop the app just type on the command shell docker-compose down
 
 ### Docker image construction documentation
 
