@@ -241,7 +241,7 @@ I have also been helping my colleagues when they have needed it in some tasks to
 ### API Rest documentation
 
 ### Class diagram updated
-![Template Diagram](images/Class_and_templates_diagram_REST.png)
+![Template Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/Class_and_templates_diagram_REST.jpg)
 
 ### Dockerized app execution instructions
 
