@@ -318,24 +318,23 @@ Steps:
  
 **Cuadrado**
 
-- Completed tasks: My work in this phase was mainly to create the AJAX system on the Events and Locals page. I also worked on a badge system that updates when you either comment on an event or an store and when you subscribe to an event, and another really important part of my job was to create a history system that puts on your profule page where you have commented or to which events you have subscribed. Also, I have worked with all my teammates on different tasks which everyday someone different commited it.
+- Completed tasks: My work in this phase was mainly to to develop the Store REST controller, but I also have worked on the other REST controllers, as I was who found the way to upload images through Postman, which was something that we were not able to do. I also worked on the REST documentation and on updating the README file with all the info.
 
 - 5 most significant commits:
 
-1. [AJAX created](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/f3d8083b2a198238f01abad557a10bf6cd8217c6)
-2. [Infinite loop fixed](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/4d81eef6f8ee3d812748c0ba12ce3945835e3782)
-3. [History made](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/79e438a6f98611bcae923e474b285bb06f3685a5)
-4. [Badge system created](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/5c654f383c98fa6ea29e494172194245406152b9)
-5. [Register made](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/0e3e61ddd94bc91ad8ca46713a17c984803d11bf)
+1. [Update README.md ](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/3b047a3aeebd62686517507680e719446018f91e)
+2. [ Store REST Controller updated ](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/ca78a0d11303226e80c8956e6607f6e51428ef18)
+3. [ Store Rest Controller created ](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/05092f3933dd85a36d8771a06355a58122900f1f)
+4. [ Update on rest controller ](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/ebd5808c5fd816b2e15ec5e53108288595ad372f)
+5. [ Replace endpoint fix ](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/71793398d93989e18ff56e2067d2236e2014a8df)
 
 - 5 files with participation:
 
-1. AppController.java
-2. ajaxevents.js
-3. DataBaseInitialization.java
-4. User.java
-5. events.html
-
+1. api.postman_collection.json
+2. StoreDTO.java
+3. StoreRestController.java 
+4. RestSecurityConfig.java 
+5. README.md 
 **Adri**
 
 - Completed tasks:
