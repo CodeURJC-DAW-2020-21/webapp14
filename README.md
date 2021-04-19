@@ -149,23 +149,24 @@ Shows user information:
 
 **Álvaro**
 
--  Completed tasks: In this phase I worked mostly in the comments in local and events and in the security with ssl in the web. Also i helpeed my teammates and work to solve errors. Also I created the html for the local and event with Mustache.
+- Completed tasks: In this phase I worked mostly in the controller for api rest in events and graphics. Also I created the api documentation and the script to use the app dockerized.
 
 - 5 most significant commits:
 
-1. [Add certificate keystore.jks and changed to port 8443](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/7ac5eba0d039f8f33c016c8ee572b4c9b926c178)
-2. [local page implemented with mustache](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/ca4e040a9d0890b635f16ef85ce97637f19999fb)
-3. [Main event created and and perfil image fixed](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/b651a779d749a7bd53ae2d76fa2c9ce90093af17)
-4. [Comments in events page created](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/0d20fcc5db4bec9419ed8f3d8e6c83a54c25dbfe)
-5. [Comments in local done](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/9b58b16bbe79a591fbcc99201ce0a5be19926ce2)
+1. [Event Rest Controller for api created and Endpoints created](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/6ee886a3d816d2518424f2cec83bf045b50e961c)
+2. [Graphic rest controller](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/84cd3b8288dd28158ba25815dd2ae34a4847cc93)
+3. [Api Rest postman collection updated with graphic endpoints](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/36053ac12b261010aa60916e3450d9f8b1a39710)
+4. [Api Doc created](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/caa1adeeb08f523bc9adf1a47bf1d65b67d87ead)
+5. [Script created in bash](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/295832d3eb9c5fc461eed36326b1d935ac202cf2)
 
 - 5 files with participation:
 
-1. [CommentController.java](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Backend/src/main/java/daw/urjc/ayuntamiento/controller/CommentController.java)
-2. [LocalController.java](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Backend/src/main/java/daw/urjc/ayuntamiento/controller/LocalController.java)
-3. [UserController.java](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Backend/src/main/java/daw/urjc/ayuntamiento/controller/UserController.java)
-4. [WebSecurityConfig.java](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Backend/src/main/java/daw/urjc/ayuntamiento/security/WebSecurityConfig.java)
-5. [mainEvent.html](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Backend/src/main/resources/templates/mainEvent.html)
+1. [api-docs.html](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/api-docs/api-docs.html)
+2. [api-docs.yaml](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/api-docs/api-docs.yaml)
+3. [api.postman_collection.json](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/api.postman_collection.json)
+4. [EventRestController.java](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Backend/src/main/java/daw/urjc/ayuntamiento/api/EventRestController.java)
+5. [GraphicRestController.java](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Backend/src/main/java/daw/urjc/ayuntamiento/api/GraphicRestController.java)
+
 
 **Yeray**
 
