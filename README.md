@@ -274,8 +274,7 @@ Steps:
 1. UserRestController.java
 2. UserDTO.java
 3. api.postman_collection.json
-4. 
-5. 
+
 
 **Álvaro**
 
