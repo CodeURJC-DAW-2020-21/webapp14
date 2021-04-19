@@ -300,23 +300,23 @@ Steps:
 
 - Completed tasks:
 
-- At a global level, he worked with Alvaro in creating events, events, and comments. Both in the controllers and in the HTML files thus implementing the moustage. On the other hand, we also worked on the implementation of all the elements in the database. In addition to solving numerous errors that have arisen by the app
+-  Make the rest of the comments, in addition to solving numerous problems with the comments in the api which came to complicate certain parts of the execution, and in turn generate the corresponding postman api
 
 - 5 most significant commits:
 
-1. [Fix createEvent and fix to see the new Events](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/1b6ff1cc2882052f21efa5c0f9b727a2300cccd3)
-2. [Update and fix error](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/89ebdf8239de0a6a2d865af04a99b96f1ffdbc25)
-3. [Add map in user and add suscribe botton in events](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/45b0090ad4d9f9caedc171bcc1fb0f4b9faf322f)
-4. [Update with error pages](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/8812d5aeab221127af1255199d0eacb5a56247fd)
-5. [Update events](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/d7a738341e3c29c2b19f067c37ae00fd7c6fb8cc)
+1. [Configuration of comment rest](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/b8af0d4dba56c1d481caba01e0706486fe273250)
+2. [Api postman](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/7d6a8e15a2e5b332d6e08352bbbebe4ef091d977)
+3. [Fix error](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/6d97276b1e445a62452c70076443e5114f3cf45d)
+4. [Add replaceComment](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/e9ecf40383a9e2f606609b1e472458db2205cc3e)
+5. [Add getImage](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/09ffcc7a10f929efd1c76dccf0fac8fa082da609)
 
 - 5 files with participation:
 
-1. [FormController.java](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Backend/src/main/java/daw/urjc/ayuntamiento/controller/FormController.java)
-2. [EventController.java](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Backend/src/main/java/daw/urjc/ayuntamiento/controller/EventController.java)
-3. [formLocal.html](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Backend/src/main/resources/templates/formLocal.html)
-4. [formEvent.html](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Backend/src/main/resources/templates/formEvent.html)
-5. [repository](https://github.com/CodeURJC-DAW-2020-21/webapp14/tree/main/Backend/src/main/java/daw/urjc/ayuntamiento/repository)
+1. [Configuration of comment rest](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/b8af0d4dba56c1d481caba01e0706486fe273250)
+2. [Api postman](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/7d6a8e15a2e5b332d6e08352bbbebe4ef091d977)
+3. [Fix error](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/6d97276b1e445a62452c70076443e5114f3cf45d)
+4. [Add replaceComment](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/e9ecf40383a9e2f606609b1e472458db2205cc3e)
+5. [Add getImage](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/09ffcc7a10f929efd1c76dccf0fac8fa082da609)
 
 **Cuadrado**
 
