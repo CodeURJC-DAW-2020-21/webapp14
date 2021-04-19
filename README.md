@@ -339,29 +339,23 @@ Steps:
 **Adri**
 
 - Completed tasks:
-On this fase, I have been done lot of working with the initialization of the Spring project, making the structure and translating all the frontend files to the Spring project structure directories. 
-In the first steps of the phase, I have been working with mustache for make a common header and footer.
-Also, y have been working with the comments of the webpage, with the comments of events and locals. 
-Also I have been working doing the metrics of the webpage, with lines and bars graphics and with real information of the webpage and his interactions, for example, with number of local and events, comments, and registered users.
-I have also been working with the diagrams of the project, for exameple with the ER Diagram, and classes/templates diagram.
-At the end of the phase, I have been working with the DataBaseInitialization for make the webpage with real data examples.
-I have also been helping my colleagues when they have needed it in some tasks to my colleagues in their functionalities, like all team members.
+On this third phase, at the beginning I focused on the security of the Rest API, and fixing different bugs until it worked correctly. Also I have done a part of the API Postman collection with the events endpoints (POST, PUT, GET and DELETE). And finally I worked with the Dockerization of the application, with also the help of my team mates.
 
 - 5 most significant commits:
 
-1. [Registered users and interaction graphics working](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/5c644c60a6cb3807f6c5b91cdb3441826e39b613)
-2. [Head pages with common footer (mustache)](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/fdf286b1734c1e7037791cf4b5e1cf8bfcda833e)
-3. [Spring project created](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/5da7adb84f0b4ec49b538118813e7eb09b143d4f)
-4. [DataBaseInitialization done and some unnecessary images deleted](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/0d565dc4e6a1b1443fab85909e8b1db4084d0dd0)
-5. [ER Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/242e519646037954412fcc4ad83b3e18e2e81987)
+1. [API Rest Security implementation with JWT](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/f7e5a93007026232ba63d85f3a630a1fbaefc1bc)
+2. [LoginRESTController created for manage REST Security](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/bc78b41585a3d0ac8f50681973cd040961473427)
+3. [API Rest Security Request authorizations with roles done](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/5c9ac1e96254cae3410c21493182628983285501)
+4. [API Postman collection initialized with event requests](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/9cb955f98d2183372e3669e7e69e09b81a3899b7)
+5. [Dockerized app done](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/e8b5dd3dd58bc02b08b2f06608f262bbddfa6c03)
 
 - 5 files with participation:
 
-1. DataBaseInitialization.java
-2. Index.html
-3. Comments.java
-4. AppController.java
-5. CommentController.java
+1. Dockerfile
+2. docker-compose.yml
+3. RestSecurityConfig.java
+4. api.postman_collection.json
+5. LoginRESTController.java
 
 
 
