@@ -29,7 +29,6 @@ Now we are going to explain some points of the entities:
 3.  **Locals reviews** : Reviews and scores about locals of the city, written by the habitants.
 4.  **Local entertainment** : Premises, information and opinions on these.
 
-
 ### User permissions
 
 1.  **Administrator** : Add events and news, modify aspects of the website and user management
@@ -42,7 +41,6 @@ Now we are going to explain some points of the entities:
 2.  **Event photos**
 3.  **User Avatar**
 4.  **Government team photos**
-
 
 ### Graphics
 
@@ -63,11 +61,9 @@ Now we are going to explain some points of the entities:
 Presentation of the website:
  ![Main page](/images/index.png)
 
-
 ### Goberment Page 
 Show all the people of the government:
  ![Goberment_Page](images/gob.jpg)
-
 
 ### Local Page 
 Shows the different local in Ciempozuelos:
@@ -91,8 +87,6 @@ More information of the event:
 ### Profile page
 Shows user information:
 ![Profile](images/navegacion%20perfil.jpg)
-
-
 
 ### Navigation Diagram:
 ![Navigation](images/navigation.jpg)
@@ -129,7 +123,7 @@ Shows user information:
 
 **Israel**
 
-- Completed tasks: I first worked on creating a mustache template for the event page. After the user registration part, I did the commit, but my colleagues helped me to a large extent. Then I took care of adding two buttons to create and delete events / locales. Finally I investigated how to put the advanced technology and I managed to put a dynamic map
+- Completed tasks: I first worked on creating a mustache template for the event page. After the user registration part, I did the commit, but my colleagues helped me to a large extent. Then I took care of adding two buttons to create and delete events / locales. Finally I investigated how to put the advanced technology and I managed to put a dynamic map.
 
 - 5 most significant commits:
 
@@ -169,9 +163,7 @@ Shows user information:
 
 **Yeray**
 
-- Completed tasks:
-
-- At a global level, he worked with Alvaro in creating events, events, and comments. Both in the controllers and in the HTML files thus implementing the moustage. On the other hand, we also worked on the implementation of all the elements in the database. In addition to solving numerous errors that have arisen by the app
+- Completed tasks: At a global level, he worked with Alvaro in creating events, events, and comments. Both in the controllers and in the HTML files thus implementing the moustage. On the other hand, we also worked on the implementation of all the elements in the database. In addition to solving numerous errors that have arisen by the app.
 
 - 5 most significant commits:
 
@@ -211,8 +203,7 @@ Shows user information:
 
 **Adri**
 
-- Completed tasks:
-On this fase, I have been done lot of working with the initialization of the Spring project, making the structure and translating all the frontend files to the Spring project structure directories. 
+- Completed tasks: On this phase, I have been done lot of working with the initialization of the Spring project, making the structure and translating all the frontend files to the Spring project structure directories. 
 In the first steps of the phase, I have been working with mustache for make a common header and footer.
 Also, y have been working with the comments of the webpage, with the comments of events and locals. 
 Also I have been working doing the metrics of the webpage, with lines and bars graphics and with real information of the webpage and his interactions, for example, with number of local and events, comments, and registered users.
@@ -252,14 +243,11 @@ Steps:
 3. The dockerized app is already running due to the script, so on your web browser write https://localhost:8443
 4. When you want to stop the app just type on the command shell docker-compose down
 
-### Docker image construction documentation
-
 ### Members participation
 
 **Israel**
 
-- Completed tasks:in this phase I have been in charge of creating the necessary files to use the rest api with the users, and in turn generate the corresponding postman api
-
+- Completed tasks: In this phase I have been in charge of creating the necessary files to use the rest api with the users, and in turn generate the corresponding postman api.
 
 - 5 most significant commits:
 
@@ -299,9 +287,7 @@ Steps:
 
 **Yeray**
 
-- Completed tasks:
-
--  Make the rest of the comments, in addition to solving numerous problems with the comments in the api which came to complicate certain parts of the execution, and in turn generate the corresponding postman api
+- Completed tasks: Make the rest of the comments, in addition to solving numerous problems with the comments in the api which came to complicate certain parts of the execution, and in turn generate the corresponding postman api.
 
 - 5 most significant commits:
 
@@ -334,11 +320,11 @@ Steps:
 2. StoreDTO.java
 3. StoreRestController.java 
 4. RestSecurityConfig.java 
-5. README.md 
+5. README.md
+
 **Adri**
 
-- Completed tasks:
-On this third phase, at the beginning I focused on the security of the Rest API, and fixing different bugs until it worked correctly. Also I have done a part of the API Postman collection with the events endpoints (POST, PUT, GET and DELETE). And finally I worked with the Dockerization of the application, with also the help of my team mates.
+- Completed tasks: On this third phase, at the beginning I focused on the security of the Rest API, and fixing different bugs until it worked correctly. Also I have done a part of the API Postman collection with the events endpoints (POST, PUT, GET and DELETE). And finally I worked with the Dockerization of the application, with also the help of my team mates.
 
 - 5 most significant commits:
 
@@ -356,6 +342,4 @@ On this third phase, at the beginning I focused on the security of the Rest API,
 4. api.postman_collection.json
 5. LoginRESTController.java
 
-
-
-
+## PHASE 4: API Rest incorporation and Docker deploying
