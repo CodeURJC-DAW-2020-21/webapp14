@@ -1,6 +1,5 @@
 package daw.urjc.ayuntamiento.api;
 
-import daw.urjc.ayuntamiento.modules.Store;
 import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.service.UserService;
 import org.hibernate.engine.jdbc.BlobProxy;
