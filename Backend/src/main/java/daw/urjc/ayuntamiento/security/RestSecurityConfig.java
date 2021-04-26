@@ -45,6 +45,8 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+        http.antMatcher("/api/**");
+
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/comments/**").hasRole("USER");
         http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/comments/**").hasRole("USER");
         http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/comments/**").hasRole("ADMIN");
