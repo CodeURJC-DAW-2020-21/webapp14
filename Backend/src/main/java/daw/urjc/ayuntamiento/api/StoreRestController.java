@@ -29,7 +29,7 @@ public class StoreRestController {
        return service.findAll();
     }
 
-   @GetMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Store> getStore(@PathVariable long id) {
         Optional<Store> store = service.findId(id);
         if (store.isPresent()) {
@@ -44,7 +44,7 @@ public class StoreRestController {
         Optional<Store> store = service.findId(id);
         if (store.isPresent()) {
             service.delete(id);
-            return ResponseEntity.ok(store.get());
+            return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.notFound().build();
         }
@@ -80,7 +80,7 @@ public class StoreRestController {
 
         if (store.isPresent()) {
             int profilePhotoLength = (int) store.get().getImageField2().length();
-            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").body(new ByteArrayResource(store.get().getImageField1().getBytes(1, profilePhotoLength)));
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").body(new ByteArrayResource(store.get().getImageField2().getBytes(1, profilePhotoLength)));
         } else
             return ResponseEntity.notFound().build();
     }
@@ -125,23 +125,24 @@ public class StoreRestController {
             store.get().setImageField1(BlobProxy.generateProxy(img1.getInputStream(), img1.getSize()));
             service.save(store.get());
             URI location = fromCurrentRequest().path("/{id}").buildAndExpand(store.get().getId()).toUri();
-
             return ResponseEntity.created(location).body(store.get());
-        } else
+        }else
+
             return ResponseEntity.notFound().build();
     }
 
     @PutMapping("/{id}/image2")
     public ResponseEntity<Store> replaceImage2(@ModelAttribute StoreDTO storeDTO, @PathVariable long id) throws IOException, SQLException {
+
         Optional<Store> store = service.findId(id);
         if(store.isPresent()){
             MultipartFile img2 = storeDTO.getImageField2();
-            store.get().setImageField1(BlobProxy.generateProxy(img2.getInputStream(), img2.getSize()));
+            store.get().setImageField2(BlobProxy.generateProxy(img2.getInputStream(), img2.getSize()));
             service.save(store.get());
             URI location = fromCurrentRequest().path("/{id}").buildAndExpand(store.get().getId()).toUri();
-
             return ResponseEntity.created(location).body(store.get());
-        } else
+        }else
+
             return ResponseEntity.notFound().build();
     }
 }

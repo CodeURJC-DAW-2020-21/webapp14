@@ -1,0 +1,23 @@
+version: '3'
+services:
+
+  database:
+    image: 'mysql:5.7'
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=ayuntamiento
+    ports:
+      - "3307:3306"
+
+  backend:
+    ports:
+      - "8443:8443"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/ayuntamiento?autoReconnect=true&useSSL=false
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: "password"
+    image: adrim173/ayuntamiento
+    depends_on:
+      - database
+    restart: always
