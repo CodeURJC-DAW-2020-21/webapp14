@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'mainevent',
+  templateUrl: './mainevent.component.html',
+  styleUrls: ['./mainevent.component.css']
 })
-export class AppComponent {
+export class MainEventComponent {
   title = 'Frontend-Angular';
 }
