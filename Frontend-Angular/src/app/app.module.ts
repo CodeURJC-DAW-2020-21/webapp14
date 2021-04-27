@@ -4,6 +4,7 @@ import { IndexComponent } from './components/index/index.component';
 import { HeaderComponent } from './components/Header/header.component';
 import { FooterComponent } from './components/Footer/footer.component';
 import { EventsComponent } from './components/Events/events.component';
+import { UsersComponent } from './components/User/user.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -13,7 +14,8 @@ import { AppComponent } from './app.component';
     IndexComponent,
     HeaderComponent,
     FooterComponent,
-    EventsComponent
+    EventsComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
