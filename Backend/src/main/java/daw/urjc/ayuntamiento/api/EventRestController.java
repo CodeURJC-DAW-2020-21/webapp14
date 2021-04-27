@@ -1,7 +1,7 @@
 package daw.urjc.ayuntamiento.api;
 
 import daw.urjc.ayuntamiento.modules.Event;
-import daw.urjc.ayuntamiento.modules.Store;
+import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.service.EventService;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.net.URI;
 import java.sql.SQLException;
 import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
@@ -78,7 +77,7 @@ public class EventRestController {
         Optional<Event> event = events.findId(id);
         if (event.isPresent()) {
             events.delete(id);
-            return ResponseEntity.ok(event.get());
+            return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.notFound().build();
         }
@@ -96,16 +95,16 @@ public class EventRestController {
         }
     }
     @PutMapping("/{id}/image")
-    public ResponseEntity<Event> replaceImage(@ModelAttribute EventDTO eventDTO, @PathVariable long id) throws IOException, SQLException {
+    public ResponseEntity<Object> replaceImage(@ModelAttribute EventDTO eventDTO, @PathVariable long id) throws IOException, SQLException {
         Optional<Event> event = events.findId(id);
         if(event.isPresent()){
             MultipartFile img1 = eventDTO.getImageFile();
             event.get().setImageFile(BlobProxy.generateProxy(img1.getInputStream(), img1.getSize()));
             events.save(event.get());
             URI location = fromCurrentRequest().path("/{id}").buildAndExpand(event.get().getId()).toUri();
-
             return ResponseEntity.created(location).body(event.get());
-        } else
+        }else
+
             return ResponseEntity.notFound().build();
     }
 }
