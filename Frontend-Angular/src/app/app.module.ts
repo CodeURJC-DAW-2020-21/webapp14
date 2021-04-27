@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IndexComponent } from './components/index/index.component';
 import { HeaderComponent } from './components/Header/header.component';
 import { FooterComponent } from './components/Footer/footer.component';
+import { StoreComponent } from './components/Store/store.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -11,7 +12,8 @@ import { AppComponent } from './app.component';
     AppComponent,
     IndexComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    StoreComponent
   ],
   imports: [
     BrowserModule,
