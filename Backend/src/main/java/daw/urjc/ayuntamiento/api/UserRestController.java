@@ -3,13 +3,9 @@ package daw.urjc.ayuntamiento.api;
 import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.service.UserService;
 import org.hibernate.engine.jdbc.BlobProxy;
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -50,7 +46,7 @@ public class UserRestController {
         Optional<User> user = users.findId(id);
         if (user.isPresent()) {
             users.delete(id);
-            return ResponseEntity.ok(user.get());
+            return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.notFound().build();
         }
@@ -97,11 +93,11 @@ public class UserRestController {
 
     @PutMapping("/{id}")
     public ResponseEntity<User> replaceUser(@PathVariable long id, @RequestBody User newUser) {
-        Optional<User> store = users.findId(id);
-        if (store.isPresent()) {
+        Optional<User> user = users.findId(id);
+        if (user.isPresent()) {
             newUser.setId(id);
             users.save(newUser);
-            return ResponseEntity.ok(store.get());
+            return ResponseEntity.ok(user.get());
         } else {
             return ResponseEntity.notFound().build();
         }
@@ -115,9 +111,9 @@ public class UserRestController {
             user.get().setImageFile(BlobProxy.generateProxy(img1.getInputStream(), img1.getSize()));
             users.save(user.get());
             URI location = fromCurrentRequest().path("/{id}").buildAndExpand(user.get().getId()).toUri();
-
             return ResponseEntity.created(location).body(user.get());
-        } else
+        }else
+
             return ResponseEntity.notFound().build();
     }
 

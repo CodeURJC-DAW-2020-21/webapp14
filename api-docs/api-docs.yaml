@@ -1,0 +1,963 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: https://localhost:8443
+  description: Generated server url
+paths:
+  /api/users/{id}:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getUser
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+    put:
+      tags:
+      - user-rest-controller
+      operationId: replaceUser
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+    delete:
+      tags:
+      - user-rest-controller
+      operationId: deleteUser
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+  /api/users/{id}/image:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getImage
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+    put:
+      tags:
+      - user-rest-controller
+      operationId: replaceImage
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+    post:
+      tags:
+      - user-rest-controller
+      operationId: postImage
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+  /api/store/{id}:
+    get:
+      tags:
+      - store-rest-controller
+      operationId: getStore
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Store'
+    put:
+      tags:
+      - store-rest-controller
+      operationId: replaceStore
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Store'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Store'
+    delete:
+      tags:
+      - store-rest-controller
+      operationId: deleteStore
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Store'
+  /api/store/{id}/image2:
+    get:
+      tags:
+      - store-rest-controller
+      operationId: getImage2
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+    put:
+      tags:
+      - store-rest-controller
+      operationId: replaceImage2
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoreDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Store'
+    post:
+      tags:
+      - store-rest-controller
+      operationId: postImage2
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoreDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Store'
+  /api/store/{id}/image1:
+    get:
+      tags:
+      - store-rest-controller
+      operationId: getImage1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+    put:
+      tags:
+      - store-rest-controller
+      operationId: replaceImage1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoreDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Store'
+    post:
+      tags:
+      - store-rest-controller
+      operationId: postImage1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoreDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Store'
+  /api/events/{id}:
+    get:
+      tags:
+      - event-rest-controller
+      operationId: getPost
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Event'
+    put:
+      tags:
+      - event-rest-controller
+      operationId: replacePost
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Event'
+    delete:
+      tags:
+      - event-rest-controller
+      operationId: deleteEvent
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Event'
+  /api/events/{id}/image:
+    get:
+      tags:
+      - event-rest-controller
+      operationId: getImage_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+    put:
+      tags:
+      - event-rest-controller
+      operationId: replaceImage_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+    post:
+      tags:
+      - event-rest-controller
+      operationId: postImage_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventDTO'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Event'
+  /api/comments/{id}:
+    get:
+      tags:
+      - comment-rest-controller
+      operationId: getComment
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Comment'
+    put:
+      tags:
+      - comment-rest-controller
+      operationId: replaceComment
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Comment'
+  /api/users/:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getUsers
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      tags:
+      - user-rest-controller
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+  /api/store/:
+    get:
+      tags:
+      - store-rest-controller
+      operationId: getStores
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+    post:
+      tags:
+      - store-rest-controller
+      operationId: createStore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Store'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Store'
+  /api/events/:
+    get:
+      tags:
+      - event-rest-controller
+      operationId: getEvents
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+    post:
+      tags:
+      - event-rest-controller
+      operationId: createEvent
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Event'
+  /api/comments/:
+    get:
+      tags:
+      - comment-rest-controller
+      operationId: getComments
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment'
+    post:
+      tags:
+      - comment-rest-controller
+      operationId: createComment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Comment'
+  /api/auth/refresh:
+    post:
+      tags:
+      - login-rest-controller
+      operationId: refreshToken
+      parameters:
+      - name: refreshToken
+        in: cookie
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+  /api/auth/logout:
+    post:
+      tags:
+      - login-rest-controller
+      operationId: logOut
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+  /api/auth/login:
+    post:
+      tags:
+      - login-rest-controller
+      operationId: login
+      parameters:
+      - name: accessToken
+        in: cookie
+        required: false
+        schema:
+          type: string
+      - name: refreshToken
+        in: cookie
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+  /api/graphics/users:
+    get:
+      tags:
+      - graphic-rest-controller
+      operationId: getUserNumber
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int64
+  /api/graphics/stores:
+    get:
+      tags:
+      - graphic-rest-controller
+      operationId: getStoreNumber
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int64
+  /api/graphics/events:
+    get:
+      tags:
+      - graphic-rest-controller
+      operationId: getEventsNumber
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int64
+  /api/graphics/comments:
+    get:
+      tags:
+      - graphic-rest-controller
+      operationId: getCommentUNumber
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int64
+  /api/comments/{id}/image:
+    get:
+      tags:
+      - comment-rest-controller
+      operationId: getImage_2
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+components:
+  schemas:
+    Comment:
+      type: object
+      properties:
+        name:
+          type: string
+        text:
+          type: string
+        date:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+    User:
+      type: object
+      properties:
+        name:
+          type: string
+        mail:
+          type: string
+        description:
+          type: string
+        password:
+          type: string
+        map:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
+        eventSuscribe:
+          type: array
+          items:
+            type: integer
+            format: int64
+        events:
+          type: array
+          items:
+            type: string
+        commentPlaces:
+          type: array
+          items:
+            type: string
+        id:
+          type: integer
+          format: int64
+        comment:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
+        roles:
+          type: array
+          items:
+            type: string
+        dni:
+          type: string
+    UserDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        mail:
+          type: string
+        description:
+          type: string
+        password:
+          type: string
+        imageField:
+          type: string
+          format: binary
+        id:
+          type: integer
+          format: int64
+        dni:
+          type: string
+    Store:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        frontdescription:
+          type: string
+        services:
+          type: string
+        openDay:
+          type: string
+        closeDay:
+          type: string
+        openHour:
+          type: string
+        closeHour:
+          type: string
+        street:
+          type: string
+        latitude:
+          type: string
+        length:
+          type: string
+        id:
+          type: integer
+          format: int64
+        comment:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
+    StoreDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        frontdescription:
+          type: string
+        services:
+          type: string
+        openDay:
+          type: string
+        closeDay:
+          type: string
+        openHour:
+          type: string
+        closeHour:
+          type: string
+        street:
+          type: string
+        latitude:
+          type: string
+        length:
+          type: string
+        imageField1:
+          type: string
+          format: binary
+        imageField2:
+          type: string
+          format: binary
+        id:
+          type: integer
+          format: int64
+    Event:
+      type: object
+      properties:
+        name:
+          type: string
+        activities:
+          type: string
+        description:
+          type: string
+        date:
+          type: string
+        place:
+          type: string
+        reward:
+          type: string
+        people:
+          type: string
+        price:
+          type: string
+        tag1:
+          type: string
+        id:
+          type: integer
+          format: int64
+        comment:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
+    EventDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        activities:
+          type: string
+        description:
+          type: string
+        date:
+          type: string
+        place:
+          type: string
+        reward:
+          type: string
+        people:
+          type: string
+        price:
+          type: string
+        tag1:
+          type: string
+        imageFile:
+          type: string
+          format: binary
+        id:
+          type: integer
+          format: int64
+    AuthResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - SUCCESS
+          - FAILURE
+        message:
+          type: string
+        error:
+          type: string
+    LoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
