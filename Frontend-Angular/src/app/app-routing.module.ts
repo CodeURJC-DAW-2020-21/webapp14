@@ -8,6 +8,8 @@ import { GovernComponent } from './components/Government/government.component';
 import { FormeventComponent} from './components/FormEvents/formevent.component';
 import {MainEventComponent} from './components/MainEvent/mainevent.component';
 import {StoreFormComponent} from './components/StoreForm/storeform.component';
+import {UsersComponent} from './components/User/user.component';
+
 
 const routes: Routes = [{path:'',component:IndexComponent},
 {path:'events',component:EventsComponent},
@@ -16,9 +18,9 @@ const routes: Routes = [{path:'',component:IndexComponent},
 {path: 'mainevent', component: MainEventComponent},
 {path: 'storeform', component: StoreFormComponent},
 {path:'stores',component:StoreComponent},
-{path:'login',component:LoginComponent}
+{path:'login',component:LoginComponent},
+{path:'user',component:UsersComponent}
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

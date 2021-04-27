@@ -15,6 +15,7 @@ import { MainEventComponent } from './components/MainEvent/mainevent.component';
 import { StoreFormComponent } from './components/StoreForm/storeform.component';
 import { EventsComponent } from './components/Events/events.component';
 
+import { UsersComponent } from './components/User/user.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,19 +26,15 @@ import { AppComponent } from './app.component';
     IndexComponent,
     HeaderComponent,
     FooterComponent,
-
+    EventsComponent,
+    UsersComponent,
     StoreComponent,
     LoginComponent,
-
-
     GovernComponent,
     FormeventComponent,
-
     MainEventComponent,
     StoreFormComponent,
     EventsComponent
-
-
   ],
   imports: [
     BrowserModule,
