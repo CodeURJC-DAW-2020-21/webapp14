@@ -20,7 +20,7 @@ public class Store {
     private String closeHour;
     private String street;
     private String latitude;
-    private String lenght;
+    private String length;
 
 
     @Lob
@@ -40,7 +40,7 @@ public class Store {
 
     protected Store(){}
 
-    public Store(String name, String description,String frontdescription, String services, String openDay, String closeDay, String openHour, String closeHour, String street,String latitude, String lenght) {
+    public Store(String name, String description,String frontdescription, String services, String openDay, String closeDay, String openHour, String closeHour, String street,String latitude, String length) {
         super();
         this.name = name;
         this.description = description;
@@ -52,7 +52,7 @@ public class Store {
         this.closeHour = closeHour;
         this.street = street;
         this.latitude = latitude;
-        this.lenght = lenght;
+        this.length = length;
     }
 
     public String getName() {
@@ -168,10 +168,10 @@ public class Store {
     }
 
     public String getLength() {
-        return lenght;
+        return length;
     }
 
-    public void setLength(String lenght) {
-        this.lenght = lenght;
+    public void setLength(String length) {
+        this.length = length;
     }
 }
