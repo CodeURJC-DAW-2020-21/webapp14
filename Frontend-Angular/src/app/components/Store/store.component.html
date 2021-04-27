@@ -5,7 +5,7 @@
 
 
     <div class="form-group">
-        <form action="/FormLocal" class="p-5 contact-form">
+        <form [routerLink]="['/storeform']" class="p-5 contact-form">
             <input type="submit" value="Añadir Local" class="btn py-3 px-4 btn-primary float-right botonDerecha">
         </form>
 
@@ -16,21 +16,21 @@
       <div class="container">
           <div id="locals">
         <div class="row d-flex">
-
           <div class="col-md-3 d-flex ftco-animate eldiv property-wrap fadeInUp ftco-animated eldiv">
           	<div class="blog-entry justify-content-end">
               <div class="text">
-                <h3 class="heading"><a >Nombre local</a></h3>
+                <h3 class="heading"><a [routerLink]="['/']">Nombre</a></h3>
                 <div class="meta mb-3">
                   <br>
-                  
+
                 </div>
-                <a class="block-20 img" style="background-image: url('assets/images/background2.jpg');">
+                <a href="" class="block-20 img" style="background-image: url(../../../assets/images/alex.jpg);">
 	              </a>
-                <p>Descripcion local</p>
+                <p>Descripcion</p>
               </div>
             </div>
           </div>
+
 
 
         </div>
@@ -38,11 +38,11 @@
           <div id="hasNextPage2">
               <ul class="pagination justify-content-center pagination-sm" id="button-replace">
 
+
                   <button class="btn btn-accent" id="load-more2">Cargar más</button>
 
               </ul>
           </div>
       </div>
+    </section>
 
-
-   <!--</section> --> 

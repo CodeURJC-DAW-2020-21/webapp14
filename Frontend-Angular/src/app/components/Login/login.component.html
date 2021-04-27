@@ -1,0 +1,56 @@
+<section class="ftco-section contact-section">
+  <div class="row block-9 justify-content-center mb-5">
+      <div class="col-md-8 mb-md-5">
+          <h2 class="text-center">Inicia sesión con tu cuenta de habitante</h2>
+          <form action="/userlogin" class="bg-light p-5 contact-form" method="post">
+              <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Nombre de Usuario" name="name">
+              </div>
+              <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Contraseña" name="password">
+              </div>
+              <div class="form-group">
+                  <input type="submit" value="Iniciar Sesión" class="btn btn-primary py-3 px-5">
+              </div>
+          </form>
+      </div>
+  </div>
+  <div class="row block-9 justify-content-center mb-5">
+      <div class="col-md-8 mb-md-5">
+          <h2 class="text-center">O si aún no tienes cuenta...<br>Regístrate</h2>
+          <form action="/registeredUser" class="bg-light p-5 contact-form" method="post" enctype="multipart/form-data">
+              <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Nombre" name="name">
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" placeholder="DNI" name="DNI">
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Correo electrónico" name="mail">
+              </div>
+              <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Contraseña" name="password">
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Descripcion" name="description">
+              </div>
+              <div class="custom-file">
+                  <input
+                          type="file"
+                          name="imageField"
+                          accept=".jpg, .jpeg"
+                          class="custom-file-input"
+                          id="inputGroupFile01"
+                          required/>
+                  <label class="custom-file-label" for="inputGroupFile01">Elegir imagen</label>
+                  <br>
+              </div>
+              <br>
+              <br>
+              <div class="form-group">
+                  <input type="submit" value="Registrarse" class="btn btn-primary py-3 px-5">
+              </div>
+          </form>
+      </div>
+  </div>
+</section>
