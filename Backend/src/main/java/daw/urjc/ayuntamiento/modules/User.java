@@ -15,6 +15,7 @@ public class User {
     private String mail;
     private String description;
     private String DNI;
+    @JsonIgnore
     private String password;
 
     @ElementCollection(fetch = FetchType.EAGER)

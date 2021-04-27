@@ -29,7 +29,6 @@ Now we are going to explain some points of the entities:
 3.  **Locals reviews** : Reviews and scores about locals of the city, written by the habitants.
 4.  **Local entertainment** : Premises, information and opinions on these.
 
-
 ### User permissions
 
 1.  **Administrator** : Add events and news, modify aspects of the website and user management
@@ -42,7 +41,6 @@ Now we are going to explain some points of the entities:
 2.  **Event photos**
 3.  **User Avatar**
 4.  **Government team photos**
-
 
 ### Graphics
 
@@ -63,11 +61,9 @@ Now we are going to explain some points of the entities:
 Presentation of the website:
  ![Main page](/images/index.png)
 
-
 ### Goberment Page 
 Show all the people of the government:
  ![Goberment_Page](images/gob.jpg)
-
 
 ### Local Page 
 Shows the different local in Ciempozuelos:
@@ -91,8 +87,6 @@ More information of the event:
 ### Profile page
 Shows user information:
 ![Profile](images/navegacion%20perfil.jpg)
-
-
 
 ### Navigation Diagram:
 ![Navigation](images/navigation.jpg)
@@ -129,7 +123,7 @@ Shows user information:
 
 **Israel**
 
-- Completed tasks: I first worked on creating a mustache template for the event page. After the user registration part, I did the commit, but my colleagues helped me to a large extent. Then I took care of adding two buttons to create and delete events / locales. Finally I investigated how to put the advanced technology and I managed to put a dynamic map
+- Completed tasks: I first worked on creating a mustache template for the event page. After the user registration part, I did the commit, but my colleagues helped me to a large extent. Then I took care of adding two buttons to create and delete events / locales. Finally I investigated how to put the advanced technology and I managed to put a dynamic map.
 
 - 5 most significant commits:
 
@@ -169,9 +163,7 @@ Shows user information:
 
 **Yeray**
 
-- Completed tasks:
-
-- At a global level, he worked with Alvaro in creating events, events, and comments. Both in the controllers and in the HTML files thus implementing the moustage. On the other hand, we also worked on the implementation of all the elements in the database. In addition to solving numerous errors that have arisen by the app
+- Completed tasks: At a global level, he worked with Alvaro in creating events, events, and comments. Both in the controllers and in the HTML files thus implementing the moustage. On the other hand, we also worked on the implementation of all the elements in the database. In addition to solving numerous errors that have arisen by the app.
 
 - 5 most significant commits:
 
@@ -211,8 +203,7 @@ Shows user information:
 
 **Adri**
 
-- Completed tasks:
-On this fase, I have been done lot of working with the initialization of the Spring project, making the structure and translating all the frontend files to the Spring project structure directories. 
+- Completed tasks: On this phase, I have been done lot of working with the initialization of the Spring project, making the structure and translating all the frontend files to the Spring project structure directories. 
 In the first steps of the phase, I have been working with mustache for make a common header and footer.
 Also, y have been working with the comments of the webpage, with the comments of events and locals. 
 Also I have been working doing the metrics of the webpage, with lines and bars graphics and with real information of the webpage and his interactions, for example, with number of local and events, comments, and registered users.
@@ -236,4 +227,119 @@ I have also been helping my colleagues when they have needed it in some tasks to
 4. AppController.java
 5. CommentController.java
 
+## PHASE 3: API Rest incorporation and Docker deploying
 
+### API Rest documentation
+The documentation for the API Rest can be found on a [Postman Collection file](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/api.postman_collection.json) found on the root of the directory, and also on an [HTML File](https://rawcdn.githack.com/CodeURJC-DAW-2020-21/webapp14/5e6f1003912bd857655fefbf3e065edfa6ef1d54/api-docs/api-docs.html) and an [YAML File](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/api-docs/api-docs.yaml) both found on the api-docs directory.
+
+### Class diagram updated
+![Template Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/Class_and_templates_diagram_REST.jpg)
+
+### Dockerized app execution instructions and Docker image construction documentation
+To make it easy for the user we have made a Linux script that installs you Docker on your computer, builds the image and executes it.
+Steps:
+1. Open a Linux command shell on the [Docker directory](https://github.com/CodeURJC-DAW-2020-21/webapp14/tree/main/Docker)
+2. Execute the create_image.sh script with the command line ./create_image.sh (If you have trouble doing it try with sudo ./create_image.sh)
+3. The dockerized app is already running due to the script, so on your web browser write https://localhost:8443
+4. When you want to stop the app just type on the command shell docker-compose down
+
+### Members participation
+
+**Israel**
+
+- Completed tasks: In this phase I have been in charge of creating the necessary files to use the rest api with the users, and in turn generate the corresponding postman api.
+
+- 5 most significant commits:
+
+1. [Add UserRestController](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/0b3e98f79dce26b3763ffe8211bf1370c48fe062)
+2. [Api postman](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/api.postman_collection.json)
+3. [Add image diagram](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/4d6ecbf13a23c4703f8b7b9d4a5e5b47b396b37f)
+4. [fixed](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/5e6f1003912bd857655fefbf3e065edfa6ef1d54)
+
+
+- 5 files with participation:
+
+1. UserRestController.java
+2. UserDTO.java
+3. api.postman_collection.json
+
+
+**Álvaro**
+
+-  Completed tasks: In this phase I worked mostly in the controller for api rest in events and graphics. Also I created the api documentation and the script to use the app dockerized.
+
+- 5 most significant commits:
+
+1. [Event Rest Controller for api created and Endpoints created](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/6ee886a3d816d2518424f2cec83bf045b50e961c)
+2. [Graphic rest controller](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/84cd3b8288dd28158ba25815dd2ae34a4847cc93)
+3. [Api Rest postman collection updated with graphic endpoints](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/36053ac12b261010aa60916e3450d9f8b1a39710)
+4. [Api Doc created](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/caa1adeeb08f523bc9adf1a47bf1d65b67d87ead)
+5. [Script created in bash](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/295832d3eb9c5fc461eed36326b1d935ac202cf2)
+
+- 5 files with participation:
+
+1. [api-docs.html](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/api-docs/api-docs.html)
+2. [api-docs.yaml](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/api-docs/api-docs.yaml)
+3. [api.postman_collection.json](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/api.postman_collection.json)
+4. [EventRestController.java](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Backend/src/main/java/daw/urjc/ayuntamiento/api/EventRestController.java)
+5. [GraphicRestController.java](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Backend/src/main/java/daw/urjc/ayuntamiento/api/GraphicRestController.java)
+
+
+**Yeray**
+
+- Completed tasks: Make the rest of the comments, in addition to solving numerous problems with the comments in the api which came to complicate certain parts of the execution, and in turn generate the corresponding postman api.
+
+- 5 most significant commits:
+
+1. [CommentRestController.java ](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Backend/src/main/java/daw/urjc/ayuntamiento/api/CommentRestController.java)
+2. [Api postman](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/api.postman_collection.json)
+3. [Fix error](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/6d97276b1e445a62452c70076443e5114f3cf45d)
+4. [Add replaceComment](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/e9ecf40383a9e2f606609b1e472458db2205cc3e)
+5. [Add getImage](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/09ffcc7a10f929efd1c76dccf0fac8fa082da609)
+
+- 5 files with participation:
+
+1. [Configuration of comment rest](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/b8af0d4dba56c1d481caba01e0706486fe273250)
+2. [api.postman_collection.json](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/7d6a8e15a2e5b332d6e08352bbbebe4ef091d977)
+ 
+**Cuadrado**
+
+- Completed tasks: My work in this phase was mainly to to develop the Store REST controller, but I also have worked on the other REST controllers, as I was who found the way to upload images through Postman, which was something that we were not able to do. I also worked on the REST documentation and on updating the README file with all the info.
+
+- 5 most significant commits:
+
+1. [Update README.md ](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/3b047a3aeebd62686517507680e719446018f91e)
+2. [ Store REST Controller updated ](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/ca78a0d11303226e80c8956e6607f6e51428ef18)
+3. [ Store Rest Controller created ](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/05092f3933dd85a36d8771a06355a58122900f1f)
+4. [ Update on rest controller ](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/ebd5808c5fd816b2e15ec5e53108288595ad372f)
+5. [ Replace endpoint fix ](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/71793398d93989e18ff56e2067d2236e2014a8df)
+
+- 5 files with participation:
+
+1. api.postman_collection.json
+2. StoreDTO.java
+3. StoreRestController.java 
+4. RestSecurityConfig.java 
+5. README.md
+
+**Adri**
+
+- Completed tasks: On this third phase, at the beginning I focused on the security of the Rest API, and fixing different bugs until it worked correctly. Also I have done a part of the API Postman collection with the events endpoints (POST, PUT, GET and DELETE). And finally I worked with the Dockerization of the application, with also the help of my team mates.
+
+- 5 most significant commits:
+
+1. [API Rest Security implementation with JWT](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/f7e5a93007026232ba63d85f3a630a1fbaefc1bc)
+2. [LoginRESTController created for manage REST Security](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/bc78b41585a3d0ac8f50681973cd040961473427)
+3. [API Rest Security Request authorizations with roles done](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/5c9ac1e96254cae3410c21493182628983285501)
+4. [API Postman collection initialized with event requests](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/9cb955f98d2183372e3669e7e69e09b81a3899b7)
+5. [Dockerized app done](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/e8b5dd3dd58bc02b08b2f06608f262bbddfa6c03)
+
+- 5 files with participation:
+
+1. Dockerfile
+2. docker-compose.yml
+3. RestSecurityConfig.java
+4. api.postman_collection.json
+5. LoginRESTController.java
+
+## PHASE 4: API Rest incorporation and Docker deploying

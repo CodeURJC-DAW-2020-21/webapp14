@@ -1,5 +1,4 @@
 package daw.urjc.ayuntamiento;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,5 +8,6 @@ public class AyuntamientoApplication {
     public static void main(String[] args) {
         SpringApplication.run(AyuntamientoApplication.class, args);
     }
+
 
 }
