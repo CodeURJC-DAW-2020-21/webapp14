@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './components/index/index.component';
 import {EventComponent} from './components/Events/events.component';
 import { GovernComponent } from './components/Government/government.component';
+import { FormeventComponent} from './components/FormEvents/formevent.component';
 
 const routes: Routes = [{path:'',component:IndexComponent},
 {path:'events',component:EventComponent},
 {path:'govern',component:GovernComponent},
+{path:'formevent',component:FormeventComponent},
 ];
 
 @NgModule({
