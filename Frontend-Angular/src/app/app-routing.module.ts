@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './components/index/index.component';
+
 import {StoreComponent} from './components/Store/store.component';
 import {LoginComponent} from './components/Login/login.component';
 import {EventsComponent} from './components/Events/events.component';
@@ -21,6 +22,7 @@ const routes: Routes = [{path:'',component:IndexComponent},
 {path:'login',component:LoginComponent},
 {path:'user',component:UsersComponent}
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
