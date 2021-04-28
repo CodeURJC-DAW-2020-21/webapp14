@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class IndexComponent {
   title = 'Frontend-Angular';
+
+  ngAfterViewInit(): void {
+    (<any>window).twttr.widgets.load();
+}
+
 }
