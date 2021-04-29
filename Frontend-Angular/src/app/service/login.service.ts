@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Users } from '../model/user.model-';
+import { Users } from '../model/user.model';
 
 const BASE_URL = '/api/auth';
 
