@@ -1,6 +1,6 @@
 
 
-export interface comment{
+export interface Comment{
 
   id:number;
   name:string;

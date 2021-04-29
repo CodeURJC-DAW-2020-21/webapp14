@@ -3,14 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Local } from '../model/local.model';
+import { Comment } from '../model/comment.model';
 
-const BASE_URL = '/api/store';
+const BASE_URL = '/api/comments/';
 
 @Injectable({ providedIn: 'root' })
-export class StoreService {
-  constructor(private httpClient: HttpClient ) {
+export class CommentService {
+  constructor(private httpClient: HttpClient) {
   }
+
 
   private handleError(error: any) {
     console.log('ERROR:');
@@ -18,38 +19,38 @@ export class StoreService {
     return throwError('Server error (' + error.status + '): ' + error.text())
   }
 
-  getStores(): Observable<Local[]> {
+  getComments(): Observable<Comment[]> {
     return this.httpClient.get(BASE_URL).pipe(
       catchError(error => this.handleError(error))
-    ) as Observable<Local[]>;
+    ) as Observable<Comment[]>;
   }
 
-  getStore(id: number | string): Observable<Local[]> {
+  getComment(id: number | string): Observable<Comment> {
     return this.httpClient.get(BASE_URL + id).pipe(
       catchError(error => this.handleError(error))
-    ) as Observable<Local[]>;
+    ) as Observable<Comment>;
   }
 
-  addStore(store: Local) {
-    if (!store.id) {
-      return this.httpClient.post(BASE_URL, store).pipe(
+  addComment(comment: Comment) {
+    if (!comment.id) {
+      return this.httpClient.post(BASE_URL, comment).pipe(
         catchError(error => this.handleError(error))
       );
     } else {
-      return this.httpClient.put(BASE_URL + store.id, store).pipe(
+      return this.httpClient.put(BASE_URL + comment.id, comment).pipe(
         catchError(error => this.handleError(error))
       );
     }
   }
 
-  removeStore(store: Local) {
-    return this.httpClient.delete(BASE_URL + store.id).pipe(
+  removeComment(comment: Comment) {
+    return this.httpClient.delete(BASE_URL + comment.id).pipe(
       catchError(error => this.handleError(error))
     );
   }
 
-  updateStore(store: Local) {
-    return this.httpClient.put(BASE_URL + store.id, store).pipe(
+  updateComment(comment: Comment){
+    return this.httpClient.put(BASE_URL + comment.id, comment).pipe(
       catchError(error => this.handleError(error))
     );
   }
