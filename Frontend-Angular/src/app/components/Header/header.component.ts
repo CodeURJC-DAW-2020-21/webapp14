@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from '../../service/login.service';
 
 @Component({
   selector: 'header',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   title = 'Frontend-Angular';
+  constructor(public loginService: LoginService) { }
 }

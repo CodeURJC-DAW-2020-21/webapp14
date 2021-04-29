@@ -12,7 +12,8 @@
                 <li class="nav-item"><a [routerLink]="['/govern']" class="nav-link">GOBIERNO</a></li>
                 <li class="nav-item"><a [routerLink]="['/events']" class="nav-link">EVENTOS</a></li>
                 <li class="nav-item"><a [routerLink]="['/stores']" class="nav-link">LOCALES</a></li>
-                <li class="nav-item"><a [routerLink]="['/login']" class="nav-link">INICIAR SESIÓN/REGISTRO</a></li>
+                <li class="nav-item"><a *ngIf="!loginService.isLogged()" [routerLink]="['/login']" class="nav-link">INICIAR SESIÓN/REGISTRO</a></li>
+                <li class="nav-item"><a *ngIf="loginService.isLogged()" [routerLink]="['/user']" class="nav-link">PERFIL</a></li>
 
             </ul>
         </div>
