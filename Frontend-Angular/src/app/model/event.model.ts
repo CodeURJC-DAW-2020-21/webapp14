@@ -6,12 +6,12 @@ export interface Event {
 	activities: string;
 	name: string;
 	description: string;
-  place:string;
+  	place:string;
 	reward: string;
-  people:string;
-  price:string;
-  tag:string;
-  image:string;
+  	people:string;
+  	price:string;
+  	tag:string;
+  	image:string;
 
 
 	//comments?: Comments[];
