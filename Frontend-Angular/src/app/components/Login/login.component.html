@@ -12,12 +12,9 @@
                   <input #pass type="password" class="form-control" placeholder="Contraseña" name="password">
               </div>
               <div class="form-group">
-                  <input type="submit"  (click)="logIn($event, user.value, pass.value)" value="Iniciar Sesión" class="btn btn-primary py-3 px-5">
+                  <input type="submit"  (click)="logIn($event, user.value, pass.value)" [routerLink]="['/']" value="Iniciar Sesión" class="btn btn-primary py-3 px-5">
               </div>
           </form>
-          <div *ngIf="loginService.isLogged()" class="form-group">
-            <input type="submit"  [routerLink]="['/user']" value="Ir a Perfil" class="btn btn-primary py-3 px-5">
-        </div>
       </div>
   </div> 
 

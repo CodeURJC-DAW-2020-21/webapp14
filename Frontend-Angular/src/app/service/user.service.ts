@@ -23,6 +23,12 @@ export class UserService{
         )as Observable<Users>;
     }
 
+    getCurrentUser(): Observable<Users>{
+        return this.httpClient.get(BASE_URL + "/me").pipe(
+            catchError(error => this.handleError(error))
+        )as Observable<Users>;
+    }
+
     removeUser(id: number){
         return this.httpClient.delete(BASE_URL + id).pipe(
             catchError(error => this.handleError(error))
