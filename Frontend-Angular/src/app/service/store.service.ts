@@ -53,4 +53,40 @@ export class StoreService {
       catchError(error => this.handleError(error))
     );
   }
+
+  getImage1(id: number): Observable<String> {
+    return this.httpClient.get(BASE_URL + id + 'image1').pipe(
+      catchError(error => this.handleError(error))
+    ) as Observable<String>;
+  }
+
+  getImage2(id: number): Observable<String> {
+    return this.httpClient.get(BASE_URL + id + 'image2').pipe(
+      catchError(error => this.handleError(error))
+    ) as Observable<String>;
+  }
+
+  addImage1(store: Local, id: number) {
+    if (!store.id) {
+      return this.httpClient.post(BASE_URL + id + 'image1', store).pipe(
+        catchError(error => this.handleError(error))
+      );
+    } else {
+      return this.httpClient.put(BASE_URL + id + 'image1', store).pipe(
+        catchError(error => this.handleError(error))
+      );
+    }
+  }
+
+  addImage2(store: Local, id: number) {
+    if (!store.id) {
+      return this.httpClient.post(BASE_URL + id + 'image2', store).pipe(
+        catchError(error => this.handleError(error))
+      );
+    } else {
+      return this.httpClient.put(BASE_URL + id + 'image2', store).pipe(
+        catchError(error => this.handleError(error))
+      );
+    }
+  }
 }
