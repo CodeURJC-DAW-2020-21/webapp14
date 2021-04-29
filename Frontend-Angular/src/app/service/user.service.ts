@@ -12,13 +12,19 @@ export class UserService{
     constructor(private httpClient:HttpClient){}
 
     getUsers(): Observable<Users[]>{
-        return this.httpClient.get(BASE_URL).pipe(
+        return this.httpClient.get(BASE_URL+'/').pipe(
             catchError(error => this.handleError(error))
         ) as Observable<Users[]>;
     }
 
     getUser(id: number): Observable<Users>{
-        return this.httpClient.get(BASE_URL + id).pipe(
+        return this.httpClient.get(BASE_URL +'/'+id).pipe(
+            catchError(error => this.handleError(error))
+        )as Observable<Users>;
+    }
+
+    getCurrentUser(): Observable<Users>{
+        return this.httpClient.get(BASE_URL + "/me").pipe(
             catchError(error => this.handleError(error))
         )as Observable<Users>;
     }

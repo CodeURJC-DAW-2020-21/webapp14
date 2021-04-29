@@ -1,5 +1,9 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import * as CanvasJS from '../../../assets/js/canvasjs.min.js';
+import { Subscription } from 'rxjs';
+import { UserService } from './../../service/user.service';
+
 
 @Component({
   selector: 'index',
@@ -7,8 +11,21 @@ import * as CanvasJS from '../../../assets/js/canvasjs.min.js';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit  {
+  userscount: number;
   title = 'Frontend-Angular';
+  constructor(public userService: UserService) {
+
+   }
+   async ejecucionServicio() {
+    let respuesta;
+    await this.userService.getUsers().toPromise().then((response) => {
+      respuesta = response;
+    }).catch(e => console.error(e));
+    return respuesta;
+  }
   ngOnInit() {
+    let users = this.ejecucionServicio();
+    let number = users.then.length;
 		let chart = new CanvasJS.Chart("chartContainer", {
 		animationEnabled: true,
     title: {
@@ -23,13 +40,13 @@ export class IndexComponent implements OnInit  {
 			]
 		}]
 	});
-		
+
 	chart.render();
 
   let dataPoints = [];
-	let y = 0;		
-	for ( var i = 0; i < 10; i++ ) {		  
-		y += 1;	
+	let y = 0;
+	for ( var i = 0; i < users.then.length; i++ ) {
+		y += 1;
 		dataPoints.push({ y: y});
 	}
 	let chart2 = new CanvasJS.Chart("chartContainer2", {
@@ -40,19 +57,20 @@ export class IndexComponent implements OnInit  {
 		},
 		data: [
 		{
-			type: "line",                
+			type: "line",
 			dataPoints: dataPoints
 		}]
 	});
-		
+
 	chart2.render();
     }
-  
-  
+
+
 
 
   ngAfterViewInit(): void {
     (<any>window).twttr.widgets.load();
+
 }
 
 }
