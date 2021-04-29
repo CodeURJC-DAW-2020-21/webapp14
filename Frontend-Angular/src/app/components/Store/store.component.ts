@@ -1,12 +1,30 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { StoreService } from '../../service/store.service';
+import { LoginService } from '../../service/login.service';
+import { Local } from '../../model/local.model';
+import { Router} from '@angular/router';
 
 @Component({
-
-  selector: 'stores',
-
+  selector: 'store',
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.css']
 })
-export class StoreComponent {
-  title = 'Frontend-Angular';
+export class StoreComponent implements OnInit{
+  store: Local[];
+
+  constructor(private router: Router, private storeService: StoreService, public loginService: LoginService) {
+  }
+
+  async 
+
+  ngOnInit() {
+    this.storeService.getStores().subscribe(
+      store => this.store = store,
+      error => console.log(error)
+    );
+  }
+
+  newStore() {
+    this.router.navigate(['/storeform']);
+  }
 }
