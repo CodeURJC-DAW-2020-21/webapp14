@@ -6,8 +6,10 @@
 
 <div class="form-group">
     <form action="/removeLocal/3" class="p-5 contact-form">
-        <input type="submit" value="Eliminar Local" class="btn py-3 px-4 btn-danger float-right botonDerecha">
+        <input type="submit" *ngIf="loginService.isAdmin()" value="Eliminar Local" class="btn py-3 px-4 btn-danger float-right botonDerecha">
     </form>
+</div>
+
 
 
 
@@ -15,27 +17,27 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 order-md-last">
-                <h1 class="mb-3">Nombre</h1>
-                <p>Descripcion</p>
+                <h1 class="mb-3">{{store.name}}</h1>
+                <p>{{store.description}}</p>
                 <p>
-                    <img src="assets\images\Baloncesto.jpg" alt="" class="img-fluid">
+                    <img src='https://localhost:8443/api/store/{{store.id}}/image1' alt="" class="img-fluid">
                 </p>
                 <h2 class="mb-3 mt-5">Servicios</h2>
-                <p>Servicios</p>
+                <p>{{store.services}}</p>
                 <p>
-   
-                    <img src="assets\images\Baloncesto.jpg" alt="" class="img-fluid">
+
+                    <img src='https://localhost:8443/api/store/{{store.id}}/image2' alt="" class="img-fluid">
 
                 </p>
                 <h3>Cuándo y dónde estamos</h3>
                 <p><b>Horario:</b></p>
-                <p>De Lunes a Viernes, de 12 a 18</p>
+                <p>De {{store.openDay}} a {{store.closeDat}}, de {{store.openHour}} a {{store.closeHour}}</p>
                 <p><b>Dirección:</b></p>
-                <p>Tu casa</p>
+                <p>{{store.street}}</p>
 
                 <div>
-                    <div id = 'map'></div>
 
+                  <!--
                     <script>
                         var lati = "-3.6001000"
                         var len = "40.1536000"
@@ -58,6 +60,7 @@
                         L.marker([parseFloat(lati),parseFloat(len)],{draggable: true}).addTo(map);
                     </script>
                 </div>
+                -->
 <!--
                 <div class="pt-5 mt-5">
                     <h3 class="mb-5">Opiniones</h3>
@@ -93,8 +96,8 @@
                     </div>
 
                 </div>
-            </div> <!-- .col-md-8 -->
-       
+            </div>  .col-md-8 -->
+
             <div class="col-md-4 sidebar ">
 
             </div>
