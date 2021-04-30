@@ -17,7 +17,7 @@ export class MainStoreComponent implements OnInit{
   title = 'Frontend-Angular';
   id: number;
   store: Local;
-  constructor(public loginService: LoginService, public storeService: StoreService, private activatedRoute: ActivatedRoute) {
+  constructor(public storeService: StoreService,public loginService: LoginService, private activatedRoute: ActivatedRoute) {
     let id = activatedRoute.snapshot.params['id'];
     this.id = id;
   }
