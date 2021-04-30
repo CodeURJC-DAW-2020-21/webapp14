@@ -4,9 +4,11 @@
 <br>
 <br>
 
-<li>
-  <button *ngIf="loginService.isAdmin()" class="btn btn-primary navbar-btn float-right botonDerecha"    type="button">Eliminar Local</button>
-</li>
+<div class="form-group">
+    <form action="/removeLocal/3" class="p-5 contact-form">
+        <input type="submit" *ngIf="loginService.isAdmin()" value="Eliminar Local" class="btn py-3 px-4 btn-danger float-right botonDerecha">
+    </form>
+</div>
 
 
 

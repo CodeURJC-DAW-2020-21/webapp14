@@ -5,15 +5,8 @@ import {Local} from '../../model/local.model';
 import {main} from '@angular/compiler-cli/src/main';
 import { LoginService } from '../../service/login.service';
 
-import { OSM } from 'ol/source';
-import * as Proj from 'ol/proj';
 
 
-export const DEFAULT_HEIGHT = '500px';
-export const DEFAULT_WIDTH = '500px';
-
-export const DEFAULT_LAT = -34.603490361131385;
-export const DEFAULT_LON = -58.382037891217465;
 
 @Component({
   selector: 'mainstore',
@@ -40,12 +33,5 @@ export class MainStoreComponent implements OnInit{
   }
 }
 
-const cssUnitsPattern = /([A-Za-z%]+)$/;
 
-function coerceCssPixelValue(value: any): string {
-  if (value == null) {
-    return '';
-  }
 
-  return cssUnitsPattern.test(value) ? value : `${value}px`;
-}

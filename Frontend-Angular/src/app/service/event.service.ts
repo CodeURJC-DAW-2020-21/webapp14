@@ -2,19 +2,21 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable,throwError } from "rxjs";
 import { Event } from "../model/event.model";
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
-const BASE_URL = '/api/events';
+const BASE_URL = '/api/events/';
 
 @Injectable({providedIn: 'root'})
 export class EventService{
 
     constructor(private httpClient:HttpClient){}
 
+    event: Event;
+
     getEvents(): Observable<Event[]>{
         return this.httpClient.get(BASE_URL).pipe(
-            catchError(error => this.handleError(error))
-        ) as Observable<Event[]>;
+          map(response => this.extractResponse(response as Event))
+        );
     }
 
     getEvent(id:number):Observable<Event>{
@@ -58,10 +60,12 @@ export class EventService{
             );
         }
     }
+    private extractResponse(response) {
+      return response;}
 
     private handleError(error: any) {
-		console.log("ERROR:");
-		console.error(error);
+		  console.log("ERROR:");
+		  console.error(error);
 		return throwError("Server error (" + error.status + "): " + error.text())
 	}
 }
