@@ -12,8 +12,9 @@
                 <div class="form-group">
                     <label class="register-event-form">Nombre Del Evento</label>
                     <input
+                            [(ngModel)]="event.name"
                             type="text"
-                            name="name"
+                            name="eventName"
                             class="form-control"
                             placeholder="Nombre"
                             required/>
@@ -22,6 +23,7 @@
                 <div class="form-group">
                     <label class="register-event-form">Lugar</label>
                     <input
+                            [(ngModel)]="event.place"
                             type="text"
                             name="place"
                             class="form-control"
@@ -31,6 +33,7 @@
                 <div class="form-group">
                     <label class="register-event-form">Día</label>
                     <input
+                            [(ngModel)]="event.date"
                             name="date"
                             type="datetime-local"
                             class="form-control"
@@ -39,7 +42,7 @@
 
                 <div class="form-group">
                     <label class="register-event-form">Etiqueta 1</label>
-                    <select name="tag1">
+                    <select [(ngModel)]="event.tag1" name="tag1">
                         <option>Deporte</option>
                         <option>Cultura</option>
                         <option>Musica</option>
@@ -50,6 +53,7 @@
                 <div class="form-group">
                     <label class="register-event-form">Actividades principales (Diferentes actividades que se van a realizar)</label>
                     <textarea
+                        [(ngModel)]="event.activities"
                         type="text"
                         name="activities"
                         rows="4"
@@ -61,6 +65,7 @@
                 <div class="form-group">
                     <label class="register-event-form">Descripción</label>
                     <textarea
+                            [(ngModel)]="event.description"
                             name="description"
                             rows="4"
                             class="form-control"
@@ -71,6 +76,7 @@
                 <div  id="div-mostrar" class="form-group">
                     <label class="register-event-form">Premio</label>
                     <input
+                            [(ngModel)]="event.reward"
                             type="text"
                             name="reward"
                             class="form-control"
@@ -81,6 +87,7 @@
                 <div class="form-group">
                     <label class="register-event-form">Máximo de participantes</label>
                     <input
+                            [(ngModel)]="event.people"
                             type="number"
                             name="people"
                             class="form-control"
@@ -92,6 +99,7 @@
                 <div class="form-group">
                     <label class="register-event-form">Tasa de inscripción</label>
                     <input
+                            [(ngModel)]="event.price"
                             type="number"
                             name="price"
                             class="form-control"
@@ -106,12 +114,13 @@
                     <div class="custom-file">
 
                         <input
+                                [(ngModel)]="event.image"
                                 type="file"
                                 name="imageField"
                                 accept=".jpg, .jpeg"
                                 class="custom-file-input"
                                 id="inputGroupFile01"
-                                required/>
+                                />
                         <label class="custom-file-label" for="inputGroupFile01">Elegir imagen</label>
                     </div>
 
@@ -120,6 +129,7 @@
                 <div class="control-group">
                     <div class="controls">
                         <button
+                                (click)="newEvent()"
                                 id="register"
                                 type="submit"
                                 class="btn btn-primary">Publicar
