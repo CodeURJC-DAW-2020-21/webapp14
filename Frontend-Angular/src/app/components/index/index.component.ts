@@ -40,11 +40,33 @@ export class IndexComponent implements OnInit  {
         console.log(this.users[0]);
         this.userscount=this.users.length;
         console.log(this.userscount);
+        let users = this.ejecucionServicioUsers();
+        let dataPoints = [];
+        let y = 0;
+        for ( var i = 0; i < this.userscount; i++ ) {
+          y += 1;
+          dataPoints.push({ y: y});
+        }
+        let chart2 = new CanvasJS.Chart("chartContainer2", {
+          zoomEnabled: true,
+          animationEnabled: true,
+          title: {
+            text: "Usuarios registrados"
+          },
+          data: [
+          {
+            type: "line",
+            dataPoints: dataPoints
+          }]
+        });
+
+        chart2.render();
+
       },
       error => console.log("error")
     )
     console.log(this.users)
-    let users = this.ejecucionServicioUsers();
+
 		let chart = new CanvasJS.Chart("chartContainer", {
 		animationEnabled: true,
     title: {
@@ -62,26 +84,7 @@ export class IndexComponent implements OnInit  {
 	chart.render();
   console.log(this.userscount);
   console.log(this.users[0])
-  let dataPoints = [];
-	let y = 0;
-	for ( var i = 0; i < this.userscount; i++ ) {
-		y += 1;
-		dataPoints.push({ y: y});
-	}
-	let chart2 = new CanvasJS.Chart("chartContainer2", {
-		zoomEnabled: true,
-		animationEnabled: true,
-		title: {
-			text: "Usuarios registrados"
-		},
-		data: [
-		{
-			type: "line",
-			dataPoints: dataPoints
-		}]
-	});
-
-	chart2.render();
+  
     }
 
 
