@@ -5,9 +5,6 @@ import {Local} from '../../model/local.model';
 import {main} from '@angular/compiler-cli/src/main';
 import { LoginService } from '../../service/login.service';
 
-import { OSM } from 'ol/source';
-import * as Proj from 'ol/proj';
-
 
 export const DEFAULT_HEIGHT = '500px';
 export const DEFAULT_WIDTH = '500px';
