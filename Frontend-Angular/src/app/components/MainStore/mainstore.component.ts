@@ -3,6 +3,7 @@ import { StoreService} from '../../service/store.service';
 import {ActivatedRoute} from '@angular/router';
 import {Local} from '../../model/local.model';
 import {main} from '@angular/compiler-cli/src/main';
+import { LoginService } from '../../service/login.service';
 
 import { OSM } from 'ol/source';
 import * as Proj from 'ol/proj';
@@ -23,7 +24,7 @@ export class MainStoreComponent implements OnInit{
   title = 'Frontend-Angular';
   id: number;
   store: Local;
-  constructor(public storeService: StoreService, private activatedRoute: ActivatedRoute) {
+  constructor(public loginService: LoginService, public storeService: StoreService, private activatedRoute: ActivatedRoute) {
     let id = activatedRoute.snapshot.params['id'];
     this.id = id;
   }

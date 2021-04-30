@@ -4,10 +4,10 @@
 <br>
 <br>
 
-<div class="form-group">
-    <form action="/removeLocal/3" class="p-5 contact-form">
-        <input type="submit" value="Eliminar Local" class="btn py-3 px-4 btn-danger float-right botonDerecha">
-    </form>
+<li>
+  <button *ngIf="loginService.isAdmin()" class="btn btn-primary navbar-btn float-right botonDerecha"    type="button">Eliminar Local</button>
+</li>
+
 
 
 
@@ -24,7 +24,7 @@
                 <p>{{store.services}}</p>
                 <p>
 
-                    <img src="assets\images\Baloncesto.jpg" alt="" class="img-fluid">
+                    <img src='https://localhost:8443/api/store/{{store.id}}/image2' alt="" class="img-fluid">
 
                 </p>
                 <h3>Cuándo y dónde estamos</h3>
@@ -34,7 +34,7 @@
                 <p>{{store.street}}</p>
 
                 <div>
-                    <div id="{{target}}" class="map"></div>
+
                   <!--
                     <script>
                         var lati = "-3.6001000"
@@ -94,7 +94,7 @@
                     </div>
 
                 </div>
-            </div> <!-- .col-md-8 -->
+            </div>  .col-md-8 -->
 
             <div class="col-md-4 sidebar ">
 
