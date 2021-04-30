@@ -18,7 +18,7 @@ export class LoginService {
 
         this.http.get('/api/users/me', { withCredentials: true }).subscribe(
             response => {
-                this.user = response as Users;               
+                this.user = response as Users;
                 this.logged = true;
             },
             error => {

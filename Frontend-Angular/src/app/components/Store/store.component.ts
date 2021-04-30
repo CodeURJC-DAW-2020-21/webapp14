@@ -15,8 +15,6 @@ export class StoreComponent implements OnInit{
   constructor(private router: Router, private storeService: StoreService, public loginService: LoginService) {
   }
 
-  async
-
   ngOnInit() {
     this.storeService.getStores().subscribe(
       storearray =>{
@@ -24,9 +22,14 @@ export class StoreComponent implements OnInit{
         console.log(this.stores);
       },
       error => console.log("error")
-    )
+    );
   }
+
   newStore() {
     this.router.navigate(['/storeform']);
+  }
+
+  navigatetoStore(id: number){
+   this.router.navigate(['mainstore/' + id]);
   }
 }

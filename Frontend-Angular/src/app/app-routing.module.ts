@@ -14,15 +14,15 @@ import {UsersComponent} from './components/User/user.component';
 
 
 const routes: Routes = [{path:'',component:IndexComponent},
-{path:'events',component:EventsComponent},
-{path:'govern',component:GovernComponent},
-{path:'formevent',component:FormeventComponent},
+{path: 'events',component:EventsComponent},
+{path: 'govern',component:GovernComponent},
+{path: 'formevent',component:FormeventComponent},
 {path: 'mainevent', component: MainEventComponent},
 {path: 'storeform', component: StoreFormComponent},
-{path:'stores',component:StoreComponent},
-{path:'login',component:LoginComponent},
-{path:'user',component:UsersComponent},
-{path:'mainstore',component:MainStoreComponent}
+{path: 'stores',component:StoreComponent},
+{path: 'login',component:LoginComponent},
+{path: 'user',component:UsersComponent},
+{path: 'mainstore/:id',component:MainStoreComponent}
 ];
 
 
