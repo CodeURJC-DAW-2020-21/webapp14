@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { LoginService } from '../../service/login.service';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'users',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class UsersComponent {
   title = 'Frontend-Angular';
+  constructor(public loginService: LoginService,public userService: UserService) { }
 }

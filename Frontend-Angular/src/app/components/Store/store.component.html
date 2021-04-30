@@ -6,27 +6,29 @@
 
     <div class="form-group">
         <form [routerLink]="['/storeform']" class="p-5 contact-form">
-            <input type="submit" value="Añadir Local" class="btn py-3 px-4 btn-primary float-right botonDerecha">
+            <input (click)="newStore()" *ngIf="loginService.isAdmin()" type="submit" value="Añadir Local" class="btn py-3 px-4 btn-primary float-right botonDerecha">
         </form>
+        </div>
 
 
+        
 
 
       <section class="ftco-section">
       <div class="container">
           <div id="locals">
         <div class="row d-flex">
-          <div class="col-md-3 d-flex ftco-animate eldiv property-wrap fadeInUp ftco-animated eldiv">
+          <div class="col-md-3 d-flex" *ngFor="let store of stores">
           	<div class="blog-entry justify-content-end">
-              <div class="text">
-                <h3 class="heading"><a [routerLink]="['/mainstore']">Nombre</a></h3>
+              <div class="text" >
+                <h3 class="heading"><a (click)="navigatetoStore(store.id)">{{store.name}}</a></h3>
                 <div class="meta mb-3">
                   <br>
 
                 </div>
-                <a [routerLink]="['/mainstore']" class="block-20 img" style="background-image: url(../../../assets/images/alex.jpg);">
+                <a  (click)="navigatetoStore(store.id)" class="block-20 img" style="background-image: url(https://localhost:8443/api/store/{{store.id}}/image1);">
 	              </a>
-                <p>Descripcion</p>
+                 <p>{{store.frontdescription}}</p>
               </div>
             </div>
           </div>

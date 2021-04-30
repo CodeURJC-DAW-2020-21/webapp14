@@ -10,8 +10,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.net.URI;
+import java.security.Principal;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Optional;
@@ -36,6 +38,17 @@ public class UserRestController {
         Optional<User> user = users.findId(id);
         if (user.isPresent()) {
             return ResponseEntity.ok(user.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @GetMapping("/me")
+    public ResponseEntity<User> me(HttpServletRequest request) {
+
+        Principal principal = request.getUserPrincipal();
+
+        if(principal != null) {
+            return ResponseEntity.ok(users.findByName(principal.getName()).orElseThrow());
         } else {
             return ResponseEntity.notFound().build();
         }
