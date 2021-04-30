@@ -4,7 +4,7 @@
 
         <div class="form-group">
             <form [routerLink]="['/formevent']" class="p-5 contact-form">
-                <input type="submit" value="Añadir Evento" class="btn py-3 px-4 btn-primary float-right botonDerecha">
+                <input type="submit" *ngIf="loginService.isAdmin()" value="Añadir Evento" class="btn py-3 px-4 btn-primary float-right botonDerecha">
             </form>
 
 
@@ -19,17 +19,17 @@
             <div id="events">
             <div class="row">
 
-                <div class="col-md-4 eldiv">
+                <div class="col-md-4 eldiv" *ngFor="let event of events">
                     <div class="property-wrap ftco-animate fadeInUp ftco-animated">
-                        <a [routerLink]="['/mainevent']" class="img" style="background-image: url(assets/images/ajedrez.jpeg)"></a>
+                        <a (click)="navigatetoEvent(event.id)" class="img" style="background-image: url(https://localhost:8443/api/events/{{event.id}}/image)"></a>
                         <div class="text">
-                              <h3><a [routerLink]="['/mainevent']"></a>Torneo Ajedrez</h3>
+                              <h3><a (click)="navigatetoEvent(event.id)"></a>{{event.name}}</h3>
                             <ul class="property_list">
-                                <li><img src="assets/images/calendario.png" height="16px" width="16px" />12/12/12 </li>
-                                <li><img src="assets/images/personas.png" height="16px" width="16px" /> 5 </li>
-                                <li><img src="assets/images/dolar.png" height="16px" width="16px" />15 </li>
+                                <li><img src="assets/images/calendario.png" height="16px" width="16px" />{{event.date}} </li>
+                                <li><img src="assets/images/personas.png" height="16px" width="16px" /> {{event.people}} </li>
+                                <li><img src="assets/images/dolar.png" height="16px" width="16px" />{{event.price}} </li>
                             </ul>
-                            <span class="location">Biblioteca</span>
+                            <span class="location">{{event.place}}</span>
                             <a href="" class="d-flex align-items-center justify-content-center btn-custom">
                                 <span class="ion-ios-link"></span>
                             </a>

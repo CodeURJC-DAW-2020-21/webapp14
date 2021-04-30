@@ -6,11 +6,7 @@ import {main} from '@angular/compiler-cli/src/main';
 import { LoginService } from '../../service/login.service';
 
 
-export const DEFAULT_HEIGHT = '500px';
-export const DEFAULT_WIDTH = '500px';
 
-export const DEFAULT_LAT = -34.603490361131385;
-export const DEFAULT_LON = -58.382037891217465;
 
 @Component({
   selector: 'mainstore',
@@ -36,4 +32,6 @@ export class MainStoreComponent implements OnInit{
     );
   }
 }
+
+
 
