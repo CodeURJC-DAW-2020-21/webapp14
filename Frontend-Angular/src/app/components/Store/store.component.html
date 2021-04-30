@@ -19,12 +19,12 @@
           <div class="col-md-3 d-flex">
           	<div class="blog-entry justify-content-end">
               <div class="text" *ngFor="let store of stores">
-                <h3 class="heading"><a [routerLink]="['/mainstore']">{{store.name}}</a></h3>
+                <h3 class="heading"><a (click)="navigatetoStore(store.id)">{{store.name}}</a></h3>
                 <div class="meta mb-3">
                   <br>
 
                 </div>
-                <a [routerLink]="['/mainstore']" class="block-20 img" style="background-image: url(../../../assets/images/alex.jpg);">
+                <a (click)="navigatetoStore(store.id)" class="block-20 img" style="background-image: url(../../../assets/images/alex.jpg);">
 	              </a>
                 <p>{{store.frontdescription}}</p>
               </div>
