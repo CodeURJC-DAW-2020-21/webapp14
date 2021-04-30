@@ -1,9 +1,3 @@
-
-
-
-
-
-
 export interface Users {
 	id: number;
 	mail: string;
