@@ -1,12 +1,24 @@
+
+
+<div class="form-group">
+  <form action="/removeLocal/3" class="p-5 contact-form">
+      <input type="submit" *ngIf="loginService.isAdmin()" value="Eliminar Evento" class="btn py-3 px-4 btn-danger float-right botonDerecha">
+  </form>
+</div>
+
+
+
+
+
 <section class="ftco-section ftco-property-details">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-12">
         <div class="property-details">
-          <div class="img" style="background-image: url(../../../assets/images/ajedrez.jpeg);"></div>
+          <div class="img" style="background-image: url(https://localhost:8443/api/events/{{event.id}}/image);"></div>
           <div class="text text-center">
             <span class="subheading">CIEMPOZUELOS</span>
-            <h2>Nombre del evento</h2>
+            <h2>{{event.name}}</h2>
           </div>
         </div>
       </div>
@@ -40,21 +52,21 @@
           <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-manufacturer" role="tabpanel"
                  aria-labelledby="pills-manufacturer-tab">
-              <p>Descripcion</p>
+              <p>{{event.description}}</p>
               <h2>Fechas</h2>
-              <p>Fecha</p>
+              <p>{{event.date}}</p>
               <h2>Lugar</h2>
-              <p>Lugar</p>
+              <p>{{event.place}}</p>
               <div class="tag-widget post-tag-container mb-5 mt-5">
                 <div class="tagcloud">
-                  <a href="" class="tag-cloud-link">Etiqueta</a>
+                  <a href="" class="tag-cloud-link">{{event.tag1}}</a>
                 </div>
               </div>
             </div>
             <div class="tab-pane fade" id="pills-description" role="tabpanel"
                  aria-labelledby="pills-description-tab">
               <div class="row">
-                <p>Actividades</p>
+                <p>{{event.activities}}</p>
               </div>
             </div>
 

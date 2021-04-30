@@ -10,8 +10,9 @@ export interface Event {
 	reward: string;
   	people:string;
   	price:string;
-  	tag:string;
+  	tag1:string;
   	image:string;
+    date:Date;
 
 
 	//comments?: Comments[];
