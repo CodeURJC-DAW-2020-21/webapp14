@@ -16,17 +16,17 @@
       <div class="container">
           <div id="locals">
         <div class="row d-flex">
-          <div class="col-md-3 d-flex">
+          <div class="col-md-3 d-flex" *ngFor="let store of stores">
           	<div class="blog-entry justify-content-end">
-              <div class="text" *ngFor="let store of stores">
+              <div class="text" >
                 <h3 class="heading"><a [routerLink]="['/mainstore']">{{store.name}}</a></h3>
                 <div class="meta mb-3">
                   <br>
 
                 </div>
-                <a [routerLink]="['/mainstore']" class="block-20 img" style="background-image: url(../../../assets/images/alex.jpg);">
+                <a [routerLink]="['/mainstore']" class="block-20 img" style="background-image: url(https://localhost:8443/api/store/{{store.id}}/image1);">
 	              </a>
-                <p>{{store.frontdescription}}</p>
+                 <p>{{store.frontdescription}}</p>
               </div>
             </div>
           </div>
