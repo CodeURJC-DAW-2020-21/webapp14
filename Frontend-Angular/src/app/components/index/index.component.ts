@@ -1,8 +1,10 @@
-import { Observable } from 'rxjs';
+import { StoreService } from './../../service/store.service';
+import { BehaviorSubject} from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import * as CanvasJS from '../../../assets/js/canvasjs.min.js';
 import { Subscription } from 'rxjs';
 import { UserService } from './../../service/user.service';
+import {Users} from '../../model/user.model';
 
 
 @Component({
@@ -11,21 +13,38 @@ import { UserService } from './../../service/user.service';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit  {
+  x: BehaviorSubject<Users>;
   userscount: number;
+  id: number = 2;
+  user:Users;
+  users:Users[]=[];
   title = 'Frontend-Angular';
-  constructor(public userService: UserService) {
+  constructor(public userService: UserService, public storeService:StoreService) {
 
    }
-   async ejecucionServicio() {
+   async ejecucionServicioUsers() {
     let respuesta;
     await this.userService.getUsers().toPromise().then((response) => {
       respuesta = response;
     }).catch(e => console.error(e));
     return respuesta;
   }
+  async
+
   ngOnInit() {
-    let users = this.ejecucionServicio();
-    let number = users.then.length;
+    this.userService.getUsersAux().subscribe(
+      userarray =>{
+        userarray.map(user =>this.users.push(user))
+        console.log(this.users);
+        console.log(this.users.length);
+        console.log(this.users[0]);
+        this.userscount=this.users.length;
+        console.log(this.userscount);
+      },
+      error => console.log("error")
+    )
+    console.log(this.users)
+    let users = this.ejecucionServicioUsers();
 		let chart = new CanvasJS.Chart("chartContainer", {
 		animationEnabled: true,
     title: {
@@ -40,12 +59,12 @@ export class IndexComponent implements OnInit  {
 			]
 		}]
 	});
-
 	chart.render();
-
+  console.log(this.userscount);
+  console.log(this.users[0])
   let dataPoints = [];
 	let y = 0;
-	for ( var i = 0; i < users.then.length; i++ ) {
+	for ( var i = 0; i < this.userscount; i++ ) {
 		y += 1;
 		dataPoints.push({ y: y});
 	}

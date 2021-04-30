@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
 import { Local } from '../model/local.model';
 
@@ -19,9 +19,9 @@ export class StoreService {
   }
 
   getStores(): Observable<Local[]> {
-    return this.httpClient.get(BASE_URL).pipe(
-      catchError(error => this.handleError(error))
-    ) as Observable<Local[]>;
+    return this.httpClient.get(BASE_URL+'/').pipe(
+      map(response => this.extractResponse(response as Local))
+    )
   }
 
   getStore(id: number | string): Observable<Local[]> {
@@ -89,4 +89,7 @@ export class StoreService {
       );
     }
   }
+  private extractResponse(response) {
+    return response
+}
 }

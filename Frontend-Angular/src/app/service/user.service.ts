@@ -1,8 +1,9 @@
+import { Users } from './../model/user.model';
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable,throwError } from "rxjs";
-import { Users } from "../model/user.model";
 import { catchError } from 'rxjs/operators';
+import { map } from 'rxjs/operators'
 
 const BASE_URL = '/api/users';
 
@@ -22,7 +23,11 @@ export class UserService{
             catchError(error => this.handleError(error))
         )as Observable<Users>;
     }
-
+    getUsersAux():Observable<Users[]>{
+      return this.httpClient.get(BASE_URL+'/').pipe(
+        map(response => this.extractResponse(response as Users))
+      )
+    }
     getCurrentUser(): Observable<Users>{
         return this.httpClient.get(BASE_URL + "/me").pipe(
             catchError(error => this.handleError(error))
@@ -70,4 +75,8 @@ export class UserService{
 		console.error(error);
 		return throwError("Server error (" + error.status + "): " + error.text())
 	}
+
+  private extractResponse(response) {
+    return response
+}
 }

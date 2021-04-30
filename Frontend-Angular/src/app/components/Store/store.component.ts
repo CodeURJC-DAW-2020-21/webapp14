@@ -10,20 +10,22 @@ import { Router} from '@angular/router';
   styleUrls: ['./store.component.css']
 })
 export class StoreComponent implements OnInit{
-  store: Local[];
+  stores: Local[]=[];
 
   constructor(private router: Router, private storeService: StoreService, public loginService: LoginService) {
   }
 
-  async 
+  async
 
   ngOnInit() {
     this.storeService.getStores().subscribe(
-      store => this.store = store,
-      error => console.log(error)
-    );
+      storearray =>{
+        storearray.map(store =>this.stores.push(store))
+        console.log(this.stores);
+      },
+      error => console.log("error")
+    )
   }
-
   newStore() {
     this.router.navigate(['/storeform']);
   }
