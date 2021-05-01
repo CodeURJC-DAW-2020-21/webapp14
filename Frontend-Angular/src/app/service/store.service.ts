@@ -49,8 +49,8 @@ export class StoreService {
     }
   }
 
-  removeStore(store: Local) {
-    return this.httpClient.delete(BASE_URL + store.id + '/').pipe(
+  removeStore(id:number) {
+    return this.httpClient.delete(BASE_URL + id).pipe(
       map(response => this.extractResponse(response as Local))
     );
   }
