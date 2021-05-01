@@ -1,3 +1,5 @@
+import {Comment} from "./comment.model"
+
 export interface Users {
 	id: number;
 	mail: string;
@@ -10,6 +12,7 @@ export interface Users {
 
 
 	//events?: EventSuscribe[];
-  	//comments?: comments[];
+	commentPlaces?: string[];
+	comment?: Comment[];
 	roles?: string[];
 }

@@ -31,9 +31,9 @@
                 </p>
                 <h3>Cuándo y dónde estamos</h3>
                 <p><b>Horario:</b></p>
-                <p>De  a , de  a </p>
+                <p>De {{store.openHour}} a {{store.closeHour}}, de {{store.openDay}} a {{store.closeDay}}</p>
                 <p><b>Dirección:</b></p>
-                <p></p>
+                <p>{{store.street}}</p>
 
                 <div>
 
@@ -43,11 +43,11 @@
                         <ul class="comment-list">
                             <li class="comment">
                                 <div class="vcard bio">
-                                    <img src="/comment/{{id}}" alt="">
+                                    <img src="https://localhost:8443/api/comments/21/image" alt="">
                                 </div>
                                 <div class="comment-body">
                                     <h3></h3>
-                                    <div class="meta">{{date}}</div>
+                                    <div class="meta">14/07</div>
                                     <p></p>
                                 </div>
                             </li>
@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="form-group">
                                     <input
-                                    (click)=" newCommentStore()"
+                                    (click)="newCommentStore()"
                                     type="submit"
                                     value="Enviar Comentario"
                                     class="btn py-3 px-4 btn-primary">

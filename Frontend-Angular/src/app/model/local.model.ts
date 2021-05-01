@@ -1,4 +1,4 @@
-
+import {Comment} from "./comment.model"
 
 
 export interface Local {
@@ -9,7 +9,7 @@ export interface Local {
   frontdescription: string;
   services:string;
 	openDay: string;
-  closeDat:string;
+  closeDay:string;
   openHour:string;
   closeHour:string;
   street:string;
@@ -20,7 +20,7 @@ export interface Local {
   image2:string;
 
 
-	 //comments?: Comments[];
+	comment?: Comment[];
 
 
 }

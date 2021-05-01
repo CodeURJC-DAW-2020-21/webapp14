@@ -22,7 +22,7 @@ export class StoreFormComponent {
       );
       this.new = false;
     } else {
-      this.store = {activities: ' ', name: ' ', description: ' ', frontdescription: ' ', services: ' ', openDay: ' ', closeDat: ' ', openHour: ' ', closeHour: ' ', street: ' ', latitude: ' ', length: ' ', image1: ' ', image2: ' '};
+      this.store = {activities: ' ', name: ' ', description: ' ', frontdescription: ' ', services: ' ', openDay: ' ', closeDay: ' ', openHour: ' ', closeHour: ' ', street: ' ', latitude: ' ', length: ' ', image1: ' ', image2: ' '};
     }
   }
 
