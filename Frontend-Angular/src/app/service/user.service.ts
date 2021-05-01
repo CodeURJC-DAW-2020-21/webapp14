@@ -40,6 +40,13 @@ export class UserService{
         )
     }
 
+
+    RegisterUser(name:string, dni:string, description:string, password:string, mail:string  ):Observable<Users> {
+      return this.httpClient.post("/api/users/",{name,dni,description,password,mail}).pipe(
+          map(response => this.extractResponse(response as Users))
+      )
+    }
+
     addUser(user:Users){
         if(!user.id){
             return this.httpClient.post(BASE_URL, user).pipe(
@@ -50,6 +57,7 @@ export class UserService{
                 catchError(error => this.handleError(error))
             );
         }
+
     }
 
     getImage(id: number):Observable<String>{

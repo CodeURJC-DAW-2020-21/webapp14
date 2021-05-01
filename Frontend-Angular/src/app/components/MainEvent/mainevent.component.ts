@@ -1,3 +1,4 @@
+import { UserService } from './../../service/user.service';
 import { Component, OnInit } from '@angular/core';
 import { EventService} from '../../service/event.service';
 import {Router,ActivatedRoute} from '@angular/router';
@@ -6,7 +7,6 @@ import {Comment} from '../../model/comment.model';
 import { CommentService } from '../../service/comment.service';
 import {main} from '@angular/compiler-cli/src/main';
 import { LoginService } from '../../service/login.service';
-import { UserService } from '../../service/user.service';
 import { Users } from 'src/app/model/user.model';
 
 @Component({
@@ -18,6 +18,7 @@ export class MainEventComponent {
 
   event: Event;
   id: number;
+
   user:Users;
   comment : Comment;
   text:string;
@@ -40,6 +41,19 @@ export class MainEventComponent {
       error => console.log("error")
     );
   }
+
+  subscribeToEvent(){
+    let currentUser = this.loginService.currentUser();
+    let useraux = currentUser;
+    console.log(useraux);
+    useraux.events.push(this.event.name);
+    this.userService.addUser(useraux).subscribe(
+      user =>{
+        console.log(user);
+      }
+    );
+    }
+
 
 
   deleteEvent(id:number){
@@ -69,5 +83,7 @@ export class MainEventComponent {
     );
   
 
+
   }
 }
+
