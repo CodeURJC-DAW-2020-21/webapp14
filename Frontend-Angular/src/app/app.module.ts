@@ -14,6 +14,9 @@ import { GovernComponent } from './components/Government/government.component';
 import { FormeventComponent} from './components/FormEvents/formevent.component';
 import { CommentComponent } from './components/Comments/comment.component';
 import { MainEventComponent } from './components/MainEvent/mainevent.component';
+
+import { MainStoreComponent } from './components/Mainstore/mainstore.component';
+
 import { StoreFormComponent } from './components/StoreForm/storeform.component';
 import { EventsComponent } from './components/Events/events.component';
 
@@ -36,6 +39,7 @@ import {FormsModule} from '@angular/forms';
     GovernComponent,
     FormeventComponent,
     MainEventComponent,
+    MainStoreComponent,
     StoreFormComponent,
     CommentComponent,
     EventsComponent
