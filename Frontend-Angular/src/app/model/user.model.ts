@@ -12,8 +12,8 @@ export interface Users {
   image:string;
 	events: string[];
   eventSubscribe:number[];
-  comment: Comment[];
-  commentPlaces:string[];
+  comment?: Comment[];
+  commentPlaces?:string[];
 	roles?: string[];
   map: Map<string,number>;
 }

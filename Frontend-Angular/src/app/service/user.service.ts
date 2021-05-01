@@ -46,7 +46,7 @@ export class UserService{
               map(response => this.extractResponse(response as Users))
             );
         }else{
-            return this.httpClient.put(BASE_URL + user.id +'/', user).pipe(
+            return this.httpClient.put(BASE_URL + user.id , user).pipe(
               map(response => this.extractResponse(response as Users))
             );
         }

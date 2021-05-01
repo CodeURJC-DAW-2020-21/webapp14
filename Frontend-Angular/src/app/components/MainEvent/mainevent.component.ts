@@ -32,8 +32,8 @@ export class MainEventComponent {
   subscribeToEvent(){
     let currentUser = this.loginService.currentUser();
     let useraux = currentUser;
+    console.log(useraux);
     useraux.events.push(this.event.name);
-    useraux.password=currentUser.password;
     this.userService.addUser(useraux).subscribe(
       user =>{
         console.log(user);
