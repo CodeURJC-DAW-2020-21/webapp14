@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -23,6 +24,9 @@ import static org.springframework.web.servlet.support.ServletUriComponentsBuilde
 @RestController
 @RequestMapping("/api/users")
 public class UserRestController {
+
+    @Autowired
+    private PasswordEncoder passwordencoder;
 
     @Autowired
     private UserService users;
@@ -68,7 +72,13 @@ public class UserRestController {
 
 
     @PostMapping("/")
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    public ResponseEntity<User> createUser(@RequestBody UserDTO userDTO) {
+        System.out.println("**************");
+        User user = new User(userDTO.getName(), userDTO.getMail(), userDTO.getDescription(), userDTO.getDNI()," ");
+
+
+        user.setPassword(passwordencoder.encode(userDTO.getPassword()));
+        System.out.println(user.getPassword());
         users.save(user);
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
         return ResponseEntity.created(location).body(user);

@@ -5,7 +5,7 @@ import { Observable,throwError } from "rxjs";
 import { catchError } from 'rxjs/operators';
 import { map } from 'rxjs/operators'
 
-const BASE_URL = '/api/users';
+const BASE_URL = '/api/users/';
 
 @Injectable({providedIn: 'root'})
 export class UserService{
@@ -40,16 +40,10 @@ export class UserService{
         )
     }
 
-    addUser(user:Users){
-        if(!user.id){
-            return this.httpClient.post(BASE_URL, user).pipe(
-                catchError(error => this.handleError(error))
-            );
-        }else{
-            return this.httpClient.put(BASE_URL + user.id, user).pipe(
-                catchError(error => this.handleError(error))
-            );
-        }
+    addUser(name:string, dni:string, description:string, password:string, mail:string  ):Observable<Users> {
+      return this.httpClient.post("/api/users/",{name,dni,description,password,mail}).pipe(
+          map(response => this.extractResponse(response as Users))
+      )
     }
 
     getImage(id: number):Observable<String>{

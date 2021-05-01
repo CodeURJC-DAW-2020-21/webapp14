@@ -1,15 +1,15 @@
 export interface Users {
-	id: number;
+	id?: number;
 	mail: string;
 	name: string;
-  	description: string;
-	DNI: string;
+  description: string;
+	dni: string;
 	password: string;
-  	image:string;
 
-
-
-	//events?: EventSuscribe[];
-  	//comments?: comments[];
+  image?:string;
+  commentPlace?:[];
+  eventSuscribe?:[];
+	events?: [];
+  comment?:[];
 	roles?: string[];
 }
