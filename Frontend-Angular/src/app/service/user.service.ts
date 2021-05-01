@@ -61,18 +61,18 @@ export class UserService{
     }
 
     getImage(id: number):Observable<String>{
-        return this.httpClient.get(BASE_URL + id + "image").pipe(
+        return this.httpClient.get(BASE_URL + id + "/image").pipe(
             catchError(error => this.handleError(error))
         )as Observable<String>;
     }
 
     addImage(user:Users, Id:number){
         if(!user.id){
-            return this.httpClient.post(BASE_URL + Id + "image", user).pipe(
+            return this.httpClient.post(BASE_URL + Id + "/image"+ "/", user).pipe(
                 catchError(error => this.handleError(error))
             );
         }else{
-            return this.httpClient.put(BASE_URL + Id + "image", user).pipe(
+            return this.httpClient.put(BASE_URL + Id + "/image" +"/", user).pipe(
                 catchError(error => this.handleError(error))
             );
         }
