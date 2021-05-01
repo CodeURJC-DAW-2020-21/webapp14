@@ -30,6 +30,8 @@ public class UserDTO {
 
     private List<Comment> comment;
 
+    private List<String> roles;
+
 
     public UserDTO(String name, String mail, String description, String DNI, String password, MultipartFile imageField, long id) {
         this.name = name;
@@ -127,5 +129,13 @@ public class UserDTO {
 
     public void setComment(List<Comment> comment) {
         this.comment = comment;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
     }
 }

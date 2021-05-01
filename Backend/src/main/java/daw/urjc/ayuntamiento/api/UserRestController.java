@@ -112,6 +112,7 @@ public class UserRestController {
         Optional<User> user = users.findId(id);
         if (user.isPresent()) {
             User newUser = new User(newUserDTO.getName(), newUserDTO.getMail(), newUserDTO.getDescription(),newUserDTO.getDNI(),"");
+            newUser.setRoles(newUserDTO.getRoles());
             newUser.setId(user.get().getId());
             newUser.setComment(newUserDTO.getComment());
             newUser.setCommentPlaces(newUserDTO.getCommentPlaces());
