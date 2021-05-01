@@ -24,6 +24,8 @@ import static org.springframework.web.servlet.support.ServletUriComponentsBuilde
 @RestController
 @RequestMapping("/api/users")
 public class UserRestController {
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private PasswordEncoder passwordencoder;
@@ -115,10 +117,17 @@ public class UserRestController {
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<User> replaceUser(@PathVariable long id, @RequestBody User newUser) {
+    public ResponseEntity<User> replaceUser(@PathVariable long id, @RequestBody UserDTO newUserDTO) {
         Optional<User> user = users.findId(id);
         if (user.isPresent()) {
-            newUser.setId(id);
+            User newUser = new User(newUserDTO.getName(), newUserDTO.getMail(), newUserDTO.getDescription(),newUserDTO.getDNI(),"");
+            newUser.setRoles(newUserDTO.getRoles());
+            newUser.setId(user.get().getId());
+            newUser.setComment(newUserDTO.getComment());
+            newUser.setCommentPlaces(newUserDTO.getCommentPlaces());
+            newUser.setEvents(newUserDTO.getEvents());
+            newUser.setEventSuscribe(newUserDTO.getEventSuscribe());
+            newUser.setPassword(passwordEncoder.encode(user.get().getPassword()));
             users.save(newUser);
             return ResponseEntity.ok(user.get());
         } else {

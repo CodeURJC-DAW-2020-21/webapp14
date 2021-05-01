@@ -1,8 +1,8 @@
 
-
+import {Comment} from "./comment.model"
 
 export interface Event {
-	id: number;
+	id?: number;
 	activities: string;
 	name: string;
 	description: string;
@@ -15,7 +15,7 @@ export interface Event {
     date:Date;
 
 
-	//comments?: Comments[];
+	comment?: Comment[];
 
 
 }

@@ -2,7 +2,7 @@
 <br>
 <br>
 <br>
-<div class="row">
+<div class="row" *ngIf="loginService.isAdmin()">
   <div class="col-6 mx-auto">
     <h1>Crear un nuevo local</h1>
 
@@ -11,6 +11,7 @@
       <div class="form-group">
         <label class="register-event-form">Nombre Del Local</label>
         <input
+          [(ngModel)]="store.name"
           type="text"
           name="name"
           class="form-control"
@@ -21,7 +22,7 @@
 
       <div class="form-group">
         <label class="register-event-form">Dia apertura</label>
-        <select name="openDay">
+        <select [(ngModel)]="store.openDay" name="openDay">
           <option>-----</option>
           <option>Lunes</option>
           <option>Martes</option>
@@ -35,7 +36,7 @@
 
       <div class="form-group">
         <label class="register-event-form">Día cierre</label>
-        <select name="closeDay">
+        <select [(ngModel)]="store.closeDay" name="closeDay">
           <option>-----</option>
           <option>Lunes</option>
           <option>Martes</option>
@@ -50,6 +51,7 @@
       <div class="form-group">
         <label class="register-event-form">Horario apertura</label>
         <input
+          [(ngModel)]="store.openHour"
           name="openHour"
           type="time"
           class="form-control"
@@ -59,6 +61,7 @@
       <div class="form-group">
         <label class="register-event-form">Horario cierre</label>
         <input
+          [(ngModel)]="store.closeHour"
           name="closeHour"
           type="time"
           class="form-control"
@@ -68,6 +71,7 @@
       <div class="form-group">
         <label class="register-event-form">Direccion</label>
         <input
+          [(ngModel)]="store.street"
           type="text"
           name="street"
           class="form-control"
@@ -77,6 +81,7 @@
       <div class="form-group">
         <label class="register-event-form">Latitud</label>
         <input
+          [(ngModel)]="store.latitude"
           type="text"
           name="latitude"
           class="form-control"
@@ -87,6 +92,7 @@
       <div class="form-group">
         <label class="register-event-form">Longitud</label>
         <input
+          [(ngModel)]="store.length"
           type="text"
           name="lenght"
           class="form-control"
@@ -104,6 +110,7 @@
       <div class="form-group">
         <label class="register-event-form">Descripción</label>
         <textarea
+          [(ngModel)]="store.description"
           name="description"
           rows="4"
           class="form-control"
@@ -114,6 +121,7 @@
       <div class="form-group">
         <label class="register-event-form">Resúmen de la descripción</label>
         <textarea
+          [(ngModel)]="store.frontdescription"
           name="frontdescription"
           rows="4"
           class="form-control"
@@ -125,6 +133,7 @@
       <div class="form-group">
         <label class="register-event-form">Servicios</label>
         <textarea
+          [(ngModel)]="store.services"
           name="services"
           rows="4"
           class="form-control"
@@ -144,7 +153,7 @@
             accept=".jpg, .jpeg"
             class="custom-file-input"
             id="imagenPrin"
-            required/>
+            />
           <label class="custom-file-label" for="imagenPrin">Elegir imagen</label>
         </div>
       </div>
@@ -169,6 +178,7 @@
       <div class="control-group">
         <div class="controls">
           <button
+            (click)="newStore()"
             id="register"
             type="submit"
             class="btn btn-primary">Publicar
@@ -177,6 +187,21 @@
       </div>
       <!--<input type="hidden" name="_csrf" value="{{token}}">-->
     </form>
+  </div>
+</div>
+
+<div *ngIf="!loginService.isAdmin()">
+  <div class="hero-wrap ftco-degree-bg"  data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+          <div class="row no-gutters slider-text justify-content-center align-items-center">
+              <div class="col-lg-8 col-md-6 d-flex align-items-end text-center containercenter">
+                  <div class="text text-center containercenter">
+                      <img src="../../../assets/images/404.png" style="width: 800px;padding-right: 0px;padding-left: 0px" class="mb-4"/>
+                  </div>
+              </div>
+          </div>
+      </div>
   </div>
 </div>
 <br>

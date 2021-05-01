@@ -27,7 +27,7 @@ export class EventService{
 
     removeEvent(id: number){
         return this.httpClient.delete(BASE_URL + id).pipe(
-            catchError(error => this.handleError(error))
+            map(response => this.extractResponse(response as Event))
         )
     }
 

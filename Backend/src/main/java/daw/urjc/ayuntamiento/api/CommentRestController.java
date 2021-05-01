@@ -5,7 +5,6 @@ import daw.urjc.ayuntamiento.modules.Event;
 import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.service.CommentService;
 import daw.urjc.ayuntamiento.service.UserService;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
@@ -66,7 +65,6 @@ public class CommentRestController {
         comment.setName(user.get().getName());
         Date date= new Date();
         comment.setDate(date);
-
         comment.setImageFile(user.get().getImageFile());
 
         comments.save(comment);
