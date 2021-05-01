@@ -5,7 +5,7 @@ import { Observable,throwError } from "rxjs";
 import { catchError } from 'rxjs/operators';
 import { map } from 'rxjs/operators'
 
-const BASE_URL = '/api/users';
+const BASE_URL = '/api/users/';
 
 @Injectable({providedIn: 'root'})
 export class UserService{
@@ -43,11 +43,11 @@ export class UserService{
     addUser(user:Users){
         if(!user.id){
             return this.httpClient.post(BASE_URL, user).pipe(
-                catchError(error => this.handleError(error))
+              map(response => this.extractResponse(response as Users))
             );
         }else{
-            return this.httpClient.put(BASE_URL + user.id, user).pipe(
-                catchError(error => this.handleError(error))
+            return this.httpClient.put(BASE_URL + user.id +'/', user).pipe(
+              map(response => this.extractResponse(response as Users))
             );
         }
     }
