@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { LoginService } from '../../service/login.service';
+import { UsersComponent} from '../../components/User/user.component';
+import { UserService } from '../../service/user.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'login',
@@ -8,7 +12,7 @@ import { LoginService } from '../../service/login.service';
 })
 export class LoginComponent {
   title = 'Frontend-Angular';
-  constructor(public loginService: LoginService) { }
+  constructor(public loginService: LoginService, private userService: UserService, private router: Router) { }
 
   logIn(event: any, user: string, pass: string) {
 
@@ -19,5 +23,17 @@ export class LoginComponent {
 
   logOut() {
     this.loginService.logOut();
+  }
+
+  newUser(name:string, dni:string, description:string, password:string, mail:string ){
+    this.userService.addUser(name,dni,description,password,mail).subscribe(
+      user => {
+        console.log(user);
+        
+      },
+      error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
+    )
+
+
   }
 }

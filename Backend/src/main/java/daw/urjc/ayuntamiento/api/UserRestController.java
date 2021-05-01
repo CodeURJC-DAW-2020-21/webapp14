@@ -28,6 +28,9 @@ public class UserRestController {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
+    private PasswordEncoder passwordencoder;
+
+    @Autowired
     private UserService users;
 
     @GetMapping("/")
@@ -71,7 +74,13 @@ public class UserRestController {
 
 
     @PostMapping("/")
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    public ResponseEntity<User> createUser(@RequestBody UserDTO userDTO) {
+        System.out.println("**************");
+        User user = new User(userDTO.getName(), userDTO.getMail(), userDTO.getDescription(), userDTO.getDNI()," ");
+
+
+        user.setPassword(passwordencoder.encode(userDTO.getPassword()));
+        System.out.println(user.getPassword());
         users.save(user);
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
         return ResponseEntity.created(location).body(user);
