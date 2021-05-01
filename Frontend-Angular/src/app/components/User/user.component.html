@@ -1,5 +1,5 @@
 
-    <section class="ftco-section contact-section" *ngIf="loginService.isAdmin()">
+    <section class="ftco-section contact-section" *ngIf="loginService.isLogged()">
       <li>
           <button class="btn btn-primary navbar-btn float-right botonDerecha"  (click)="loginService.logOut()" [routerLink]="['/']" type="button">Cerrar Sesión</button>
       </li>

@@ -26,7 +26,7 @@ export class LoginComponent {
   }
 
   newUser(name:string, dni:string, description:string, password:string, mail:string ){
-    this.userService.addUser(name,dni,description,password,mail).subscribe(
+    this.userService.RegisterUser(name,dni,description,password,mail).subscribe(
       user => {
         console.log(user);
         

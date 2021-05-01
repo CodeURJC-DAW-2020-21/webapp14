@@ -45,6 +45,7 @@ export class UserService{
       return this.httpClient.post("/api/users/",{name,dni,description,password,mail}).pipe(
           map(response => this.extractResponse(response as Users))
       )
+    }
 
     addUser(user:Users){
         if(!user.id){
