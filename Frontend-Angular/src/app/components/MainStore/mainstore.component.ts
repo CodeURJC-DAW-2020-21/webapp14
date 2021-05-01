@@ -26,6 +26,8 @@ export class MainStoreComponent implements OnInit{
   text:string;
   date:Date;
   new: boolean;
+
+  comments : Comment[]=[]
   constructor(private router: Router,private activatedRoute: ActivatedRoute,public storeService: StoreService,public commentService: CommentService ,public loginService: LoginService,public userService: UserService ) {
 
     let id = activatedRoute.snapshot.params['id'];
@@ -38,6 +40,7 @@ export class MainStoreComponent implements OnInit{
     this.storeService.getStore(this.id).subscribe(
       mainstore => {
         this.store = mainstore;
+        this.comments = this.store.comment;
         console.log(this.store);
       },
       error => console.log("error")
@@ -62,7 +65,12 @@ export class MainStoreComponent implements OnInit{
             this.user.comment.push(comentario);
             this.user.commentPlaces.push(tienda.name);
             this.userService.addUser(this.user).subscribe(
-              (usuario:Users) => console.log(usuario),
+              (usuario:Users) => {console.log(usuario)
+              this.userService.addImage(usuario,usuario.id).subscribe(
+                _ => console.log(usuario),
+                error => alert('Error al actualizar la imagen del usuario : ' + error)
+                );
+              },
                error => alert('Error al actualizar el usuario : ' + error)
         ); 
           },

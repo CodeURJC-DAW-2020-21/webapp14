@@ -76,7 +76,7 @@ export class MainEventComponent {
                error => alert('Error al actualizar el usuario : ' + error)
         ); 
           },
-          error => alert('Error al actualizar la tienda : ' + error)
+          error => alert('Error al actualizar el evento : ' + error)
         ); 
       },
       error => alert('Error al crear el comentario: ' + error)

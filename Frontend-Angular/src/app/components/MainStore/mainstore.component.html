@@ -41,14 +41,14 @@
                         <h3 class="mb-5">Opiniones</h3>
 
                         <ul class="comment-list">
-                            <li class="comment">
+                            <li class="comment" *ngFor="let comment of comments">
                                 <div class="vcard bio">
-                                    <img src="https://localhost:8443/api/comments/21/image" alt="">
+                                    <img src="https://localhost:8443/api/comments/{{comment.id}}/image" alt="">
                                 </div>
                                 <div class="comment-body">
-                                    <h3></h3>
-                                    <div class="meta">14/07</div>
-                                    <p></p>
+                                    <h3>{{comment.name}}</h3>
+                                    <div class="meta">{{comment.date}}</div>
+                                    <p>{{comment.text}}</p>
                                 </div>
                             </li>
                         </ul>
