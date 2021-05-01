@@ -1,18 +1,22 @@
-import {Comment} from "./comment.model"
+
+import { Comment } from './comment.model';
+import { Event } from './event.model';
+
+
 
 export interface Users {
 	id: number;
 	mail: string;
 	name: string;
-  	description: string;
+  description: string;
 	DNI: string;
 	password: string;
-  	image:string;
+  image:string;
+	events?: string[];
+  eventSubscribe?:number[];
+  comment?: Comment[];
+  commentPlaces?:string[];
 
-
-
-	//events?: EventSuscribe[];
-	commentPlaces?: string[];
-	comment?: Comment[];
 	roles?: string[];
+  map: Map<string,number>;
 }
