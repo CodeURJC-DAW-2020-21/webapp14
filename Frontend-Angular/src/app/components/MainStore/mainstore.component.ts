@@ -9,6 +9,7 @@ import { CommentService } from '../../service/comment.service';
 import {main} from '@angular/compiler-cli/src/main';
 import { LoginService } from '../../service/login.service';
 
+
 @Component({
   selector: 'mainstore',
   templateUrl: './mainstore.component.html',
@@ -49,10 +50,19 @@ export class MainStoreComponent implements OnInit{
 }
 
   newCommentStore(){
+
+   
     this.commentService.addComment(this.comment).subscribe(
-      (comment:Comment)=> console.log("OK"),
-      error => alert('Error al crear el nuevo evento: ' + error)
-    )
+      (comment:Comment)=> {console.log(comment)
+        this.store.comment.push(comment)
+        this.storeService.addStore(this.store).subscribe(
+          (tienda:Local) => console.log(tienda),
+          error => alert('Error al actualizar la tienda : ' + error)
+        );},
+      error => alert('Error al crear el comentario: ' + error)
+    );
+    
+
   }
 
 }
