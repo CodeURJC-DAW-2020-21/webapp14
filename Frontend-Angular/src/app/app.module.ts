@@ -12,7 +12,7 @@ import { LoginComponent } from './components/Login/login.component';
 
 import { GovernComponent } from './components/Government/government.component';
 import { FormeventComponent} from './components/FormEvents/formevent.component';
-
+import { CommentComponent } from './components/Comments/comment.component';
 import { MainEventComponent } from './components/MainEvent/mainevent.component';
 
 import { MainStoreComponent } from './components/Mainstore/mainstore.component';
@@ -24,6 +24,7 @@ import { UsersComponent } from './components/User/user.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,13 +41,15 @@ import { AppComponent } from './app.component';
     MainEventComponent,
     MainStoreComponent,
     StoreFormComponent,
+    CommentComponent,
     EventsComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './components/index/index.component';
-
+import { CommentComponent } from './components/Comments/comment.component';
 import {StoreComponent} from './components/Store/store.component';
 import {LoginComponent} from './components/Login/login.component';
 import {EventsComponent} from './components/Events/events.component';
@@ -20,6 +20,7 @@ const routes: Routes = [{path:'',component:IndexComponent},
 {path: 'mainevent/:id', component: MainEventComponent},
 {path: 'storeform', component: StoreFormComponent},
 {path: 'stores',component:StoreComponent},
+{path: 'comment',component:CommentComponent},
 {path: 'login',component:LoginComponent},
 {path: 'user',component:UsersComponent},
 {path: 'mainstore/:id',component:MainStoreComponent}

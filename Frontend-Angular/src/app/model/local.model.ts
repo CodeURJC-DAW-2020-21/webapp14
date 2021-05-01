@@ -2,7 +2,7 @@
 
 
 export interface Local {
-	id: number;
+	id?: number;
 	activities: string;
 	name: string;
 	description: string;
