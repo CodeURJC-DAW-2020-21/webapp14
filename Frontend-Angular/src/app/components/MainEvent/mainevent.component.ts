@@ -42,7 +42,8 @@ export class MainEventComponent {
         _ => this.router.navigate(['/events']),
         error => console.log(error)
       );
-
+  }
+  
   newCommentEvent(){
 
 

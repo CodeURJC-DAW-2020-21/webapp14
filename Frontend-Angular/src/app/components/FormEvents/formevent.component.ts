@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { EventService} from '../../service/event.service';
 import { Event } from '../../model/event.model';
 import { ActivatedRoute, Router} from '@angular/router';
+import { LoginService } from '../../service/login.service';
 
 @Component({
   selector: 'formevent',
@@ -12,7 +13,7 @@ export class FormeventComponent {
   event: Event;
   new: boolean;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private eventService: EventService) {
+  constructor(private router: Router,public loginService: LoginService, private activatedRoute: ActivatedRoute, private eventService: EventService) {
     const id = activatedRoute.snapshot.params['id'];
     if (id) {
       eventService.getEvent(id).subscribe(

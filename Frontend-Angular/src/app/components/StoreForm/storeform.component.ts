@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { StoreService } from '../../service/store.service';
 import { Local } from '../../model/local.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoginService } from '../../service/login.service';
 
 @Component({
   selector: 'storeform',
@@ -12,7 +13,7 @@ export class StoreFormComponent {
   store: Local;
   new: boolean;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private storeService: StoreService) {
+  constructor(private router: Router,public loginService: LoginService, private activatedRoute: ActivatedRoute, private storeService: StoreService) {
     const id = activatedRoute.snapshot.params['id'];
     if (id) {
       storeService.getStore(id).subscribe(
