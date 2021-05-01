@@ -54,7 +54,6 @@ export class MainStoreComponent implements OnInit{
 
   newCommentStore(){
 
-    console.log(this.user);
     this.commentService.addComment(this.comment).subscribe(
       (comentario:Comment)=> {console.log(comentario)
         this.store.comment.push(comentario)
