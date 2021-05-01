@@ -10,8 +10,8 @@ import { LoginService } from '../../service/login.service';
   templateUrl: './mainstore.component.html',
   styleUrls: ['./mainstore.component.css']
 })
-export class MainStoreComponent{// implements OnInit{
-  //title = 'Frontend-Angular';
+export class MainStoreComponent implements OnInit{
+  title = 'Frontend-Angular';
   id: number;
   store: Local;
   constructor(private router: Router, public loginService: LoginService, public storeService: StoreService, private activatedRoute: ActivatedRoute) {
