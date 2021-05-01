@@ -24,6 +24,7 @@ export class IndexComponent implements OnInit  {
 
 
   ngOnInit() {
+
     this.graphicService.getUsersNumber().subscribe(
       usernumber =>{
         this.userscount = usernumber;
@@ -83,6 +84,7 @@ export class IndexComponent implements OnInit  {
       },
       error => console.log("error")
     )
+
 
 
     }

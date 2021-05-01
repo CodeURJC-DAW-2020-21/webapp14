@@ -25,6 +25,7 @@ public class Comment {
 
 
     public Comment(String text) { //Constructor
+        super();
         this.text = text;
     }
 

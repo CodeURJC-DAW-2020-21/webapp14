@@ -5,10 +5,10 @@
 <br>
 
 <div class="form-group">
-    <form action="/removeLocal/3" class="p-5 contact-form">
-        <input type="submit" *ngIf="loginService.isAdmin()" value="Eliminar Local" class="btn py-3 px-4 btn-danger float-right botonDerecha">
-    </form>
-</div>
+    <button *ngIf="loginService.isAdmin()" class="btn py-3 px-4 btn-danger float-right botonDerecha" (click)="deleteStore(store.id)">Eliminar Local</button>
+    <br>
+    <br>
+  </div>
 
 
 
@@ -31,72 +31,57 @@
                 </p>
                 <h3>Cuándo y dónde estamos</h3>
                 <p><b>Horario:</b></p>
-                <p>De {{store.openDay}} a {{store.closeDat}}, de {{store.openHour}} a {{store.closeHour}}</p>
+                <p>De {{store.openHour}} a {{store.closeHour}}, de {{store.openDay}} a {{store.closeDay}}</p>
                 <p><b>Dirección:</b></p>
                 <p>{{store.street}}</p>
 
                 <div>
 
-                  <!--
-                    <script>
-                        var lati = "-3.6001000"
-                        var len = "40.1536000"
-                        var map = L.map('map').
-                              //latitude      length
-                        setView([parseFloat(lati),parseFloat(len)],
-                            15);
-                        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-                            maxZoom: 18
-                        }).addTo(map);
+                    <div class="pt-5 mt-5">
+                        <h3 class="mb-5">Opiniones</h3>
 
-                        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-                            maxZoom: 18
-                        }).addTo(map);
-
-                        L.control.scale().addTo(map);
-                                 //latitude     length
-                        L.marker([parseFloat(lati),parseFloat(len)],{draggable: true}).addTo(map);
-                    </script>
-                </div>
-                -->
-<!--
-                <div class="pt-5 mt-5">
-                    <h3 class="mb-5">Opiniones</h3>
-
-                    <ul class="comment-list">
-                        <li class="comment">
-                            <div class="vcard bio">
-                                <img src="/comment/{{id}}" alt="">
-                            </div>
-                            <div class="comment-body">
-                                <h3>{{name}}</h3>
-                                <div class="meta">{{date}}</div>
-                                <p>{{text}}</p>
-                            </div>
-                        </li>
-                    </ul>
+                        <ul class="comment-list">
+                            <li class="comment">
+                                <div class="vcard bio">
+                                    <img src="https://localhost:8443/api/comments/21/image" alt="">
+                                </div>
+                                <div class="comment-body">
+                                    <h3></h3>
+                                    <div class="meta">14/07</div>
+                                    <p></p>
+                                </div>
+                            </li>
+                        </ul>
 
 
 
 
-                    <div class="comment-form-wrap pt-5">
-                        <h3 class="mb-5">Deja tu comentario</h3>
-                        <form action="/createCommentLocal/3" method="post" class="p-5 bg-light">
-                            <div class="form-group">
-                                <label for="message">Comentario</label>
-                                <input name="text" id="message" cols="30" rows="10" class="form-control"/>
-                            </div>
-                            <div class="form-group">
-                                <input type="hidden" name="_csrf" value="">
-                                <input type="submit" value="Enviar Comentario" class="btn py-3 px-4 btn-primary">
-                            </div>
-                        </form>
+                        <div class="comment-form-wrap pt-5">
+                            <h3 class="mb-5">Deja tu comentario</h3>
+                            <form action="/createCommentLocal/3" method="post" class="p-5 bg-light">
+                                <div class="form-group">
+                                    <label for="message">Comentario</label>
+                                    <input
+                                    [(ngModel)]="comment.text"
+                                    name="text"
+                                    id="message" cols="30"
+                                    rows="10"
+                                    class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <input
+                                    (click)="newCommentStore()"
+                                    type="submit"
+                                    value="Enviar Comentario"
+                                    class="btn py-3 px-4 btn-primary">
+                                </div>
+                            </form>
+                        </div>
                     </div>
+                </div> <!-- .col-md-8 -->
+                <div class="col-md-4 sidebar ftco-animate">
 
                 </div>
-            </div>  .col-md-8 -->
 
             <div class="col-md-4 sidebar ">
 

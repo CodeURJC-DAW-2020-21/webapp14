@@ -32,6 +32,8 @@ export class EventsComponent  implements OnInit{
   navigatetoEvent(id: number){
    this.router.navigate(['mainevent/' + id]);
   }
+
+  
 }
 
 
