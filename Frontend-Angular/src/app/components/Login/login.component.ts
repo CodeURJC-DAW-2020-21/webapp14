@@ -42,8 +42,9 @@ export class LoginComponent {
     this.userService.RegisterUser(name,dni,description,password,mail).subscribe(
       user => {
         console.log(user);
+        this.subirArchivo(user);
 
-       // this.loginService.logIn(name, password)
+       this.loginService.logIn(name, password)
       },
       error => this.router.navigate(['/error', error.status, error.statusText, error.name, error.message])
     )
