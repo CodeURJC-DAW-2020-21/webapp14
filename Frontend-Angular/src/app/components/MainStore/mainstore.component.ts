@@ -10,6 +10,7 @@ import {main} from '@angular/compiler-cli/src/main';
 import { LoginService } from '../../service/login.service';
 import { UserService } from '../../service/user.service';
 import { Users } from 'src/app/model/user.model';
+import { MapService } from '@core/service/map.service';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class MainStoreComponent implements OnInit{
   text:string;
   date:Date;
   new: boolean;
-  constructor(private router: Router,private activatedRoute: ActivatedRoute,public storeService: StoreService,public commentService: CommentService ,public loginService: LoginService,public userService: UserService ) {
+  constructor(private router: Router,private activatedRoute: ActivatedRoute,private map: MapService,public storeService: StoreService,public commentService: CommentService ,public loginService: LoginService,public userService: UserService ) {
 
     let id = activatedRoute.snapshot.params['id'];
     this.id = id;
@@ -39,6 +40,7 @@ export class MainStoreComponent implements OnInit{
       mainstore => {
         this.store = mainstore;
         console.log(this.store);
+        this.map.buildMap(this.store.latitude,this.store.length);
       },
       error => console.log("error")
     );
