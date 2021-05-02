@@ -50,6 +50,9 @@ export class MainEventComponent {
     let useraux = currentUser;
     console.log(useraux);
     useraux.events.push(this.event.name);
+    let firstVal = useraux.map[this.event.tag1];
+    useraux.map[this.event.tag1]=firstVal+1;
+    console.log(useraux.map);
     this.userService.addUser(useraux).subscribe(
       user =>{
         console.log(user);
@@ -64,7 +67,7 @@ export class MainEventComponent {
         _ => this.router.navigate(['/events']),
         error => console.log(error)
       );
-  }      
+  }
   newCommentEvent(){
     console.log(this.user);
     this.commentService.addComment(this.comment).subscribe(
@@ -77,14 +80,14 @@ export class MainEventComponent {
             this.userService.addUser(this.user).subscribe(
               (usuario:Users) => console.log(usuario),
                error => alert('Error al actualizar el usuario : ' + error)
-        ); 
+        );
           },
           error => alert('Error al actualizar el evento : ' + error)
-        ); 
+        );
       },
       error => alert('Error al crear el comentario: ' + error)
     );
-  
+
 
 
   }

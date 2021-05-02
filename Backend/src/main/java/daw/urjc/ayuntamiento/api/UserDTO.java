@@ -3,7 +3,9 @@ package daw.urjc.ayuntamiento.api;
 import daw.urjc.ayuntamiento.modules.Comment;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UserDTO {
 
@@ -31,6 +33,8 @@ public class UserDTO {
     private List<Comment> comment;
 
     private List<String> roles;
+
+    private Map<String,Integer> map = new HashMap<>();
 
 
     public UserDTO(String name, String mail, String description, String DNI, String password, MultipartFile imageField, long id) {
@@ -138,4 +142,8 @@ public class UserDTO {
     public void setRoles(List<String> roles) {
         this.roles = roles;
     }
+
+    public Map<String, Integer> getMap() { return map; }
+
+    public void setMap(Map<String, Integer> map) { this.map = map; }
 }

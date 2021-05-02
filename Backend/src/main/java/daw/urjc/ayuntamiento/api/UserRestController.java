@@ -145,6 +145,7 @@ public class UserRestController {
             newUser.setEvents(newUserDTO.getEvents());
             newUser.setEventSuscribe(newUserDTO.getEventSuscribe());
             newUser.setPassword(passwordEncoder.encode(user.get().getPassword()));
+            newUser.setMap(newUserDTO.getMap());
             users.save(newUser);
             return ResponseEntity.ok(user.get());
         } else {
