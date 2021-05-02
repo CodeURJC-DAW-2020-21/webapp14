@@ -11,7 +11,7 @@ export interface Event {
   	people:string;
   	price:string;
   	tag1:string;
-  	image:string;
+  	imageFile?:FormData;
     date:Date;
 
 
