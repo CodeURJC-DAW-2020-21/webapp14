@@ -148,12 +148,13 @@
         <div class="custom-file">
 
           <input
+          (change)="capturarFile1($event)"
             type="file"
-            name="image1"
+            name="imageField1"
             accept=".jpg, .jpeg"
             class="custom-file-input"
             id="imagenPrin"
-            />
+            required/>
           <label class="custom-file-label" for="imagenPrin">Elegir imagen</label>
         </div>
       </div>
@@ -164,8 +165,9 @@
         <div class="custom-file">
 
           <input
+          (change)="capturarFile2($event)"
             type="file"
-            name="image2"
+            name="imageField2"
             accept=".jpg, .jpeg"
             class="custom-file-input"
             id="imagensec"/>

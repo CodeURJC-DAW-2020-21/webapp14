@@ -96,6 +96,22 @@ export class StoreService {
       );
     }
   }
+
+  setStoreImage1(store: Local, formData: FormData) {
+    return this.httpClient.post(BASE_URL + store.id + '/image1' , formData)
+      .pipe(
+        catchError(error => this.handleError(error))
+      );
+
+  }
+
+  setStoreImage2(store: Local, formData: FormData) {
+    return this.httpClient.post(BASE_URL + store.id + '/image2' , formData)
+      .pipe(
+        catchError(error => this.handleError(error))
+      );
+
+  }
   private extractResponse(response) {
     return response;
 }

@@ -16,8 +16,8 @@ export interface Local {
   latitude:string;
   length:string;
 
-  image1:string;
-  image2:string;
+  imageField1:FormData;
+  imageField2:FormData;
 
 
 	comment?: Comment[];
