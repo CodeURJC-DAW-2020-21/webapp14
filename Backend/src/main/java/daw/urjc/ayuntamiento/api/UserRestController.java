@@ -115,7 +115,19 @@ public class UserRestController {
 
         return ResponseEntity.created(location).body(user);
     }
+    @PostMapping("/{id}/image/try")
+    public ResponseEntity<Object> uploadImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
+            throws IOException {
 
+        User book = users.findId(id).orElseThrow();
+
+        URI location = fromCurrentRequest().build().toUri();
+
+        book.setImageFile(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
+        users.save(book);
+
+        return ResponseEntity.created(location).build();
+    }
 
     @PutMapping("/{id}")
     public ResponseEntity<User> replaceUser(@PathVariable long id, @RequestBody UserDTO newUserDTO) throws IOException, SQLException {
@@ -149,7 +161,7 @@ public class UserRestController {
 
 
             updatedBook.setId(id);
-            updatedBook.setPassword(passwordEncoder.encode(dbBook.getPassword()));
+            updatedBook.setPassword(dbBook.getPassword());
             users.save(updatedBook);
 
             return new ResponseEntity<>(updatedBook, HttpStatus.OK);

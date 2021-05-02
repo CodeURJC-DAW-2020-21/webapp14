@@ -60,19 +60,6 @@ export class UserService{
 
     }
 
-    getImage(id: number):Observable<String>{
-        return this.httpClient.get(BASE_URL + id + "/image").pipe(
-            catchError(error => this.handleError(error))
-        )as Observable<String>;
-    }
-
-    setUserImage(user: Users, formData: FormData) {
-		return this.httpClient.post(BASE_URL + user.id + '/image', formData)
-			.pipe(
-				catchError(error => this.handleError(error))
-			);
-	}
-
     updateUserImage(user:Users, formData:FormData) {
         return this.httpClient.post(BASE_URL + user.id + '/image', formData)
 			.pipe(catchError(error => this.handleError(error))
