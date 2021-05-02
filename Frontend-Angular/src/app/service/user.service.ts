@@ -45,6 +45,7 @@ export class UserService{
       return this.httpClient.post("/api/users/",{name,dni,description,password,mail}).pipe(
           map(response => this.extractResponse(response as Users))
       )
+    }
 
     addUser(user:Users){
         if(!user.id){
@@ -52,12 +53,13 @@ export class UserService{
                 catchError(error => this.handleError(error))
             );
         }else{
-            return this.httpClient.put(BASE_URL + user.id + "/", user).pipe(
+            return this.httpClient.put(BASE_URL + user.id + "/try", user).pipe(
                 catchError(error => this.handleError(error))
             );
         }
 
     }
+
 
     getImage(id: number):Observable<String>{
         return this.httpClient.get(BASE_URL + id + "image").pipe(
@@ -71,7 +73,9 @@ export class UserService{
         .pipe(
           catchError(error => this.handleError(error))
         );
+
     }
+    
 
     private handleError(error: any) {
 		console.log("ERROR:");
