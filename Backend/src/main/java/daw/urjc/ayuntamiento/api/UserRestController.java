@@ -18,6 +18,8 @@ import java.net.URI;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
@@ -79,7 +81,9 @@ public class UserRestController {
         System.out.println("**************");
         User user = new User(userDTO.getName(), userDTO.getMail(), userDTO.getDescription(), userDTO.getDNI()," ");
 
-
+        List<String> roles = new LinkedList<>();
+        roles.add("USER");
+        user.setRoles(roles);
         user.setPassword(passwordencoder.encode(userDTO.getPassword()));
         System.out.println(user.getPassword());
         users.save(user);

@@ -37,11 +37,7 @@
                 <div>
                     <h3>Ubicación</h3>
                     <app-map></app-map>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                    
                 </div>
 
                 <div>
@@ -64,7 +60,7 @@
 
 
 
-                        <div class="comment-form-wrap pt-5">
+                        <div class="comment-form-wrap pt-5" *ngIf = "loginService.isLogged()">
                             <h3 class="mb-5">Deja tu comentario</h3>
                             <form action="/createCommentLocal/3" method="post" class="p-5 bg-light">
                                 <div class="form-group">

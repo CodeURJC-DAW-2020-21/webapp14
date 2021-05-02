@@ -89,7 +89,7 @@
                   </div>
 
 
-                  <div class="comment-form-wrap pt-5">
+                  <div class="comment-form-wrap pt-5" *ngIf = "loginService.isLogged()">
                     <h3 class="mb-5">Deja tu comentario</h3>
                     <form action="/createCommentEvents/{{id}}" method="post" class="p-5 bg-light">
                       <div class="form-group">
