@@ -114,9 +114,10 @@
                     <div class="custom-file">
 
                         <input
-                                [(ngModel)]="event.image"
+                              (change)="capturarFile($event)"
+
                                 type="file"
-                                name="imageField"
+                                name="imageFile"
                                 accept=".jpg, .jpeg"
                                 class="custom-file-input"
                                 id="inputGroupFile01"

@@ -66,6 +66,14 @@ export class EventService{
             );
         }
     }
+
+    setEventImage(event: Event, formData: FormData) {
+      return this.httpClient.post(BASE_URL + event.id + '/image' + "/try", formData)
+        .pipe(
+          catchError(error => this.handleError(error))
+        );
+
+    }
     private extractResponse(response) {
       return response;}
 
