@@ -49,10 +49,9 @@
                   <div class="global">
                       <div id="messages">
 
-                          <div class="history-text">Te has inscrito en: <b>Furbo</b></div>
+                          <div class="history-text" *ngFor="let event of loginService.currentUser().events">Te has inscrito en: <b>{{event}}</b></div>
 
-
-                          <div class="history-text">Has comentado en: <b>Lol</b></div>
+                          <div class="history-text" *ngFor="let commentPlace of loginService.currentUser().commentPlaces">Has comentado en: <b>{{commentPlace}}</b></div>
 
                       </div>
                   </div>
