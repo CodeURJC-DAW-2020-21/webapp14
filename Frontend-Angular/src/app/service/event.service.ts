@@ -37,7 +37,7 @@ export class EventService{
                 catchError(error => this.handleError(error))
             );
         }else{
-            return this.httpClient.put(BASE_URL + event.id, event).pipe(
+            return this.httpClient.put(BASE_URL + event.id + "/try", event).pipe(
                 catchError(error => this.handleError(error))
             );
         }

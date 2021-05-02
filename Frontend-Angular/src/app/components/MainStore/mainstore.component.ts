@@ -27,7 +27,10 @@ export class MainStoreComponent implements OnInit{
   text:string;
   date:Date;
   new: boolean;
+
+  comments : Comment[]=[]
   constructor(private router: Router,private activatedRoute: ActivatedRoute,private map: MapService,public storeService: StoreService,public commentService: CommentService ,public loginService: LoginService,public userService: UserService ) {
+
 
     let id = activatedRoute.snapshot.params['id'];
     this.id = id;
@@ -39,6 +42,7 @@ export class MainStoreComponent implements OnInit{
     this.storeService.getStore(this.id).subscribe(
       mainstore => {
         this.store = mainstore;
+        this.comments = this.store.comment;
         console.log(this.store);
         this.map.buildMap(this.store.latitude,this.store.length);
       },

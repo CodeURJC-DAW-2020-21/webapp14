@@ -16,7 +16,7 @@
               </div>
           </form>
       </div>
-  </div> 
+  </div>
 
   <div *ngIf="loginService.isLogged()" class="nav navbar-nav navbar-right">
 
@@ -28,24 +28,27 @@
           <h2 class="text-center">O si aún no tienes cuenta...<br>Regístrate</h2>
           <form action="/registeredUser" class="bg-light p-5 contact-form" method="post" enctype="multipart/form-data">
               <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Nombre" name="name">
+                  <input #name type="text" class="form-control" placeholder="Nombre" name="name">
               </div>
               <div class="form-group">
-                  <input type="text" class="form-control" placeholder="DNI" name="DNI">
+                  <input #dni type="text" class="form-control" placeholder="DNI" name="DNI">
               </div>
               <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Correo electrónico" name="mail">
+                  <input #mail type="text" class="form-control" placeholder="Correo electrónico" name="mail">
               </div>
               <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Contraseña" name="password">
+                  <input  #password type="password" class="form-control" placeholder="Contraseña" name="password">
               </div>
               <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Descripcion" name="description">
+                  <input #description type="text" class="form-control" placeholder="Descripcion" name="description">
               </div>
               <div class="custom-file">
                   <input
+                          (change)="capturarFile($event)"
+
                           type="file"
-                          name="imageField"
+                          name="imageFile"
+
                           accept=".jpg, .jpeg"
                           class="custom-file-input"
                           id="inputGroupFile01"
@@ -56,7 +59,7 @@
               <br>
               <br>
               <div class="form-group">
-                  <input type="submit" value="Registrarse" class="btn btn-primary py-3 px-5">
+                  <input type="submit" [routerLink]="['/']" (click)="newUser(name.value, dni.value, description.value, password.value, mail.value)" value="Registrarse" class="btn btn-primary py-3 px-5">
               </div>
           </form>
       </div>

@@ -7,6 +7,7 @@ import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -107,4 +108,40 @@ public class EventRestController {
 
             return ResponseEntity.notFound().build();
     }
+
+    @PutMapping("/{id}/try")
+    public ResponseEntity<Event> updateBook(@PathVariable long id, @RequestBody Event updatedBook) throws SQLException {
+
+        if (events.exist(id)) {
+
+            // Maintain the same image loading it before updating the book
+            Event dbBook = events.findId(id).orElseThrow();
+            updatedBook.setImageFile(BlobProxy.generateProxy(dbBook.getImageFile().getBinaryStream(),
+                    dbBook.getImageFile().length()));
+
+
+
+            updatedBook.setId(id);
+            events.save(updatedBook);
+
+            return new ResponseEntity<>(updatedBook, HttpStatus.OK);
+        } else	{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PostMapping("/{id}/image/try")
+    public ResponseEntity<Object> uploadImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
+            throws IOException {
+
+        Event book = events.findId(id).orElseThrow();
+
+        URI location = fromCurrentRequest().build().toUri();
+
+        book.setImageFile(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
+        events.save(book);
+
+        return ResponseEntity.created(location).build();
+    }
+
 }

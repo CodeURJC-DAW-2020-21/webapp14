@@ -43,7 +43,7 @@ export class StoreService {
         map(response => this.extractResponse(response as Local))
       );
     } else {
-      return this.httpClient.put(BASE_URL + store.id + '/', store).pipe(
+      return this.httpClient.put(BASE_URL + store.id + "/try", store).pipe(
         map(response => this.extractResponse(response as Local))
       );
     }

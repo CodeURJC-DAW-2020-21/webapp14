@@ -6,7 +6,9 @@ import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -23,6 +25,11 @@ import static org.springframework.web.servlet.support.ServletUriComponentsBuilde
 @RestController
 @RequestMapping("/api/users")
 public class UserRestController {
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private PasswordEncoder passwordencoder;
 
     @Autowired
     private UserService users;
@@ -68,7 +75,13 @@ public class UserRestController {
 
 
     @PostMapping("/")
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    public ResponseEntity<User> createUser(@RequestBody UserDTO userDTO) {
+        System.out.println("**************");
+        User user = new User(userDTO.getName(), userDTO.getMail(), userDTO.getDescription(), userDTO.getDNI()," ");
+
+
+        user.setPassword(passwordencoder.encode(userDTO.getPassword()));
+        System.out.println(user.getPassword());
         users.save(user);
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
         return ResponseEntity.created(location).body(user);
@@ -102,17 +115,58 @@ public class UserRestController {
 
         return ResponseEntity.created(location).body(user);
     }
+    @PostMapping("/{id}/image/try")
+    public ResponseEntity<Object> uploadImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
+            throws IOException {
 
+        User book = users.findId(id).orElseThrow();
+
+        URI location = fromCurrentRequest().build().toUri();
+
+        book.setImageFile(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
+        users.save(book);
+
+        return ResponseEntity.created(location).build();
+    }
 
     @PutMapping("/{id}")
-    public ResponseEntity<User> replaceUser(@PathVariable long id, @RequestBody User newUser) {
+    public ResponseEntity<User> replaceUser(@PathVariable long id, @RequestBody UserDTO newUserDTO) throws IOException, SQLException {
         Optional<User> user = users.findId(id);
         if (user.isPresent()) {
-            newUser.setId(id);
+            User newUser = new User(newUserDTO.getName(), newUserDTO.getMail(), newUserDTO.getDescription(),newUserDTO.getDNI(),"");
+            newUser.setRoles(newUserDTO.getRoles());
+            newUser.setId(user.get().getId());
+            newUser.setComment(newUserDTO.getComment());
+            newUser.setCommentPlaces(newUserDTO.getCommentPlaces());
+            newUser.setEvents(newUserDTO.getEvents());
+            newUser.setEventSuscribe(newUserDTO.getEventSuscribe());
+            newUser.setPassword(passwordEncoder.encode(user.get().getPassword()));
             users.save(newUser);
             return ResponseEntity.ok(user.get());
         } else {
             return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PutMapping("/{id}/try")
+    public ResponseEntity<User> updateBook(@PathVariable long id, @RequestBody User updatedBook) throws SQLException {
+
+        if (users.exist(id)) {
+
+                // Maintain the same image loading it before updating the book
+                User dbBook = users.findId(id).orElseThrow();
+                    updatedBook.setImageFile(BlobProxy.generateProxy(dbBook.getImageFile().getBinaryStream(),
+                            dbBook.getImageFile().length()));
+
+
+
+            updatedBook.setId(id);
+            updatedBook.setPassword(dbBook.getPassword());
+            users.save(updatedBook);
+
+            return new ResponseEntity<>(updatedBook, HttpStatus.OK);
+        } else	{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
