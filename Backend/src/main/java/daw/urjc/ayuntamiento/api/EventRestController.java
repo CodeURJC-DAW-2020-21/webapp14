@@ -41,6 +41,11 @@ public class EventRestController {
         }
     }
 
+    @GetMapping("/{tag}/tag")
+    public Collection<Event> getEventsByTag(@PathVariable String tag){
+        return events.findAllByTag1(tag);
+    }
+
     @PostMapping("/")
     public ResponseEntity<Event> createEvent(@RequestBody Event event) {
         events.save(event);

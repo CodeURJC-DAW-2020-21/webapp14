@@ -1,7 +1,7 @@
+import { Event } from './../model/event.model';
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable,throwError } from "rxjs";
-import { Event } from "../model/event.model";
 import { catchError, map } from 'rxjs/operators';
 
 const BASE_URL = '/api/events/';
@@ -12,6 +12,12 @@ export class EventService{
     constructor(private httpClient:HttpClient){}
 
     event: Event;
+
+    getEventsByTag(tag:string): Observable<Event[]>{
+      return this.httpClient.get(BASE_URL+tag+'/tag').pipe(
+        map(response => this.extractResponse(response as Event))
+      );
+    }
 
     getEvents(): Observable<Event[]>{
         return this.httpClient.get(BASE_URL).pipe(

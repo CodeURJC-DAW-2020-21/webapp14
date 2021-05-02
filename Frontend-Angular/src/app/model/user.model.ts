@@ -22,5 +22,5 @@ export interface Users {
   commentPlace?:[];
   eventSuscribe?:[];
 	roles?: string[];
-  map?: Map<string,number>;
+  map?:{ [key: string]: number };
 }
