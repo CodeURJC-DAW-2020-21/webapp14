@@ -6,7 +6,7 @@ export interface Users {
 	dni: string;
 	password: string;
 
-  image?:string;
+  imageFile:FormData;
   commentPlace?:[];
   eventSuscribe?:[];
 	events?: [];

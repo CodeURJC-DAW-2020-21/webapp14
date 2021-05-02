@@ -52,13 +52,15 @@
               </div>
               <div class="custom-file">
                   <input
+                          (change)="capturarFile($event)"
+
                           type="file"
-                          name="imageField"
-                          
+                          name="imageFile"
+
                           accept=".jpg, .jpeg"
                           class="custom-file-input"
                           id="inputGroupFile01"
-                          />
+                          required/>
                   <label class="custom-file-label" for="inputGroupFile01">Elegir imagen</label>
                   <br>
               </div>

@@ -52,16 +52,12 @@ export class UserService{
         )as Observable<String>;
     }
 
-    addImage(user:Users, Id:number){
-        if(!user.id){
-            return this.httpClient.post(BASE_URL + Id + "image", user).pipe(
-                catchError(error => this.handleError(error))
-            );
-        }else{
-            return this.httpClient.put(BASE_URL + Id + "image", user).pipe(
-                catchError(error => this.handleError(error))
-            );
-        }
+
+    setUserImage(user: Users, formData: FormData) {
+      return this.httpClient.post(BASE_URL + user.id + '/image', formData)
+        .pipe(
+          catchError(error => this.handleError(error))
+        );
     }
 
     private handleError(error: any) {
