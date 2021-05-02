@@ -16,6 +16,16 @@ export class UsersComponent implements OnInit{
   eventRecommend:Event;
   eventRecommendName:string;
   events:Event[]=[];
+  subscribeLevel1:boolean;
+  subscribeLevel2:boolean;
+  subscribeLevel3:boolean;
+  subscribeLevel4:boolean;
+  subscribeLevel5:boolean;
+  commentLevel1:boolean;
+  commentLevel2:boolean;
+  commentLevel3:boolean;
+  commentLevel4:boolean;
+  commentLevel5:boolean;
   constructor(public loginService: LoginService,public userService: UserService,public eventService: EventService) {
 
   }
@@ -59,6 +69,71 @@ export class UsersComponent implements OnInit{
       },
       error => console.log("error")
     )
+
+
+    if(this.loginService.currentUser().comment.length>=5){
+      this.commentLevel1 = false;
+      this.commentLevel2 = false;
+      this.commentLevel3 = false;
+      this.commentLevel4 = false;
+      this.commentLevel5 = true;
+    } else if(this.loginService.currentUser().comment.length>=4){
+      this.commentLevel1 = false;
+      this.commentLevel2 = false;
+      this.commentLevel3 = false;
+      this.commentLevel4 = true;
+      this.commentLevel5 = false;
+    } else if(this.loginService.currentUser().comment.length>=3){
+      this.commentLevel1 = false;
+      this.commentLevel2 = false;
+      this.commentLevel3 = true;
+      this.commentLevel4 = false;
+      this.commentLevel5 = false;
+    } else if(this.loginService.currentUser().comment.length>=2){
+      this.commentLevel1 = false;
+      this.commentLevel2 = true;
+      this.commentLevel3 = false;
+      this.commentLevel4 = false;
+      this.commentLevel5 = false;
+    } else if(this.loginService.currentUser().comment.length>=1){
+      this.commentLevel1 = true;
+      this.commentLevel2 = false;
+      this.commentLevel3 = false;
+      this.commentLevel4 = false;
+      this.commentLevel5 = false;
+    }
+
+    if(this.loginService.currentUser().events.length>=5){
+      this.subscribeLevel1 = false;
+      this.subscribeLevel2 = false;
+      this.subscribeLevel3 = false;
+      this.subscribeLevel4 = false;
+      this.subscribeLevel5 = true;
+    } else if(this.loginService.currentUser().events.length>=4){
+      this.subscribeLevel1 = false;
+      this.subscribeLevel2 = false;
+      this.subscribeLevel3 = false;
+      this.subscribeLevel4 = true;
+      this.subscribeLevel5 = false;
+    } else if(this.loginService.currentUser().events.length>=3){
+      this.subscribeLevel1 = false;
+      this.subscribeLevel2 = false;
+      this.subscribeLevel3 = true;
+      this.subscribeLevel4 = false;
+      this.subscribeLevel5 = false;
+    } else if(this.loginService.currentUser().events.length>=2){
+      this.subscribeLevel1 = false;
+      this.subscribeLevel2 = true;
+      this.subscribeLevel3 = false;
+      this.subscribeLevel4 = false;
+      this.subscribeLevel5 = false;
+    } else if(this.loginService.currentUser().events.length>=1){
+      this.subscribeLevel1 = true;
+      this.subscribeLevel2 = false;
+      this.subscribeLevel3 = false;
+      this.subscribeLevel4 = false;
+      this.subscribeLevel5 = false;
+    }
   }
 
 

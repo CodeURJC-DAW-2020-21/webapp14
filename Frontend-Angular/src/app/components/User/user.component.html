@@ -33,13 +33,68 @@
                   <img src ="assets/images/registered.png"/>
                   <p>¡Te has registrado en nuestra pagina!</p>
 
-                  <img src="assets/images/registered.png"/>
 
-                  <p>Comentador de nivel: 3</p>
 
-                  <img src="assets/images/commentbadge1.png"/>
 
-                  <p>Participante de nivel: 2</p>
+
+                  <div *ngIf="commentLevel1">
+                    <img src="assets/images/commentbadge1.png"/>
+
+                    <p>Comentador de nivel: 1</p>
+                  </div>
+                  <div *ngIf="commentLevel2">
+                    <img src="assets/images/commentbadge2.png"/>
+
+                    <p>Comentador de nivel: 2</p>
+                  </div>
+                  <div *ngIf="commentLevel3">
+                    <img src="assets/images/commentbadge3.png"/>
+
+                    <p>Comentador de nivel: 3</p>
+                  </div>
+                  <div *ngIf="commentLevel4">
+                    <img src="assets/images/commentbadge4.png"/>
+
+                    <p>Comentador de nivel: 4</p>
+                  </div>
+                  <div *ngIf="commentLevel5">
+                    <img src="assets/images/commentbadge5.png"/>
+
+                    <p>Comentador de nivel: 5</p>
+                  </div>
+
+
+
+
+
+
+                  <div *ngIf="subscribeLevel1">
+                    <img src="assets/images/subscribebadge1.png"/>
+
+                    <p>Participante de nivel: 1</p>
+                  </div>
+                  <div *ngIf="subscribeLevel2">
+                    <img src="assets/images/subscribebadge2.png"/>
+
+                    <p>Participante de nivel: 2</p>
+                  </div>
+                  <div *ngIf="subscribeLevel3">
+                    <img src="assets/images/subscribebadge3.png"/>
+
+                    <p>Participante de nivel: 3</p>
+                  </div>
+                  <div *ngIf="subscribeLevel4">
+                    <img src="assets/images/subscribebadge4.png"/>
+
+                    <p>Participante de nivel: 4</p>
+                  </div>
+                  <div *ngIf="subscribeLevel5">
+                    <img src="assets/images/subscribebadge5.png"/>
+
+                    <p>Participante de nivel: 5</p>
+                  </div>
+
+
 
               </div>
           </div>
