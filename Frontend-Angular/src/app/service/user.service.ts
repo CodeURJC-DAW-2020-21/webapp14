@@ -69,7 +69,7 @@ export class UserService{
 
 
     setUserImage(user: Users, formData: FormData) {
-      return this.httpClient.post(BASE_URL + user.id + '/image', formData)
+      return this.httpClient.post(BASE_URL + user.id + '/image' + "/try", formData)
         .pipe(
           catchError(error => this.handleError(error))
         );

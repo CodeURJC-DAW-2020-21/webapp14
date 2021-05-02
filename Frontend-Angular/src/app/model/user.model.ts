@@ -12,7 +12,7 @@ export interface Users {
 
 	dni: string;
 	password: string;
-  image:string;
+  image?:string;
 	events?: string[];
   eventSubscribe?:number[];
   comment?: Comment[];
@@ -21,8 +21,6 @@ export interface Users {
   imageFile:FormData;
   commentPlace?:[];
   eventSuscribe?:[];
-	events?: [];
-  comment?:[];
 	roles?: string[];
-  map: Map<string,number>;
+  map?: Map<string,number>;
 }
