@@ -25,9 +25,12 @@ import { UsersComponent } from './components/User/user.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
+import { MapComponent } from '@core/components/map/map.component';
+
 
 @NgModule({
   declarations: [
+    MapComponent,
     AppComponent,
     IndexComponent,
     HeaderComponent,
