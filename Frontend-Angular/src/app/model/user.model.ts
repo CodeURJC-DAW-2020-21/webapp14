@@ -12,13 +12,15 @@ export interface Users {
 
 	dni: string;
 	password: string;
-  image:string;
+  image?:string;
 	events?: string[];
   eventSubscribe?:number[];
   comment?: Comment[];
   commentPlaces?:string[];
 
-
+  imageFile:FormData;
+  commentPlace?:[];
+  eventSuscribe?:[];
 	roles?: string[];
-  map: Map<string,number>;
+  map?: Map<string,number>;
 }
