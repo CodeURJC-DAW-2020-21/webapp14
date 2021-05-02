@@ -18,7 +18,11 @@ export interface Users {
   comment?: Comment[];
   commentPlaces?:string[];
 
-
+  imageFile:FormData;
+  commentPlace?:[];
+  eventSuscribe?:[];
+	events?: [];
+  comment?:[];
 	roles?: string[];
   map: Map<string,number>;
 }
