@@ -1,6 +1,9 @@
 package daw.urjc.ayuntamiento.api;
 
+import daw.urjc.ayuntamiento.modules.Comment;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 public class UserDTO {
 
@@ -18,6 +21,16 @@ public class UserDTO {
     private MultipartFile imageField;
 
     private long id;
+
+    private List<Long> eventSuscribe;
+
+    private List<String> commentPlaces;
+
+    private List<String> events;
+
+    private List<Comment> comment;
+
+    private List<String> roles;
 
 
     public UserDTO(String name, String mail, String description, String DNI, String password, MultipartFile imageField, long id) {
@@ -84,5 +97,45 @@ public class UserDTO {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public List<Long> getEventSuscribe() {
+        return eventSuscribe;
+    }
+
+    public void setEventSuscribe(List<Long> eventSuscribe) {
+        this.eventSuscribe = eventSuscribe;
+    }
+
+    public List<String> getCommentPlaces() {
+        return commentPlaces;
+    }
+
+    public void setCommentPlaces(List<String> commentPlaces) {
+        this.commentPlaces = commentPlaces;
+    }
+
+    public List<String> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<String> events) {
+        this.events = events;
+    }
+
+    public List<Comment> getComment() {
+        return comment;
+    }
+
+    public void setComment(List<Comment> comment) {
+        this.comment = comment;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
     }
 }

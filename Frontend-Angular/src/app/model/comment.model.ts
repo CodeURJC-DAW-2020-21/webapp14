@@ -2,7 +2,7 @@
 
 export interface Comment{
 
-  id:number;
+  id?:number;
   name:string;
   text:string;
   date:Date;
