@@ -6,6 +6,7 @@ import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -117,7 +118,7 @@ public class UserRestController {
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<User> replaceUser(@PathVariable long id, @RequestBody UserDTO newUserDTO) {
+    public ResponseEntity<User> replaceUser(@PathVariable long id, @RequestBody UserDTO newUserDTO) throws IOException, SQLException {
         Optional<User> user = users.findId(id);
         if (user.isPresent()) {
             User newUser = new User(newUserDTO.getName(), newUserDTO.getMail(), newUserDTO.getDescription(),newUserDTO.getDNI(),"");
@@ -132,6 +133,28 @@ public class UserRestController {
             return ResponseEntity.ok(user.get());
         } else {
             return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PutMapping("/{id}/try")
+    public ResponseEntity<User> updateBook(@PathVariable long id, @RequestBody User updatedBook) throws SQLException {
+
+        if (users.exist(id)) {
+
+                // Maintain the same image loading it before updating the book
+                User dbBook = users.findId(id).orElseThrow();
+                    updatedBook.setImageFile(BlobProxy.generateProxy(dbBook.getImageFile().getBinaryStream(),
+                            dbBook.getImageFile().length()));
+
+
+
+            updatedBook.setId(id);
+            updatedBook.setPassword(passwordEncoder.encode(dbBook.getPassword()));
+            users.save(updatedBook);
+
+            return new ResponseEntity<>(updatedBook, HttpStatus.OK);
+        } else	{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
