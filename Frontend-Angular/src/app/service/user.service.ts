@@ -53,30 +53,19 @@ export class UserService{
                 catchError(error => this.handleError(error))
             );
         }else{
-            return this.httpClient.put(BASE_URL + user.id + "/", user).pipe(
+            return this.httpClient.put(BASE_URL + user.id + "/try", user).pipe(
                 catchError(error => this.handleError(error))
             );
         }
 
     }
 
-    getImage(id: number):Observable<String>{
-        return this.httpClient.get(BASE_URL + id + "/image").pipe(
-            catchError(error => this.handleError(error))
-        )as Observable<String>;
+    updateUserImage(user:Users, formData:FormData) {
+        return this.httpClient.post(BASE_URL + user.id + '/image', formData)
+			.pipe(catchError(error => this.handleError(error))
+			);
     }
-
-    addImage(user:Users, Id:number){
-        if(!user.id){
-            return this.httpClient.post(BASE_URL + Id + "/image"+ "/", user).pipe(
-                catchError(error => this.handleError(error))
-            );
-        }else{
-            return this.httpClient.put(BASE_URL + Id + "/image" +"/", user).pipe(
-                catchError(error => this.handleError(error))
-            );
-        }
-    }
+    
 
     private handleError(error: any) {
 		console.log("ERROR:");

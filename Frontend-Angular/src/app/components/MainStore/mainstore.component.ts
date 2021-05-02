@@ -65,12 +65,7 @@ export class MainStoreComponent implements OnInit{
             this.user.comment.push(comentario);
             this.user.commentPlaces.push(tienda.name);
             this.userService.addUser(this.user).subscribe(
-              (usuario:Users) => {console.log(usuario)
-              this.userService.addImage(usuario,usuario.id).subscribe(
-                _ => console.log(usuario),
-                error => alert('Error al actualizar la imagen del usuario : ' + error)
-                );
-              },
+              (usuario:Users) => console.log(usuario),
                error => alert('Error al actualizar el usuario : ' + error)
         ); 
           },
