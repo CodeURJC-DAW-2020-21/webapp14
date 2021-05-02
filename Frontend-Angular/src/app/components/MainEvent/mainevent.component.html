@@ -76,21 +76,18 @@
               <div class="row">
                 <div class="col-md-12">
                   <h3 class="head">Opiniones</h3>
-                  <!--
-                  {{#event.comment}}
-                  <div class="review d-flex">
-                    <div class="user-img" style="background-image: url(/comment/{{id}})">
+                  <div class="review d-flex"  *ngFor="let comment of comments" >
+                    <div class="user-img" style="background-image: url(https://localhost:8443/api/comments/{{comment.id}}/image)">
                     </div>
                     <div class="desc">
                       <h4>
-                        <span class="text-left">{{name}}</span>
-                        <span class="text-right">{{date}}</span>
+                        <span class="text-left">{{comment.name}}</span>
+                        <span class="text-right">{{comment.date}}</span>
                       </h4>
-                      <p>{{text}}</p>
+                      <p>{{comment.text}}</p>
                     </div>
                   </div>
-                  {{/event.comment}}
-                  -->
+
 
                   <div class="comment-form-wrap pt-5">
                     <h3 class="mb-5">Deja tu comentario</h3>

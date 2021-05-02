@@ -1,11 +1,13 @@
 package daw.urjc.ayuntamiento.api;
 
 import daw.urjc.ayuntamiento.modules.Store;
+import daw.urjc.ayuntamiento.modules.User;
 import daw.urjc.ayuntamiento.service.LocalService;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -131,6 +133,7 @@ public class StoreRestController {
             return ResponseEntity.notFound().build();
     }
 
+
     @PutMapping("/{id}/image2")
     public ResponseEntity<Store> replaceImage2(@ModelAttribute StoreDTO storeDTO, @PathVariable long id) throws IOException, SQLException {
 
@@ -144,5 +147,54 @@ public class StoreRestController {
         }else
 
             return ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("/{id}/image1/try")
+    public ResponseEntity<Object> uploadImage1(@PathVariable long id, @RequestParam MultipartFile imageFile)
+            throws IOException {
+
+        Store book = service.findId(id).orElseThrow();
+
+        URI location = fromCurrentRequest().build().toUri();
+
+        book.setImageField1(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
+        service.save(book);
+
+        return ResponseEntity.created(location).build();
+    }
+    @PostMapping("/{id}/image2/try")
+    public ResponseEntity<Object> uploadImage2(@PathVariable long id, @RequestParam MultipartFile imageFile)
+            throws IOException {
+
+        Store book = service.findId(id).orElseThrow();
+
+        URI location = fromCurrentRequest().build().toUri();
+
+        book.setImageField2(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
+        service.save(book);
+
+        return ResponseEntity.created(location).build();
+    }
+
+    @PutMapping("/{id}/try")
+    public ResponseEntity<Store> updateBook(@PathVariable long id, @RequestBody Store updatedBook) throws SQLException {
+
+        if (service.exist(id)) {
+
+            // Maintain the same image loading it before updating the book
+            Store dbBook = service.findId(id).orElseThrow();
+            updatedBook.setImageField1(BlobProxy.generateProxy(dbBook.getImageField1().getBinaryStream(),
+                    dbBook.getImageField1().length()));
+
+            updatedBook.setImageField2(BlobProxy.generateProxy(dbBook.getImageField2().getBinaryStream(),
+                    dbBook.getImageField2().length()));
+
+            updatedBook.setId(id);
+            service.save(updatedBook);
+
+            return new ResponseEntity<>(updatedBook, HttpStatus.OK);
+        } else	{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }

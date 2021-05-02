@@ -24,6 +24,8 @@ export class MainEventComponent {
   text:string;
   date:Date;
   new: boolean;
+
+  comments : Comment[]=[]
   constructor(private router: Router, public loginService: LoginService, public eventService: EventService, private activatedRoute: ActivatedRoute,public commentService: CommentService,public userService: UserService) {
 
     let id = activatedRoute.snapshot.params['id'];
@@ -36,6 +38,7 @@ export class MainEventComponent {
     this.eventService.getEvent(this.id).subscribe(
       mainevent => {
         this.event = mainevent;
+        this.comments = this.event.comment;
         console.log(this.event);
       },
       error => console.log("error")
