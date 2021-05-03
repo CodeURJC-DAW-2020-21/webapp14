@@ -360,23 +360,25 @@ Steps:
 
 **Israel**
 
-- Completed tasks:
+- Completed tasks: In this phase I have taken care of more in the part of the user, in the profile, user registration and in the uploading of images through forms
 
 - 5 most significant commits:
 
-1. 
-2. 
-3. 
-4. 
-5.
+1. [Add UserComponent](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/27226f907fecc7dbb0c9df1e6aae30eb6c02fcb4)
+2. [Add Register](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/02492490075b8d5231cdbcfbb57ef7ed0843247c)
+3. [Fixed image upload errors ](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/9b4e639ecec40fe71513e2a9d66e1d41d79c23ca)
+4. [Add event image in form](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/23d325622bbd519ee13d418f379d6a623972f356)
+5. [Add models](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/e117a3a0bcb6a693154e38e8b19491775fbc2058)
+
 
 - 5 files with participation:
 
-1. 
-2. 
-3. 
-4.
-5.
+1. Login.component.ts
+2. user.component.html
+3. formevent.component.ts
+4. storeform.component.ts
+5. footer.component.html
+	
 
 **Álvaro**
 
