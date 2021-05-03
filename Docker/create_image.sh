@@ -9,8 +9,7 @@ fi
 
 cd ../Frontend
 
-sudo npm install
-ng build --prod --base-href="/new/"
+sudo docker run --rm -v "$PWD":/usr/src/app -w /usr/src/app node:16.0.0 /bin/bash -c "npm install && npm run build"
 
 cp -r dist/Frontend-Angular/* ../Backend/src/main/resources/static/new
 
