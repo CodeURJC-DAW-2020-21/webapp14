@@ -343,3 +343,119 @@ Steps:
 5. LoginRESTController.java
 
 ## PHASE 4: API Rest incorporation and Docker deploying
+
+
+### Class diagram updated
+![Template Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/Class_and_templates_diagram_REST.jpg)
+
+### Dockerized app execution instructions and Docker image construction documentation
+To make it easy for the user we have made a Linux script that installs you Docker on your computer, builds the image and executes it.
+Steps:
+1. Open a Linux command shell on the [Docker directory](https://github.com/CodeURJC-DAW-2020-21/webapp14/tree/main/Docker)
+2. Execute the create_image.sh script with the command line ./create_image.sh (If you have trouble doing it try with sudo ./create_image.sh)
+3. The dockerized app is already running due to the script, but if you want to access to the new Angular made web you must access through this link https://localhost:8443/new and if you want tou access to the original Spring web just access through https://localhost:8443
+4. When you want to stop the app just type on the command shell docker-compose down
+
+### Members participation
+
+**Israel**
+
+- Completed tasks:
+
+- 5 most significant commits:
+
+1. 
+2. 
+3. 
+4. 
+5.
+
+- 5 files with participation:
+
+1. 
+2. 
+3. 
+4.
+5.
+
+**Álvaro**
+
+-  Completed tasks: 
+
+- 5 most significant commits:
+
+1. 
+2. 
+3. 
+4. 
+5. 
+
+- 5 files with participation:
+
+1. 
+2. 
+3. 
+4. 
+5. 
+
+
+**Yeray**
+
+- Completed tasks: 
+
+- 5 most significant commits:
+
+1. 
+2. 
+3. 
+4. 
+5. 
+
+- 5 files with participation:
+
+1. 
+2.
+3.
+4.
+5.
+ 
+**Cuadrado**
+
+- Completed tasks: On this phase the most important thing that I did for the app was to create the subscribe to an event system and all the thing related to it, but also help my teammates when they were stuck on some part.
+
+- 5 most significant commits:
+
+1. [Recommendation system made](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/1592bc447b25ef6793da0f8b22a3fef5d6f8c4db)
+2. [History made](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/5f1bd253a60011db70d4395687282e45b3c1152b)
+3. [Login made](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/d17a85b813a7c412a48ab40f1908a98b3297201f)
+4. [Stores page made](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/ce541d41d2c493e45d67b235cd56103f5b9c048b)
+5. [Badge system made](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/423aa9c5424cdf310f1a970ace82ac58b7606e8f)
+
+- 5 files with participation:
+
+1. user.component.ts
+2. index.component.ts 
+3. events.component.ts 
+4. event.service.ts
+5. user.model.ts
+
+**Adri**
+
+- Completed tasks: 
+
+- 5 most significant commits:
+
+1. 
+2. 
+3. 
+4. 
+5. 
+
+- 5 files with participation:
+
+1. 
+2. 
+3. 
+4. 
+5. 
+
