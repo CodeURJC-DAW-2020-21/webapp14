@@ -386,23 +386,24 @@ Steps:
 
 **Álvaro**
 
--  Completed tasks: 
+-  Completed tasks: In this phase I worked mostly in the creation of comments in angular and the graphics. Also I help to do forms and upload images.
 
 - 5 most significant commits:
 
-1. 
-2. 
-3. 
-4. 
-5. 
+1. [Login service created with angular]( https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/431c8b1da11ad9a277bfbbd6985f996f7cf75852)
+2. [Perfil page with the current user]( https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/f34c25259d764373990b16801efab2f1f40ae160)
+3. [Graphics with angular implemented]( https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/17ceafeea8b8d360df47c8a5c004b58848782c68)
+4. [Comments in locals created]( https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/ef1ab585a691c580518899ff016d28a38d5992eb)
+5. [Comments in events done]( https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/7eddbe7f0127dd54805e8663a6a8c95d99d2dc60)
 
 - 5 files with participation:
 
-1. 
-2. 
-3. 
-4. 
-5. 
+1. [login.service.ts]( https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Frontend/src/app/service/login.service.ts)
+2. [index.component.ts]( https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Frontend/src/app/components/index/index.component.ts)
+3. [mainevent.component.ts]( https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Frontend/src/app/components/MainEvent/mainevent.component.ts)
+4. [mainstore.component.ts]( https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Frontend/src/app/components/MainStore/mainstore.component.ts)
+5. [user.component.html]( https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Frontend/src/app/components/User/user.component.html)
+ 
 
 
 **Yeray**
