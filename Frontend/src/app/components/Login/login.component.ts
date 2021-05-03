@@ -13,7 +13,7 @@ import { Users } from 'src/app/model/user.model';
 })
 export class LoginComponent {
   title = 'Frontend-Angular';
-  public archivos:any = []
+  public imagefile :any = []
 
 
 
@@ -42,7 +42,7 @@ export class LoginComponent {
     this.userService.RegisterUser(name,dni,description,password,mail).subscribe(
       user => {
         console.log(user);
-        this.subirArchivo(user);
+        this.UploadFile(user);
 
        this.loginService.logIn(name, password)
       },
@@ -50,21 +50,21 @@ export class LoginComponent {
     )
   }
 
-  capturarFile(event): any {
-    const archivoCapturado = event.target.files[0];
-    this.archivos.push(archivoCapturado)
-    console.log(this.archivos)
+  captureFile(event): any {
+    const capturedfile = event.target.files[0];
+    this.imagefile.push(capturedfile)
+    console.log(this.imagefile)
 
   }
 
-  subirArchivo(user:Users):any {
+  UploadFile(user:Users):any {
     try{
-      const formularioDeDatos = new FormData();
-      this.archivos.forEach(archivo =>{
-        console.log(archivo);
-        formularioDeDatos.append('imageFile',archivo)
+      const  newformdata = new FormData();
+      this.imagefile.forEach(imgfile =>{
+        console.log(imgfile);
+        newformdata.append('imageFile',imgfile)
       })
-      this.userService.setUserImage(user,formularioDeDatos).subscribe(res => {
+      this.userService.setUserImage(user, newformdata).subscribe(res => {
         console.log('Respuesta del servidor',res);
         })
       } catch (e) {
