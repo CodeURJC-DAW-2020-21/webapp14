@@ -22,7 +22,7 @@ export class LoginComponent {
 
   constructor(public loginService: LoginService, private userService: UserService, private router: Router) {
 
-    this.user={name:"", dni:"", description:"", password:"" ,mail:"", imageFile: null }
+    this.user={name:"", dni:"", description:"", password:"" ,mail:"", imageFile: null, eventSuscribe:[] }
   }
 
 

@@ -49,7 +49,11 @@ export class MainEventComponent {
     let currentUser = this.loginService.currentUser();
     let useraux = currentUser;
     console.log(useraux);
+
+    if (!useraux.eventSuscribe.includes(this.event.id)){
+
     useraux.events.push(this.event.name);
+    useraux.eventSuscribe.push(this.event.id);
     let firstVal = useraux.map[this.event.tag1];
     useraux.map[this.event.tag1]=firstVal+1;
     console.log(useraux.map);
@@ -58,6 +62,10 @@ export class MainEventComponent {
         console.log(user);
       }
     );
+    }
+    else {
+      alert("Ya estas suscrito a este evento")
+    }
     }
 
 

@@ -14,13 +14,12 @@ export interface Users {
 	password: string;
   image?:string;
 	events?: string[];
-  eventSubscribe?:number[];
+  eventSuscribe:number[];
   comment?: Comment[];
   commentPlaces?:string[];
 
   imageFile:FormData;
   commentPlace?:[];
-  eventSuscribe?:[];
 	roles?: string[];
   map?:{ [key: string]: number };
 }

@@ -30,7 +30,7 @@
                                 <li><img src="assets/images/dolar.png" height="16px" width="16px" />{{event.price}} </li>
                             </ul>
                             <span class="location">{{event.place}}</span>
-                            <a href="" class="d-flex align-items-center justify-content-center btn-custom">
+                            <a (click)="navigatetoEvent(event.id)" class="d-flex align-items-center justify-content-center btn-custom">
                                 <span class="ion-ios-link"></span>
                             </a>
                         </div>
@@ -41,13 +41,7 @@
 
             </div>
             </div>
-            <div id="hasNextPage">
-                <ul class="pagination justify-content-center pagination-sm" id="button-replace">
-
-                    <button class="btn btn-accent" id="load-more">Cargar más</button>
-
-                </ul>
-            </div>
+           
         </div>
     </section>
 

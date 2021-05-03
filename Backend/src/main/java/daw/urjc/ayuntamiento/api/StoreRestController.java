@@ -186,9 +186,10 @@ public class StoreRestController {
             updatedBook.setImageField1(BlobProxy.generateProxy(dbBook.getImageField1().getBinaryStream(),
                     dbBook.getImageField1().length()));
 
-            updatedBook.setImageField2(BlobProxy.generateProxy(dbBook.getImageField2().getBinaryStream(),
-                    dbBook.getImageField2().length()));
-
+            if (dbBook.getImageField2() != null) {
+                updatedBook.setImageField2(BlobProxy.generateProxy(dbBook.getImageField2().getBinaryStream(),
+                        dbBook.getImageField2().length()));
+            }
             updatedBook.setId(id);
             service.save(updatedBook);
 

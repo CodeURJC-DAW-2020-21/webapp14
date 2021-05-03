@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../service/login.service';
 import { UserService } from '../../service/user.service';
 import {Event} from '../../model/event.model';
-
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'users',
@@ -14,6 +14,7 @@ export class UsersComponent implements OnInit{
   title = 'Frontend-Angular';
   mainevent:string
   eventRecommend:Event;
+  eventRecommendId:number;
   eventRecommendName:string;
   events:Event[]=[];
   subscribeLevel1:boolean;
@@ -26,7 +27,7 @@ export class UsersComponent implements OnInit{
   commentLevel3:boolean;
   commentLevel4:boolean;
   commentLevel5:boolean;
-  constructor(public loginService: LoginService,public userService: UserService,public eventService: EventService) {
+  constructor(private router:Router,public loginService: LoginService,public userService: UserService,public eventService: EventService) {
 
   }
   ngOnInit(){
@@ -61,41 +62,42 @@ export class UsersComponent implements OnInit{
       eventarray =>{
         eventarray.map(event => this.events.push(event))
         console.log(this.events);
-        let num = Math.floor(Math.random()*(((this.events.length+1)-0))+0);
+        let num = Math.floor(Math.random()*(((this.events.length)-0))+0);
         this.eventRecommend=this.events[num];
         console.log(this.eventRecommend.name);
         this.eventRecommendName = this.eventRecommend.name;
+        this.eventRecommendId = this.eventRecommend.id;
         console.log(this.eventRecommendName);
       },
       error => console.log("error")
     )
 
 
-    if(this.loginService.currentUser().comment.length>=5){
+    if(this.loginService.currentUser().comment.length>=100){
       this.commentLevel1 = false;
       this.commentLevel2 = false;
       this.commentLevel3 = false;
       this.commentLevel4 = false;
       this.commentLevel5 = true;
-    } else if(this.loginService.currentUser().comment.length>=4){
+    } else if(this.loginService.currentUser().comment.length>=500){
       this.commentLevel1 = false;
       this.commentLevel2 = false;
       this.commentLevel3 = false;
       this.commentLevel4 = true;
       this.commentLevel5 = false;
-    } else if(this.loginService.currentUser().comment.length>=3){
+    } else if(this.loginService.currentUser().comment.length>=25){
       this.commentLevel1 = false;
       this.commentLevel2 = false;
       this.commentLevel3 = true;
       this.commentLevel4 = false;
       this.commentLevel5 = false;
-    } else if(this.loginService.currentUser().comment.length>=2){
+    } else if(this.loginService.currentUser().comment.length>=10){
       this.commentLevel1 = false;
       this.commentLevel2 = true;
       this.commentLevel3 = false;
       this.commentLevel4 = false;
       this.commentLevel5 = false;
-    } else if(this.loginService.currentUser().comment.length>=1){
+    } else if(this.loginService.currentUser().comment.length>=5){
       this.commentLevel1 = true;
       this.commentLevel2 = false;
       this.commentLevel3 = false;
@@ -103,31 +105,31 @@ export class UsersComponent implements OnInit{
       this.commentLevel5 = false;
     }
 
-    if(this.loginService.currentUser().events.length>=5){
+    if(this.loginService.currentUser().events.length>=25){
       this.subscribeLevel1 = false;
       this.subscribeLevel2 = false;
       this.subscribeLevel3 = false;
       this.subscribeLevel4 = false;
       this.subscribeLevel5 = true;
-    } else if(this.loginService.currentUser().events.length>=4){
+    } else if(this.loginService.currentUser().events.length>=20){
       this.subscribeLevel1 = false;
       this.subscribeLevel2 = false;
       this.subscribeLevel3 = false;
       this.subscribeLevel4 = true;
       this.subscribeLevel5 = false;
-    } else if(this.loginService.currentUser().events.length>=3){
+    } else if(this.loginService.currentUser().events.length>=15){
       this.subscribeLevel1 = false;
       this.subscribeLevel2 = false;
       this.subscribeLevel3 = true;
       this.subscribeLevel4 = false;
       this.subscribeLevel5 = false;
-    } else if(this.loginService.currentUser().events.length>=2){
+    } else if(this.loginService.currentUser().events.length>=10){
       this.subscribeLevel1 = false;
       this.subscribeLevel2 = true;
       this.subscribeLevel3 = false;
       this.subscribeLevel4 = false;
       this.subscribeLevel5 = false;
-    } else if(this.loginService.currentUser().events.length>=1){
+    } else if(this.loginService.currentUser().events.length>=5){
       this.subscribeLevel1 = true;
       this.subscribeLevel2 = false;
       this.subscribeLevel3 = false;
@@ -137,6 +139,8 @@ export class UsersComponent implements OnInit{
   }
 
 
-
+  navigatetoEvent(id: number){
+    this.router.navigate(['mainevent/' + id]);
+   }
 
 }
