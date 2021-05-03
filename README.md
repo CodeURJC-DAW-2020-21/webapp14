@@ -408,7 +408,7 @@ Steps:
 
 **Yeray**
 
-- Completed tasks: 
+- Completed tasks: In this phase, I was in charge of creating the local maps using a new api, in addition to creating the deletion elements and creating the services of various important functions. And in turn take care of various security of the web so that not all users can navigate freely
 
 - 5 most significant commits:
 
