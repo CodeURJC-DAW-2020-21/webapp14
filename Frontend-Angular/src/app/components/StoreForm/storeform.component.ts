@@ -32,7 +32,8 @@ export class StoreFormComponent {
     this.storeService.addStore(this.store).subscribe(
       (store: Local) => {this.router.navigate(['/stores/']);
       this.subirArchivo1(store);
-      this,this.subirArchivo2(store)}),
+      //this,this.subirArchivo2(store)
+    }),
       error => alert('Error al crear nuevo local: ' + error);
 
   }
@@ -57,16 +58,26 @@ export class StoreFormComponent {
   subirArchivo1(store:Local):any {
     try{
       const formularioDeDatos = new FormData();
+      const formularioDeDatos2 = new FormData();
       this.archivos1.forEach(archivo =>{
         console.log(archivo);
         formularioDeDatos.append('imageField1',archivo)
       })
+      this.archivos2.forEach(archivo2 =>{
+        console.log(archivo2);
+        formularioDeDatos2.append('imageField2',archivo2)
+      })
       this.storeService.setStoreImage1(store,formularioDeDatos).subscribe(res => {
         console.log('Respuesta del servidor',res);
+        this.storeService.setStoreImage2(store,formularioDeDatos2).subscribe(res => {
+          console.log('Respuesta del servidor',res);
+          })
+
         })
       } catch (e) {
         console.log('ERROR',e);
       }
+
   }
 
   subirArchivo2(store:Local):any {
