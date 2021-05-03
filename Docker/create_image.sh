@@ -1,30 +1,27 @@
 #!/bin/bash
 
-BASE=`dirname "$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"`
+if [ -d "../Backend/src/main/resources/static/new" ]
+then
+	rm -f ../Backend/src/main/resources/static/new/*
+else
+	mkdir ../Backend/src/main/resources/static/new
+fi
 
+cd ../Frontend
 
-cd "$BASE/Backend"
+sudo npm install
+ng build --prod --base-href="/new/"
 
+cp -r dist/Frontend-Angular/* ../Backend/src/main/resources/static/new
 
+cd ../Backend || exit
+sudo docker run --rm -v "$PWD":/data -w /data maven mvn package
 
-apt-get update
-apt-get install maven docker.io docker-compose -y
+cp target/ayuntamiento2-0.0.1-SNAPSHOT.jar ../Docker
 
+cd ../Docker || exit
 
-mvn clean install
+# Building the new container
+sudo docker build -t adrim173/ayuntamiento .
 
-BUILD_FILENAME="$BASE/Backend/target/ayuntamiento-0.0.1-SNAPSHOT.jar"
-DEST_FILENAME="$BASE/Docker/ayuntamiento.jar"
-
-
-rm -rf $DEST_FILENAME
-cp $BUILD_FILENAME $DEST_FILENAME
-
-
-cd "$BASE/Docker"
-
-
-docker build -t adrim173/ayuntamiento .
-
-
-docker-compose up -d
+sudo docker-compose up -d
