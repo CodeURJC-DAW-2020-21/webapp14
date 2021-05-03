@@ -412,19 +412,19 @@ Steps:
 
 - 5 most significant commits:
 
-1. 
-2. 
-3. 
-4. 
-5. 
+1. [Fix error with app module and add delete event and store](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/ddc97051ab1a08573f586b66c0cce044ecd386c9)
+2. [Creation of event and user service](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/612dfba0ec25dd6843ca9004beba1399248d5fa5)
+3. [Creation of map-static](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/16626ced490052e3d32553e5be9878042615efc8)
+4. [Creation of web security](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/631ee4aa23b23f190b2f4c0c3c74322be0efd08e)
+5. [Creation of main store](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/f5e3e398807af2a5db0b7ba499e955a112e36de0)
 
 - 5 files with participation:
 
-1. 
-2.
-3.
-4.
-5.
+1. [mainstore.component.ts](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Frontend/src/app/components/MainStore/mainstore.component.ts)
+2. [map.component.ts ](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Frontend/src/app/components/map/map.component.ts)
+3. [event.service.ts ](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Frontend/src/app/service/event.service.ts)
+4. [user.service.ts](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Frontend/src/app/service/user.service.ts)
+5. [map.service.ts ](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Frontend/src/app/service/map.service.ts)
  
 **Cuadrado**
 
