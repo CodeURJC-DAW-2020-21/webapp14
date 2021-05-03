@@ -17,11 +17,12 @@ cp -r dist/Frontend-Angular/* ../Backend/src/main/resources/static/new
 cd ../Backend || exit
 sudo docker run --rm -v "$PWD":/data -w /data maven mvn package
 
-cp target/ayuntamiento2-0.0.1-SNAPSHOT.jar ../Docker
+cp target/ayuntamiento-0.0.1-SNAPSHOT.jar ../Docker
 
 cd ../Docker || exit
 
-# Building the new container
 sudo docker build -t adrim173/ayuntamiento .
 
-sudo docker-compose up -d
+rm -f ayuntamiento-0.0.1-SNAPSHOT.jar
+
+sudo docker-compose up
