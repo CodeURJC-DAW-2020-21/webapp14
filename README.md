@@ -349,15 +349,15 @@ https://youtu.be/B1lF6g1wNiY
 
 
 
-### Class diagram updated
-![Template Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/Class_and_templates_diagram_REST.jpg)
+### SPA class and templates diagram
+![SPA Class and Templates Diagram](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/images/SPA_class_diagram_and_templates.png)
 
-### Dockerized app execution instructions and Docker image construction documentation
+### Dockerized Spring and SPA application execution instructions and Docker image construction documentation
 To make it easy for the user we have made a Linux script that installs you Docker on your computer, builds the image and executes it.
 Steps:
 1. Open a Linux command shell on the [Docker directory](https://github.com/CodeURJC-DAW-2020-21/webapp14/tree/main/Docker)
 2. Execute the create_image.sh script with the command line ./create_image.sh (If you have trouble doing it try with sudo ./create_image.sh)
-3. The dockerized app is already running due to the script, but if you want to access to the new Angular made web you must access through this link https://localhost:8443/new and if you want tou access to the original Spring web just access through https://localhost:8443
+3. The dockerized app is already running due to the script, but if you want to access to the new Angular made web (SPA) you must access through this link https://localhost:8443/new and if you want tou access to the original Spring web just access through https://localhost:8443
 4. When you want to stop the app just type on the command shell docker-compose down
 
 ### Members participation
@@ -448,21 +448,21 @@ Steps:
 
 **Adri**
 
-- Completed tasks: 
+- Completed tasks: At this final phase, at the beggining, I worked doing some templates with the new Frontend implementation with Angular. Then I worked with the development of some services, for example with the store or comments services. Next of then, I done the major implementation of the new event and store forms of the new SPA app. At the final days of the phase, I worked with the SPA page creation, and finally doing the dockerization of the application and the SPA class and templates diagram.
 
 - 5 most significant commits:
 
-1. 
-2. 
-3. 
-4. 
-5. 
+1. [SPA dockerized initialized](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/1c818723a091452b7d040808c32f7eeafcee995f)
+2. [MainStore fixed](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/e70d7c4b8cc323aeb831da530f7b8d55d6742979)
+3. [New Event creation form done](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/d872435edba91919945c47ff0d638f358567ce2c)
+4. [New Store creation form done](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/608d00b0a3bbf0e775b3afe6299f707a863782f1)
+5. [SPA package initialized](https://github.com/CodeURJC-DAW-2020-21/webapp14/commit/f399e825eb9b01dde879d198f0d703ac6a27929a)
 
 - 5 files with participation:
 
-1. 
-2. 
-3. 
-4. 
-5. 
+1. [create_image.sh](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Docker/create_image.sh)
+2. [store.service.ts](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Frontend/src/app/service/store.service.ts)
+3. [event.service.ts](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Frontend/src/app/service/event.service.ts)
+4. [storeform.component.ts](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Frontend/src/app/components/StoreForm/storeform.component.ts)
+5. [formevent.component.ts](https://github.com/CodeURJC-DAW-2020-21/webapp14/blob/main/Frontend/src/app/components/FormEvents/formevent.component.ts)
 
