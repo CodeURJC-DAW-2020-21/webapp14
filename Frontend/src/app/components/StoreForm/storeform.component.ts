@@ -12,8 +12,8 @@ import { LoginService } from '../../service/login.service';
 export class StoreFormComponent {
   store: Local;
   new: boolean;
-  public archivos1:any = []
-  public archivos2:any = []
+  public imagefile1:any = []
+  public imagefile2:any = []
 
   constructor(private router: Router,public loginService: LoginService, private activatedRoute: ActivatedRoute, private storeService: StoreService) {
     const id = activatedRoute.snapshot.params['id'];
@@ -31,7 +31,7 @@ export class StoreFormComponent {
   newStore() {
     this.storeService.addStore(this.store).subscribe(
       (store: Local) => {this.router.navigate(['/stores/']);
-      this.subirArchivo1(store);
+      this.UploadFile(store);
       //this,this.subirArchivo2(store)
     }),
       error => alert('Error al crear nuevo local: ' + error);
@@ -40,36 +40,36 @@ export class StoreFormComponent {
 
 
 
-  capturarFile1(event): any {
+  captureFile1(event): any {
     const archivoCapturado = event.target.files[0];
-    this.archivos1.push(archivoCapturado)
-    console.log(this.archivos1)
+    this.imagefile1.push(archivoCapturado)
+    console.log(this.imagefile1)
 
   }
 
-  capturarFile2(event): any {
+  captureFile2(event): any {
     const archivoCapturado = event.target.files[0];
-    this.archivos2.push(archivoCapturado)
-    console.log(this.archivos2)
+    this.imagefile2.push(archivoCapturado)
+    console.log(this.imagefile2)
 
   }
 
 
-  subirArchivo1(store:Local):any {
+  UploadFile(store:Local):any {
     try{
-      const formularioDeDatos = new FormData();
-      const formularioDeDatos2 = new FormData();
-      this.archivos1.forEach(archivo =>{
-        console.log(archivo);
-        formularioDeDatos.append('imageField1',archivo)
+      const newformdata1 = new FormData();
+      const newformdata2 = new FormData();
+      this.imagefile1.forEach(imgfile1 =>{
+        console.log(imgfile1);
+        newformdata1.append('imageField1',imgfile1)
       })
-      this.archivos2.forEach(archivo2 =>{
-        console.log(archivo2);
-        formularioDeDatos2.append('imageField2',archivo2)
+      this.imagefile2.forEach(imgfile2 =>{
+        console.log(imgfile2);
+        newformdata2.append('imageField2',imgfile2)
       })
-      this.storeService.setStoreImage1(store,formularioDeDatos).subscribe(res => {
+      this.storeService.setStoreImage1(store,newformdata1).subscribe(res => {
         console.log('Respuesta del servidor',res);
-        this.storeService.setStoreImage2(store,formularioDeDatos2).subscribe(res => {
+        this.storeService.setStoreImage2(store,newformdata2).subscribe(res => {
           console.log('Respuesta del servidor',res);
           })
 
@@ -80,19 +80,6 @@ export class StoreFormComponent {
 
   }
 
-  subirArchivo2(store:Local):any {
-    try{
-      const formularioDeDatos = new FormData();
-      this.archivos2.forEach(archivo =>{
-        console.log(archivo);
-        formularioDeDatos.append('imageField2',archivo)
-      })
-      this.storeService.setStoreImage2(store,formularioDeDatos).subscribe(res => {
-        console.log('Respuesta del servidor',res);
-        })
-      } catch (e) {
-        console.log('ERROR',e);
-      }
-  }
+
 
 }

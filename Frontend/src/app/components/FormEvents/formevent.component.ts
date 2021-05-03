@@ -12,7 +12,7 @@ import { LoginService } from '../../service/login.service';
 export class FormeventComponent {
   event: Event;
   new: boolean;
-  public archivos:any = []
+  public imagefile:any = []
 
   constructor(private router: Router,public loginService: LoginService, private activatedRoute: ActivatedRoute, private eventService: EventService) {
     const id = activatedRoute.snapshot.params['id'];
@@ -30,27 +30,27 @@ export class FormeventComponent {
   newEvent(){
     this.eventService.addEvent(this.event).subscribe(
       (event: Event) => {this.router.navigate(['/events/']);
-      this.subirArchivo(event)}),
+      this.UploadFile(event)}),
       error => alert('Error al crear el nuevo evento: ' + error);
   }
 
 
-  capturarFile(event): any {
-    const archivoCapturado = event.target.files[0];
-    this.archivos.push(archivoCapturado)
-    console.log(this.archivos)
+  captureFile(event): any {
+    const capturedfile = event.target.files[0];
+    this.imagefile.push(capturedfile)
+    console.log(this.imagefile)
 
   }
 
 
-  subirArchivo(event:Event):any {
+  UploadFile(event:Event):any {
     try{
-      const formularioDeDatos = new FormData();
-      this.archivos.forEach(archivo =>{
-        console.log(archivo);
-        formularioDeDatos.append('imageFile',archivo)
+      const  newformdata = new FormData();
+      this.imagefile.forEach(imgfile =>{
+        console.log(imgfile);
+        newformdata.append('imageFile',imgfile)
       })
-      this.eventService.setEventImage(event,formularioDeDatos).subscribe(res => {
+      this.eventService.setEventImage(event, newformdata).subscribe(res => {
         console.log('Respuesta del servidor',res);
         })
       } catch (e) {
