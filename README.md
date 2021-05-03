@@ -342,7 +342,7 @@ Steps:
 4. api.postman_collection.json
 5. LoginRESTController.java
 
-## PHASE 4: API Rest incorporation and Docker deploying
+## PHASE 4: SPA architecture web implementation
 
 ### Video - Demo Phase 4
 https://youtu.be/B1lF6g1wNiY
